@@ -15,7 +15,6 @@ parserOptions:
   sourceType: module
 plugins:
   - babel
-  - emotion
   - ramda
   - react
   - react-hooks
@@ -44,12 +43,6 @@ rules:
     - allowShortCircuit: true
       allowTernary: true
   babel/valid-typeof: error
-
-  emotion/jsx-import: 'off'
-  emotion/no-vanilla: warn
-  emotion/syntax-preference:
-    - warn
-    - string
 
   react/button-has-type: warn
   react/destructuring-assignment:

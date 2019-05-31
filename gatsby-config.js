@@ -86,7 +86,7 @@ module.exports = {
             },
             resolve: 'gatsby-remark-smartypants',
           },
-          '@raae/gatsby-remark-oembed',
+          // '@raae/gatsby-remark-oembed',
           'gatsby-remark-reading-time',
         ],
         tableOfContents: {
@@ -97,8 +97,8 @@ module.exports = {
     },
     'gatsby-transformer-javascript-frontmatter',
     'gatsby-plugin-react-helmet',
-    'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
     'gatsby-plugin-catch-links',
     {
       options: {
@@ -113,12 +113,7 @@ module.exports = {
       },
       resolve: 'gatsby-plugin-robots-txt',
     },
-    {
-      options: {
-        labelFormat: '[dirname]--[filename]--[local]',
-      },
-      resolve: 'gatsby-plugin-emotion',
-    },
+    'gatsby-plugin-styled-components',
     {
       options: {
         color: 'hsl(332, 40%, 44%)',
@@ -129,7 +124,15 @@ module.exports = {
     'gatsby-plugin-remove-trailing-slashes',
   ],
   siteMetadata: {
-    author: 'Daniel P. Shannon',
+    author: 'Daniel Shannon',
+    description: 'Personal blog and portfolio for Daniel Shannon, software engineer and essayist.', // FIXME: Boring.
+    keywords: [
+      'engineer',
+      'full stack engineer',
+      'software architecture',
+      'software developer',
+      'web developer',
+    ],
     siteUrl: 'https://daniel.sh',
     social: {
       twitter: 'phyllisstein',

@@ -14,7 +14,7 @@ module.exports = api => {
       useBuiltIns: 'entry',
     }],
     ['@babel/react', {
-      development: !(api.env('production')),
+      development: !api.env('production'),
       useBuiltIns: true,
     }],
   ]
@@ -47,22 +47,17 @@ module.exports = api => {
     '@babel/proposal-throw-expressions',
     '@babel/proposal-unicode-property-regex',
     '@babel/syntax-dynamic-import',
-    ['@babel/transform-runtime', {
-      corejs: {
-        proposals: true,
-        useESModules: isBabelWebpack,
-        version: 3,
-      },
-    }],
-    ['emotion', {
-      labelFormat: '[dirname]--[filename]--[local]',
-    }],
+    'lodash',
     'macros',
     ['meaningful-logs', {
       maxDepth: 2,
     }],
     ['ramda', {
       useES: isBabelWebpack,
+    }],
+    ['styled-components', {
+      displayName: !api.env('production'),
+      pure: true,
     }],
   ]
 
