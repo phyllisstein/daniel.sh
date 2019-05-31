@@ -3,13 +3,16 @@ import styled from 'styled-components'
 export const Children = styled.div`
   background-color: white;
   height: 100%;
+  -webkit-overflow-scrolling: touch;
+  overflow-x: hidden;
+  overflow-y: auto;
   width: 100%;
 `
 
 export const Wrapper = styled.main`
-  background-color: hsl(332, 40%, 44%);
+  background-color: ${ ({ theme }) => theme.palette.rgb.papaya };
   display: flex;
-  min-height: 100vh;
-  padding: 1%;
+  height: 100vh;
+  padding: 5px;
   width: 100vw;
 `

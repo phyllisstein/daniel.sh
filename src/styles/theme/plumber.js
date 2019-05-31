@@ -3,6 +3,8 @@ import R from 'ramda'
 
 const ACUMIN_BASELINE = 0.265
 const CAPITA_BASELINE = 0.138
+const GRAPHIK_BASELINE = 0.182
+const INTER_BASELINE = 0.135
 
 const round3 = x => _.round(x, 3)
 const withUnit = R.curry((unit, val) => val === 0 ? val : `${ val }${ unit }`)
@@ -94,7 +96,7 @@ function makePlumber({
   return plumber
 }
 
-const plumber = makePlumber({ baseline: CAPITA_BASELINE })
-plumber.accent = makePlumber({ baseline: ACUMIN_BASELINE })
+const plumber = makePlumber({ baseline: CAPITA_BASELINE, fontSize: 1.999 })
+plumber.accent = makePlumber({ baseline: INTER_BASELINE, fontSize: 1.999 })
 
 export default plumber

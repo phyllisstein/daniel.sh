@@ -7,7 +7,7 @@ export const primary = `
   }
 `
 
-export const accentStack = ['Acumin Pro', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Helvetica', 'Arial', 'sans-serif'].join(', ')
+export const accentStack = ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Helvetica', 'Arial', 'sans-serif'].join(', ')
 export const accent = `
   font-family: sans-serif;
 

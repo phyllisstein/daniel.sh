@@ -1,4 +1,4 @@
-import { Acumin, Capita } from 'styles/fonts'
+import { Capita, Inter } from 'styles/fonts'
 import { Children, Wrapper } from './styled-root'
 import { CustomBlock, Prism, Reboot, Reset } from 'styles/global'
 import { graphql, useStaticQuery } from 'gatsby'
@@ -35,7 +35,7 @@ function Root({ children }) {
       <Reset />
       <Prism />
       <CustomBlock />
-      <Acumin />
+      <Inter />
       <Capita />
       <Helmet defaultTitle={ data.site.siteMetadata.title } defer={ false } titleTemplate={ `%s | ${ data.site.siteMetadata.title }` }>
         <meta charSet='utf-8' />

@@ -1,7 +1,7 @@
 /* eslint-disable react/no-multi-comp */
 
 import React from 'react'
-import Root from 'components/root'
+import { Root } from 'components'
 import { theme } from 'styles'
 import { ThemeProvider } from 'styled-components'
 

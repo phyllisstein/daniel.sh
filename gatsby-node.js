@@ -6,6 +6,12 @@ const webpack = require('webpack')
 
 const readFile = promisify(fs.readFile)
 
+exports.onCreatePage = ({ page, actions }) => {
+  if (/^styled-/.test(path.basename(page.path))) {
+    actions.deletePage(page)
+  }
+}
+
 exports.onCreateWebpackConfig = async ({ actions, getConfig, stage }) => {
   actions.setWebpackConfig({
     plugins: [
