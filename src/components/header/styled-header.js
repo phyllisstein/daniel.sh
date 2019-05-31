@@ -3,8 +3,8 @@ import styled from 'styled-components'
 export const H = styled.h1`
   ${ ({ accent, theme, size }) => {
     const plumberSettings = {
-      fontSize: 1.414 ** (7 - size),
-      lineHeight: 7 - size,
+      fontSize: theme.typography.scale(10 - size),
+      lineHeight: theme.typography.scale(9 - size),
     }
 
     if (accent) {

@@ -22,10 +22,12 @@ function Capita() {
   const data = useStaticQuery(graphql`
     query {
       allFile(filter: { name: { glob: "*Capita*" } }) {
-        nodes {
-          ext
-          name
-          publicURL
+        edges {
+          node {
+            ext
+            name
+            publicURL
+          }
         }
       }
     }
@@ -33,6 +35,7 @@ function Capita() {
 
   const decls = FACES.map(({ src, style, weight }) => {
     const woff = R.pipe(
+      R.pluck('node'),
       R.filter(R.propEq('name', src)),
       R.indexBy(
         R.pipe(
@@ -41,7 +44,7 @@ function Capita() {
         ),
       ),
       R.pluck('publicURL'),
-    )(data.allFile.nodes)
+    )(data.allFile.edges)
 
     return `
       @font-face {

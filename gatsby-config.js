@@ -5,14 +5,14 @@ module.exports = {
     {
       options: {
         name: 'blog',
-        path: path.resolve('content', 'blog'),
+        path: path.resolve('content/blog'),
       },
       resolve: 'gatsby-source-filesystem',
     },
     {
       options: {
         name: 'assets',
-        path: path.resolve('content', 'assets'),
+        path: path.resolve('content/assets'),
       },
       resolve: 'gatsby-source-filesystem',
     },
@@ -45,7 +45,7 @@ module.exports = {
           'gatsby-remark-external-links',
           {
             options: {
-              directory: path.resolve('content', 'snippets'),
+              directory: path.resolve('content/examples'),
             },
             resolve: 'gatsby-remark-embed-snippet',
           },
@@ -86,7 +86,6 @@ module.exports = {
             },
             resolve: 'gatsby-remark-smartypants',
           },
-          // '@raae/gatsby-remark-oembed',
           'gatsby-remark-reading-time',
         ],
         tableOfContents: {

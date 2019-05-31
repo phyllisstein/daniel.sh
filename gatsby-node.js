@@ -25,6 +25,16 @@ exports.onCreateWebpackConfig = async ({ actions, getConfig, stage }) => {
     },
   })
 
+  if (stage === 'develop') {
+    actions.setWebpackConfig({
+      resolve: {
+        alias: {
+          'react-dom': '@hot-loader/react-dom',
+        },
+      },
+    })
+  }
+
   if (stage === 'build-javascript') {
     const banner = await readFile('static/banner.js', { encoding: 'utf8' })
     actions.setWebpackConfig({

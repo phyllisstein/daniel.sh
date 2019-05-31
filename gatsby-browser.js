@@ -1,5 +1,6 @@
 /* eslint-disable react/no-multi-comp */
 
+import Provider from 'components/provider'
 import React from 'react'
 import { Root } from 'components'
 import { theme } from 'styles'
@@ -18,7 +19,7 @@ export const wrapPageElement = ({ element, props }) => (
 )
 
 export const wrapRootElement = ({ element }) => (
-  <ThemeProvider theme={ theme }>
+  <Provider>
     { element }
-  </ThemeProvider>
+  </Provider>
 )
