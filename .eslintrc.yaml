@@ -1,0 +1,258 @@
+env:
+  browser: true
+  es6: true
+  node: true
+extends:
+  - plugin:ramda/recommended
+  - plugin:react/recommended
+  - standard
+parser: babel-eslint
+parserOptions:
+  ecmaFeatures:
+    impliedStrict: true
+    jsx: true
+  ecmaVersion: 10
+  sourceType: module
+plugins:
+  - babel
+  - emotion
+  - ramda
+  - react
+  - react-hooks
+settings:
+  react:
+    version: '16.8'
+rules:
+  babel/new-cap:
+    - warn
+    - capIsNew: false
+      newIsCap: true
+  babel/no-invalid-this: warn
+  babel/object-curly-spacing:
+    - warn
+    - always
+  babel/quotes:
+    - warn
+    - single
+    - allowTemplateLiterals: true
+      avoidEscape: true
+  babel/semi:
+    - error
+    - never
+  babel/no-unused-expressions:
+    - error
+    - allowShortCircuit: true
+      allowTernary: true
+  babel/valid-typeof: error
+
+  emotion/jsx-import: 'off'
+  emotion/no-vanilla: warn
+  emotion/syntax-preference:
+    - warn
+    - string
+
+  react/button-has-type: warn
+  react/destructuring-assignment:
+    - warn
+    - always
+  react/display-name: 'off'
+  react/jsx-boolean-value:
+    - error
+    - never
+  react/jsx-child-element-spacing: warn
+  react/jsx-closing-bracket-location:
+    - warn
+    - after-props
+  react/jsx-closing-tag-location: error
+  react/jsx-curly-brace-presence: warn
+  react/jsx-curly-spacing:
+    - warn
+    - children: true
+      spacing:
+        objectLiterals: never
+      when: always
+  react/jsx-equals-spacing:
+    - error
+    - never
+  react/jsx-filename-extension:
+    - error
+    - extensions:
+        - .js
+  react/jsx-first-prop-new-line:
+    - error
+    - multiline
+  react/jsx-fragments:
+    - warn
+    - syntax
+  react/jsx-handler-names:
+    - warn
+    - eventHandlerPrefix: handle
+      eventHandlerPropPrefix: on
+  react/jsx-indent-props:
+    - error
+    - 2
+  react/jsx-indent:
+    - error
+    - 2
+    - checkAttributes: true
+  react/jsx-key: error
+  react/jsx-no-bind:
+    - warn
+    - ignoreRefs: true
+  react/jsx-no-comment-textnodes: error
+  react/jsx-no-duplicate-props:
+    - error
+    - ignoreCase: true
+  react/jsx-no-target-blank: warn
+  react/jsx-no-undef:
+    - error
+    - allowGlobals: true
+  react/jsx-pascal-case:
+    - error
+    - allowAllCaps: true
+  react/jsx-props-no-multi-spaces: warn
+  react/jsx-sort-default-props:
+    - warn
+    - ignoreCase: true
+  react/jsx-sort-props:
+    - warn
+    - callbacksLast: true
+      ignoreCase: true
+      reservedFirst: false
+      shorthandFirst: true
+  react/jsx-tag-spacing:
+    - warn
+    - closingSlash: never
+      beforeSelfClosing: always
+      afterOpening: never
+  react/jsx-uses-react: error
+  react/jsx-uses-vars: error
+  react/jsx-wrap-multilines:
+    - warn
+    - arrow: parens-new-line
+      assignment: parens-new-line
+      condition: parens-new-line
+      declaration: parens-new-line
+      logical: parens-new-line
+      prop: parens-new-line
+      return: parens-new-line
+  react/no-access-state-in-setstate: warn
+  react/no-array-index-key: warn
+  react/no-children-prop: error
+  react/no-danger-with-children: error
+  react/no-deprecated: warn
+  react/no-direct-mutation-state: error
+  react/no-find-dom-node: 'off'
+  react/no-is-mounted: error
+  react/no-multi-comp: error
+  react/no-redundant-should-component-update: warn
+  react/no-render-return-value: warn
+  react/no-string-refs: error
+  react/no-this-in-sfc: error
+  react/no-typos: warn
+  react/no-unescaped-entities: warn
+  react/no-unused-prop-types: error
+  react/no-unused-state: error
+  react/prop-types: 'off'
+  react/react-in-jsx-scope: error
+  react/require-render-return: 'off'
+  react/self-closing-comp:
+    - warn
+    - component: true
+      html: true
+  react/sort-comp:
+    - warn
+    - order:
+        - static-methods
+        - instance-variables
+        - lifecycle
+        - everything-else
+        - render
+  react/sort-prop-types: warn
+  react/style-prop-object: error
+  react/void-dom-elements-no-children: error
+
+  camelcase:
+    - warn
+    - allow:
+        - ^UNSAFE_
+      ignoreDestructuring: false
+      properties: always
+  comma-dangle:
+    - warn
+    - arrays: always-multiline
+      exports: always-multiline
+      functions: always-multiline
+      imports: always-multiline
+      objects: always-multiline
+  eol-last: 'off'
+  generator-star-spacing:
+    - warn
+    - after: true
+      before: false
+      method: before
+  indent:
+    - error
+    - 2
+    - ArrayExpression: first
+      CallExpression:
+        arguments: first
+      FunctionDeclaration:
+        body: 1
+        parameters: first
+      FunctionExpression:
+        parameters: first
+        body: 1
+      MemberExpression: 1
+      ObjectExpression: first
+      outerIIFEBody: 1
+      SwitchCase: 1
+      VariableDeclarator:
+        const: 3
+        let: 2
+        var: 2
+  jsx-quotes:
+    - warn
+    - prefer-single
+  new-cap: 'off'
+  no-cond-assign: 'off'
+  no-fallthrough: 'off'
+  no-invalid-this: 'off'
+  no-multiple-empty-lines: 'off'
+  no-return-assign: 'off'
+  no-template-curly-in-string: error
+  no-trailing-spaces: 'off'
+  no-undef: error
+  no-unused-expressions: 'off'
+  no-unused-vars:
+    - error
+    - args: all
+      argsIgnorePattern: ^_
+      varsIgnorePattern: ^_.+
+  no-use-before-define:
+    - error
+    - classes: false
+      functions: false
+      variables: true
+  no-useless-catch: warn
+  object-curly-spacing: 'off'
+  quotes: 'off'
+  semi: 'off'
+  sort-imports:
+    - warn
+    - ignoreCase: true
+  sort-keys:
+    - warn
+    - asc
+    - caseSensitive: false
+      natural: true
+  space-infix-ops: warn
+  space-before-function-paren:
+    - warn
+    - anonymous: never
+      asyncArrow: always
+      named: never
+  template-curly-spacing:
+    - warn
+    - always
+  valid-typeof: 'off'
