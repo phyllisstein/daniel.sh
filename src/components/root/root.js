@@ -9,7 +9,7 @@ import React from 'react'
 function Root({ children }) {
   const data = useStaticQuery(graphql`
     query RootQuery {
-      avatar: file(relativePath: {eq: "img/avatar.jpg"}) {
+      avatar: file(relativePath: {eq: "images/avatar.jpg"}) {
         childImageSharp {
           fb: resize(height: 630, width: 1200) {
             src

@@ -7,5 +7,7 @@ processors:
   - stylelint-processor-styled-components
 rules:
   order/properties-alphabetical-order: true
+
+  block-no-empty: null
   color-hex-case: upper
   indentation: 2
