@@ -1,9 +1,13 @@
 import _ from 'lodash'
 import R from 'ramda'
 
+/**
+ * BASELINE = (UnitsPerEm − hhea.Ascender − hhea.Descender) / (2 × UnitsPerEm)
+ * (Q.v. <https://jamonserrano.github.io/plumber-sass/>.)
+ */
 const ACUMIN_BASELINE = 0.265
 const CAPITA_BASELINE = 0.138
-const GRAPHIK_BASELINE = 0.182
+const GRAPHIK_BASELINE = 0.160
 const INTER_BASELINE = 0.135
 
 const round3 = x => _.round(x, 3)
@@ -97,6 +101,6 @@ function makePlumber({
 }
 
 const plumber = makePlumber({ baseline: CAPITA_BASELINE, fontSize: 1.999 })
-plumber.accent = makePlumber({ baseline: INTER_BASELINE, fontSize: 1.999 })
+plumber.accent = makePlumber({ baseline: GRAPHIK_BASELINE, fontSize: 1.999 })
 
 export default plumber

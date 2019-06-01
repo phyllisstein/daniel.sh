@@ -18,8 +18,8 @@ function Index() {
         </NameRow>
         <BioRow>
           <p>
-            Essayist and engineer turning a careful
-            editorial eye towards building a more daring web.
+            Essayist and engineer applying a careful
+            editorial eye to building a more daring web.
           </p>
         </BioRow>
       </Header>
