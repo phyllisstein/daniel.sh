@@ -1,5 +1,5 @@
 import { Capita, Graphik } from 'styles/fonts'
-import { Children, Wrapper } from './styled-root'
+import { Children, Wrapper } from './styled'
 import { CustomBlock, Prism, Reboot, Reset } from 'styles/global'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Helmet } from 'react-helmet'

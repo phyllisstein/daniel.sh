@@ -1,4 +1,4 @@
-import { H } from './styled-header'
+import { H } from './styled'
 import React from 'react'
 
 function Header({ accent = true, children, size = 3, ...props } = {}) {

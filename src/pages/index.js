@@ -1,16 +1,16 @@
 import {
   BioRow,
   H,
-  Header,
+  Hero,
   NameRow,
   Root,
-} from 'styles/pages/styled-index'
+} from 'styles/pages/index'
 import React from 'react'
 
 function Index() {
   return (
     <Root>
-      <Header>
+      <Hero>
         <NameRow>
           <H size={ 1 }>
             I’m Daniel.
@@ -22,7 +22,7 @@ function Index() {
             editorial eye to building a more daring web.
           </p>
         </BioRow>
-      </Header>
+      </Hero>
     </Root>
   )
 }

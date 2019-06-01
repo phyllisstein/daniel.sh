@@ -9,7 +9,7 @@ export const H = styled(HeaderBase)`
   font-weight: 500;
 `
 
-export const Header = styled.header`
+export const Hero = styled.header`
   display: grid;
   grid-template-columns: 100%;
   grid-template-rows: 50% 1fr 10%;
