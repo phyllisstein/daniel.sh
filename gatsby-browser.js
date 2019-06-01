@@ -8,6 +8,7 @@ import { ThemeProvider } from 'styled-components'
 
 export const onClientEntry = () => {
   return Promise.all([
+    import('vendor/styles/semantic.min.css'),
     typeof window.IntersectionObserver === 'undefined' ? import('intersection-observer') : Promise.resolve(),
   ])
 }
