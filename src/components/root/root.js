@@ -1,4 +1,4 @@
-import { Capita, Inter } from 'styles/fonts'
+import { Aptifer, SST } from 'styles/fonts'
 import { Children, Wrapper } from './styled'
 import { CustomBlock, Prism, Reboot, Reset } from 'styles/global'
 import { graphql, useStaticQuery } from 'gatsby'
@@ -35,8 +35,8 @@ function Root({ children }) {
       <Reset />
       <Prism />
       <CustomBlock />
-      <Inter />
-      <Capita />
+      <SST />
+      <Aptifer />
       <Helmet defaultTitle={ data.site.siteMetadata.title } defer={ false } titleTemplate={ `%s | ${ data.site.siteMetadata.title }` }>
         <meta charSet='utf-8' />
         <meta content='width=device-width, initial-scale=1, shrink-to-fit=no' name='viewport' />
