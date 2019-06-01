@@ -10,7 +10,7 @@ export const Children = styled.div`
 `
 
 export const Wrapper = styled.main`
-  background-color: ${ ({ theme }) => theme.palette.rgb.conch };
+  background-color: ${ ({ theme }) => theme.palette.rgb.icedAvocado };
   display: flex;
   height: 100vh;
   padding: 5px;
