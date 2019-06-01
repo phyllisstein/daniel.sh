@@ -2,7 +2,11 @@ import { Header as HeaderBase } from 'components'
 import styled from 'styled-components'
 
 export const BioRow = styled.div`
-  padding: 1rem;
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 1rem;
 `
 
 export const H = styled(HeaderBase)`
@@ -12,17 +16,13 @@ export const H = styled(HeaderBase)`
 export const Hero = styled.header`
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: 50% 1fr 10%;
+  grid-template-rows: 50% 50%;
   height: 100%;
   width: 100%;
 `
 
 export const NameRow = styled.div`
-  align-items: flex-start;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 1rem;
+  padding: 0 1rem;
 `
 
 export const Root = styled.section`
