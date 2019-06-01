@@ -3,9 +3,11 @@ import {
   H,
   Hero,
   NameRow,
+  NavBar,
   Root,
 } from 'styles/pages/index'
 import React from 'react'
+import SaturateButton from 'components/saturate-button'
 
 function Index() {
   return (
@@ -13,15 +15,26 @@ function Index() {
       <Hero>
         <NameRow>
           <H size={ 1 }>
-            I’m Daniel.
+            Hi, I’m Daniel.
           </H>
         </NameRow>
         <BioRow>
           <p>
-            Essayist and engineer applying a careful
+            Full-stack engineer and lapsed essayist applying a careful
             editorial eye to building a more daring web.
           </p>
         </BioRow>
+        <NavBar>
+          <SaturateButton>
+            Work
+          </SaturateButton>
+          <SaturateButton>
+            Blog
+          </SaturateButton>
+          <SaturateButton>
+            Contact
+          </SaturateButton>
+        </NavBar>
       </Hero>
     </Root>
   )

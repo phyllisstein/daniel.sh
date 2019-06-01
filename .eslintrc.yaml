@@ -165,6 +165,9 @@ rules:
   react/style-prop-object: error
   react/void-dom-elements-no-children: error
 
+  react-hooks/rules-of-hooks: error
+  react-hooks/exhaustive-deps: warn
+
   camelcase:
     - warn
     - allow:
