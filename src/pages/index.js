@@ -1,5 +1,5 @@
 import {
-  BlurbRow,
+  BioRow,
   H,
   Header,
   NameRow,
@@ -16,12 +16,12 @@ function Index() {
             I’m Daniel.
           </H>
         </NameRow>
-        <BlurbRow>
+        <BioRow>
           <p>
-            Essayist turned engineer applying an
-            editorial eye to build a a more daring web.
+            Essayist and engineer turning a careful
+            editorial eye towards building a more daring web.
           </p>
-        </BlurbRow>
+        </BioRow>
       </Header>
     </Root>
   )

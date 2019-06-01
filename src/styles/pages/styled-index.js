@@ -1,7 +1,9 @@
 import { Header as HeaderBase } from 'components'
 import styled from 'styled-components'
 
-export const BlurbRow = styled.div``
+export const BioRow = styled.div`
+  padding: 1rem;
+`
 
 export const H = styled(HeaderBase)`
   font-weight: 500;
@@ -9,11 +11,9 @@ export const H = styled(HeaderBase)`
 
 export const Header = styled.header`
   display: grid;
-  grid-row-gap: 1%;
   grid-template-columns: 100%;
-  grid-template-rows: 50% 50%;
+  grid-template-rows: 50% 1fr 10%;
   height: 100%;
-  padding: 2.5%;
   width: 100%;
 `
 
@@ -22,6 +22,7 @@ export const NameRow = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  padding: 1rem;
 `
 
 export const Root = styled.section`

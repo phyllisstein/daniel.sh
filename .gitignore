@@ -135,3 +135,6 @@ typings/
 # gatsby files
 .cache/
 public
+
+# secrets
+/.npmrc
