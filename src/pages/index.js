@@ -20,8 +20,8 @@ function Index() {
         </NameRow>
         <BioRow>
           <p>
-            Full-stack engineer and lapsed essayist applying a careful
-            editorial eye to building a more daring web.
+            Full-stack engineer and lapsed essayist bringing a careful
+            editorial eye to bear on a more daring web.
           </p>
         </BioRow>
         <NavBar>

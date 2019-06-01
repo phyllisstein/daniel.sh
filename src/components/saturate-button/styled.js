@@ -11,8 +11,8 @@ export const Button = styled(Link)`
   background-color: ${ ({ bg }) => bg.hex() };
   color: #FFF;
   display: flex;
-  font-family: ${ ({ theme }) => theme.typography.accentStack };
-  font-weight: 700;
+  font-family: ${ ({ theme }) => theme.typography.primaryStack };
+  font-weight: 600;
   justify-content: center;
   transition: ${ ({ theme }) => `background-color ${ theme.transition.duration.exit } ${ theme.transition.timing.exitTemporary }` };
 

@@ -15,5 +15,5 @@ export const H = styled.h1`
   } }
 
   font-family: ${ ({ accent, theme }) => accent ? theme.typography.accentStack : theme.typography.primaryStack };
-  font-weight: 700;
+  font-weight: 300;
 `

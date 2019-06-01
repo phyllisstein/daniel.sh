@@ -98,7 +98,7 @@ function makePlumber({
   return plumber
 }
 
-const plumber = makePlumber({ baseline: CAPITA_BASELINE, fontSize: 1.999 })
-plumber.accent = makePlumber({ baseline: INTER_BASELINE, fontSize: 1.999 })
+const plumber = makePlumber({ baseline: INTER_BASELINE, fontSize: 1.999 })
+plumber.accent = makePlumber({ baseline: CAPITA_BASELINE, fontSize: 1.999 })
 
 export default plumber

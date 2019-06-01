@@ -6,7 +6,7 @@ export const BioRow = styled.div`
 `
 
 export const H = styled(HeaderBase)`
-  font-weight: 500;
+  font-weight: 300;
 `
 
 export const Hero = styled.header`
