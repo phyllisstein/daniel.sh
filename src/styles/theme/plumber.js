@@ -90,8 +90,8 @@ function makePlumber({
     return `
       margin-bottom: ${ withUnit(gridUnit, marginBottom) };
       margin-top: ${ withUnit(gridUnit, marginTop) };
-      padding-bottom: calc(${ withUnit(gridUnit, paddingBottom) } - ${ withUnit(borderUnit, borderBottom) });
-      padding-top: calc(${ withUnit(gridUnit, paddingTop) } - ${ withUnit(borderUnit, borderTop) });
+      padding-bottom: calc(${ paddingBottom }${ gridUnit } - ${ borderBottom }${ borderUnit });
+      padding-top: calc(${ paddingTop }${ gridUnit } - ${ borderTop }${ borderUnit });
     `
   }
 

@@ -41,6 +41,9 @@ function Root({ children }) {
         <meta charSet='utf-8' />
         <meta content='width=device-width, initial-scale=1, shrink-to-fit=no' name='viewport' />
 
+        { /* Useful Dev Tools */ }
+        <link href='//basehold.it/10' rel='stylesheet' />
+
         { /* Common Metadata */ }
         <meta content={ data.site.siteMetadata.description } name='description' />
         <meta content={ data.site.siteMetadata.keywords.join(',') } name='keywords' />
