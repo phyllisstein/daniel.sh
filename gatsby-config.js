@@ -11,6 +11,13 @@ module.exports = {
     },
     {
       options: {
+        name: 'work',
+        path: path.resolve('content/work'),
+      },
+      resolve: 'gatsby-source-filesystem',
+    },
+    {
+      options: {
         name: 'assets',
         path: path.resolve('content/assets'),
       },

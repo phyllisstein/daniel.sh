@@ -25,7 +25,7 @@ function Index() {
           </p>
         </BioRow>
         <NavBar>
-          <SaturateButton>
+          <SaturateButton to='/work'>
             Work
           </SaturateButton>
           <SaturateButton>
