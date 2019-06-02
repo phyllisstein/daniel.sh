@@ -89,9 +89,7 @@ rules:
     - 2
     - checkAttributes: true
   react/jsx-key: error
-  react/jsx-no-bind:
-    - warn
-    - ignoreRefs: true
+  react/jsx-no-bind: 'off'
   react/jsx-no-comment-textnodes: error
   react/jsx-no-duplicate-props:
     - error

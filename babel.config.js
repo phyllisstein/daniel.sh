@@ -47,6 +47,7 @@ module.exports = api => {
     '@babel/proposal-throw-expressions',
     '@babel/proposal-unicode-property-regex',
     '@babel/syntax-dynamic-import',
+    '@babel/transform-react-jsx-source',
     'lodash',
     'macros',
     ['meaningful-logs', {

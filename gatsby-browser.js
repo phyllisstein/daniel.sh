@@ -8,7 +8,8 @@ import { ThemeProvider } from 'styled-components'
 
 export const onClientEntry = () => {
   return Promise.all([
-    typeof window.IntersectionObserver === 'undefined' ? import('intersection-observer') : Promise.resolve(),
+    typeof IntersectionObserver === 'undefined' ? import('intersection-observer') : Promise.resolve(),
+    typeof ResizeObserver === 'undefined' ? import('resize-observer-polyfill') : Promise.resolve(),
   ])
 }
 

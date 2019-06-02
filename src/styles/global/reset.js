@@ -31,14 +31,6 @@ const Reset = createGlobalStyle`
     font-weight: 700;
   }
 
-  html,
-  body,
-  main {
-    height: 100%;
-    overflow: hidden;
-    width: 100%;
-  }
-
   p {
     ${ ({ theme }) => theme.plumber() }
 
