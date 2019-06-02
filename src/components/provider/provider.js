@@ -1,7 +1,7 @@
 import { hot } from 'react-hot-loader/root'
 import React from 'react'
 import { theme } from 'styles'
-import { ThemeProvider } from 'emotion-theming'
+import { ThemeProvider } from 'styled-components'
 
 function Provider({ children }) {
   return (

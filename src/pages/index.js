@@ -1,8 +1,10 @@
 import {
   H,
   Hero,
+  Nav,
   Root,
 } from 'styles/pages/index'
+import Button from '@atlaskit/button'
 import React from 'react'
 
 function Index() {
@@ -16,6 +18,17 @@ function Index() {
         <H size={ 1 }>
           You can call me Daniel.
         </H>
+        <Nav>
+          <Button>
+            Blog
+          </Button>
+          <Button>
+            Portfolio
+          </Button>
+          <Button>
+            Contact
+          </Button>
+        </Nav>
       </Hero>
     </Root>
   )

@@ -10,7 +10,7 @@ const Reset = createGlobalStyle`
   }
 
   html {
-    font: normal normal 400 62.5%/1.999 serif;
+    font: normal normal 400 100%/1.999 serif;
   }
 
   body {
@@ -42,7 +42,11 @@ const Reset = createGlobalStyle`
   p {
     ${ ({ theme }) => theme.plumber() }
 
-    text-indent: 1.999rem;
+    text-indent: 0;
+
+    & + p {
+      text-indent: 1.999rem;
+    }
   }
 `
 

@@ -3,7 +3,7 @@ import React from 'react'
 
 function Header({ accent = true, children, size = 3, ...props } = {}) {
   return (
-    <H accent={ accent } as={ `h${ size }` } size={ size } { ...props }>
+    <H accentType={ accent } as={ `h${ size }` } interval={ size } { ...props }>
       { children }
     </H>
   )

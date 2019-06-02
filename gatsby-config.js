@@ -119,7 +119,14 @@ module.exports = {
       },
       resolve: 'gatsby-plugin-robots-txt',
     },
-    'gatsby-plugin-styled-components',
+    {
+      options: {
+        minify: true,
+        pure: true,
+        transpileTemplateLiterals: true,
+      },
+      resolve: 'gatsby-plugin-styled-components',
+    },
     {
       options: {
         color: 'hsl(332, 40%, 44%)',

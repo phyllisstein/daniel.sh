@@ -1,5 +1,6 @@
 import _ from 'lodash'
 import R from 'ramda'
+import { scale } from './typography'
 
 /**
  * BASELINE = (UnitsPerEm − hhea.Ascender − hhea.Descender) / (2 × UnitsPerEm)
@@ -56,6 +57,8 @@ function makePlumber({
     const shift = baselineDifference < 0 ? 0 : 1
 
     fontSize = round3(fontSize * gridHeight)
+    lineHeight = round3(lineHeight * gridHeight)
+
     const marginTop = round3((leadingTop - shift) * gridHeight)
     const paddingTop = round3((shift - baselineDifference) * gridHeight)
     const paddingBottom = round3((1 - shift + baselineDifference) * gridHeight)
@@ -100,7 +103,7 @@ function makePlumber({
   return plumber
 }
 
-const plumber = makePlumber({ baseline: SST_BASELINE, fontSize: 1.999 })
-plumber.accent = makePlumber({ baseline: APTIFER_BASELINE, fontSize: 1.999 })
+const plumber = makePlumber({ baseline: SST_BASELINE, fontSize: scale(1), gridHeight: 10, gridUnit: 'px' })
+plumber.accent = makePlumber({ baseline: APTIFER_BASELINE, fontSize: scale(1), gridHeight: 10, gridUnit: 'px' })
 
 export default plumber

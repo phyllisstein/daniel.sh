@@ -6,18 +6,12 @@ const webpack = require('webpack')
 
 const readFile = promisify(fs.readFile)
 
-exports.onCreatePage = ({ page, actions }) => {
-  if (/^styled-/.test(path.basename(page.path))) {
-    actions.deletePage(page)
-  }
-}
-
-exports.onCreateWebpackConfig = async ({ actions, getConfig, stage }) => {
+exports.onCreateWebpackConfig = async ({ actions, stage }) => {
   actions.setWebpackConfig({
-    plugins: [
-      new LodashPlugin(),
-    ],
     resolve: {
+      alias: {
+        'core-js': path.resolve('node_modules/core-js'),
+      },
       modules: [
         path.resolve('src'),
         path.resolve('node_modules'),
@@ -39,6 +33,7 @@ exports.onCreateWebpackConfig = async ({ actions, getConfig, stage }) => {
     const banner = await readFile('static/banner.js', { encoding: 'utf8' })
     actions.setWebpackConfig({
       plugins: [
+        new LodashPlugin(),
         new webpack.BannerPlugin({
           banner,
           entryOnly: false,
@@ -47,12 +42,4 @@ exports.onCreateWebpackConfig = async ({ actions, getConfig, stage }) => {
       ],
     })
   }
-
-  const config = getConfig()
-
-  for (const [name, path] of Object.entries(config.entry)) {
-    config.entry[name] = [].concat('@babel/polyfill', path)
-  }
-
-  actions.replaceWebpackConfig(config)
 }

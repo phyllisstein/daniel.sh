@@ -1,19 +1,19 @@
 import styled from 'styled-components'
 
 export const H = styled.h1`
-  ${ ({ accent, theme, size }) => {
+  ${ ({ accentType, theme, interval }) => {
     const plumberSettings = {
-      fontSize: theme.typography.scale(10 - size),
-      lineHeight: theme.typography.scale(11 - size),
+      fontSize: theme.typography.scale(7 - interval),
+      lineHeight: theme.typography.scale(7 - interval),
     }
 
-    if (accent) {
+    if (accentType) {
       return theme.plumber.accent(plumberSettings)
     }
 
     return theme.plumber(plumberSettings)
   } }
 
-  font-family: ${ ({ accent, theme }) => accent ? theme.typography.accentStack : theme.typography.primaryStack };
+  font-family: ${ ({ accentType, theme }) => accentType ? theme.typography.accentStack : theme.typography.primaryStack };
   font-weight: 300;
 `

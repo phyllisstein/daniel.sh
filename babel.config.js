@@ -11,7 +11,7 @@ module.exports = api => {
       },
       modules: isBabelWebpack ? false : 'commonjs',
       targets: 'last 2 years',
-      useBuiltIns: 'entry',
+      useBuiltIns: 'usage',
     }],
     ['@babel/react', {
       development: !api.env('production'),
@@ -56,8 +56,9 @@ module.exports = api => {
       useES: isBabelWebpack,
     }],
     ['styled-components', {
-      displayName: !api.env('production'),
+      minify: true,
       pure: true,
+      transpileTemplateLiterals: true,
     }],
   ]
 

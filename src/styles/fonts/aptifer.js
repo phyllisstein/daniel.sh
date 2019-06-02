@@ -1,5 +1,5 @@
-import { css, Global } from '@emotion/core'
 import { graphql, useStaticQuery } from 'gatsby'
+import { createGlobalStyle } from 'styled-components'
 import R from 'ramda'
 import React from 'react'
 
@@ -60,13 +60,12 @@ function AptiferSlab() {
     `
   })
 
+  const Styles = createGlobalStyle`
+    ${ decls.join('\n\n') }
+  `
+
   return (
-    <Global
-      styles={
-        css`
-          ${ decls.join('\n\n') }
-        `
-      } />
+    <Styles />
   )
 }
 

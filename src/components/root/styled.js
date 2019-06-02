@@ -1,8 +1,6 @@
 import styled from 'styled-components'
 
 export const Children = styled.div`
-  background-color: white;
-  border: 1rem solid ${ ({ theme }) => theme.palette.rgb.icedAvocado };
   height: 100%;
   -webkit-overflow-scrolling: touch;
   overflow-x: hidden;
