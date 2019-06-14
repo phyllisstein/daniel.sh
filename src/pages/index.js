@@ -14,6 +14,7 @@ import { useSpring } from 'react-spring'
 const SEGMENT_INDICES = {
   blog: 1,
   contact: 3,
+  main: 0,
   portfolio: 2,
 }
 
@@ -34,7 +35,7 @@ function Index() {
   )
 
   return (
-    <Root ref={ rootRef } scrollLeft={ springProps.scroll } onWheel={ springStop }>
+    <Root ref={ rootRef } scrollLeft={ springProps.scroll } onTouchStart={ springStop } onWheel={ springStop }>
       <Segment borderColor='icedAvocado'>
         <Hero>
           <p>
@@ -46,22 +47,19 @@ function Index() {
           </H>
           <Nav>
             <ButtonGroup appearance='subtle'>
-              <Button name='blog' onClick={ onNavClick }>
+              <Button disabled name='blog'>
                 Blog
               </Button>
-              <Button name='portfolio' onClick={ onNavClick }>
+              <Button href='https://www.linkedin.com/in/danielsh1/' name='portfolio'>
                 Portfolio
               </Button>
-              <Button name='contact' onClick={ onNavClick }>
+              <Button href='https://twitter.com/phyllisstein' name='contact'>
                 Contact
               </Button>
             </ButtonGroup>
           </Nav>
         </Hero>
       </Segment>
-      <Segment backgroundColor='bloomingDahlia' borderColor='bloomingDahlia' />
-      <Segment backgroundColor='lemonTart' borderColor='lemonTart' />
-      <Segment backgroundColor='blueIntrigue' borderColor='blueIntrigue' />
     </Root>
   )
 }

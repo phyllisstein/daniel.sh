@@ -18,5 +18,6 @@ export const Segment = styled.section`
   border: 1rem solid ${({borderColor, theme}) => R.propOr('white', borderColor, theme.palette.rgb)};
   flex: 1 0 100%;
   height: 100%;
+  position: relative;
   width: 100vw;
 `
