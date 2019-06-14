@@ -73,4 +73,4 @@ function Inter() {
   )
 }
 
-export default Inter
+export default React.memo(Inter)

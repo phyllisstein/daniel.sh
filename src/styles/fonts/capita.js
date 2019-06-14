@@ -67,4 +67,4 @@ function Capita() {
   )
 }
 
-export default Capita
+export default React.memo(Capita)

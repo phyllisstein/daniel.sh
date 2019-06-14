@@ -9,4 +9,4 @@ function Header({ accent = true, children, size = 3, ...props } = {}) {
   )
 }
 
-export default Header
+export default React.memo(Header)
