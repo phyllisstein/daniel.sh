@@ -11,6 +11,11 @@ import useComponentSize from '@rehooks/component-size'
 import useScrollPosition from 'hooks/use-scroll-position'
 import { useSpring } from 'react-spring'
 
+const LINK_TARGETS = {
+  contact: 'https://twitter.com/phyllisstein',
+  portfolio: 'https://www.linkedin.com/in/danielsh1/',
+}
+
 const SEGMENT_INDICES = {
   blog: 1,
   contact: 3,
@@ -24,6 +29,10 @@ function Index() {
   const { x } = useScrollPosition()
 
   const [springProps, setSpringProps, springStop] = useSpring(() => ({ scroll: 0 }))
+
+  const onLinkOpen = useCallback(
+    e => window.open(LINK_TARGETS[e.currentTarget.name], '_blank'),
+  )
 
   const onNavClick = useCallback(
     e => setSpringProps({
@@ -47,13 +56,13 @@ function Index() {
           </H>
           <Nav>
             <ButtonGroup appearance='subtle'>
-              <Button disabled name='blog'>
+              <Button isDisabled name='blog'>
                 Blog
               </Button>
-              <Button href='https://www.linkedin.com/in/danielsh1/' name='portfolio'>
+              <Button name='portfolio' onClick={ onLinkOpen }>
                 Portfolio
               </Button>
-              <Button href='https://twitter.com/phyllisstein' name='contact'>
+              <Button name='contact' onClick={ onLinkOpen }>
                 Contact
               </Button>
             </ButtonGroup>
