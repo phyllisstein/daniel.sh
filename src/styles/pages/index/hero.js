@@ -1,8 +1,7 @@
-import HeaderBase from 'components/header'
 import styled from '@emotion/styled'
 
-export const H = styled(HeaderBase)`
-  font-weight: 200;
+export const Blurb = styled.div`
+  max-width: 42rem;
 `
 
 // FIXME: Vertical rhythm gets a little screwy w/ vertical centering.

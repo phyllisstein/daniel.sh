@@ -9,10 +9,6 @@ const reset = theme => css`
     -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   }
 
-  html {
-    font: normal normal 400 100%/1.999 serif;
-  }
-
   body {
     background-color: #FFF;
     box-sizing: border-box;

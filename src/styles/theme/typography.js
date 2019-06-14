@@ -4,7 +4,7 @@ export const accentStack = ['Aptifer Slab', 'Garamond', 'Times New Roman', 'Time
 
 export const primaryStack = ['SST', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Helvetica', 'Arial', 'sans-serif'].join(', ')
 
-export const scale = interval => ms(interval + 3, {
+export const scale = interval => ms(interval + 2, {
   base: [1, 1.6],
   ratio: 1.414,
 })
