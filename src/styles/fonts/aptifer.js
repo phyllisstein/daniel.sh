@@ -70,4 +70,4 @@ function AptiferSlab() {
   )
 }
 
-export default React.memo(AptiferSlab)
+export default AptiferSlab

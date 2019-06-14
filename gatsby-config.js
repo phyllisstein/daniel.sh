@@ -122,8 +122,8 @@ module.exports = {
     {
       options: {
         minify: process.env.NODE_ENV === 'production',
-        pure: true,
-        transpileTemplateLiterals: true,
+        pure: process.env.NODE_ENV === 'production',
+        transpileTemplateLiterals: process.env.NODE_ENV === 'production',
       },
       resolve: 'gatsby-plugin-styled-components',
     },

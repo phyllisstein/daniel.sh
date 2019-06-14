@@ -61,9 +61,9 @@ module.exports = api => {
       useES: isBabelWebpack,
     }],
     ['styled-components', {
-      minify: true,
-      pure: true,
-      transpileTemplateLiterals: true,
+      minify: api.env('production'),
+      pure: api.env('production'),
+      transpileTemplateLiterals: api.env('production'),
     }],
   ]
 

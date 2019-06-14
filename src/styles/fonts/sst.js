@@ -68,4 +68,4 @@ function SST() {
   )
 }
 
-export default React.memo(SST)
+export default SST
