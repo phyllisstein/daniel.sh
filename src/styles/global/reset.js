@@ -9,7 +9,17 @@ const reset = theme => css`
     -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   }
 
+  html {
+    font-size: 62.5%;
+
+    ${ theme.media.greaterThan('md')`
+      font-size: 70%;
+    ` }
+  }
+
   body {
+    ${ theme.plumber() }
+
     background-color: #FFF;
     box-sizing: border-box;
     color: rgba(0, 0, 0, 0.87);
@@ -19,6 +29,8 @@ const reset = theme => css`
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     font-variant-ligatures: common-ligatures;
+    margin: 0;
+    padding: 0;
     text-rendering: optimizeLegibility;
   }
 
@@ -28,8 +40,6 @@ const reset = theme => css`
   }
 
   p {
-    ${ theme.plumber() }
-
     text-indent: 0;
 
     & + p {

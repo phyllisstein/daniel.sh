@@ -1,23 +1,20 @@
 import styled from '@emotion/styled'
 
 export const Blurb = styled.div`
-  max-width: 42rem;
+  ${ ({ theme }) => theme.media.greaterThan('md')`
+    max-width: 70%;
+  ` }
 `
 
-// FIXME: Vertical rhythm gets a little screwy w/ vertical centering.
+// FIXME: Rhythm gets a little screwy w/ vertical centering.
 export const Hero = styled.header`
   align-items: stretch;
   display: flex;
   flex-direction: column;
   height: 100%;
   justify-content: center;
-  padding: 1rem;
   position: relative;
   width: 100%;
-
-  ${ ({ theme }) => theme.media.greaterThan('lg')`
-    padding: 6.258%;
-  ` }
 `
 
 export const Nav = styled.nav`

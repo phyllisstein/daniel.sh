@@ -103,7 +103,7 @@ function makePlumber({
   return plumber
 }
 
-const plumber = makePlumber({ baseline: SST_BASELINE, fontSize: scale(1), gridHeight: 10, gridUnit: 'px', lineHeight: scale(3) })
-plumber.accent = makePlumber({ baseline: APTIFER_BASELINE, fontSize: scale(1), gridHeight: 10, gridUnit: 'px', lineHeight: scale(3) })
+const plumber = makePlumber({ baseline: SST_BASELINE, fontSize: scale(1), lineHeight: scale(3) })
+plumber.accent = makePlumber({ baseline: APTIFER_BASELINE, fontSize: scale(1), lineHeight: scale(3) })
 
 export default plumber

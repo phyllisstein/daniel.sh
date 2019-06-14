@@ -7,7 +7,7 @@ export const BaseH = styled('h1', {
   ${ ({ primary, theme, size }) => {
     const plumberSettings = {
       fontSize: theme.typography.scale(7 - size),
-      lineHeight: theme.typography.scale(7 - size),
+      lineHeight: theme.typography.scale(8 - size),
     }
 
     if (primary) {
