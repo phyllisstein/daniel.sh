@@ -2,9 +2,7 @@
 
 import Provider from 'components/provider'
 import React from 'react'
-import { Root } from 'components'
-import { theme } from 'styles'
-import { ThemeProvider } from 'styled-components'
+import Root from 'components/root'
 
 export const onClientEntry = () => {
   return Promise.all([

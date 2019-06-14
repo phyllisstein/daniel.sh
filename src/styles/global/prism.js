@@ -1,8 +1,8 @@
 /* stylelint-disable */
 
-import { createGlobalStyle } from 'styled-components'
+import { css } from '@emotion/core'
 
-const Prism = createGlobalStyle`
+const prism = () => css`
   code[class*="language-"],
   pre[class*="language-"] {
     color: black;
@@ -138,4 +138,4 @@ const Prism = createGlobalStyle`
   }
 `
 
-export default Prism
+export default prism

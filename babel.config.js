@@ -17,6 +17,10 @@ module.exports = api => {
       development: !api.env('production'),
       useBuiltIns: true,
     }],
+    ['@emotion/css-prop', {
+      labelFormat: '[dirname]-[filename]__[local]',
+      useBuiltIns: true,
+    }],
   ]
 
   const plugins = [

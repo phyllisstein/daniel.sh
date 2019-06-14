@@ -1,6 +1,6 @@
-import {animated} from 'react-spring'
+import { animated } from 'react-spring'
 import R from 'ramda'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 
 export const Root = styled(animated.section)`
   align-items: stretch;
@@ -14,8 +14,8 @@ export const Root = styled(animated.section)`
 `
 
 export const Segment = styled.section`
-  background-color: ${({backgroundColor, theme}) => R.propOr('white', backgroundColor, theme.palette.rgb)};
-  border: 1rem solid ${({borderColor, theme}) => R.propOr('white', borderColor, theme.palette.rgb)};
+  background-color: ${ ({ backgroundColor, theme }) => R.propOr('white', backgroundColor, theme.palette.rgb) };
+  border: 1rem solid ${ ({ borderColor, theme }) => R.propOr('white', borderColor, theme.palette.rgb) };
   flex: 1 0 100%;
   height: 100%;
   position: relative;

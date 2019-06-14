@@ -1,8 +1,8 @@
 /* stylelint-disable */
 
-import { createGlobalStyle } from 'styled-components'
+import { css } from '@emotion/core'
 
-const Reboot = createGlobalStyle`
+const reboot = () => css`
   *,
   *::before,
   *::after {
@@ -328,4 +328,4 @@ const Reboot = createGlobalStyle`
   }
 `
 
-export default Reboot
+export default reboot

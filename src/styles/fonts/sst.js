@@ -1,5 +1,5 @@
+import { css, Global } from '@emotion/core'
 import { graphql, useStaticQuery } from 'gatsby'
-import { createGlobalStyle } from 'styled-components'
 import R from 'ramda'
 import React from 'react'
 
@@ -58,12 +58,13 @@ function SST() {
     `
   })
 
-  const Styles = createGlobalStyle`
-    ${ decls.join('\n\n') }
-  `
-
   return (
-    <Styles />
+    <Global
+      styles={
+        css`
+          ${ decls.join('\n\n') }
+        `
+      } />
   )
 }
 

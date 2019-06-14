@@ -1,5 +1,5 @@
 import HeaderBase from 'components/header'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 
 export const H = styled(HeaderBase)`
   font-weight: 200;

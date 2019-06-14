@@ -121,11 +121,18 @@ module.exports = {
     },
     {
       options: {
-        minify: true,
+        minify: process.env.NODE_ENV === 'production',
         pure: true,
         transpileTemplateLiterals: true,
       },
       resolve: 'gatsby-plugin-styled-components',
+    },
+    {
+      options: {
+        labelFormat: '[dirname]-[filename]__[local]',
+        useBuiltIns: true,
+      },
+      resolve: 'gatsby-plugin-emotion',
     },
     {
       options: {

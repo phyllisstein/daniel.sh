@@ -1,6 +1,6 @@
-import { createGlobalStyle } from 'styled-components'
+import { css } from '@emotion/core'
 
-const Reset = createGlobalStyle`
+const reset = theme => css`
   *,
   *::before,
   *::after {
@@ -17,7 +17,7 @@ const Reset = createGlobalStyle`
     background-color: #FFF;
     box-sizing: border-box;
     color: rgba(0, 0, 0, 0.87);
-    font-family: ${ ({ theme }) => theme.typography.primaryStack };
+    font-family: ${ theme.typography.primaryStack };
     font-feature-settings: 'kern', 'liga';
     font-kerning: normal;
     -moz-osx-font-smoothing: grayscale;
@@ -32,7 +32,7 @@ const Reset = createGlobalStyle`
   }
 
   p {
-    ${ ({ theme }) => theme.plumber() }
+    ${ theme.plumber() }
 
     text-indent: 0;
 
@@ -42,4 +42,4 @@ const Reset = createGlobalStyle`
   }
 `
 
-export default Reset
+export default reset

@@ -1,6 +1,6 @@
-import { createGlobalStyle } from 'styled-components'
+import { css } from '@emotion/core'
 
-const CustomBlock = createGlobalStyle`
+const customBlock = () => css`
   .custom-block {
     border: 1px solid #EEE;
     border-left-width: 0.25rem;
@@ -51,4 +51,4 @@ const CustomBlock = createGlobalStyle`
   }
 `
 
-export default CustomBlock
+export default customBlock
