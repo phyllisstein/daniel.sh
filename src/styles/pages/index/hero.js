@@ -14,6 +14,10 @@ export const Hero = styled.header`
   padding: 1rem;
   position: relative;
   width: 100%;
+
+  ${ ({ theme }) => theme.media.greaterThan('lg')`
+    padding: 6.258%;
+  ` }
 `
 
 export const Nav = styled.nav`
