@@ -1,3 +1,5 @@
+/* eslint-disable camelcase */
+
 const path = require('path')
 
 module.exports = {
@@ -25,7 +27,7 @@ module.exports = {
     },
     {
       options: {
-        excerpt_separator: '<!-- end -->', // eslint-disable-line camelcase
+        excerpt_separator: '<!-- end -->',
         plugins: [
           {
             options: {
@@ -142,6 +144,19 @@ module.exports = {
       resolve: 'gatsby-plugin-nprogress',
     },
     'gatsby-plugin-remove-trailing-slashes',
+    {
+      options: {
+        background_color: '#7e57c2',
+        display: 'standalone',
+        icon: './content/assets/images/avatar.jpg',
+        name: 'daniel.sh',
+        scope: '/',
+        short_name: 'daniel.sh',
+        start_url: '/',
+        theme_color: '#b39ddb',
+      },
+      resolve: 'gatsby-plugin-manifest',
+    },
   ],
   siteMetadata: {
     author: 'Daniel Shannon',
