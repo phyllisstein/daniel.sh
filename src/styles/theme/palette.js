@@ -2,11 +2,12 @@ import C from 'chroma-js'
 import R from 'ramda'
 
 export const chroma = {
-  ashenWind: C('#97a7b3'),
-  bloomingDahlia: C('#eb9486'),
-  blueIntrigue: C('#7e7f9a'),
-  icedAvocado: C('#cae7b9'),
-  lemonTart: C('#f3de8a'),
+  avocado: C('#cae7b9'),
+  dahlia: C('#eb9486'),
+  intrigue: C('#7e7f9a'),
+  tart: C('#f3de8a'),
+  white: C('#ede7f6'),
+  wind: C('#97a7b3'),
 }
 
 export const rgb = R.map(R.invoker(0, 'css'), chroma)

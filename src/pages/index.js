@@ -1,22 +1,17 @@
 import {
   Blurb,
+  Break,
   Hero,
   Nav,
   Root,
   Segment,
 } from 'styles/pages/index'
 import Button, { ButtonGroup } from '@atlaskit/button'
-import React, { useCallback, useRef, useState } from 'react'
+import React, { useCallback, useRef } from 'react'
 import H from 'components/h'
-import InlineDialog from '@atlaskit/inline-dialog'
 import useComponentSize from '@rehooks/component-size'
 import useScrollPosition from 'hooks/use-scroll-position'
 import { useSpring } from 'react-spring'
-
-const LINK_TARGETS = {
-  contact: 'https://twitter.com/phyllisstein',
-  portfolio: 'https://www.linkedin.com/in/danielsh1/',
-}
 
 const SEGMENT_INDICES = {
   blog: 1,
@@ -26,11 +21,6 @@ const SEGMENT_INDICES = {
 }
 
 function Index() {
-  const onLinkOpen = e => window.open(LINK_TARGETS[e.currentTarget.name], '_blank')
-
-  const [showBlogDialog, setShowBlogDialog] = useState(false)
-  const onToggleBlogDialog = () => setShowBlogDialog(!showBlogDialog)
-
   const rootRef = useRef(null)
   const { width: rootWidth } = useComponentSize(rootRef)
   const { x } = useScrollPosition()
@@ -48,10 +38,10 @@ function Index() {
 
   return (
     <Root ref={ rootRef } scrollLeft={ springProps.scroll } onTouchStart={ springStop } onWheel={ springStop }>
-      <Segment borderColor='icedAvocado'>
+      <Segment borderColor='dahlia'>
         <Hero>
           <Blurb>
-            <H primary size={ 5 }>
+            <H primary size={ 4 }>
               I’m a full-stack engineer and lapsed essayist who brings an
               exacting editoral eye to bear on buliding a more daring web.
             </H>
@@ -61,19 +51,41 @@ function Index() {
           </Blurb>
           <Nav>
             <ButtonGroup appearance='subtle'>
-              <InlineDialog content={ <span>Coming soon! 😬</span> } isOpen={ showBlogDialog } onClose={ onToggleBlogDialog }>
-                <Button isSelected={ showBlogDialog } name='blog' onClick={ onToggleBlogDialog }>
-                  Blog
-                </Button>
-              </InlineDialog>
-              <Button name='portfolio' onClick={ onLinkOpen }>
+              <Button name='blog' onClick={ onNavClick }>
+                Blog
+              </Button>
+              <Button name='portfolio' onClick={ onNavClick }>
                 Portfolio
               </Button>
-              <Button name='contact' onClick={ onLinkOpen }>
+              <Button name='contact' onClick={ onNavClick }>
                 Contact
               </Button>
             </ButtonGroup>
           </Nav>
+        </Hero>
+      </Segment>
+      <Segment borderColor='tart'>
+        <Hero>
+          <H size={ 1 }>Notes &amp; Errata</H>
+          <H primary size={ 4 }>
+            Don’t make the same mistakes I did.&nbsp;
+            <Break />
+            Make better ones.
+          </H>
+        </Hero>
+      </Segment>
+      <Segment borderColor='intrigue'>
+        <Hero>
+          <H size={ 1 }>It’s A Living</H>
+          <H primary size={ 4 }>
+          </H>
+        </Hero>
+      </Segment>
+      <Segment borderColor='avocado'>
+        <Hero>
+          <H size={ 1 }>What’s His At?</H>
+          <H primary size={ 4 }>
+          </H>
         </Hero>
       </Segment>
     </Root>

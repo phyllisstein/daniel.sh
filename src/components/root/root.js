@@ -5,7 +5,6 @@ import { customBlock, prism, reboot, reset } from 'styles/global'
 import { graphql, useStaticQuery } from 'gatsby'
 import React, { useContext } from 'react'
 import { Helmet } from 'react-helmet'
-import { hot } from 'react-hot-loader/root'
 
 function Root({ children }) {
   const theme = useContext(ThemeContext)
@@ -81,4 +80,4 @@ function Root({ children }) {
   )
 }
 
-export default hot(Root)
+export default Root

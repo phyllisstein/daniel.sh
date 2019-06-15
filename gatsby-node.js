@@ -12,7 +12,6 @@ exports.onCreateWebpackConfig = async ({ actions, stage }) => {
       alias: {
         'babel-runtime': '@babel/runtime',
         'core-js': path.resolve('node_modules/core-js'),
-        'react-hot-loader': path.resolve('node_modules/react-hot-loader'),
       },
       modules: [
         path.resolve('src'),
