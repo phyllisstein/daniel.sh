@@ -2,11 +2,12 @@ const fs = require('fs')
 const LodashPlugin = require('lodash-webpack-plugin')
 const path = require('path')
 const { promisify } = require('util')
+const R = require('ramda')
 const webpack = require('webpack')
 
 const readFile = promisify(fs.readFile)
 
-exports.onCreateWebpackConfig = async ({ actions, stage }) => {
+exports.onCreateWebpackConfig = async ({ actions, getConfig, stage }) => {
   actions.setWebpackConfig({
     resolve: {
       alias: {
@@ -21,13 +22,15 @@ exports.onCreateWebpackConfig = async ({ actions, stage }) => {
   })
 
   if (stage === 'develop') {
-    actions.setWebpackConfig({
-      resolve: {
-        alias: {
-          'react-dom': '@hot-loader/react-dom',
-        },
-      },
-    })
+    const config = getConfig()
+    config.module.rules = R.map(
+      R.when(
+        R.propEq('test', /\.jsx?$/),
+        R.over(R.lensProp('use'), R.prepend('react-hot-loader/webpack')),
+      ),
+      config.module.rules,
+    )
+    actions.replaceWebpackConfig(config)
   }
 
   if (stage === 'build-javascript') {
