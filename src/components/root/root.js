@@ -1,4 +1,4 @@
-import { Aptifer, Inter } from 'styles/fonts'
+import { Applied, PlexMono } from 'styles/fonts'
 import { Children, Wrapper } from './styled'
 import { css, Global, ThemeContext } from '@emotion/core'
 import { customBlock, prism, reboot, reset } from 'styles/global'
@@ -34,8 +34,8 @@ function Root({ children }) {
 
   return (
     <>
-      <Aptifer />
-      <Inter />
+      <Applied />
+      <PlexMono />
       <Global
         styles={
           css`
