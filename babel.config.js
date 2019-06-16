@@ -1,7 +1,7 @@
 module.exports = api => {
   api.cache.using(() => process.env.BABEL_ENV || process.env.NODE_ENV || 'development')
 
-  const isBabelWebpack = api.caller(caller => !!(caller && caller.name === 'babel-webpack'))
+  const isWebpackBuild = api.caller(caller => !!(caller && caller.name === 'babel-loader'))
 
   const presets = [
     ['@babel/env', {
@@ -9,7 +9,7 @@ module.exports = api => {
         proposals: true,
         version: 3,
       },
-      modules: isBabelWebpack ? false : 'commonjs',
+      modules: isWebpackBuild ? false : 'commonjs',
       targets: 'last 2 years',
       useBuiltIns: 'usage',
     }],
@@ -58,7 +58,7 @@ module.exports = api => {
       maxDepth: 2,
     }],
     ['ramda', {
-      useES: isBabelWebpack,
+      useES: isWebpackBuild,
     }],
     ['styled-components', {
       minify: api.env('production'),

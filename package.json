@@ -116,7 +116,7 @@
     "gatsby-plugin-styled-components": "^3.0.7",
     "gatsby-remark-autolink-headers": "^2.0.18",
     "gatsby-remark-custom-blocks": "^2.0.7",
-    "gatsby-remark-embed-snippet": "^3.2.4",
+    "gatsby-remark-embed-snippet": "^4.0.0",
     "gatsby-remark-embed-video": "^1.7.1",
     "gatsby-remark-emojis": "^0.3.2",
     "gatsby-remark-external-links": "^0.0.4",
@@ -142,12 +142,15 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "^6.0.0-beta",
-    "react-hot-loader": "^4.11.0",
+    "react-hot-loader": "^4.11.1",
     "react-spring": "^8.0.25",
     "resize-observer-polyfill": "^1.5.1",
-    "semantic-ui-react": "^0.87.1",
+    "semantic-ui-react": "^0.87.2",
     "styled-components": "3.x",
     "styled-media-query": "^2.1.2",
     "webpack": "^4.34.0"
+  },
+  "resolutions": {
+    "react-hot-loader": "^4.11.1"
   }
 }

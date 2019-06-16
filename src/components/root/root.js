@@ -1,10 +1,11 @@
-import { Aptifer, SST } from 'styles/fonts'
+import { Aptifer, Inter } from 'styles/fonts'
 import { Children, Wrapper } from './styled'
 import { css, Global, ThemeContext } from '@emotion/core'
 import { customBlock, prism, reboot, reset } from 'styles/global'
 import { graphql, useStaticQuery } from 'gatsby'
 import React, { useContext } from 'react'
 import { Helmet } from 'react-helmet'
+import { hot } from 'react-hot-loader/root'
 
 function Root({ children }) {
   const theme = useContext(ThemeContext)
@@ -34,7 +35,7 @@ function Root({ children }) {
   return (
     <>
       <Aptifer />
-      <SST />
+      <Inter />
       <Global
         styles={
           css`
@@ -80,4 +81,4 @@ function Root({ children }) {
   )
 }
 
-export default Root
+export default hot(Root)
