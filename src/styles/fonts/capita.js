@@ -1,6 +1,6 @@
 import { css, Global } from '@emotion/core'
 import { graphql, useStaticQuery } from 'gatsby'
-import R from 'ramda'
+import { getWOFFs } from './util'
 import React from 'react'
 
 const FACES = [
@@ -33,18 +33,10 @@ function Capita() {
     }
   `)
 
+  const woffs = getWOFFs(data.allFile.edges)
+
   const decls = FACES.map(({ src, style, weight }) => {
-    const woff = R.pipe(
-      R.pluck('node'),
-      R.filter(R.propEq('name', src)),
-      R.indexBy(
-        R.pipe(
-          R.prop('ext'),
-          R.replace('.', ''),
-        ),
-      ),
-      R.pluck('publicURL'),
-    )(data.allFile.edges)
+    const woff = woffs[src]
 
     return `
       @font-face {
