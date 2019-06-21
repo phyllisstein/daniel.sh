@@ -34,7 +34,7 @@ exports.onCreateWebpackConfig = async ({ actions, getConfig, stage }) => {
   }
 
   if (stage === 'build-javascript') {
-    const banner = await readFile('static/banner.js', { encoding: 'utf8' })
+    const banner = await readFile('src/vendor/banner.js', { encoding: 'utf8' })
     actions.setWebpackConfig({
       plugins: [
         new LodashPlugin(),
