@@ -41,7 +41,7 @@ function Index() {
       <Segment borderColor='dahlia'>
         <Hero>
           <Blurb>
-            <H primary size={ 4 }>
+            <H primary size={ 5 }>
               I’m a full-stack engineer and lapsed essayist who brings an
               exacting editoral eye to bear on buliding a more daring web.
             </H>
@@ -66,26 +66,29 @@ function Index() {
       </Segment>
       <Segment borderColor='tart'>
         <Hero>
-          <H size={ 1 }>Notes &amp; Errata</H>
-          <H primary size={ 4 }>
-            Don’t make the same mistakes I did.&nbsp;
-            <Break />
-            Make better ones.
-          </H>
+          <Blurb>
+            <H primary size={ 5 }>
+              Learn from my mistakes.
+              (Then go make your own.)
+            </H>
+            <H size={ 1 }>Notes &amp; Errata</H>
+          </Blurb>
         </Hero>
       </Segment>
       <Segment borderColor='intrigue'>
         <Hero>
-          <H size={ 1 }>It’s A Living</H>
-          <H primary size={ 4 }>
-          </H>
+          <Blurb>
+            <H size={ 1 }>Code Switching</H>
+            <H primary size={ 5 } />
+          </Blurb>
         </Hero>
       </Segment>
       <Segment borderColor='avocado'>
         <Hero>
-          <H size={ 1 }>What’s His At?</H>
-          <H primary size={ 4 }>
-          </H>
+          <Blurb>
+            <H size={ 1 }>They Should Have Sent a Poet</H>
+            <H primary size={ 5 } />
+          </Blurb>
         </Hero>
       </Segment>
     </Root>

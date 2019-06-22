@@ -1,15 +1,12 @@
-import { Applied, PlexMono } from 'styles/fonts'
-import { Children, Wrapper } from './styled'
-import { css, Global, ThemeContext } from '@emotion/core'
-import { customBlock, prism, reboot, reset } from 'styles/global'
+import { Charlie, Maison, MaisonMono } from 'styles/global/fonts'
+import { Children, Wrapper } from './styled-root'
+import { CustomBlock, Prism, Reboot, ThemeBase } from 'styles/global/reset'
 import { graphql, useStaticQuery } from 'gatsby'
-import React, { useContext } from 'react'
 import { Helmet } from 'react-helmet'
 import { hot } from 'react-hot-loader/root'
+import React from 'react'
 
 function Root({ children }) {
-  const theme = useContext(ThemeContext)
-
   const data = useStaticQuery(graphql`
     query RootQuery {
       avatar: file(relativePath: {eq: "images/avatar.jpg"}) {
@@ -34,17 +31,15 @@ function Root({ children }) {
 
   return (
     <>
-      <Applied />
-      <PlexMono />
-      <Global
-        styles={
-          css`
-            ${ reboot() }
-            ${ reset(theme) }
-            ${ prism() }
-            ${ customBlock() }
-          `
-        } />
+      <Charlie />
+      <Maison />
+      <MaisonMono />
+
+      <Reboot />
+      <CustomBlock />
+      <Prism />
+      <ThemeBase />
+
       <Helmet defaultTitle={ data.site.siteMetadata.title } defer={ false } titleTemplate={ `%s | ${ data.site.siteMetadata.title }` }>
         <meta charSet='utf-8' />
         <meta content='width=device-width, initial-scale=1, shrink-to-fit=no' name='viewport' />

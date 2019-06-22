@@ -1,5 +1,5 @@
+import styled, { css } from 'styles/styled-components'
 import { animated } from 'react-spring'
-import styled from '@emotion/styled'
 
 export const Break = styled('br')`
   display: none;
@@ -25,7 +25,10 @@ export const Root = styled(animated.section)`
 `
 
 export const Segment = styled.section`
-  border: ${ ({ borderColor, theme }) => borderColor ? `1rem solid ${ theme.palette.rgb[borderColor] }` : '0' };
+  ${ ({ borderColor, theme }) => borderColor && css`
+    border: 1rem solid ${ theme.palette.rgb[borderColor] };
+  ` };
+
   flex: 1 0 100%;
   height: 100%;
   padding: 6.258%;

@@ -9,6 +9,8 @@ module.exports = api => {
         proposals: true,
         version: 3,
       },
+      forceAllTransforms: true,
+      loose: true,
       modules: isWebpackBuild ? false : 'commonjs',
       targets: 'last 2 years',
       useBuiltIns: 'usage',
@@ -17,29 +19,35 @@ module.exports = api => {
       development: !api.env('production'),
       useBuiltIns: true,
     }],
-    ['@emotion/css-prop', {
-      labelFormat: '[dirname]-[filename]__[local]',
-      useBuiltIns: true,
-    }],
   ]
 
   const plugins = [
     '@babel/proposal-async-generator-functions',
-    ['@babel/proposal-decorators', {
-      legacy: true,
-    }],
     ['@babel/proposal-class-properties', {
       loose: true,
+    }],
+    ['@babel/proposal-decorators', {
+      decoratorsBeforeExport: true,
     }],
     '@babel/proposal-do-expressions',
     '@babel/proposal-export-default-from',
     '@babel/proposal-export-namespace-from',
     '@babel/proposal-function-bind',
+    '@babel/proposal-function-sent',
+    '@babel/proposal-json-strings',
     '@babel/proposal-logical-assignment-operators',
-    '@babel/proposal-nullish-coalescing-operator',
+    ['@babel/proposal-nullish-coalescing-operator', {
+      loose: true,
+    }],
     '@babel/proposal-numeric-separator',
-    '@babel/proposal-object-rest-spread',
-    '@babel/proposal-optional-chaining',
+    ['@babel/proposal-object-rest-spread', {
+      loose: true,
+      useBuiltIns: true,
+    }],
+    '@babel/proposal-optional-catch-binding',
+    ['@babel/proposal-optional-chaining', {
+      loose: true,
+    }],
     '@babel/proposal-pattern-matching',
     '@babel/proposal-partial-application',
     ['@babel/proposal-pipeline-operator', {
@@ -54,9 +62,9 @@ module.exports = api => {
     '@babel/transform-react-jsx-source',
     'lodash',
     'macros',
-    ['meaningful-logs', {
-      maxDepth: 2,
-    }],
+    // ['meaningful-logs', {
+    //   maxDepth: 2,
+    // }],
     ['ramda', {
       useES: isWebpackBuild,
     }],
@@ -65,7 +73,10 @@ module.exports = api => {
       pure: api.env('production'),
       transpileTemplateLiterals: api.env('production'),
     }],
-  ]
+    api.env('development') ? '@babel/plugin-transform-react-display-name' : null,
+    api.env('production') ? '@babel/plugin-transform-react-constant-elements' : null,
+    api.env('production') ? '@babel/plugin-transform-react-inline-elements' : null,
+  ].filter(Boolean)
 
   return {
     plugins,

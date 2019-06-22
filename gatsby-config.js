@@ -123,18 +123,11 @@ module.exports = {
     },
     {
       options: {
-        minify: process.env.NODE_ENV === 'production',
-        pure: process.env.NODE_ENV === 'production',
-        transpileTemplateLiterals: process.env.NODE_ENV === 'production',
+        minify: /production/.test(process.env.NODE_ENV),
+        pure: /production/.test(process.env.NODE_ENV),
+        transpileTemplateLiterals: /production/.test(process.env.NODE_ENV),
       },
       resolve: 'gatsby-plugin-styled-components',
-    },
-    {
-      options: {
-        labelFormat: '[dirname]-[filename]__[local]',
-        useBuiltIns: true,
-      },
-      resolve: 'gatsby-plugin-emotion',
     },
     {
       options: {

@@ -1,7 +1,17 @@
-export * as elevation from './elevation'
-export * as measures from './measures'
-export * as palette from './palette'
-export * as transition from './transition'
-export * as typography from './typography'
-export media from './media'
-export plumber from './plumber'
+import * as elevation from './elevation'
+import * as measures from './measures'
+import * as palette from './palette'
+import * as transition from './transition'
+import * as typography from './typography'
+import media from './media'
+import plumber from './plumber'
+
+export default {
+  elevation,
+  measures,
+  media,
+  palette,
+  plumber,
+  transition,
+  typography,
+}

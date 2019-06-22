@@ -9,6 +9,12 @@ const readFile = promisify(fs.readFile)
 
 exports.onCreateWebpackConfig = async ({ actions, getConfig, stage }) => {
   actions.setWebpackConfig({
+    plugins: [
+      new webpack.NormalModuleReplacementPlugin(
+        /es7\.promise\.finally/,
+        path.resolve('node_modules/core-js/features/promise/finally.js'),
+      ),
+    ],
     resolve: {
       alias: {
         'babel-runtime': '@babel/runtime',

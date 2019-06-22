@@ -6,6 +6,8 @@ import Root from 'components/root'
 
 export const onClientEntry = () => {
   return Promise.all([
+    import('core-js'),
+    import('regenerator-runtime/runtime'),
     typeof IntersectionObserver === 'undefined' ? import('intersection-observer') : Promise.resolve(),
     typeof ResizeObserver === 'undefined' ? import('resize-observer-polyfill') : Promise.resolve(),
   ])

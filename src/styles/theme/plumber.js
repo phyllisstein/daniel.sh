@@ -3,11 +3,14 @@ import R from 'ramda'
 import { scale } from './typography'
 
 /**
- * BASELINE = (UnitsPerEm − hhea.Ascender − hhea.Descender) / (2 × UnitsPerEm)
- * (Q.v. <https://jamonserrano.github.io/plumber-sass/>.)
+ * Via <https://jamonserrano.github.io/plumber-sass/>:
+ *   BASELINE = (UnitsPerEm − hhea.Ascender − hhea.Descender) / (2 × UnitsPerEm)
+ * See also <https://github.com/source-foundry/font-line>.
  */
-const APPLIED_BASELINE = 0.1236
-const HELVETICA_MONO_BASELINE = 0.1228
+
+const CHARLIE_BASELINE = 0.1200
+const MAISON_BASELINE = 0.1328
+const MAISON_MONO_BASELINE = 0.1330
 
 const round3 = x => _.round(x, 3)
 const withUnit = R.curry((unit, val) => val === 0 ? val : `${ val }${ unit }`)
@@ -94,14 +97,15 @@ function makePlumber({
       margin-bottom: ${ withUnit(gridUnit, marginBottom) };
       margin-top: ${ withUnit(gridUnit, marginTop) };
       padding-bottom: calc(${ paddingBottom }${ gridUnit } - ${ borderBottom }${ borderUnit });
-      padding-top: calc(${ paddingTop }${ gridUnit } - ${ borderTop }${ borderUnit });
+      paddin-gtop: calc(${ paddingTop }${ gridUnit } - ${ borderTop }${ borderUnit });
     `
   }
 
   return plumber
 }
 
-const plumber = makePlumber({ baseline: APPLIED_BASELINE, fontSize: scale(1), lineHeight: scale(3) })
-plumber.accent = makePlumber({ baseline: HELVETICA_MONO_BASELINE, fontSize: scale(1), lineHeight: scale(3) })
+const plumber = makePlumber({ baseline: MAISON_BASELINE, fontSize: scale(1), lineHeight: scale(3) })
+plumber.accent = makePlumber({ baseline: CHARLIE_BASELINE, fontSize: scale(1), lineHeight: scale(3) })
+plumber.mono = makePlumber({ baseline: MAISON_MONO_BASELINE, fontSize: scale(1), lineHeight: scale(3) })
 
 export default plumber

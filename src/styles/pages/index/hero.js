@@ -1,4 +1,4 @@
-import styled from '@emotion/styled'
+import styled from 'styles/styled-components'
 
 export const Blurb = styled.div`
   ${ ({ theme }) => theme.media.greaterThan('md')`
