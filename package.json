@@ -4,9 +4,10 @@
   "description": "Blig blag bliggity blog.",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "cross-env NODE_ENV=production gatsby build",
     "develop": "gatsby develop",
-    "build": "cross-env NODE_ENV=production gatsby build"
+    "docker:build": "docker buildx build --secret=id=npmrc,src=secrets/npmrc --tag=daniel-dot-sh .",
+    "docker:develop": "docker container run --detach --env=VIRTUAL_HOST=danielsh.dev --env=HSTS=off --mount=type=bind,destination=/app/src,source=$PWD/src --mount=type=bind,destination=/app/content,source=$PWD/content --mount=type=bind,destination=/app/config,source=$PWD/config daniel-dot-sh"
   },
   "repository": {
     "type": "git",
