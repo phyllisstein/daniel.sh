@@ -1,15 +1,13 @@
-import styled from 'styles/styled-components'
+import styled from 'styled-components'
 
-export const BaseH = styled('h1', {
-  omitPropsByName: ['primary', 'size'],
-})`
-  ${ ({ primary, theme, size }) => {
+export const BaseH = styled.h1`
+  ${ ({ primaryType, scaleUnit, theme }) => {
     const plumberSettings = {
-      fontSize: theme.typography.scale(7 - size),
-      lineHeight: theme.typography.scale(8 - size),
+      fontSize: theme.typography.scale(7 - scaleUnit),
+      lineHeight: theme.typography.scale(8 - scaleUnit),
     }
 
-    if (primary) {
+    if (primaryType) {
       return theme.plumber(plumberSettings)
     }
 
@@ -18,7 +16,7 @@ export const BaseH = styled('h1', {
 
   ${ ({ theme }) => theme.typography.accent }
 
-  ${ ({ primary, theme }) => primary && theme.typography.primary }
+  ${ ({ primaryType, theme }) => primaryType && theme.typography.primary }
 
   font-weight: 300;
 `

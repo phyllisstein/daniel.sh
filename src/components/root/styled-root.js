@@ -1,4 +1,4 @@
-import styled from 'styles/styled-components'
+import styled from 'styled-components'
 
 export const Children = styled.div`
   height: 100%;

@@ -3,7 +3,7 @@ import React from 'react'
 
 function H({ children, primary = false, size = 3, className } = {}) {
   return (
-    <BaseH as={ `h${ size }` } className={ className } primary={ primary } size={ size }>
+    <BaseH as={ `h${ size }` } className={ className } primaryType={ primary } scaleUnit={ size }>
       { children }
     </BaseH>
   )

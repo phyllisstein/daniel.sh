@@ -1,4 +1,4 @@
-import styled, { css } from 'styles/styled-components'
+import styled, { css } from 'styled-components'
 import { animated } from 'react-spring'
 
 export const Break = styled('br')`
