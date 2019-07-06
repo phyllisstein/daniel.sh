@@ -6,18 +6,21 @@ import {
   Segment,
 } from 'styles/pages/index'
 import Button, { ButtonGroup } from '@atlaskit/button'
+import { faLinkedinIn, faTwitter } from '@fortawesome/free-brands-svg-icons'
+import { faPaperPlane } from '@fortawesome/pro-light-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import H from 'components/h'
 import React from 'react'
 
 function Index() {
   return (
     <Root>
-      <Segment borderColor='tango'>
+      <Segment borderColor='sin'>
         <Hero>
           <Blurb>
-            <H primary size={ 5 }>
-              I’m a full-stack engineer and lapsed essayist who brings an
-              exacting editoral eye to bear on buliding a more daring web.
+            <H primary size={ 4 }>
+              I’m a full-stack engineer and lapsed essayist using an
+              exacting editoral eye to build a more daring web.
             </H>
             <H size={ 1 }>
               You can call me Daniel.
@@ -25,14 +28,14 @@ function Index() {
           </Blurb>
           <Nav>
             <ButtonGroup appearance='subtle'>
-              <Button href='https://twitter.com/phyllisstein' name='blog'>
-                Twitter
+              <Button href='https://twitter.com/phyllisstein' target='_blank'>
+                <FontAwesomeIcon icon={ faTwitter } /> Twitter
               </Button>
-              <Button name='portfolio'>
-                Portfolio
+              <Button href='https://linkedin.com/in/danielsh1' target='_blank'>
+                <FontAwesomeIcon icon={ faLinkedinIn } /> LinkedIn
               </Button>
-              <Button name='contact'>
-                Contact
+              <Button href='mailto:daniel@daniel.sh'>
+                <FontAwesomeIcon icon={ faPaperPlane } /> Contact
               </Button>
             </ButtonGroup>
           </Nav>

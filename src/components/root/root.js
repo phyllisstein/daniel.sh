@@ -35,7 +35,6 @@ function Root({ children }) {
       <Maison />
       <MaisonMono />
 
-      <Reboot />
       <CustomBlock />
       <Prism />
       <ThemeBase />
