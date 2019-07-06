@@ -1,27 +1,65 @@
-# syntax=docker/dockerfile:experimental
+FROM ubuntu:disco AS runtime
 
-FROM node:lts-alpine
+RUN sed -i 's/^#\s*\(deb.*main restricted\)$/\1/g' /etc/apt/sources.list \
+  && sed -i 's/^#\s*\(deb.*universe\)$/\1/g' /etc/apt/sources.list \
+  && sed -i 's/^#\s*\(deb.*multiverse\)$/\1/g' /etc/apt/sources.list \
+  && sed -i 's/^#\s*\(deb.*partner\)$/\1/g' /etc/apt/sources.list
+
+RUN apt-get update \
+  && DEBIAN_FRONTEND=noninteractive apt-get install --assume-yes --option=Dpkg::Options::=--force-confnew --option=Dpkg::Options::=--force-confdef --option=Dpkg::Options::=--force-unsafe-io \
+    apt-transport-https \
+    apt-utils \
+    ca-certificates \
+    git
+
+FROM runtime AS watchman
+
+RUN DEBIAN_FRONTEND=noninteractive apt-get install --assume-yes --option=Dpkg::Options::=--force-confnew --option=Dpkg::Options::=--force-confdef --option=Dpkg::Options::=--force-unsafe-io \
+  autoconf \
+  automake \
+  build-essential \
+  libpcre3 \
+  libpcre3-dev \
+  libssl-dev \
+  libtool \
+  pkg-config
+
+RUN git clone --branch=v4.9.0 https://github.com/facebook/watchman /watchman \
+  && cd /watchman \
+  && ./autogen.sh \
+  && ./configure \
+    --enable-lenient \
+    --enable-shared=no \
+    --enable-stack-protector \
+    --enable-statedir=/var/run \
+    --enable-static=yes \
+    --with-pcre \
+    --with-python=no \
+  && make
+
+FROM runtime AS app
 
 WORKDIR /app
 
-RUN apk add --no-cache tini yarn
+RUN DEBIAN_FRONTEND=noninteractive apt-get install --assume-yes --option=Dpkg::Options::=--force-confnew --option=Dpkg::Options::=--force-confdef --option=Dpkg::Options::=--force-unsafe-io \
+  curl \
+  gnupg2 \
+  libpng-dev
 
-COPY package.json yarn.lock /app/
+RUN echo "deb https://deb.nodesource.com/node_12.x disco main" >> /etc/apt/sources.list.d/nodesource.list \
+  && echo "deb-src https://deb.nodesource.com/node_12.x disco main" >> /etc/apt/sources.list.d/nodesource.list \
+  && curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add - \
+  && echo "deb https://dl.yarnpkg.com/debian/ rc main" > /etc/apt/sources.list.d/yarn.list \
+  && curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
+  && apt-get update \
+  && DEBIAN_FRONTEND=noninteractive apt-get install --assume-yes --option=Dpkg::Options::=--force-confnew --option=Dpkg::Options::=--force-confdef --option=Dpkg::Options::=--force-unsafe-io \
+    nodejs \
+    yarn
 
-RUN --mount=type=secret,id=npmrc,target=/app/.npmrc \
-  --mount=type=cache,id=yarn,target=/var/cache/yarn \
-  mkdir -p /var/cache/yarn \
-  && yarn install --pure-lockfile --cache-folder=/var/cache/yarn --no-progress --non-interactive
+COPY --from=watchman /watchman/watchman /bin/
 
-COPY . /app/
-
-ENV ENABLE_GATSBY_REFRESH_ENDPOINT=true \
-  PATH="/app/node_modules/.bin:$PATH"
+ENV ENABLE_GATSBY_REFRESH_ENDPOINT=true
 
 EXPOSE 8000
 
-ENTRYPOINT ["/sbin/tini", "-g", "--"]
-
-VOLUME ["/app/.cache", "/app/public"]
-
-CMD ["gatsby", "develop", "--host=0.0.0.0"]
+CMD ["./config/dev-entrypoint.sh"]

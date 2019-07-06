@@ -1,0 +1,7 @@
+{
+  "ignore_dirs": [
+    ".cache",
+    "node_modules",
+    "public"
+  ]
+}

@@ -48,7 +48,6 @@ module.exports = api => {
     ['@babel/proposal-optional-chaining', {
       loose: true,
     }],
-    '@babel/proposal-pattern-matching',
     '@babel/proposal-partial-application',
     ['@babel/proposal-pipeline-operator', {
       proposal: 'smart',

@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components'
 
 const CustomBlock = createGlobalStyle`
   .custom-block {
-    border: 1px solid #EEE;
+    border: 1px solid #eee;
     border-left-width: 0.25rem;
     border-radius: 0.25rem;
     margin-bottom: 1.25rem;
@@ -27,27 +27,27 @@ const CustomBlock = createGlobalStyle`
   }
 
   .custom-block.danger {
-    border-left-color: #D9534F;
+    border-left-color: #d9534f;
   }
 
   .custom-block.danger .custom-block-heading {
-    color: #D9534F;
+    color: #d9534f;
   }
 
   .custom-block.info {
-    border-left-color: #5BC0DE;
+    border-left-color: #5bc0de;
   }
 
   .custom-block.info .custom-block-heading {
-    color: #5BC0DE;
+    color: #5bc0de;
   }
 
   .custom-block.warning {
-    border-left-color: #F0AD4E;
+    border-left-color: #f0ad4e;
   }
 
   .custom-block.warning .custom-block-heading {
-    color: #F0AD4E;
+    color: #f0ad4e;
   }
 `
 

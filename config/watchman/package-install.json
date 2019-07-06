@@ -1,0 +1,12 @@
+[
+  "trigger",
+  "/app", {
+    "command": [
+      "yarn",
+      "install",
+      "--non-interactive"
+    ],
+    "expression": ["name", "package.json"],
+    "name": "package-install"
+  }
+]

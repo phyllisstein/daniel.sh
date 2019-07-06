@@ -1,0 +1,12 @@
+[
+  "trigger",
+  "/app", {
+    "command": [
+      "/bin/bash",
+      "-c",
+      "pkill --full gatsby && gatsby develop --host=0.0.0.0 &> /dev/stdout &"
+    ],
+    "expression": ["name", "yarn.lock"],
+    "name": "postinstall-refresh"
+  }
+]

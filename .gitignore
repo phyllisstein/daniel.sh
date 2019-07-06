@@ -135,6 +135,3 @@ typings/
 # Gatsby
 /.cache
 /public
-
-# Secrets
-/secrets
