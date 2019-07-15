@@ -7,9 +7,9 @@ module.exports = api => {
     ['@babel/env', {
       corejs: {
         proposals: true,
-        version: 3,
+        version: 2,
       },
-      forceAllTransforms: true,
+      forceAllTransforms: false,
       loose: true,
       modules: isWebpackBuild ? false : 'commonjs',
       targets: 'last 2 years',
@@ -61,9 +61,6 @@ module.exports = api => {
     '@babel/transform-react-jsx-source',
     'lodash',
     'macros',
-    // ['meaningful-logs', {
-    //   maxDepth: 2,
-    // }],
     ['ramda', {
       useES: isWebpackBuild,
     }],
@@ -73,6 +70,11 @@ module.exports = api => {
       transpileTemplateLiterals: api.env('production'),
     }],
     api.env('development') ? '@babel/plugin-transform-react-display-name' : null,
+    api.env('development')
+      ? ['meaningful-logs', {
+        maxDepth: 2,
+      }]
+      : null,
     api.env('production') ? '@babel/plugin-transform-react-constant-elements' : null,
     api.env('production') ? '@babel/plugin-transform-react-inline-elements' : null,
   ].filter(Boolean)
