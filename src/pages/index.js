@@ -20,7 +20,7 @@ function Index() {
           <Blurb>
             <H primary size={ 4 }>
               I’m a full-stack engineer and lapsed essayist using an
-              exacting editoral eye to build a more daring web.
+              exacting editorial eye to build a more daring web.
             </H>
             <H size={ 1 }>
               You can call me Daniel.
