@@ -7,62 +7,103 @@ const webpack = require('webpack')
 
 const readFile = promisify(fs.readFile)
 
-exports.onCreateWebpackConfig = async ({ actions, getConfig, stage }) => {
-  actions.setWebpackConfig({
-    // plugins: [
-    //   new webpack.NormalModuleReplacementPlugin(
-    //     /core-js\/modules\/es(\d)\./,
-    //     resource => {
-    //       resource.request.replace(/core-js\/modules\/es(\d)\.(.*)$/g, (_match, esVersion, moduleName) => {
-    //         const replacement = path.resolve(`node_modules/core-js/modules/es${ esVersion === '7' ? 'next' : '' }.${ moduleName }`)
-    //         if (fs.existsSync(replacement)) {
-    //           return replacement
-    //         }
+/***********************************************************************************************
+ *
+ * Webpack Config
+ *
+ */
 
-    //         return path.resolve('node_modules/lodash/noop')
-    //       })
-    //     },
-    //   ),
-    // ],
-    resolve: {
-      alias: {
-        'babel-runtime': '@babel/runtime',
-      },
-      modules: [
-        path.resolve('src'),
-        path.resolve('node_modules'),
-      ],
-    },
-  })
-  
-  // const coreConfig = getConfig()
-  // coreConfig.resolve.alias['core-js'] = path.resolve('node_modules/core-js')
-  // actions.replaceWebpackConfig(coreConfig)
-  
+const includeBanner = async ({ actions, stage }) => {
+    if (stage === 'build-javascript') {
+        const banner = await readFile('src/vendor/banner.js', { encoding: 'utf8' })
+        actions.setWebpackConfig({
+            plugins: [
+                new LodashPlugin(),
+                new webpack.BannerPlugin({
+                    banner,
+                    entryOnly: false,
+                    raw: true,
+                }),
+            ],
+        })
+    }
+}
 
-  if (stage === 'develop') {
+const injectHotLoader = async ({ actions, getConfig, stage }) => {
+    if (stage === 'develop') {
+        const config = getConfig()
+        config.module.rules = R.map(
+            R.when(
+                R.propSatisfies(p => String(p) === String(/\.jsx?$/) || String(p) === String(/\.[jt]sx?$/), 'test'),
+                R.over(R.lensProp('use'), R.prepend('react-hot-loader/webpack')),
+            ),
+            config.module.rules,
+        )
+        actions.replaceWebpackConfig(config)
+    }
+}
+
+const resolveVendor = async ({ actions }) => {
+    actions.setWebpackConfig({
+        resolve: {
+            modules: [
+                path.resolve('src'),
+                path.resolve('vendor'),
+                path.resolve('node_modules'),
+            ],
+        },
+    })
+}
+
+const useBabelNamespace = async ({ actions }) => {
+    actions.setWebpackConfig({
+        resolve: {
+            alias: {
+                'babel-runtime': '@babel/runtime',
+            },
+        },
+    })
+}
+
+const useTypeScript = async ({ actions, getConfig }) => {
     const config = getConfig()
     config.module.rules = R.map(
-      R.when(
-        R.propEq('test', /\.jsx?$/),
-        R.over(R.lensProp('use'), R.prepend('react-hot-loader/webpack')),
-      ),
-      config.module.rules,
+        R.when(
+            R.propSatisfies(p => String(p) === String(/\.jsx?$/), 'test'),
+            R.assoc('test', /\.([jt])sx?$/),
+        ),
+        config.module.rules,
     )
     actions.replaceWebpackConfig(config)
-  }
 
-  if (stage === 'build-javascript') {
-    const banner = await readFile('src/vendor/banner.js', { encoding: 'utf8' })
     actions.setWebpackConfig({
-      plugins: [
-        new LodashPlugin(),
-        new webpack.BannerPlugin({
-          banner,
-          entryOnly: false,
-          raw: true,
-        }),
-      ],
+        resolve: {
+            extensions: [
+                '.ts',
+                '.tsx',
+                '.mdx',
+                '.js',
+                '.jsx',
+                '.json',
+            ],
+        },
     })
-  }
 }
+
+exports.onCreateWebpackConfig = R.converge(
+    (...fns) => Promise.all(Array.from(fns)),
+    [
+        includeBanner, injectHotLoader, resolveVendor, useBabelNamespace,
+        useTypeScript,
+    ],
+)
+
+/***********************************************************************************************
+ *
+ * Extensions
+ *
+ */
+
+exports.resolvableExtensions = () => [
+    '.ts', '.tsx', '.mdx', '.js', '.jsx', '.json',
+]

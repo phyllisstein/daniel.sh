@@ -1,0 +1,12 @@
+{
+  "name": "daniel.sh",
+  "schemaPath": "vendor/schema.graphql",
+  "extensions": {
+    "endpoints": {
+      "Gatsby": {
+        "url": "http://danielsh.here/___graphql",
+        "introspect": true
+      }
+    }
+  }
+}

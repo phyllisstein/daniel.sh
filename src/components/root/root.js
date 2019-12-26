@@ -3,7 +3,6 @@ import { Children, Wrapper } from './styled-root'
 import { CustomBlock, Prism, Reboot, ThemeBase } from 'styles/global/reset'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Helmet } from 'react-helmet'
-import { hot } from 'react-hot-loader/root'
 import React from 'react'
 
 function Root({ children }) {

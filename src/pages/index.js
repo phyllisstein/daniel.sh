@@ -9,7 +9,7 @@ import Button, { ButtonGroup } from '@atlaskit/button'
 import { faLinkedinIn, faTwitter } from '@fortawesome/free-brands-svg-icons'
 import { faPaperPlane } from '@fortawesome/pro-light-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import H from 'components/h'
+import { H } from 'components'
 import React from 'react'
 
 function Index() {
