@@ -5,7 +5,7 @@ import React from 'react'
 
 export const onClientEntry = () => {
   return Promise.all([
-    import('@atlaskit/css-reset/dist/bundle.css'),
+    // import('@atlaskit/css-reset/dist/bundle.css'),
     typeof IntersectionObserver === 'undefined' ? import('intersection-observer') : Promise.resolve(),
     typeof ResizeObserver === 'undefined' ? import('resize-observer-polyfill') : Promise.resolve(),
   ])

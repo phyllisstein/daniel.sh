@@ -1,8 +1,6 @@
 module.exports = api => {
   api.cache.using(() => process.env.BABEL_ENV || process.env.NODE_ENV || 'development')
 
-  const isWebpackBuild = api.caller(caller => !!(caller && caller.name === 'babel-loader'))
-
   const presets = [
     ['@babel/env', {
       corejs: {
@@ -11,7 +9,7 @@ module.exports = api => {
       },
       forceAllTransforms: false,
       loose: true,
-      modules: isWebpackBuild ? false : 'commonjs',
+      modules: false,
       targets: 'last 2 years',
       useBuiltIns: 'usage',
     }],
@@ -19,6 +17,7 @@ module.exports = api => {
       development: !api.env('production'),
       useBuiltIns: true,
     }],
+    '@babel/typescript',
   ]
 
   const plugins = [
@@ -59,11 +58,39 @@ module.exports = api => {
     '@babel/proposal-unicode-property-regex',
     '@babel/syntax-dynamic-import',
     '@babel/transform-react-jsx-source',
+    ['inline-react-svg', {
+      svgo: {
+        plugins: [
+          { cleanupAttrs: true },
+          { cleanupListOfValues: true },
+          { cleanupNumericValues: true },
+          { collapseGroups: true },
+          { convertPathData: true },
+          { convertShapeToPath: true },
+          { convertTransform: true },
+          { mergePaths: true },
+          { removeComments: true },
+          { removeDoctype: true },
+          { removeEditorsNSData: true },
+          { removeEmptyAttrs: true },
+          { removeEmptyContainers: true },
+          { removeEmptyText: true },
+          { removeHiddenElems: true },
+          { removeMetadata: true },
+          { removeNonInheritableGroupAttrs: true },
+          { removeRasterImages: true },
+          { removeScriptElement: true },
+          { removeUnknownsAndDefaults: true },
+          { removeUnusedNS: true },
+          { removeUselessDefs: true },
+          { removeUselessStrokeAndFill: true },
+          { removeXMLNS: true },
+          { removeXMLProcInst: true },
+        ],
+      },
+    }],
     'lodash',
     'macros',
-    ['ramda', {
-      useES: isWebpackBuild,
-    }],
     ['styled-components', {
       minify: api.env('production'),
       pure: api.env('production'),
@@ -75,8 +102,10 @@ module.exports = api => {
         maxDepth: 2,
       }]
       : null,
+    api.env('development') ? 'react-hot-loader/babel' : null,
     api.env('production') ? '@babel/plugin-transform-react-constant-elements' : null,
     api.env('production') ? '@babel/plugin-transform-react-inline-elements' : null,
+    api.env('production') ? 'react-local' : null,
   ].filter(Boolean)
 
   return {

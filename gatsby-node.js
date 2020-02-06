@@ -7,103 +7,95 @@ const webpack = require('webpack')
 
 const readFile = promisify(fs.readFile)
 
-/***********************************************************************************************
- *
- * Webpack Config
- *
- */
-
+// ########################################################################## //
+// ############################# Webpack Config ############################# //
+// ########################################################################## //
 const includeBanner = async ({ actions, stage }) => {
-    if (stage === 'build-javascript') {
-        const banner = await readFile('src/vendor/banner.js', { encoding: 'utf8' })
-        actions.setWebpackConfig({
-            plugins: [
-                new LodashPlugin(),
-                new webpack.BannerPlugin({
-                    banner,
-                    entryOnly: false,
-                    raw: true,
-                }),
-            ],
-        })
-    }
+  if (/build/.test(stage)) {
+    const banner = await readFile('vendor/banner.js', { encoding: 'utf8' })
+    actions.setWebpackConfig({
+      plugins: [
+        new webpack.BannerPlugin({
+          banner,
+          entryOnly: false,
+          raw: true,
+        }),
+      ],
+    })
+  }
 }
 
-const injectHotLoader = async ({ actions, getConfig, stage }) => {
-    if (stage === 'develop') {
-        const config = getConfig()
-        config.module.rules = R.map(
-            R.when(
-                R.propSatisfies(p => String(p) === String(/\.jsx?$/) || String(p) === String(/\.[jt]sx?$/), 'test'),
-                R.over(R.lensProp('use'), R.prepend('react-hot-loader/webpack')),
-            ),
-            config.module.rules,
-        )
-        actions.replaceWebpackConfig(config)
-    }
+const minifyLodash = async ({ actions, stage }) => {
+  if (/build/.test(stage)) {
+    actions.setWebpackConfig({
+      plugins: [
+        new LodashPlugin({
+          placeholders: true,
+        }),
+      ],
+    })
+  }
 }
 
 const resolveVendor = async ({ actions }) => {
-    actions.setWebpackConfig({
-        resolve: {
-            modules: [
-                path.resolve('src'),
-                path.resolve('vendor'),
-                path.resolve('node_modules'),
-            ],
-        },
-    })
+  actions.setWebpackConfig({
+    resolve: {
+      modules: [
+        path.resolve('src'),
+        path.resolve('vendor'),
+        path.resolve('node_modules'),
+      ],
+    },
+  })
 }
 
 const useBabelNamespace = async ({ actions }) => {
-    actions.setWebpackConfig({
-        resolve: {
-            alias: {
-                'babel-runtime': '@babel/runtime',
-            },
-        },
-    })
+  actions.setWebpackConfig({
+    resolve: {
+      alias: {
+        'babel-runtime': '@babel/runtime',
+      },
+    },
+  })
 }
 
-const useTypeScript = async ({ actions, getConfig }) => {
-    const config = getConfig()
-    config.module.rules = R.map(
-        R.when(
-            R.propSatisfies(p => String(p) === String(/\.jsx?$/), 'test'),
-            R.assoc('test', /\.([jt])sx?$/),
-        ),
-        config.module.rules,
-    )
-    actions.replaceWebpackConfig(config)
+const useTypeScript = async ({ actions, loaders }) => {
+  const jsLoader = loaders.js()
 
-    actions.setWebpackConfig({
-        resolve: {
-            extensions: [
-                '.ts',
-                '.tsx',
-                '.mdx',
-                '.js',
-                '.jsx',
-                '.json',
-            ],
+  actions.setWebpackConfig({
+    module: {
+      rules: [
+        {
+          test: /\.tsx?$/,
+          use: jsLoader,
         },
-    })
+      ],
+    },
+    resolve: {
+      extensions: [
+        '.ts',
+        '.tsx',
+        '.mdx',
+        '.js',
+        '.jsx',
+        '.json',
+      ],
+    },
+  })
 }
 
 exports.onCreateWebpackConfig = R.converge(
-    (...fns) => Promise.all(Array.from(fns)),
-    [
-        includeBanner, injectHotLoader, resolveVendor, useBabelNamespace,
-        useTypeScript,
-    ],
+  (...fns) => Promise.all(Array.from(fns)),
+  [
+    includeBanner,
+    minifyLodash,
+    resolveVendor,
+    useBabelNamespace,
+    useTypeScript,
+  ],
 )
 
-/***********************************************************************************************
- *
- * Extensions
- *
- */
-
-exports.resolvableExtensions = () => [
-    '.ts', '.tsx', '.mdx', '.js', '.jsx', '.json',
-]
+// ########################################################################## //
+// ############################# Resolve Config ############################# //
+// ########################################################################## //
+exports.resolvableExtensions = () => ['.ts', '.tsx', '.mdx', '.js', '.jsx', '.json']

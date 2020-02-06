@@ -135,3 +135,5 @@ typings/
 # Gatsby
 /.cache
 /public
+/vendor/schema.graphql
+/.npmrc
