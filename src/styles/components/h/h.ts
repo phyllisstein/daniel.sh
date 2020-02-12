@@ -11,6 +11,7 @@ export const Base = styled.h1<BaseProps>`
   ${ ({ primaryType, scaleUnit, theme }) => {
     const plumberSettings = {
       fontSize: theme.scale.unitless(7 - scaleUnit),
+      leadingTop: theme.scale.unitless(scaleUnit - 5),
       lineHeight: theme.scale.unitless(8 - scaleUnit),
     }
 

@@ -48,7 +48,7 @@ const getBaselineCorrection = ({ baseline, fontSize, lineHeight }: { baseline: n
 const getPlumber = ({
   baseline: B,
   fontSize: FONT_SIZE = 2,
-  gridHeight: GRID_HEIGHT = '1rem',
+  gridHeight: GRID_HEIGHT = '0.5rem',
   leadingBottom: LEADING_BOTTOM = 0,
   leadingTop: LEADING_TOP = 0,
   lineHeight: LINE_HEIGHT = 3,
@@ -77,6 +77,7 @@ const getPlumber = ({
     const shift = baselineDifference < 0 ? 0 : 1
 
     fontSize = round(fontSize * gridHeightValue)
+    lineHeight = round(lineHeight * gridHeightValue)
     const marginTop = round((leadingTop - shift) * gridHeightValue)
     const paddingTop = round((shift - baselineDifference) * gridHeightValue)
     const paddingBottom = round((1 - shift + baselineDifference) * gridHeightValue)
