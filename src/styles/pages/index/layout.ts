@@ -1,17 +1,6 @@
 import styled, { css } from 'styled-components'
 import { animated } from 'react-spring'
 
-export const Break = styled('br')`
-  display: none;
-
-  ${ ({ theme }) => theme.responsive.query.greaterThan('md')`
-    display: inline-block;
-  ` }
-`
-
-export const Close = styled.div`
-`
-
 export const Root = styled(animated.section)`
   align-items: stretch;
   display: flex;
@@ -31,7 +20,6 @@ export const Segment = styled.section<{ borderColor?: string }>`
 
   flex: 1 0 100%;
   height: 100%;
-  padding: 6.258%;
   position: relative;
   width: 100vw;
 `

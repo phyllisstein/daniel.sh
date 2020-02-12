@@ -16,12 +16,9 @@ export const ThemeBase = createGlobalStyle`
   body {
     ${ ({ theme }) => theme.typography.primary }
 
-    background-color: #fff;
     box-sizing: border-box;
-    color: ${ ({ theme }) => theme.palette.css.text };
     font-feature-settings: 'kern', 'liga';
     font-kerning: normal;
-    font-size: inherit;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     font-variant-ligatures: common-ligatures;

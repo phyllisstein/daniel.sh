@@ -1,11 +1,5 @@
 import styled from 'styled-components'
 
-export const Blurb = styled.div`
-  ${ ({ theme }) => theme.responsive.query.greaterThan('md')`
-    max-width: 70%;
-  ` }
-`
-
 // FIXME: Rhythm gets a little screwy w/ vertical centering.
 export const Hero = styled.header`
   align-items: stretch;
@@ -15,6 +9,10 @@ export const Hero = styled.header`
   justify-content: center;
   position: relative;
   width: 100%;
+
+  ${ ({ theme }) => theme.responsive.query.lessThan('md')`
+    text-align: center;
+  ` }
 `
 
 export const Nav = styled.nav`

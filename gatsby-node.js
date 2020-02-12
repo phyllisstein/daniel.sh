@@ -59,6 +59,39 @@ const useBabelNamespace = async ({ actions }) => {
   })
 }
 
+const useSass = async ({ actions, loaders, stage }) => {
+  actions.setWebpackConfig({
+    module: {
+      rules: [
+        {
+          test: /\.scss$/,
+          use: [
+            loaders.miniCssExtract({
+              hmr: /develop/.test(stage),
+              insertAt: 'top',
+            }),
+            {
+              loader: 'fast-css-loader',
+            },
+            loaders.postcss({
+              sourceMap: false,
+            }),
+            {
+              loader: 'fast-sass-loader',
+              options: {
+                includePaths: [
+                  path.resolve('node_modules'),
+                  path.resolve('src'),
+                ],
+              },
+            },
+          ],
+        },
+      ],
+    },
+  })
+}
+
 const useTypeScript = async ({ actions, loaders }) => {
   const jsLoader = loaders.js()
 
@@ -91,6 +124,7 @@ exports.onCreateWebpackConfig = R.converge(
     minifyLodash,
     resolveVendor,
     useBabelNamespace,
+    useSass,
     useTypeScript,
   ],
 )
