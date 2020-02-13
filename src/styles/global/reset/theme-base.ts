@@ -11,10 +11,14 @@ export const ThemeBase = createGlobalStyle`
 
   html {
     font-size: 100%;
+
+    ${ ({ theme }) => theme.responsive.query.greaterThan('lg')`
+      font-size: 112.5%;
+    ` }
   }
 
   body {
-    ${ ({ theme }) => theme.typography.primary }
+    ${ ({ theme }) => theme.typography.primary() }
 
     box-sizing: border-box;
     font-feature-settings: 'kern', 'liga';

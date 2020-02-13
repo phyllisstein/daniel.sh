@@ -1,4 +1,6 @@
-export * from './carbon'
+export * from './card'
 export * from './h'
+export * from './masonry'
+export * from './p'
 export * from './provider'
 export * from './root'

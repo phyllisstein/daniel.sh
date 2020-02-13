@@ -6,21 +6,17 @@ interface BaseProps {
 }
 
 export const Base = styled.h1<BaseProps>`
-  ${ ({ primaryType, theme }) => primaryType ? theme.typography.primary : theme.typography.accent }
-
   ${ ({ primaryType, scaleUnit, theme }) => {
     const plumberSettings = {
-      fontSize: theme.scale.unitless(7 - scaleUnit),
+      fontSize: theme.scale.unitless(6 - scaleUnit),
       leadingTop: theme.scale.unitless(scaleUnit - 5),
-      lineHeight: theme.scale.unitless(8 - scaleUnit),
+      lineHeight: theme.scale.unitless(6 - scaleUnit),
     }
 
     if (primaryType) {
-      return theme.plumber.primary(plumberSettings)
+      return theme.typography.primary(plumberSettings)
     }
 
-    return theme.plumber.accent(plumberSettings)
+    return theme.typography.accent(plumberSettings)
   } }
-
-  font-weight: 300;
 `

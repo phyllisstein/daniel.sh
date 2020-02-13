@@ -1,9 +1,9 @@
 import _ from 'lodash'
 import { css } from 'styled-components'
 import { stripUnit } from 'polished'
+import { unitless } from './scale'
 
-interface GetPlumberOpts {
-  baseline: Baseline
+interface PlumberBaseOpts {
   fontSize?: number
   gridHeight?: string
   leadingBottom?: number
@@ -12,7 +12,15 @@ interface GetPlumberOpts {
   useBaselineOrigin?: boolean
 }
 
-interface PlumberBoxOpts {
+export interface GetPlumberOpts extends PlumberBaseOpts {
+  baseline: Baseline
+}
+
+export interface PlumberOpts extends PlumberBaseOpts {
+  baseline?: Baseline
+}
+
+export interface PlumberBoxOpts {
   border?: readonly [string, string]
   gridHeight?: string
   margin?: readonly [number, number]
@@ -47,11 +55,11 @@ const getBaselineCorrection = ({ baseline, fontSize, lineHeight }: { baseline: n
 
 const getPlumber = ({
   baseline: B,
-  fontSize: FONT_SIZE = 2,
-  gridHeight: GRID_HEIGHT = '0.5rem',
+  fontSize: FONT_SIZE = 0,
+  gridHeight: GRID_HEIGHT = '1rem',
   leadingBottom: LEADING_BOTTOM = 0,
   leadingTop: LEADING_TOP = 0,
-  lineHeight: LINE_HEIGHT = 3,
+  lineHeight: LINE_HEIGHT = 2,
   useBaselineOrigin: USE_BASELINE_ORIGIN = false,
 }: GetPlumberOpts) => {
   function plumber({
@@ -62,8 +70,10 @@ const getPlumber = ({
     leadingTop = LEADING_TOP,
     lineHeight = LINE_HEIGHT,
     useBaselineOrigin = USE_BASELINE_ORIGIN,
-  } = {}) {
+  }: PlumberOpts = {}) {
     const [gridHeightValue, gridHeightUnit] = getValueAndUnit(gridHeight)
+    fontSize = unitless(fontSize)
+    lineHeight = unitless(lineHeight)
 
     const { baselineDifference, correctedBaseline } = getBaselineCorrection({
       baseline, fontSize, lineHeight,

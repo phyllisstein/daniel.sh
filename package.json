@@ -107,6 +107,7 @@
     "stylelint-order": "^4.0.0",
     "stylelint-processor-styled-components": "^1.9.0",
     "ts-graphql-plugin": "^1.10.1",
+    "ts-node": "^8.6.2",
     "typescript": "^3.8.0-dev.20191224",
     "typescript-styled-plugin": "^0.15.0"
   },
@@ -127,8 +128,8 @@
     "@raae/gatsby-remark-oembed": "^0.1.1",
     "@rehooks/component-size": "^1.0.3",
     "babel-plugin-lodash": "^3.3.4",
-    "carbon-components": "^10.9.3",
-    "carbon-components-react": "^7.9.3",
+    "carbon-components": "next",
+    "carbon-components-react": "next",
     "carbon-icons": "^7.0.7",
     "chroma-js": "^2.1.0",
     "classnames": "^2.2.6",
@@ -182,10 +183,13 @@
     "react-is": "^16.12.0",
     "react-spring": "^8.0.27",
     "regenerator-runtime": "^0.13.3",
+    "remark-parse": "^7.0.2",
+    "remark-react": "^6.0.0",
     "resize-observer-polyfill": "^1.5.1",
     "semantic-ui-react": "^0.88.2",
     "styled-components": "^5.0.0",
     "styled-media-query": "^2.1.2",
+    "unified": "^8.4.2",
     "webpack": "^4.41.5"
   }
 }

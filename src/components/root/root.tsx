@@ -1,6 +1,6 @@
 import { Charlie, Maison, MaisonMono } from 'styles/global/fonts'
 import { Children, Wrapper } from 'styles/components/root'
-import { CustomBlock, Prism, ThemeBase } from 'styles/global/reset'
+import { CustomBlock, Prism, Reboot, ThemeBase } from 'styles/global/reset'
 import { graphql, useStaticQuery } from 'gatsby'
 import React, { FunctionComponent } from 'react'
 import { Helmet } from 'react-helmet'
