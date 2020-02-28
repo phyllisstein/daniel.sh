@@ -1,8 +1,7 @@
-import { Children, Component } from 'react'
+import { PureComponent } from 'react'
 
-export class MasonryItem extends Component {
+export class MasonryItem extends PureComponent {
   public render() {
-    const child = Children.only(this.props.children)
-    return child
+    return this.props.children
   }
 }

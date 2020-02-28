@@ -1,3 +1,5 @@
+const _ = require('lodash')
+const { DateTime } = require('luxon')
 const fs = require('fs')
 const LodashPlugin = require('lodash-webpack-plugin')
 const path = require('path')
@@ -10,9 +12,17 @@ const readFile = promisify(fs.readFile)
 // ########################################################################## //
 // ############################# Webpack Config ############################# //
 // ########################################################################## //
+const cheapSourceMap = async ({ actions, stage }) => {
+  if (stage === 'develop') {
+    actions.setWebpackConfig({
+      devtool: 'cheap-module-source-map',
+    })
+  }
+}
+
 const includeBanner = async ({ actions, stage }) => {
   if (/build/.test(stage)) {
-    const banner = await readFile('vendor/banner.js', { encoding: 'utf8' })
+    const banner = await readFile('config/banner.js', { encoding: 'utf8' })
     actions.setWebpackConfig({
       plugins: [
         new webpack.BannerPlugin({
@@ -120,6 +130,7 @@ const useTypeScript = async ({ actions, loaders }) => {
 exports.onCreateWebpackConfig = R.converge(
   (...fns) => Promise.all(Array.from(fns)),
   [
+    cheapSourceMap,
     includeBanner,
     minifyLodash,
     resolveVendor,
@@ -133,3 +144,72 @@ exports.onCreateWebpackConfig = R.converge(
 // ############################# Resolve Config ############################# //
 // ########################################################################## //
 exports.resolvableExtensions = () => ['.ts', '.tsx', '.mdx', '.js', '.jsx', '.json']
+
+// ########################################################################## //
+// ############################## Node Creation ############################# //
+// ########################################################################## //
+const addSlug = async ({ actions, node }) => {
+  if (node.internal.type === 'MarkdownRemark') {
+    const slug = node.frontmatter.title
+      ? _.kebabCase(node.frontmatter.title)
+      : 'untitled'
+    actions.createNodeField({
+      name: 'slug',
+      node,
+      value: slug,
+    })
+  }
+}
+
+exports.onCreateNode = R.converge(
+  (...fns) => Promise.all(Array.from(fns)),
+  [
+    addSlug,
+  ],
+)
+
+// ########################################################################## //
+// ############################## Page Creation ############################# //
+// ########################################################################## //
+const createBlogPages = async ({ actions, graphql }) => {
+  const { data } = await graphql(`
+    query {
+      allFile(filter: {
+        extension: { in: ["md", "mdown", "markdown"] },
+        sourceInstanceName:  { eq: "blog" },
+      }) {
+        edges {
+          node {
+            childMarkdownRemark {
+              fields {
+                slug
+              }
+              frontmatter {
+                date
+              }
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  data.allFile.edges.forEach(({ node }) => {
+    const timestamp = DateTime.fromISO(node.childMarkdownRemark.frontmatter.date).toFormat('yyyy/LL')
+
+    actions.createPage({
+      component: path.resolve('src/templates/blog-post.tsx'),
+      context: {
+        slug: node.childMarkdownRemark.fields.slug,
+      },
+      path: path.join('blog', timestamp, node.childMarkdownRemark.fields.slug),
+    })
+  })
+}
+
+exports.createPages = R.converge(
+  (...fns) => Promise.all(Array.from(fns)),
+  [
+    createBlogPages,
+  ],
+)

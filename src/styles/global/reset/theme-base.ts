@@ -11,10 +11,6 @@ export const ThemeBase = createGlobalStyle`
 
   html {
     font-size: 100%;
-
-    ${ ({ theme }) => theme.responsive.query.greaterThan('lg')`
-      font-size: 112.5%;
-    ` }
   }
 
   body {
@@ -23,24 +19,8 @@ export const ThemeBase = createGlobalStyle`
     box-sizing: border-box;
     font-feature-settings: 'kern', 'liga';
     font-kerning: normal;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
     font-variant-ligatures: common-ligatures;
     margin: 0;
     padding: 0;
-    text-rendering: optimizeLegibility;
-  }
-
-  b,
-  strong {
-    font-weight: 700;
-  }
-
-  p {
-    text-indent: 0;
-
-    & + p {
-      text-indent: 1.999rem;
-    }
   }
 `

@@ -1,7 +1,22 @@
 # File created using '.gitignore Generator' for Visual Studio Code: https://bit.ly/vscode-gig
 
-# Created by https://www.gitignore.io/api/macos,visualstudiocode,node
-# Edit at https://www.gitignore.io/?templates=macos,visualstudiocode,node
+# Created by https://www.gitignore.io/api/visualstudiocode,macos,git,node,sass
+# Edit at https://www.gitignore.io/?templates=visualstudiocode,macos,git,node,sass
+
+### Git ###
+# Created by git for backups. To disable backups in Git:
+# $ git config --global mergetool.keepBackup false
+*.orig
+
+# Created by git when using merge tools for conflicts
+*.BACKUP.*
+*.BASE.*
+*.LOCAL.*
+*.REMOTE.*
+*_BACKUP_*.txt
+*_BASE_*.txt
+*_LOCAL_*.txt
+*_REMOTE_*.txt
 
 ### macOS ###
 # General
@@ -54,6 +69,7 @@ lib-cov
 
 # Coverage directory used by tools like istanbul
 coverage
+*.lcov
 
 # nyc test coverage
 .nyc_output
@@ -76,6 +92,9 @@ jspm_packages/
 
 # TypeScript v1 declaration files
 typings/
+
+# TypeScript cache
+*.tsbuildinfo
 
 # Optional npm cache directory
 .npm
@@ -105,6 +124,18 @@ typings/
 # nuxt.js build output
 .nuxt
 
+# rollup.js default build output
+dist/
+
+# Uncomment the public line if your project uses Gatsby
+# https://nextjs.org/blog/next-9-1#public-directory-support
+# https://create-react-app.dev/docs/using-the-public-folder/#docsNav
+# public
+
+# Storybook build outputs
+.out
+.storybook-out
+
 # vuepress build output
 .vuepress/dist
 
@@ -117,6 +148,16 @@ typings/
 # DynamoDB Local files
 .dynamodb/
 
+# Temporary folders
+tmp/
+temp/
+
+### Sass ###
+.sass-cache/
+*.css.map
+*.sass.map
+*.scss.map
+
 ### VisualStudioCode ###
 .vscode/*
 !.vscode/settings.json
@@ -128,12 +169,11 @@ typings/
 # Ignore all local history of files
 .history
 
-# End of https://www.gitignore.io/api/macos,visualstudiocode,node
+# End of https://www.gitignore.io/api/visualstudiocode,macos,git,node,sass
 
 # Custom rules (everything added below won't be overriden by 'Generate .gitignore File' if you use 'Update' option)
 
-# Gatsby
+### Gatsby ###
 /.cache
 /public
-/vendor/schema.graphql
 /.npmrc

@@ -1,97 +1,113 @@
-import { Button, Column, Grid, Row } from 'carbon-components-react'
 import {
+  Button,
   Card,
   CardContents,
   CardHero,
   CardTitle,
   H,
+  Header,
   Masonry,
   P,
+  Segment,
+  SegmentWrapper,
 } from 'components'
+import { Column, Grid, Row } from 'carbon-components-react'
 import { faLinkedinIn, faTwitter } from '@fortawesome/free-brands-svg-icons'
 import { faPaperPlane, faPencil, faReplyAll } from '@fortawesome/pro-regular-svg-icons'
 import {
-  Header,
   Hero,
-  Root,
-  Segment,
+  SiteSubtitle,
+  SiteTitle,
+  SiteTitleContainer,
 } from 'styles/pages/index'
-import React, { FunctionComponent, ReactNode, useCallback, useEffect, useRef, useState } from 'react'
+import React, { FunctionComponent, ReactNode, useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
 import _ from 'lodash'
 import { addEventListener } from 'consolidated-events'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useMedia } from 'hooks'
 import { useSpring } from 'react-spring'
 
-const clampSection = _.partial(_.clamp, _.partial.placeholder, 0, 2)
+const wrapSection = (section: number) => {
+  if (section > 2) {
+    return 0
+  } else if (section < 0) {
+    return 2
+  } else {
+    return section
+  }
+}
 
 const Index: FunctionComponent = () => {
   const root = useRef<ReactNode>(null)
   const [section, setSection] = useState(0)
   const isScrolling = useRef(false)
   const styles = useSpring({
+    from: { scrollLeft: window.scrollX },
     onRest: () => isScrolling.current = false,
-    scrollLeft: section * window.innerWidth,
+    to: { scrollLeft: section * window.innerWidth },
   })
 
   const handleWheel = useCallback(
-    (event: WheelEvent) => {
-      if (Math.abs(event.deltaY) >= 1) {
+    _.debounce((event: WheelEvent) => {
+      if (Math.abs(event.deltaY) > 0) {
         return
       }
 
-      if (isScrolling.current) {
-        event.preventDefault()
-      } else if (event.deltaX >= 10) {
-        event.preventDefault()
+      event.preventDefault()
+
+      if (event.deltaX >= 1 && !isScrolling.current) {
         isScrolling.current = true
-        setSection(clampSection(section + 1))
-      } else if (event.deltaX <= -10) {
-        event.preventDefault()
+        setSection(wrapSection(section + 1))
+      } else if (event.deltaX <= -1 && !isScrolling.current) {
         isScrolling.current = true
-        setSection(clampSection(section - 1))
+        setSection(wrapSection(section - 1))
       }
-    },
+    }, 0, { leading: true, trailing: false }),
     [section],
   )
 
   useEffect(
-    () => addEventListener(root.current, 'wheel', handleWheel, { passive: false }),
+    () => addEventListener(root.current, 'wheel', handleWheel, { capture: true, passive: false }),
   )
 
-  const columns = useMedia(['(min-width: 672px)'], [2], 1)
+  const columns = useMedia(['(min-width: 1312px)', '(min-width: 672px)'], [3, 2], 1)
+
+  const pencilIcon = useCallback(() => <FontAwesomeIcon icon={ faPencil } style={{ marginLeft: '0.5em' }} />, [])
+  const replyAllIcon = useCallback(() => <FontAwesomeIcon icon={ faReplyAll } style={{ marginLeft: '0.5em' }} />, [])
+  const twitterIcon = useCallback(() => <FontAwesomeIcon icon={ faTwitter } style={{ marginLeft: '0.5em' }} />, [])
+  const linkedInIcon = useCallback(() => <FontAwesomeIcon icon={ faLinkedinIn } style={{ marginLeft: '0.5em' }} />, [])
+  const paperPlaneIcon = useCallback(() => <FontAwesomeIcon icon={ faPaperPlane } style={{ marginLeft: '0.5em' }} />, [])
 
   return (
-    <Root scrollLeft={ styles.scrollLeft } ref={ root }>
+    <SegmentWrapper scrollLeft={ styles.scrollLeft } ref={ root }>
       <Segment borderColor='candy'>
         <Hero>
-          <Grid>
-            <Row>
-              <Column md={ 6 } sm={ 4 }>
-                <H primary size={ 4 }>
-                  I’m a full-stack engineer and lapsed essayist applying an
-                  exacting editorial eye to building a more daring web.
-                </H>
-                <H size={ 1 }>
-                  You can call me Daniel.
-                </H>
-              </Column>
-            </Row>
-            <Row>
-              <Column md={ 3 } sm={ 2 }>
+          <SiteTitleContainer>
+            <SiteSubtitle>
+              I’m a full-stack web developer and lapsed essayist who brings an
+              exacting editorial eye to bear on building a more daring web.
+            </SiteSubtitle>
+            <SiteTitle>
+              You can call me Daniel.
+            </SiteTitle>
+          </SiteTitleContainer>
+          <div style={{ flex: '1 1 auto' }} />
+          <Grid style={{ alignItems: 'center', alignSelf: 'center', display: 'flex', flex: '0 0 auto', justifyContent: 'center' }}>
+            <Row style={{ padding: '2rem' }}>
+              <Column>
                 <Button
                   iconDescription='Blog'
                   kind='ghost'
-                  renderIcon={ props => <FontAwesomeIcon { ...props } icon={ faPencil } /> }
+                  renderIcon={ pencilIcon }
                   onClick={ () => setSection(1) }>
                   Blog
                 </Button>
               </Column>
-              <Column md={ 3 } sm={ 2 }>
+              <Column>
                 <Button
                   iconDescription='Contact'
                   kind='ghost'
-                  renderIcon={ props => <FontAwesomeIcon { ...props } icon={ faReplyAll } /> }
+                  renderIcon={ replyAllIcon }
                   onClick={ () => setSection(2) }>
                   Contact
                 </Button>
@@ -100,14 +116,14 @@ const Index: FunctionComponent = () => {
           </Grid>
         </Hero>
       </Segment>
-      <Segment borderColor='burnt'>
+      <Segment borderColor='lilac'>
         <Header>
           <H primary size={ 1 }>Blog</H>
         </Header>
         <Grid>
           <Row>
             <Masonry columns={ columns }>
-              <Column md={ 4 }>
+              <Column md={ 4 } xlg={ 5 }>
                 <Card>
                   <CardTitle subtitle='Subbed title'>
                     Titillatingly titular
@@ -141,7 +157,7 @@ const Index: FunctionComponent = () => {
                   </CardContents>
                 </Card>
               </Column>
-              <Column md={ 4 }>
+              <Column md={ 4 } xlg={ 5 }>
                 <Card>
                   <CardTitle subtitle='Subbed title that extends way beyond the title'>
                     Titillatingly titular
@@ -162,7 +178,7 @@ const Index: FunctionComponent = () => {
                   </CardContents>
                 </Card>
               </Column>
-              <Column md={ 4 }>
+              <Column md={ 4 } xlg={ 5 }>
                 <Card>
                   <CardTitle subtitle='Subbed title that extends way beyond the title'>
                     A longer title: Genesis ipsum
@@ -180,23 +196,44 @@ const Index: FunctionComponent = () => {
                   </CardContents>
                 </Card>
               </Column>
+              <Column md={ 4 } xlg={ 5 }>
+                <Card>
+                  <CardTitle subtitle='Subbed title that extends way beyond the title'>
+                    A longer title: Genesis ipsum
+                  </CardTitle>
+                  <CardHero src='https://placekitten.com/1024/768' />
+                  <CardContents>
+                    <P>
+                      So the LORD God said to them, Be fruitful and multiply,
+                      and fill the waters in the seas, and let them have
+                      dominion over the fish of the sea, and over the face of
+                      the waters. So the LORD God had taken from the earth, and
+                      every tree of the second river is Gihon; it is the one
+                      that flows around the whole land of Cush. But of the tree
+                      that is upon the face of the deep, while a wind from God
+                      swept over the cattle, and to the birds of the air, and
+                      brought her to the man.
+                    </P>
+                  </CardContents>
+                </Card>
+              </Column>
             </Masonry>
           </Row>
         </Grid>
       </Segment>
       <Segment borderColor='canada'>
-        <Header>
-          <H primary size={ 1 }>Contact</H>
-        </Header>
-        <Hero style={{ height: '80vh' }}>
-          <Grid>
+        <Hero>
+          <Header>
+            <H primary size={ 1 }>Contact</H>
+          </Header>
+          <Grid style={{ alignItems: 'center', display: 'flex', flex: '1 0 auto', justifyContent: 'center' }}>
             <Row>
               <Column>
                 <Button
                   href='https://twitter.com/phyllisstein'
                   iconDescription='Twitter'
                   kind='ghost'
-                  renderIcon={ props => <FontAwesomeIcon { ...props } icon={ faTwitter } /> }
+                  renderIcon={ twitterIcon }
                   target='_blank'
                   tooltipAlignment='center'
                   tooltipPosition='top'>
@@ -208,7 +245,7 @@ const Index: FunctionComponent = () => {
                   href='https://linkedin.com/in/danielsh1'
                   iconDescription='LinkedIn'
                   kind='ghost'
-                  renderIcon={ props => <FontAwesomeIcon { ...props } icon={ faLinkedinIn } /> }
+                  renderIcon={ linkedInIcon }
                   target='_blank'
                   tooltipAlignment='center'
                   tooltipPosition='top'>
@@ -220,7 +257,7 @@ const Index: FunctionComponent = () => {
                   href='mailto:daniel@daniel.sh'
                   iconDescription='Email'
                   kind='ghost'
-                  renderIcon={ props => <FontAwesomeIcon { ...props } icon={ faPaperPlane } /> }
+                  renderIcon={ paperPlaneIcon }
                   target='_blank'
                   tooltipAlignment='center'
                   tooltipPosition='top'>
@@ -231,7 +268,7 @@ const Index: FunctionComponent = () => {
           </Grid>
         </Hero>
       </Segment>
-    </Root>
+    </SegmentWrapper>
   )
 }
 

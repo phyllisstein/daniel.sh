@@ -1,19 +1,19 @@
 import * as R from 'ramda'
 import C from 'chroma-js'
-import { g90 } from '@carbon/themes'
+import { g10 as carbon } from '@carbon/themes'
 
-const carbon = {
-  inverse01: C(g90.inverse01),
-  inverse02: C(g90.inverse02),
-  overlay01: C(g90.overlay01),
-  text01: C(g90.text01),
-  text02: C(g90.text02),
-  text03: C(g90.text03),
-  text05: C(g90.text05),
-  ui01: C(g90.ui01),
-  ui02: C(g90.ui02),
-  ui03: C(g90.ui03),
-  ui05: C(g90.ui05),
+const carbonPalette = {
+  inverse01: C(carbon.inverse01),
+  inverse02: C(carbon.inverse02),
+  overlay01: C(carbon.overlay01),
+  text01: C(carbon.text01),
+  text02: C(carbon.text02),
+  text03: C(carbon.text03),
+  text05: C(carbon.text05),
+  ui01: C(carbon.ui01),
+  ui02: C(carbon.ui02),
+  ui03: C(carbon.ui03),
+  ui05: C(carbon.ui05),
 }
 
 const rainbow = {
@@ -26,12 +26,12 @@ const rainbow = {
 }
 
 export const js = {
-  ...carbon,
+  ...carbonPalette,
   ...rainbow,
 }
 
-type JSColors = typeof js
+export type JSColors = typeof js
 
-type CSSColors = { [k in keyof JSColors]: string }
+export type CSSColors = { [k in keyof JSColors]: string }
 
 export const css: CSSColors = R.map(R.invoker(0, 'css'), js)

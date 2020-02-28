@@ -33,7 +33,11 @@ export interface PlumberBoxOpts {
  * See also <https://github.com/source-foundry/font-line>.
  */
 enum Baseline {
+  AtlasGrotesk = 0.188,
+  Capita = 0.138,
   Charlie = 0.12,
+  GTPressura = 0.184,
+  JetBrainsMono = 0.1725,
   Maison = 0.133,
   MaisonMono = 0.133,
 }
@@ -44,7 +48,7 @@ const getValueAndUnit = _.partial(stripUnit, _.partial.placeholder, true)
 
 const getBaselineCorrection = ({ baseline, fontSize, lineHeight }: { baseline: number; fontSize: number; lineHeight: number }) => {
   const baselineFromBottom = (lineHeight - fontSize) / 2 + fontSize * baseline
-  const correctedBaseline = round(baselineFromBottom)
+  const correctedBaseline = _.round(baselineFromBottom)
   const baselineDifference = correctedBaseline - baselineFromBottom
 
   return {
@@ -126,6 +130,6 @@ const getPlumber = ({
   return plumber
 }
 
-export const primary = getPlumber({ baseline: Baseline.Maison })
-export const accent = getPlumber({ baseline: Baseline.Charlie })
-export const mono = getPlumber({ baseline: Baseline.MaisonMono })
+export const primary = getPlumber({ baseline: Baseline.Charlie })
+export const accent = getPlumber({ baseline: Baseline.GTPressura })
+export const mono = getPlumber({ baseline: Baseline.JetBrainsMono })

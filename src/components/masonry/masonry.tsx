@@ -1,4 +1,4 @@
-import React, { Children, FunctionComponent, ReactNode, useLayoutEffect } from 'react'
+import React, { Children, FunctionComponent, LegacyRef, ReactNode, useLayoutEffect } from 'react'
 import { MasonryItem } from './masonry-item'
 import { MasonryRoot } from 'styles/components/masonry'
 import ReactDOM from 'react-dom'
@@ -9,47 +9,34 @@ export interface MasonryProps {
 }
 
 export const Masonry: FunctionComponent<MasonryProps> = ({ children, columns }) => {
-  const observers = new Map<ReactNode, any>()
+  const observers = new Map<ReactNode, HTMLElement>()
   const columnHeights = new Array(columns).fill(0)
   const [bindRoot, { width: rootWidth }] = useMeasure()
 
-  const calculateChildHeight = (container: ReactNode) => {
-    const containerEl = ReactDOM.findDOMNode(container)
-    if (!containerEl || observers.has(containerEl)) return
+  const positionChild = (component: LegacyRef<MasonryItem>) => {
+    const container = ReactDOM.findDOMNode(component)
+    if (!container) return
 
-    const observer = new ResizeObserver(([entry]) => {
-      const { height } = entry.contentRect
-      const column = columnHeights.indexOf(Math.min(...columnHeights))
+    const { height } = container.getBoundingClientRect() || {}
+    const column = columnHeights.indexOf(Math.min(...columnHeights))
 
-      const x = rootWidth / columns * column
-      const y = columnHeights[column]
+    const width = rootWidth / columns
+    const x = width * column
+    const y = columnHeights[column]
 
-      entry.target.style.position = 'absolute'
-      entry.target.style.transform = `translate3d(${ x }px, ${ y }px, 0)`
+    container.style.position = 'absolute'
+    container.style.transform = `translate3d(${ x }px, ${ y }px, 0)`
 
-      columnHeights[column] += height
-    })
-
-    observers.set(containerEl, observer)
+    columnHeights[column] += height
   }
 
   const clonedChildren = Children.map(children, (child, index) => {
     return (
-      <MasonryItem key={ index } ref={ calculateChildHeight }>
+      <MasonryItem key={ index } ref={ positionChild }>
         { child }
       </MasonryItem>
     )
   })
-
-  useLayoutEffect(
-    () => {
-      observers.forEach((observer, container) => observer.observe(container))
-
-      return () => {
-        observers.forEach(observer => observer.disconnect())
-      }
-    },
-  )
 
   return (
     <MasonryRoot { ...bindRoot }>

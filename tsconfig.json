@@ -27,7 +27,6 @@
     ],
     "module": "esnext",
     "moduleResolution": "node",
-    "noEmit": true,
     "noImplicitAny": true,
     "noImplicitReturns": true,
     "noResolve": false,
@@ -36,7 +35,8 @@
     "paths": {
       "*": [
         "*",
-        "src/*"
+        "src/*",
+        "vendor/*"
       ]
     },
     "plugins": [
@@ -51,6 +51,7 @@
     "rootDir": "src",
     "skipLibCheck": true,
     "strict": true,
+    "strictNullChecks": false,
     "suppressImplicitAnyIndexErrors": true,
     "target": "esnext"
   },
@@ -60,6 +61,11 @@
   "include": [
     "./content/**/*.mdx",
     "./src/**/*.ts",
-    "./src/**/*.tsx"
+    "./src/**/*.tsx",
+    "./vendor/**/*.ts"
+  ],
+  "typeRoots": [
+    "./node_modules/@types",
+    "./vendor/types"
   ]
 }

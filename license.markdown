@@ -1,3 +1,9 @@
+# License
+Original source files in this repository, contained in `src` and `config`, are
+licensed under the GNU General Public License, version 3 or later. Third-party
+assets and sources, contained in `vendor`, are the property of their respective
+owners. All rights to content in the `content` directory are reserved.
+
 ### GNU GENERAL PUBLIC LICENSE
 
 Version 3, 29 June 2007

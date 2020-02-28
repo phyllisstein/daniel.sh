@@ -1,3 +1,2 @@
-export * from './card'
-export * from './card-hero'
-export * from './card-title'
+export * from './hero'
+export * from './title'

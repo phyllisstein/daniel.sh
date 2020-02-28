@@ -17,9 +17,10 @@
     __DEV__: false
     __SSR__: false
   ignorePatterns:
-    - '**/vendor/'
+    - '**/.cache/'
     - '**/node_modules/'
-    - 'build/'
+    - '**/types/'
+    - '**/vendor/'
   overrides:
     - files: config/**/*.js
       rules:
@@ -107,7 +108,7 @@
     '@typescript-eslint/no-namespace':
       - error
       - allowDefinitionFiles: true
-    '@typescript-eslint/no-non-null-assertion': warn
+    '@typescript-eslint/no-non-null-assertion': 'off'
     '@typescript-eslint/no-parameter-properties': 'off'
     '@typescript-eslint/no-require-imports': 'off'
     '@typescript-eslint/no-this-alias':

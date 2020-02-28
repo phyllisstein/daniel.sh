@@ -1,17 +1,9 @@
-import * as R from 'ramda'
+export interface FontEdge {
+  node: FontNode[]
+}
 
-export const getWOFFs = R.pipe(
-  R.pluck('node'),
-  R.groupBy(R.prop('name')),
-  R.map(
-    R.pipe(
-      R.indexBy(
-        R.pipe(
-          R.prop('ext'),
-          R.replace('.', ''),
-        ),
-      ),
-      R.pluck('publicURL'),
-    ),
-  ),
-)
+export interface FontNode {
+  ext: '.woff' | '.woff2'
+  name: string
+  publicURL: string
+}

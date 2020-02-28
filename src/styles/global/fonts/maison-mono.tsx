@@ -1,18 +1,19 @@
+import * as R from 'ramda'
 import { graphql, useStaticQuery } from 'gatsby'
 import React, { FunctionComponent, useMemo } from 'react'
 import { createGlobalStyle } from 'styled-components'
-import { getWOFFs } from './util'
+import { MaisonMonoFontQuery } from 'types/gatsby'
 
 const FACES = [
-  { src: 'MaisonNeueMono-Regular', style: 'normal', weight: 400 },
-  { src: 'MaisonNeueMono-Italic', style: 'italic', weight: 400 },
-  { src: 'MaisonNeueMono-Bold', style: 'normal', weight: 700 },
-  { src: 'MaisonNeueMono-BoldItalic', style: 'italic', weight: 700 },
+  { name: 'MaisonNeueMono-Regular', style: 'normal', weight: 400 },
+  { name: 'MaisonNeueMono-Italic', style: 'italic', weight: 400 },
+  { name: 'MaisonNeueMono-Bold', style: 'normal', weight: 700 },
+  { name: 'MaisonNeueMono-BoldItalic', style: 'italic', weight: 700 },
 ]
 
 export const MaisonMono: FunctionComponent = () => {
   const data = useStaticQuery(graphql`
-    query {
+    query MaisonMonoFontQuery {
       allFile(filter: { name: { glob: "*MaisonNeueMono-*" } }) {
         edges {
           node {
@@ -25,10 +26,15 @@ export const MaisonMono: FunctionComponent = () => {
     }
   `)
 
-  const woffs = getWOFFs(data.allFile.edges)
-
-  const decls = FACES.map(({ src, style, weight }) => {
-    const woff = woffs[src]
+  const decls = FACES.map(({ name, style, weight }) => {
+    const woff = R.pipe(
+      R.pluck('node'),
+      R.find(R.whereEq({ ext: '.woff', name })),
+    )(data.allFile.edges)
+    const woff2 = R.pipe(
+      R.pluck('node'),
+      R.find(R.whereEq({ ext: '.woff2', name })),
+    )(data.allFile.edges)
 
     return `
       @font-face {
@@ -36,8 +42,8 @@ export const MaisonMono: FunctionComponent = () => {
         font-family: 'Maison Neue Mono';
         font-style: ${ style };
         font-weight: ${ weight };
-        src: url('${ woff.woff2 }') format('woff2'),
-             url('${ woff.woff }') format('woff');
+        src: url('${ woff2.publicURL }') format('woff2'),
+             url('${ woff.publicURL }') format('woff');
       }
     `
   })
@@ -46,7 +52,7 @@ export const MaisonMono: FunctionComponent = () => {
     createGlobalStyle`
       ${ decls.join('\n\n') }
     `
-  ), ['']) // eslint-disable-line react-hooks/exhaustive-deps
+  ), []) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <FontCSS />

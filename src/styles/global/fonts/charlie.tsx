@@ -1,30 +1,32 @@
+import * as R from 'ramda'
+import { FontEdge, FontNode } from './util'
 import { graphql, useStaticQuery } from 'gatsby'
 import React, { FunctionComponent, useMemo } from 'react'
+import { CharlieFontQuery } from 'types/gatsby'
 import { createGlobalStyle } from 'styled-components'
-import { getWOFFs } from './util'
 
 const FACES = [
-  { src: 'CharliePro-Hairline', style: 'normal', weight: 100 },
-  { src: 'CharliePro-HairlineItalic', style: 'italic', weight: 100 },
-  { src: 'CharliePro-Thin', style: 'normal', weight: 200 },
-  { src: 'CharliePro-ThinItalic', style: 'italic', weight: 200 },
-  { src: 'CharliePro-Light', style: 'normal', weight: 300 },
-  { src: 'CharliePro-LightItalic', style: 'italic', weight: 300 },
-  { src: 'CharliePro-Regular', style: 'normal', weight: 400 },
-  { src: 'CharliePro-RegularItalic', style: 'italic', weight: 400 },
-  { src: 'CharliePro-Medium', style: 'normal', weight: 500 },
-  { src: 'CharliePro-MediumItalic', style: 'italic', weight: 500 },
-  { src: 'CharliePro-Semibold', style: 'normal', weight: 600 },
-  { src: 'CharliePro-SemiboldItalic', style: 'italic', weight: 600 },
-  { src: 'CharliePro-Bold', style: 'normal', weight: 700 },
-  { src: 'CharliePro-BoldItalic', style: 'italic', weight: 700 },
-  { src: 'CharliePro-Black', style: 'normal', weight: 800 },
-  { src: 'CharliePro-BlackItalic', style: 'italic', weight: 800 },
+  { name: 'CharliePro-Hairline', style: 'normal', weight: 100 },
+  { name: 'CharliePro-HairlineItalic', style: 'italic', weight: 100 },
+  { name: 'CharliePro-Thin', style: 'normal', weight: 200 },
+  { name: 'CharliePro-ThinItalic', style: 'italic', weight: 200 },
+  { name: 'CharliePro-Light', style: 'normal', weight: 300 },
+  { name: 'CharliePro-LightItalic', style: 'italic', weight: 300 },
+  { name: 'CharliePro-Regular', style: 'normal', weight: 400 },
+  { name: 'CharliePro-RegularItalic', style: 'italic', weight: 400 },
+  { name: 'CharliePro-Medium', style: 'normal', weight: 500 },
+  { name: 'CharliePro-MediumItalic', style: 'italic', weight: 500 },
+  { name: 'CharliePro-Semibold', style: 'normal', weight: 600 },
+  { name: 'CharliePro-SemiboldItalic', style: 'italic', weight: 600 },
+  { name: 'CharliePro-Bold', style: 'normal', weight: 700 },
+  { name: 'CharliePro-BoldItalic', style: 'italic', weight: 700 },
+  { name: 'CharliePro-Black', style: 'normal', weight: 800 },
+  { name: 'CharliePro-BlackItalic', style: 'italic', weight: 800 },
 ]
 
 export const Charlie: FunctionComponent = () => {
-  const data = useStaticQuery(graphql`
-    query {
+  const data: CharlieFontQuery = useStaticQuery(graphql`
+    query CharlieFont {
       allFile(filter: { name: { glob: "*CharliePro-*" } }) {
         edges {
           node {
@@ -37,10 +39,15 @@ export const Charlie: FunctionComponent = () => {
     }
   `)
 
-  const woffs = getWOFFs(data.allFile.edges)
-
-  const decls = FACES.map(({ src, style, weight }) => {
-    const woff = woffs[src]
+  const decls = FACES.map(({ name, style, weight }) => {
+    const woff = R.pipe(
+      R.pluck('node'),
+      R.find(R.whereEq({ ext: '.woff', name })),
+    )(data.allFile.edges)
+    const woff2 = R.pipe(
+      R.pluck('node'),
+      R.find(R.whereEq({ ext: '.woff2', name })),
+    )(data.allFile.edges)
 
     return `
       @font-face {
@@ -48,8 +55,8 @@ export const Charlie: FunctionComponent = () => {
         font-family: 'Charlie Pro';
         font-style: ${ style };
         font-weight: ${ weight };
-        src: url('${ woff.woff2 }') format('woff2'),
-             url('${ woff.woff }') format('woff');
+        src: url('${ woff2.publicURL }') format('woff2'),
+             url('${ woff.publicURL }') format('woff');
       }
     `
   })
@@ -58,7 +65,7 @@ export const Charlie: FunctionComponent = () => {
     createGlobalStyle`
       ${ decls.join('\n\n') }
     `
-  ), ['']) // eslint-disable-line react-hooks/exhaustive-deps
+  ), []) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <FontCSS />

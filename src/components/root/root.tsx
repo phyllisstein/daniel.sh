@@ -1,13 +1,14 @@
-import { Charlie, Maison, MaisonMono } from 'styles/global/fonts'
+import { Charlie, GTPressura, JetBrainsMono } from 'styles/global/fonts'
 import { Children, Wrapper } from 'styles/components/root'
-import { CustomBlock, Prism, Reboot, ThemeBase } from 'styles/global/reset'
+import { CustomBlock, Prism, ThemeBase } from 'styles/global/reset'
 import { graphql, useStaticQuery } from 'gatsby'
 import React, { FunctionComponent } from 'react'
 import { Helmet } from 'react-helmet'
+import { RootQuery } from 'types/gatsby'
 
 export const Root: FunctionComponent = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query RootQuery {
+  const data: RootQuery = useStaticQuery(graphql`
+    query Root {
       avatar: file(relativePath: {eq: "images/avatar.jpg"}) {
         childImageSharp {
           tw: resize(height: 630, width: 1200) {
@@ -30,9 +31,9 @@ export const Root: FunctionComponent = ({ children }) => {
 
   return (
     <>
+      <GTPressura />
       <Charlie />
-      <Maison />
-      <MaisonMono />
+      <JetBrainsMono />
 
       <CustomBlock />
       <Prism />

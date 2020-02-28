@@ -8,9 +8,9 @@ interface BaseProps {
 export const Base = styled.h1<BaseProps>`
   ${ ({ primaryType, scaleUnit, theme }) => {
     const plumberSettings = {
-      fontSize: theme.scale.unitless(6 - scaleUnit),
-      leadingTop: theme.scale.unitless(scaleUnit - 5),
-      lineHeight: theme.scale.unitless(6 - scaleUnit),
+      fontSize: 5 - scaleUnit,
+      leadingTop: theme.scale.unitless(5 - scaleUnit),
+      lineHeight: 5 - scaleUnit,
     }
 
     if (primaryType) {
@@ -19,4 +19,8 @@ export const Base = styled.h1<BaseProps>`
 
     return theme.typography.accent(plumberSettings)
   } }
+
+  &:first-child {
+    margin-top: 0;
+  }
 `

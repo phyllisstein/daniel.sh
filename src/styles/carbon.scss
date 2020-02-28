@@ -5,7 +5,7 @@ $feature-flags: (
 
 @import '@carbon/themes/scss/themes';
 
-$carbon--theme: $carbon--theme--g90;
+$carbon--theme: $carbon--theme--g10;
 @include carbon--theme();
 
 $css--default-type: false;
