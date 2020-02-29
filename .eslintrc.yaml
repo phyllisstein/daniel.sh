@@ -6,13 +6,14 @@
     node: true
     shared-node-browser: true
   extends:
+    - standard
+    - standard-jsx
+    - standard-react
     - plugin:@typescript-eslint/eslint-recommended
     - plugin:@typescript-eslint/recommended
     - plugin:ramda/recommended
     - plugin:react/recommended
-    - standard
-    - standard-jsx
-    - standard-react
+    - plugin:import/typescript
   globals:
     __DEV__: false
     __SSR__: false

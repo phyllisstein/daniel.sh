@@ -2316,15 +2316,6 @@ export type SitePageFieldsEnum =
   'pluginCreator___pluginOptions___linkImagesToOriginal' |
   'pluginCreator___pluginOptions___showCaptions' |
   'pluginCreator___pluginOptions___withWebp' |
-  'pluginCreator___pluginOptions___pathPrefix' |
-  'pluginCreator___pluginOptions___maxWidth' |
-  'pluginCreator___pluginOptions___wrapperStyle' |
-  'pluginCreator___pluginOptions___backgroundColor' |
-  'pluginCreator___pluginOptions___markdownCaptions' |
-  'pluginCreator___pluginOptions___tracedSVG' |
-  'pluginCreator___pluginOptions___loading' |
-  'pluginCreator___pluginOptions___disableBgImageOnAlpha' |
-  'pluginCreator___pluginOptions___disableBgImage' |
   'pluginCreator___pluginOptions___related' |
   'pluginCreator___pluginOptions___icon' |
   'pluginCreator___pluginOptions___removeAccents' |
@@ -2529,15 +2520,6 @@ export type SitePluginFieldsEnum =
   'pluginOptions___plugins___pluginOptions___linkImagesToOriginal' |
   'pluginOptions___plugins___pluginOptions___showCaptions' |
   'pluginOptions___plugins___pluginOptions___withWebp' |
-  'pluginOptions___plugins___pluginOptions___pathPrefix' |
-  'pluginOptions___plugins___pluginOptions___maxWidth' |
-  'pluginOptions___plugins___pluginOptions___wrapperStyle' |
-  'pluginOptions___plugins___pluginOptions___backgroundColor' |
-  'pluginOptions___plugins___pluginOptions___markdownCaptions' |
-  'pluginOptions___plugins___pluginOptions___tracedSVG' |
-  'pluginOptions___plugins___pluginOptions___loading' |
-  'pluginOptions___plugins___pluginOptions___disableBgImageOnAlpha' |
-  'pluginOptions___plugins___pluginOptions___disableBgImage' |
   'pluginOptions___plugins___pluginOptions___related' |
   'pluginOptions___plugins___pluginOptions___icon' |
   'pluginOptions___plugins___pluginOptions___removeAccents' |
@@ -2561,15 +2543,6 @@ export type SitePluginFieldsEnum =
   'pluginOptions___linkImagesToOriginal' |
   'pluginOptions___showCaptions' |
   'pluginOptions___withWebp' |
-  'pluginOptions___pathPrefix' |
-  'pluginOptions___maxWidth' |
-  'pluginOptions___wrapperStyle' |
-  'pluginOptions___backgroundColor' |
-  'pluginOptions___markdownCaptions' |
-  'pluginOptions___tracedSVG' |
-  'pluginOptions___loading' |
-  'pluginOptions___disableBgImageOnAlpha' |
-  'pluginOptions___disableBgImage' |
   'pluginOptions___related' |
   'pluginOptions___icon' |
   'pluginOptions___removeAccents' |
@@ -2711,15 +2684,6 @@ export type SitePluginPluginOptions = {
   linkImagesToOriginal?: Maybe<Scalars['Boolean']>,
   showCaptions?: Maybe<Scalars['Boolean']>,
   withWebp?: Maybe<Scalars['Boolean']>,
-  pathPrefix?: Maybe<Scalars['String']>,
-  maxWidth?: Maybe<Scalars['Int']>,
-  wrapperStyle?: Maybe<Scalars['String']>,
-  backgroundColor?: Maybe<Scalars['String']>,
-  markdownCaptions?: Maybe<Scalars['Boolean']>,
-  tracedSVG?: Maybe<Scalars['Boolean']>,
-  loading?: Maybe<Scalars['String']>,
-  disableBgImageOnAlpha?: Maybe<Scalars['Boolean']>,
-  disableBgImage?: Maybe<Scalars['Boolean']>,
   related?: Maybe<Scalars['Boolean']>,
   icon?: Maybe<Scalars['String']>,
   removeAccents?: Maybe<Scalars['Boolean']>,
@@ -2799,15 +2763,6 @@ export type SitePluginPluginOptionsFilterInput = {
   linkImagesToOriginal?: Maybe<BooleanQueryOperatorInput>,
   showCaptions?: Maybe<BooleanQueryOperatorInput>,
   withWebp?: Maybe<BooleanQueryOperatorInput>,
-  pathPrefix?: Maybe<StringQueryOperatorInput>,
-  maxWidth?: Maybe<IntQueryOperatorInput>,
-  wrapperStyle?: Maybe<StringQueryOperatorInput>,
-  backgroundColor?: Maybe<StringQueryOperatorInput>,
-  markdownCaptions?: Maybe<BooleanQueryOperatorInput>,
-  tracedSVG?: Maybe<BooleanQueryOperatorInput>,
-  loading?: Maybe<StringQueryOperatorInput>,
-  disableBgImageOnAlpha?: Maybe<BooleanQueryOperatorInput>,
-  disableBgImage?: Maybe<BooleanQueryOperatorInput>,
   related?: Maybe<BooleanQueryOperatorInput>,
   icon?: Maybe<StringQueryOperatorInput>,
   removeAccents?: Maybe<BooleanQueryOperatorInput>,
@@ -2853,15 +2808,6 @@ export type SitePluginPluginOptionsPluginsPluginOptions = {
   linkImagesToOriginal?: Maybe<Scalars['Boolean']>,
   showCaptions?: Maybe<Scalars['Boolean']>,
   withWebp?: Maybe<Scalars['Boolean']>,
-  pathPrefix?: Maybe<Scalars['String']>,
-  maxWidth?: Maybe<Scalars['Int']>,
-  wrapperStyle?: Maybe<Scalars['String']>,
-  backgroundColor?: Maybe<Scalars['String']>,
-  markdownCaptions?: Maybe<Scalars['Boolean']>,
-  tracedSVG?: Maybe<Scalars['Boolean']>,
-  loading?: Maybe<Scalars['String']>,
-  disableBgImageOnAlpha?: Maybe<Scalars['Boolean']>,
-  disableBgImage?: Maybe<Scalars['Boolean']>,
   related?: Maybe<Scalars['Boolean']>,
   icon?: Maybe<Scalars['String']>,
   removeAccents?: Maybe<Scalars['Boolean']>,
@@ -2931,15 +2877,6 @@ export type SitePluginPluginOptionsPluginsPluginOptionsFilterInput = {
   linkImagesToOriginal?: Maybe<BooleanQueryOperatorInput>,
   showCaptions?: Maybe<BooleanQueryOperatorInput>,
   withWebp?: Maybe<BooleanQueryOperatorInput>,
-  pathPrefix?: Maybe<StringQueryOperatorInput>,
-  maxWidth?: Maybe<IntQueryOperatorInput>,
-  wrapperStyle?: Maybe<StringQueryOperatorInput>,
-  backgroundColor?: Maybe<StringQueryOperatorInput>,
-  markdownCaptions?: Maybe<BooleanQueryOperatorInput>,
-  tracedSVG?: Maybe<BooleanQueryOperatorInput>,
-  loading?: Maybe<StringQueryOperatorInput>,
-  disableBgImageOnAlpha?: Maybe<BooleanQueryOperatorInput>,
-  disableBgImage?: Maybe<BooleanQueryOperatorInput>,
   related?: Maybe<BooleanQueryOperatorInput>,
   icon?: Maybe<StringQueryOperatorInput>,
   removeAccents?: Maybe<BooleanQueryOperatorInput>,

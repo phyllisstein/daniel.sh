@@ -1,30 +1,35 @@
 import styled from 'styled-components'
 
 export const HeroBase = styled.figure`
-  margin: 0 1rem;
-  overflow: hidden;
   position: relative;
 
+  margin: 0 1rem;
+  overflow: hidden;
+
   &::before {
-    content: '';
     float: left;
+    width: 1px;
     height: 0;
     margin-left: -1px;
     padding-top: 56.25%;
-    width: 1px;
+
+    content: '';
   }
 
   &::after {
-    clear: both;
-    content: '';
     display: table;
+    clear: both;
+
+    content: '';
   }
 `
 
 export const HeroImage = styled.img`
   position: absolute;
-  left: 50%;
   top: 50%;
-  transform: translate3d(-50%, -50%, 0);
+  left: 50%;
+
   min-width: 100%;
+
+  transform: translate3d(-50%, -50%, 0);
 `

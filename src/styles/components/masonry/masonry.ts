@@ -5,7 +5,8 @@ export const MasonryItem = styled.div`
 `
 
 export const MasonryRoot = styled.div`
-  height: 100%;
   position: relative;
+
   width: 100%;
+  height: 100%;
 `

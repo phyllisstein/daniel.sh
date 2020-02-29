@@ -16,19 +16,30 @@ export const Reboot = createGlobalStyle`
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 
-  article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
+  article,
+  aside,
+  figcaption,
+  figure,
+  footer,
+  header,
+  hgroup,
+  main,
+  nav,
+  section {
     display: block;
   }
 
   body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
+
     color: #212529;
+    font-weight: 400;
+    font-size: 1rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    line-height: 1.5;
     text-align: left;
-    background-color: #fff;
+
+    background-color: #FFF;
   }
 
   [tabindex="-1"]:focus:not(:focus-visible) {
@@ -41,7 +52,12 @@ export const Reboot = createGlobalStyle`
     overflow: visible;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     margin-top: 0;
     margin-bottom: 0.5rem;
   }
@@ -53,17 +69,16 @@ export const Reboot = createGlobalStyle`
 
   abbr[title],
   abbr[data-original-title] {
-    text-decoration: underline;
-    -webkit-text-decoration: underline dotted;
     text-decoration: underline dotted;
-    cursor: help;
+
     border-bottom: 0;
-    -webkit-text-decoration-skip-ink: none;
-    text-decoration-skip-ink: none;
+    cursor: help;
+    text-decoration-skip-ink: auto;
   }
 
   address {
     margin-bottom: 1rem;
+
     font-style: normal;
     line-height: inherit;
   }
@@ -87,7 +102,7 @@ export const Reboot = createGlobalStyle`
   }
 
   dd {
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
     margin-left: 0;
   }
 
@@ -107,27 +122,29 @@ export const Reboot = createGlobalStyle`
   sub,
   sup {
     position: relative;
+
     font-size: 75%;
     line-height: 0;
     vertical-align: baseline;
   }
 
   sub {
-    bottom: -.25em;
+    bottom: -0.25em;
   }
 
   sup {
-    top: -.5em;
+    top: -0.5em;
   }
 
   a {
-    color: #007bff;
+    color: #007BFF;
     text-decoration: none;
+
     background-color: transparent;
   }
 
   a:hover {
-    color: #0056b3;
+    color: #0056B3;
     text-decoration: underline;
   }
 
@@ -136,7 +153,8 @@ export const Reboot = createGlobalStyle`
     text-decoration: none;
   }
 
-  a:not([href]):not([tabindex]):hover, a:not([href]):not([tabindex]):focus {
+  a:not([href]):not([tabindex]):hover,
+  a:not([href]):not([tabindex]):focus {
     color: inherit;
     text-decoration: none;
   }
@@ -149,8 +167,8 @@ export const Reboot = createGlobalStyle`
   code,
   kbd,
   samp {
-    font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     font-size: 1em;
+    font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   }
 
   pre {
@@ -165,11 +183,13 @@ export const Reboot = createGlobalStyle`
 
   img {
     vertical-align: middle;
+
     border-style: none;
   }
 
   svg {
     overflow: hidden;
+
     vertical-align: middle;
   }
 
@@ -180,8 +200,10 @@ export const Reboot = createGlobalStyle`
   caption {
     padding-top: 0.75rem;
     padding-bottom: 0.75rem;
-    color: #6c757d;
+
+    color: #6C757D;
     text-align: left;
+
     caption-side: bottom;
   }
 
@@ -198,19 +220,15 @@ export const Reboot = createGlobalStyle`
     border-radius: 0;
   }
 
-  button:focus {
-    outline: 1px dotted;
-    outline: 5px auto -webkit-focus-ring-color;
-  }
-
   input,
   button,
   select,
   optgroup,
   textarea {
     margin: 0;
-    font-family: inherit;
+
     font-size: inherit;
+    font-family: inherit;
     line-height: inherit;
   }
 
@@ -232,14 +250,7 @@ export const Reboot = createGlobalStyle`
   [type="button"],
   [type="reset"],
   [type="submit"] {
-    -webkit-appearance: button;
-  }
-
-  button:not(:disabled),
-  [type="button"]:not(:disabled),
-  [type="reset"]:not(:disabled),
-  [type="submit"]:not(:disabled) {
-    cursor: pointer;
+    appearance: button;
   }
 
   button::-moz-focus-inner,
@@ -247,6 +258,7 @@ export const Reboot = createGlobalStyle`
   [type="reset"]::-moz-focus-inner,
   [type="submit"]::-moz-focus-inner {
     padding: 0;
+
     border-style: none;
   }
 
@@ -260,18 +272,32 @@ export const Reboot = createGlobalStyle`
   input[type="time"],
   input[type="datetime-local"],
   input[type="month"] {
-    -webkit-appearance: listbox;
+    appearance: listbox;
+  }
+
+  button:focus {
+    outline: 1px dotted;
+    outline: 5px auto -webkit-focus-ring-color;
+  }
+
+  button:not(:disabled),
+  [type="button"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  [type="submit"]:not(:disabled) {
+    cursor: pointer;
   }
 
   textarea {
     overflow: auto;
+
     resize: vertical;
   }
 
   fieldset {
     min-width: 0;
-    padding: 0;
     margin: 0;
+    padding: 0;
+
     border: 0;
   }
 
@@ -279,11 +305,12 @@ export const Reboot = createGlobalStyle`
     display: block;
     width: 100%;
     max-width: 100%;
+    margin-bottom: 0.5rem;
     padding: 0;
-    margin-bottom: .5rem;
+
+    color: inherit;
     font-size: 1.5rem;
     line-height: inherit;
-    color: inherit;
     white-space: normal;
   }
 
@@ -298,16 +325,18 @@ export const Reboot = createGlobalStyle`
 
   [type="search"] {
     outline-offset: -2px;
-    -webkit-appearance: none;
+
+    appearance: none;
   }
 
   [type="search"]::-webkit-search-decoration {
-    -webkit-appearance: none;
+    appearance: none;
   }
 
   ::-webkit-file-upload-button {
     font: inherit;
-    -webkit-appearance: button;
+
+    appearance: button;
   }
 
   output {
@@ -316,6 +345,7 @@ export const Reboot = createGlobalStyle`
 
   summary {
     display: list-item;
+
     cursor: pointer;
   }
 

@@ -5,12 +5,18 @@ plugins:
   - stylelint-order
   - stylelint-config-rational-order/plugin
 rules:
-  order/properties-order: []
+  order/properties-order:
+    - []
+    - unspecified: bottom
+      emptyLineMinimumPropertyThreshold: 4
 
   plugin/rational-order:
     - true
-    - empty-line-between-groups: true
+    - empty-line-between-groups: threshold
+      empty-lines-within-groups: false
 
   block-no-empty: null
   color-hex-case: upper
+  declaration-empty-line-before: null
   indentation: 2
+  no-eol-whitespace: null

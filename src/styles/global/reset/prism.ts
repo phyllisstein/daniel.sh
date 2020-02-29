@@ -6,37 +6,19 @@ export const Prism = createGlobalStyle`
   code[class*="language-"],
   pre[class*="language-"] {
     color: black;
-    background: none;
-    text-shadow: 0 1px white;
-    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
     font-size: 1em;
-    text-align: left;
-    white-space: pre;
-    word-spacing: normal;
-    word-break: normal;
-    word-wrap: normal;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
     line-height: 1.5;
-
-    -moz-tab-size: 4;
-    -o-tab-size: 4;
+    white-space: pre;
+    text-align: left;
+    text-shadow: 0 1px white;
+    word-wrap: normal;
+    word-break: normal;
+    word-spacing: normal;
     tab-size: 4;
-
-    -webkit-hyphens: none;
-    -moz-hyphens: none;
-    -ms-hyphens: none;
     hyphens: none;
-  }
 
-  pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
-  code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
-    text-shadow: none;
-    background: #b3d4fc;
-  }
-
-  pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
-  code[class*="language-"]::selection, code[class*="language-"] ::selection {
-    text-shadow: none;
-    background: #b3d4fc;
+    background: none;
   }
 
   @media print {
@@ -47,22 +29,42 @@ export const Prism = createGlobalStyle`
   }
 
   /* Code blocks */
+  :not(pre) > code[class*="language-"],
   pre[class*="language-"] {
+    background: #F5F2F0;
+  }
+
+  pre[class*="language-"] {
+    margin: 0.5em 0;
     padding: 1em;
-    margin: .5em 0;
     overflow: auto;
   }
 
-  :not(pre) > code[class*="language-"],
-  pre[class*="language-"] {
-    background: #f5f2f0;
+  pre[class*="language-"]::selection,
+  pre[class*="language-"] ::selection,
+  code[class*="language-"]::selection,
+  code[class*="language-"] ::selection {
+    text-shadow: none;
+
+    background: #B3D4FC;
+  }
+
+  pre[class*="language-"]::-moz-selection,
+  pre[class*="language-"] ::-moz-selection,
+  code[class*="language-"]::-moz-selection,
+  code[class*="language-"] ::-moz-selection {
+    text-shadow: none;
+
+    background: #B3D4FC;
   }
 
   /* Inline code */
   :not(pre) > code[class*="language-"] {
-    padding: .1em;
-    border-radius: .3em;
+    padding: 0.1em;
+
     white-space: normal;
+
+    border-radius: 0.3em;
   }
 
   .token.comment,
@@ -77,7 +79,7 @@ export const Prism = createGlobalStyle`
   }
 
   .namespace {
-    opacity: .7;
+    opacity: 0.7;
   }
 
   .token.property,
@@ -104,14 +106,15 @@ export const Prism = createGlobalStyle`
   .token.url,
   .language-css .token.string,
   .style .token.string {
-    color: #9a6e3a;
-    background: hsla(0, 0%, 100%, .5);
+    color: #9A6E3A;
+
+    background: hsla(0, 0%, 100%, 0.5);
   }
 
   .token.atrule,
   .token.attr-value,
   .token.keyword {
-    color: #07a;
+    color: #07A;
   }
 
   .token.function,
@@ -122,13 +125,14 @@ export const Prism = createGlobalStyle`
   .token.regex,
   .token.important,
   .token.variable {
-    color: #e90;
+    color: #E90;
   }
 
   .token.important,
   .token.bold {
     font-weight: bold;
   }
+
   .token.italic {
     font-style: italic;
   }

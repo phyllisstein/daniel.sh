@@ -5,6 +5,7 @@ export const ThemeBase = createGlobalStyle`
   *::before,
   *::after {
     box-sizing: inherit;
+
     outline: none;
     -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   }
@@ -20,6 +21,7 @@ export const ThemeBase = createGlobalStyle`
     font-feature-settings: 'kern', 'liga';
     font-kerning: normal;
     font-variant-ligatures: common-ligatures;
+
     margin: 0;
     padding: 0;
   }

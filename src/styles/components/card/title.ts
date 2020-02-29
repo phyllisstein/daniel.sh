@@ -8,17 +8,18 @@ export const Subtitle = styled.h3`
 export const Title = styled.h1`
   ${ ({ theme }) => theme.typography.accent({ fontSize: 4, lineHeight: 4 }) }
 
-  color: ${ ({ theme }) => theme.palette.css.text01 };
-  max-width: 100%;
   width: max-content;
+  max-width: 100%;
+
+  color: ${ ({ theme }) => theme.palette.css.text01 };
 `
 
 export const TitleRoot = styled.div`
-  align-items: flex-start;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   justify-content: center;
+  width: min-content;
   max-width: 100%;
   padding: 1rem;
-  width: min-content;
 `

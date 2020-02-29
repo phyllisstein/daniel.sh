@@ -9,17 +9,18 @@ export const SiteTitle = styled.h1`
 `
 
 export const SiteTitleContainer = styled.header`
-  align-items: stretch;
   display: flex;
   flex: 1 1 auto;
   flex-direction: column;
+  align-items: stretch;
   justify-content: flex-end;
-  padding: 2rem;
-  text-align: center;
   width: 100%;
+  max-width: 66rem;
+  padding: 2rem;
+
+  text-align: center;
 
   ${ ({ theme }) => theme.responsive.query.greaterThan('md')`
-    max-width: 66rem;
     text-align: left;
     width: 85%;
   ` }

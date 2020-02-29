@@ -1,13 +1,14 @@
 import styled from 'styled-components'
 
 export const Hero = styled.article`
-  align-items: stretch;
+  position: relative;
+
   display: flex;
   flex-direction: column;
-  height: 100%;
+  align-items: stretch;
   justify-content: center;
-  position: relative;
   width: 100%;
+  height: 100%;
 
   ${ ({ theme }) => theme.responsive.query.lessThan('md')`
     text-align: center;
