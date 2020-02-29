@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react'
-import { Base } from 'styles/components/h'
+import { Base } from './h-styles'
 
 export interface Props {
   primary?: boolean

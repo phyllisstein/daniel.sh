@@ -3,7 +3,7 @@ import {
   Subtitle,
   Title,
   TitleRoot,
-} from 'styles/components/card'
+} from './card-title-styles'
 
 export interface CardTitleProps {
   subtitle?: string

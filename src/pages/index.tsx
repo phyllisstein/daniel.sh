@@ -19,7 +19,7 @@ import {
   SiteSubtitle,
   SiteTitle,
   SiteTitleContainer,
-} from 'styles/pages/index'
+} from './index-styles'
 import React, { FunctionComponent, ReactNode, useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
 import _ from 'lodash'
 import { addEventListener } from 'consolidated-events'

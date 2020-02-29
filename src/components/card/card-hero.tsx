@@ -1,4 +1,4 @@
-import { HeroBase, HeroImage } from 'styles/components/card'
+import { HeroBase, HeroImage } from './card-hero-styles'
 import React, { FunctionComponent } from 'react'
 
 export interface CardHeroProps {

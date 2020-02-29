@@ -1,5 +1,8 @@
 import styled from 'styled-components'
 
+export const BlogPostRoot = styled.article`
+`
+
 export const Subtitle = styled.h2`
   ${ ({ theme }) => theme.typography.accent({ fontSize: 2, lineHeight: 2 }) }
 

@@ -1,6 +1,6 @@
-import React, { Children, FunctionComponent, LegacyRef, ReactNode, useLayoutEffect } from 'react'
+import React, { Children, FunctionComponent, LegacyRef } from 'react'
 import { MasonryItem } from './masonry-item'
-import { MasonryRoot } from 'styles/components/masonry'
+import { MasonryRoot } from './masonry-styles'
 import ReactDOM from 'react-dom'
 import { useMeasure } from 'hooks'
 
@@ -9,7 +9,6 @@ export interface MasonryProps {
 }
 
 export const Masonry: FunctionComponent<MasonryProps> = ({ children, columns }) => {
-  const observers = new Map<ReactNode, HTMLElement>()
   const columnHeights = new Array(columns).fill(0)
   const [bindRoot, { width: rootWidth }] = useMeasure()
 

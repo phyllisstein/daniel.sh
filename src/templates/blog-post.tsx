@@ -6,7 +6,7 @@ import {
   Timestamp,
   Title,
   TitleRoot,
-} from 'styles/templates/blog-post'
+} from './blog-post-styles'
 import {
   H,
   Header,

@@ -1,5 +1,5 @@
 import { graphql, Link, useStaticQuery } from 'gatsby'
-import { Header, PageRoot } from 'styles/components/layouts'
+import { Header, PageRoot } from './page-layout-styles'
 import {
   HeaderMenuItem,
   HeaderName,
