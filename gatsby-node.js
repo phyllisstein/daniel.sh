@@ -3,6 +3,7 @@ const { DateTime } = require('luxon')
 const fs = require('fs')
 const LodashPlugin = require('lodash-webpack-plugin')
 const path = require('path')
+const PnPPlugin = require('pnp-webpack-plugin')
 const { promisify } = require('util')
 const R = require('ramda')
 const webpack = require('webpack')
@@ -12,6 +13,16 @@ const readFile = promisify(fs.readFile)
 // ########################################################################## //
 // ############################# Webpack Config ############################# //
 // ########################################################################## //
+const babelNamespace = async ({ actions }) => {
+  actions.setWebpackConfig({
+    resolve: {
+      alias: {
+        'babel-runtime': '@babel/runtime',
+      },
+    },
+  })
+}
+
 const cheapSourceMap = async ({ actions, stage }) => {
   if (stage === 'develop') {
     actions.setWebpackConfig({
@@ -59,17 +70,7 @@ const resolveVendor = async ({ actions }) => {
   })
 }
 
-const useBabelNamespace = async ({ actions }) => {
-  actions.setWebpackConfig({
-    resolve: {
-      alias: {
-        'babel-runtime': '@babel/runtime',
-      },
-    },
-  })
-}
-
-const useSass = async ({ actions, loaders, stage }) => {
+const sass = async ({ actions, loaders, stage }) => {
   actions.setWebpackConfig({
     module: {
       rules: [
@@ -90,7 +91,6 @@ const useSass = async ({ actions, loaders, stage }) => {
               loader: 'fast-sass-loader',
               options: {
                 includePaths: [
-                  path.resolve('node_modules'),
                   path.resolve('src'),
                 ],
               },
@@ -102,7 +102,7 @@ const useSass = async ({ actions, loaders, stage }) => {
   })
 }
 
-const useTypeScript = async ({ actions, loaders }) => {
+const typescript = async ({ actions, loaders }) => {
   const jsLoader = loaders.js()
 
   actions.setWebpackConfig({
@@ -127,16 +127,32 @@ const useTypeScript = async ({ actions, loaders }) => {
   })
 }
 
+const yarnPnP = async ({ actions }) => {
+  actions.setWebpackConfig({
+    resolve: {
+      plugins: [
+        PnPPlugin,
+      ],
+    },
+    resolveLoader: {
+      plugins: [
+        PnPPlugin.moduleLoader(module),
+      ],
+    },
+  })
+}
+
 exports.onCreateWebpackConfig = R.converge(
   (...fns) => Promise.all(Array.from(fns)),
   [
+    babelNamespace,
     cheapSourceMap,
     includeBanner,
     minifyLodash,
     resolveVendor,
-    useBabelNamespace,
-    useSass,
-    useTypeScript,
+    sass,
+    typescript,
+    yarnPnP,
   ],
 )
 

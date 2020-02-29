@@ -3,11 +3,14 @@ extends:
   - stylelint-config-styled-components
 plugins:
   - stylelint-order
-processors:
-  - stylelint-processor-styled-components
+  - stylelint-config-rational-order/plugin
 rules:
-  order/properties-alphabetical-order: true
+  order/properties-order: []
+
+  plugin/rational-order:
+    - true
+    - empty-line-between-groups: true
 
   block-no-empty: null
-  color-hex-case: lower
+  color-hex-case: upper
   indentation: 2

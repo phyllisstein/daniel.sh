@@ -177,3 +177,7 @@ temp/
 /.cache
 /public
 /.npmrc
+
+### Yarn ###
+.yarn/*
+!.yarn/releases/
