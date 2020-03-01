@@ -7,7 +7,7 @@ export const onClientEntry = () => {
   return Promise.all([
     typeof IntersectionObserver === 'undefined' ? import('intersection-observer') : Promise.resolve(),
     typeof ResizeObserver === 'undefined' ? import('resize-observer-polyfill') : Promise.resolve(),
-    import('styles/carbon.scss'),
+    import('carbon.css'),
   ])
 }
 

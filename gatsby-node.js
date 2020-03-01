@@ -78,38 +78,6 @@ const resolveLocalModules = async ({ actions }) => {
   })
 }
 
-const sass = async ({ actions, loaders, stage }) => {
-  actions.setWebpackConfig({
-    module: {
-      rules: [
-        {
-          test: /\.scss$/,
-          use: [
-            loaders.miniCssExtract({
-              hmr: /develop/.test(stage),
-              insertAt: 'top',
-            }),
-            {
-              loader: 'fast-css-loader',
-            },
-            loaders.postcss({
-              sourceMap: false,
-            }),
-            {
-              loader: 'fast-sass-loader',
-              options: {
-                includePaths: [
-                  path.resolve('src'),
-                ],
-              },
-            },
-          ],
-        },
-      ],
-    },
-  })
-}
-
 const typescript = async ({ actions, loaders }) => {
   const jsLoader = loaders.js()
 
@@ -143,7 +111,6 @@ exports.onCreateWebpackConfig = R.converge(
     includeBanner,
     minifyLodash,
     resolveLocalModules,
-    sass,
     typescript,
   ],
 )
