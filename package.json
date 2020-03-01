@@ -83,7 +83,6 @@
     "@types/webpack": "^4.41.7",
     "@typescript-eslint/eslint-plugin": "^2.21.0",
     "@typescript-eslint/parser": "^2.21.0",
-    "@yarnpkg/pnpify": "portal:/Users/daniel/Repos/Personal/Forks/yarn-berry/packages/yarnpkg-pnpify",
     "babel-eslint": "^11.0.0-beta.2",
     "babel-plugin-inline-react-svg": "^1.1.1",
     "babel-plugin-lodash": "^3.3.4",
@@ -111,7 +110,7 @@
     "gatsby-plugin-graphql-codegen": "^2.2.3",
     "serialize-javascript": "^3.0.0",
     "stylelint": "^13.2.0",
-    "stylelint-config-rational-order": "portal:/Users/daniel/Repos/Incoming/stylelint-config-rational-order",
+    "stylelint-config-rational-order": "github:phyllisstein/stylelint-config-rational-order#empty-line-threshold",
     "stylelint-config-standard": "^20.0.0",
     "stylelint-order": "^4.0.0",
     "typescript": "next"
