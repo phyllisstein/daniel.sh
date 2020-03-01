@@ -4,10 +4,10 @@ import {
   CardContents,
   CardHero,
   CardTitle,
-  H,
-  Header,
   Masonry,
   P,
+  SectionHeader,
+  SectionTitle,
   Segment,
   SegmentWrapper,
 } from 'components'
@@ -48,26 +48,27 @@ const Index: FunctionComponent = () => {
   })
 
   const handleWheel = useCallback(
-    _.debounce((event: WheelEvent) => {
+    (event: WheelEvent) => {
       if (Math.abs(event.deltaY) > 0) {
         return
       }
 
       event.preventDefault()
 
-      if (event.deltaX >= 1 && !isScrolling.current) {
+      if (event.deltaX > 1 && !isScrolling.current) {
         isScrolling.current = true
         setSection(wrapSection(section + 1))
-      } else if (event.deltaX <= -1 && !isScrolling.current) {
+      } else if (event.deltaX < -1 && !isScrolling.current) {
         isScrolling.current = true
         setSection(wrapSection(section - 1))
       }
-    }, 0, { leading: true, trailing: false }),
+    },
     [section],
   )
 
   useEffect(
     () => addEventListener(root.current, 'wheel', handleWheel, { capture: true, passive: false }),
+    [handleWheel],
   )
 
   const columns = useMedia(['(min-width: 1312px)', '(min-width: 672px)'], [3, 2], 1)
@@ -117,14 +118,14 @@ const Index: FunctionComponent = () => {
         </Hero>
       </Segment>
       <Segment borderColor='lilac'>
-        <Header>
-          <H primary size={ 1 }>Blog</H>
-        </Header>
+        <SectionHeader>
+          <SectionTitle>Blog</SectionTitle>
+        </SectionHeader>
         <Grid>
           <Row>
             <Masonry columns={ columns }>
-              <Column md={ 4 } xlg={ 5 }>
-                <Card>
+              <Column md={ 4 } xlg={ 4 }>
+                <Card narrow>
                   <CardTitle subtitle='Subbed title'>
                     Titillatingly titular
                   </CardTitle>
@@ -157,8 +158,8 @@ const Index: FunctionComponent = () => {
                   </CardContents>
                 </Card>
               </Column>
-              <Column md={ 4 } xlg={ 5 }>
-                <Card>
+              <Column md={ 4 } xlg={ 4 }>
+                <Card narrow>
                   <CardTitle subtitle='Subbed title that extends way beyond the title'>
                     Titillatingly titular
                   </CardTitle>
@@ -178,8 +179,8 @@ const Index: FunctionComponent = () => {
                   </CardContents>
                 </Card>
               </Column>
-              <Column md={ 4 } xlg={ 5 }>
-                <Card>
+              <Column md={ 4 } xlg={ 4 }>
+                <Card narrow>
                   <CardTitle subtitle='Subbed title that extends way beyond the title'>
                     A longer title: Genesis ipsum
                   </CardTitle>
@@ -196,8 +197,8 @@ const Index: FunctionComponent = () => {
                   </CardContents>
                 </Card>
               </Column>
-              <Column md={ 4 } xlg={ 5 }>
-                <Card>
+              <Column md={ 4 } xlg={ 4 }>
+                <Card narrow>
                   <CardTitle subtitle='Subbed title that extends way beyond the title'>
                     A longer title: Genesis ipsum
                   </CardTitle>
@@ -223,9 +224,9 @@ const Index: FunctionComponent = () => {
       </Segment>
       <Segment borderColor='canada'>
         <Hero>
-          <Header>
-            <H primary size={ 1 }>Contact</H>
-          </Header>
+          <SectionHeader>
+            <SectionTitle>Contact</SectionTitle>
+          </SectionHeader>
           <Grid style={{ alignItems: 'center', display: 'flex', flex: '1 0 auto', justifyContent: 'center' }}>
             <Row>
               <Column>

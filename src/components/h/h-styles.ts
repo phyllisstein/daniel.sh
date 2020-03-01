@@ -8,9 +8,10 @@ interface BaseProps {
 export const Base = styled.h1<BaseProps>`
   ${ ({ primaryType, scaleUnit, theme }) => {
     const plumberSettings = {
-      fontSize: 5 - scaleUnit,
-      leadingTop: theme.scale.unitless(5 - scaleUnit),
-      lineHeight: 5 - scaleUnit,
+      fontSize: 7 - scaleUnit,
+      leadingBottom: 1,
+      leadingTop: theme.scale.unitless(9 - scaleUnit),
+      lineHeight: 7 - scaleUnit,
     }
 
     if (primaryType) {

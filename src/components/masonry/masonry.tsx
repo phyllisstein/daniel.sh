@@ -1,4 +1,4 @@
-import React, { Children, FunctionComponent, LegacyRef } from 'react'
+import React, { Children, FunctionComponent, useCallback, useDebugValue, useEffect, useRef, useState } from 'react'
 import { MasonryItem } from './masonry-item'
 import { MasonryRoot } from './masonry-styles'
 import ReactDOM from 'react-dom'
@@ -9,25 +9,49 @@ export interface MasonryProps {
 }
 
 export const Masonry: FunctionComponent<MasonryProps> = ({ children, columns }) => {
-  const columnHeights = new Array(columns).fill(0)
-  const [bindRoot, { width: rootWidth }] = useMeasure()
+  const [childEls, setChildEls] = useState(new Set<Element>())
 
-  const positionChild = (component: LegacyRef<MasonryItem>) => {
-    const container = ReactDOM.findDOMNode(component)
-    if (!container) return
+  const [bindRoot, bounds] = useMeasure()
 
-    const { height } = container.getBoundingClientRect() || {}
-    const column = columnHeights.indexOf(Math.min(...columnHeights))
+  const resizeEls = useCallback(
+    entries => {
+      const columnHeights = new Array(columns).fill(0)
 
-    const width = rootWidth / columns
-    const x = width * column
-    const y = columnHeights[column]
+      entries.forEach(entry => {
+        const { height } = entry.contentRect
+        const column = columnHeights.indexOf(Math.min(...columnHeights))
 
-    container.style.position = 'absolute'
-    container.style.transform = `translate3d(${ x }px, ${ y }px, 0)`
+        const width = bounds.width / columns
+        const x = width * column
+        const y = columnHeights[column]
 
-    columnHeights[column] += height
-  }
+        entry.target.style.position = 'absolute'
+        entry.target.style.transform = `translate3d(${ x }px, ${ y }px, 0)`
+
+        columnHeights[column] += height
+      })
+    },
+    [bounds, columns],
+  )
+
+  const observer = new ResizeObserver(resizeEls)
+
+  const positionChild = useCallback(
+    (component: MasonryItem) => {
+      const container = ReactDOM.findDOMNode(component)
+      if (!container || childEls.has(container)) return
+      setChildEls(c => c.add(container))
+    },
+    [childEls],
+  )
+
+  useEffect(
+    () => {
+      childEls.forEach(child => { observer.observe(child) })
+      return () => childEls.forEach(child => { observer.unobserve(child) })
+    },
+    [childEls, observer],
+  )
 
   const clonedChildren = Children.map(children, (child, index) => {
     return (

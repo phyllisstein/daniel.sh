@@ -5,7 +5,7 @@ const breakpoints = pxToEm({
   max: '1584px',
   md: '672px',
   sm: '320px',
-  xl: '1312px',
+  xlg: '1312px',
 }, 16)
 
 export const query = generateMedia(breakpoints)

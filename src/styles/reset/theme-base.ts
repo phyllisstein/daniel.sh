@@ -24,5 +24,7 @@ export const ThemeBase = createGlobalStyle`
 
     margin: 0;
     padding: 0;
+
+    background-color: ${ ({ theme }) => theme.palette.css.ui02 };
   }
 `

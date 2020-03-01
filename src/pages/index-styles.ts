@@ -16,11 +16,12 @@ export const Hero = styled.article`
 `
 
 export const SiteSubtitle = styled.h2`
-  ${ ({ theme }) => theme.typography.accent({ fontSize: 2, lineHeight: 2 }) }
+  ${ ({ theme }) => theme.typography.accent({ fontSize: 4, lineHeight: 5 }) }
+  color: ${ ({ theme }) => theme.palette.css.text02 };
 `
 
 export const SiteTitle = styled.h1`
-  ${ ({ theme }) => theme.typography.primary({ fontSize: 5, lineHeight: 5 }) }
+  ${ ({ theme }) => theme.typography.primary({ fontSize: 6, lineHeight: 7 }) }
 `
 
 export const SiteTitleContainer = styled.header`

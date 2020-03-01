@@ -40,6 +40,8 @@ enum Baseline {
   JetBrainsMono = 0.1725,
   Maison = 0.133,
   MaisonMono = 0.133,
+  Slate = 0.174,
+  SST = 0.0765,
 }
 
 const round = _.partial(_.round, _.partial.placeholder, 3)
@@ -59,11 +61,11 @@ const getBaselineCorrection = ({ baseline, fontSize, lineHeight }: { baseline: n
 
 const getPlumber = ({
   baseline: B,
-  fontSize: FONT_SIZE = 0,
+  fontSize: FONT_SIZE = 1,
   gridHeight: GRID_HEIGHT = '1rem',
   leadingBottom: LEADING_BOTTOM = 0,
   leadingTop: LEADING_TOP = 0,
-  lineHeight: LINE_HEIGHT = 2,
+  lineHeight: LINE_HEIGHT = 3,
   useBaselineOrigin: USE_BASELINE_ORIGIN = false,
 }: GetPlumberOpts) => {
   function plumber({
@@ -98,12 +100,13 @@ const getPlumber = ({
     const marginBottom = round((leadingBottom + shift - 1) * gridHeightValue)
 
     return css`
+      margin-top: ${ marginTop }${ gridHeightUnit };
+      margin-bottom: ${ marginBottom }${ gridHeightUnit };
+      padding-top: ${ paddingTop }${ gridHeightUnit };
+      padding-bottom: ${ paddingBottom }${ gridHeightUnit };
+
       font-size: ${ fontSize }${ gridHeightUnit };
       line-height: ${ lineHeight }${ gridHeightUnit };
-      margin-bottom: ${ marginBottom }${ gridHeightUnit };
-      margin-top: ${ marginTop }${ gridHeightUnit };
-      padding-bottom: ${ paddingBottom }${ gridHeightUnit };
-      padding-top: ${ paddingTop }${ gridHeightUnit };
     `
   }
 
@@ -120,16 +123,16 @@ const getPlumber = ({
     const [borderTop, borderBottom] = border
 
     return css`
-      margin-bottom: ${ marginBottom }${ gridHeightUnit };
       margin-top: ${ marginTop }${ gridHeightUnit };
-      padding-bottom: calc(${ paddingBottom }${ gridHeightUnit } - ${ borderBottom });
+      margin-bottom: ${ marginBottom }${ gridHeightUnit };
       padding-top: calc(${ paddingTop }${ gridHeightUnit } - ${ borderTop });
+      padding-bottom: calc(${ paddingBottom }${ gridHeightUnit } - ${ borderBottom });
     `
   }
 
   return plumber
 }
 
-export const primary = getPlumber({ baseline: Baseline.Charlie })
-export const accent = getPlumber({ baseline: Baseline.GTPressura })
+export const primary = getPlumber({ baseline: Baseline.Capita })
+export const accent = getPlumber({ baseline: Baseline.Slate })
 export const mono = getPlumber({ baseline: Baseline.JetBrainsMono })

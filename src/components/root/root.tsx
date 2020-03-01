@@ -1,6 +1,6 @@
-import { Charlie, GTPressura, JetBrainsMono } from 'styles/fonts'
+import { Capita, JetBrainsMono, Slate } from 'styles/fonts'
 import { Children, Wrapper } from './root-styles'
-import { CustomBlock, Prism, ThemeBase } from 'styles/reset'
+import { CustomBlock, Prism, Reboot, ThemeBase } from 'styles/reset'
 import { graphql, useStaticQuery } from 'gatsby'
 import React, { FunctionComponent } from 'react'
 import { Helmet } from 'react-helmet'
@@ -9,12 +9,14 @@ import { RootQuery } from 'types/gatsby'
 export const Root: FunctionComponent = ({ children }) => {
   const data: RootQuery = useStaticQuery(graphql`
     query Root {
-      avatar: file(relativePath: {eq: "images/avatar.jpg"}) {
-        childImageSharp {
-          tw: resize(height: 630, width: 1200) {
+      avatar: file(relativePath: { eq: "images/avatar.jpg" }) {
+        tw: childImageSharp {
+          resize(height: 630, width: 1200) {
             src
           }
-          fb: resize(height: 675, width: 1200) {
+        }
+        fb: childImageSharp {
+          resize(height: 675, width: 1200) {
             src
           }
         }
@@ -31,10 +33,11 @@ export const Root: FunctionComponent = ({ children }) => {
 
   return (
     <>
-      <GTPressura />
-      <Charlie />
+      <Slate />
+      <Capita />
       <JetBrainsMono />
 
+      <Reboot />
       <CustomBlock />
       <Prism />
       <ThemeBase />
@@ -52,7 +55,7 @@ export const Root: FunctionComponent = ({ children }) => {
 
         { /* Facebook OpenGraph */ }
         <meta content={ data.site.siteMetadata.description } property='og:description' />
-        <meta content={ data.avatar.childImageSharp.fb.src } property='og:image' />
+        <meta content={ data.avatar.fb.src } property='og:image' />
         <meta content='en_US' property='og:locale' />
         <meta content={ data.site.siteMetadata.title } property='og:site_name' />
         <meta content={ data.site.siteMetadata.title } property='og:title' />
@@ -62,7 +65,7 @@ export const Root: FunctionComponent = ({ children }) => {
         <meta content='summary' name='twitter:card' />
         <meta content={ data.site.siteMetadata.description } property='twitter:description' />
         <meta content='on' name='twitter:dnt' />
-        <meta content={ data.avatar.childImageSharp.tw.src } property='twitter:image' />
+        <meta content={ data.avatar.tw.src } property='twitter:image' />
         <meta content='@phyllisstein' name='twitter:site' />
         <meta content={ data.site.siteMetadata.title } property='twitter:title' />
       </Helmet>

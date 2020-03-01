@@ -19,3 +19,4 @@ rules:
   declaration-empty-line-before: null
   indentation: 2
   no-eol-whitespace: null
+  no-missing-end-of-source-newline: null

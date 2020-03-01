@@ -1,12 +1,17 @@
 import styled from 'styled-components'
 
-export const Card = styled.article`
-  ${ ({ theme }) => theme.elevation.box(2) }
+interface CardProps {
+  narrow?: boolean
+}
 
-  align-items: stretch;
-  background-color: ${ ({ theme }) => theme.palette.css.ui01 };
+export const Card = styled.article<CardProps>`
+  ${ ({ theme }) => theme.elevation.box(1) }
+
   display: flex;
   flex-direction: column;
+  align-items: stretch;
   justify-content: flex-start;
-  margin: 1rem;
+  margin: ${ ({ narrow }) => narrow ? '1rem 0' : '1rem' };
+
+  background-color: ${ ({ theme }) => theme.palette.css.ui01 };
 `

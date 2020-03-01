@@ -7,7 +7,7 @@ export const accent = (plumberOpts: PlumberOpts = {}) => css`
 `
 
 export const accentFamily = css`
-  font-family: 'GT Pressura', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica', 'Arial', sans-serif;
+  font-family: 'Slate', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica', 'Arial', sans-serif;
 `
 
 export const mono = (plumberOpts: PlumberOpts = {}) => css`
@@ -25,5 +25,5 @@ export const primary = (plumberOpts: PlumberOpts = {}) => css`
 `
 
 export const primaryFamily = css`
-  font-family: 'Charlie Pro', 'Garamond', 'Times New Roman', 'Times', serif;
+  font-family: 'Capita', 'Garamond', 'Times New Roman', 'Times', serif;
 `

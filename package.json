@@ -188,6 +188,7 @@
     "react-is": "^16.13.0",
     "react-spring": "^8.0.27",
     "regenerator-runtime": "^0.13.3",
+    "rehype-parse": "^6.0.2",
     "rehype-react": "^4.0.1",
     "remark-parse": "^7.0.2",
     "remark-react": "^6.0.0",

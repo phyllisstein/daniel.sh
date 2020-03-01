@@ -1,33 +1,33 @@
 /* eslint-disable react/no-multi-comp */
 
 import {
-  BlogPostRoot,
+  Body,
+  Root,
   Subtitle,
   Timestamp,
   Title,
   TitleRoot,
 } from './blog-post-styles'
+import { Grid, Row } from 'carbon-components-react'
 import {
   H,
-  Header,
   P,
   PageLayout,
-  Segment,
+  SectionHeader,
 } from 'components'
 import React, { createElement, FunctionComponent } from 'react'
 import { BlogPostQuery } from 'types/gatsby'
 import { DateTime } from 'luxon'
 import { graphql } from 'gatsby'
-import markdown from 'remark-parse'
+import rehype from 'rehype-parse'
 import rehypeReact from 'rehype-react'
-import remarkRehype from 'remark-rehype'
 import unified from 'unified'
 
 interface BlogPostProps {
   data: BlogPostQuery
 }
 
-const REHYPE_REACT_OPTIONS = {
+const REHYPE_REACT_BODY = {
   components: {
     figure: props => <div { ...props } />,
     h1: props => <H { ...props } size={ 1 } />,
@@ -42,15 +42,23 @@ const REHYPE_REACT_OPTIONS = {
   fragment: true,
 }
 
+const REHYPE_REACT_TOC = {
+  components: {
+    p: P,
+    ul: props => <ul { ...props } className='toc' />,
+  },
+  createElement,
+  fragment: true,
+}
+
 const BlogPost: FunctionComponent<BlogPostProps> = ({ data }) => {
   const body = unified()
-    .use(rehypeReact, REHYPE_REACT_OPTIONS)
+    .use(rehypeReact, REHYPE_REACT_BODY)
     .stringify(data.post.htmlAst)
 
   const { contents: toc } = unified()
-    .use(markdown)
-    .use(remarkRehype)
-    .use(rehypeReact, REHYPE_REACT_OPTIONS)
+    .use(rehype, { fragment: true })
+    .use(rehypeReact, REHYPE_REACT_TOC)
     .processSync(data.post.tableOfContents)
 
   const { frontmatter } = data.post
@@ -58,17 +66,24 @@ const BlogPost: FunctionComponent<BlogPostProps> = ({ data }) => {
 
   return (
     <PageLayout sectionName='Blog'>
-      <BlogPostRoot>
-        <Header>
+      <Root>
+        <SectionHeader>
           <TitleRoot>
             { timestamp && <Timestamp>{ timestamp }</Timestamp> }
+            <div style={{ flex: '1 1 100%' }} />
             <Title>{ frontmatter.title }</Title>
             { frontmatter.subtitle && <Subtitle>{ frontmatter.subtitle }</Subtitle> }
           </TitleRoot>
-        </Header>
-        { toc }
-        { body }
-      </BlogPostRoot>
+        </SectionHeader>
+        <Grid>
+          <Row>
+            <Body md={{ offset: 1, span: 6 }} xlg={{ offset: 3, span: 6 }}>
+              { toc }
+              { body }
+            </Body>
+          </Row>
+        </Grid>
+      </Root>
     </PageLayout>
   )
 }
@@ -82,7 +97,10 @@ export const query = graphql`
         title
       }
       htmlAst
-      tableOfContents
+      tableOfContents(
+        absolute: false
+        maxDepth: 2
+      )
     }
   }
 `

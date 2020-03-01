@@ -7433,6 +7433,7 @@ __metadata:
     react-is: ^16.13.0
     react-spring: ^8.0.27
     regenerator-runtime: ^0.13.3
+    rehype-parse: ^6.0.2
     rehype-react: ^4.0.1
     remark-parse: ^7.0.2
     remark-react: ^6.0.0
@@ -11761,10 +11762,30 @@ fsevents@~2.1.1:
   languageName: node
   linkType: hard
 
+"hast-util-from-parse5@npm:^5.0.0":
+  version: 5.0.3
+  resolution: "hast-util-from-parse5@npm:5.0.3"
+  dependencies:
+    ccount: ^1.0.3
+    hastscript: ^5.0.0
+    property-information: ^5.0.0
+    web-namespaces: ^1.1.2
+    xtend: ^4.0.1
+  checksum: 2/a427cec361d38d8b0647e9afc05f9173ed0aa9a225441e401ff8c08f762e5e084d335389a0125dc2b74cdfb044a939053e0b79ce61ac41a1dce5b1f10ecae054
+  languageName: node
+  linkType: hard
+
 "hast-util-is-element@npm:^1.0.0":
   version: 1.0.4
   resolution: "hast-util-is-element@npm:1.0.4"
   checksum: 2/19562753addf477f710980c525e302ccaaac957c4e34c7c8e317607136a58db1244df12cdaae064a625c71e3948d5dccced93ab774923e6ae1a82d938d9855e5
+  languageName: node
+  linkType: hard
+
+"hast-util-parse-selector@npm:^2.0.0":
+  version: 2.2.4
+  resolution: "hast-util-parse-selector@npm:2.2.4"
+  checksum: 2/affd2e8d834305c3fe495b499d063fb84c697d467b22e225d7598c24e1b987af5e44957f9af43f6f80074b8e8d34728836f3e348049575016735a8d623c4f947
   languageName: node
   linkType: hard
 
@@ -11847,6 +11868,18 @@ fsevents@~2.1.1:
     property-information: ^4.0.0
     space-separated-tokens: ^1.0.0
   checksum: 2/7a388cb264c6406b0543201385bb89f9aaf18a6329868995f8d73417944791126f48ee6d191154d439bbda732d87b782130648d28e2dcedbd68fc14626d4cf70
+  languageName: node
+  linkType: hard
+
+"hastscript@npm:^5.0.0":
+  version: 5.1.2
+  resolution: "hastscript@npm:5.1.2"
+  dependencies:
+    comma-separated-tokens: ^1.0.0
+    hast-util-parse-selector: ^2.0.0
+    property-information: ^5.0.0
+    space-separated-tokens: ^1.0.0
+  checksum: 2/4d2d5b37c1455ef7b9de77043c8388af7f05cfc7ab176160ae9927ae4a684b2768ae971decc7d63ea77c1e3c13aeff5218f9b0477d1842774e7b7a9a097598e8
   languageName: node
   linkType: hard
 
@@ -17404,7 +17437,7 @@ fsevents@~2.1.1:
   languageName: node
   linkType: hard
 
-"postcss-html@npm:>= 0.36.0, postcss-html@npm:^0.36.0":
+"postcss-html@npm:*, postcss-html@npm:>= 0.36.0, postcss-html@npm:^0.36.0":
   version: 0.36.0
   resolution: "postcss-html@npm:0.36.0"
   dependencies:
@@ -18123,7 +18156,7 @@ fsevents@~2.1.1:
   languageName: node
   linkType: hard
 
-"property-information@npm:^5.3.0, property-information@npm:^5.4.0":
+"property-information@npm:^5.0.0, property-information@npm:^5.3.0, property-information@npm:^5.4.0":
   version: 5.4.0
   resolution: "property-information@npm:5.4.0"
   dependencies:
@@ -19017,6 +19050,17 @@ fsevents@~2.1.1:
   bin:
     regjsparser: bin/parser
   checksum: 2/bcb2caf20f7515f6f47ff83953844eb9d2192b53c729a571f69c43a7eb9aea27ea864841af3303f137d1c40bf568a9130666dc74c0af598ea7b8b54ff7087c0a
+  languageName: node
+  linkType: hard
+
+"rehype-parse@npm:^6.0.2":
+  version: 6.0.2
+  resolution: "rehype-parse@npm:6.0.2"
+  dependencies:
+    hast-util-from-parse5: ^5.0.0
+    parse5: ^5.0.0
+    xtend: ^4.0.0
+  checksum: 2/f22fca4b56612b24e4e7c921edbff5d02b6ba5058b34905b6480fe826d3ecf87e54d039fdc285991b006c98c497818d672e919b0ebb89a46d13fb97626c50c90
   languageName: node
   linkType: hard
 

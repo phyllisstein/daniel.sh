@@ -106,11 +106,11 @@ module.exports = api => {
       transpileTemplateLiterals: api.env('production'),
     }],
     api.env('development') ? require.resolve('@babel/plugin-transform-react-display-name') : null,
-    api.env('development')
-      ? [require.resolve('babel-plugin-meaningful-logs'), {
-        maxDepth: 2,
-      }]
-      : null,
+    // api.env('development')
+    //   ? [require.resolve('babel-plugin-meaningful-logs'), {
+    //     maxDepth: 2,
+    //   }]
+    //   : null,
     api.env('development') ? require.resolve('react-hot-loader/babel') : null,
     api.env('production') ? require.resolve('@babel/plugin-transform-react-constant-elements') : null,
     api.env('production') ? require.resolve('@babel/plugin-transform-react-inline-elements') : null,

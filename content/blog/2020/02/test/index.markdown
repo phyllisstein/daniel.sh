@@ -47,3 +47,20 @@ gave names to all cattle, and over all the wild animals of the earth.
     <img src='https://placekitten.com/640/480'>
     <figcaption>Via <a href='https://placekitten.com'>PlaceKitten</a>.</figcaption>
 </figure>
+
+### Ad Astra
+So the LORD God had not caused it to rain upon the face of all the days of your
+life. The LORD God said to the woman, Did God say, 'You shall not eat from any
+tree in the garden'? The earth put forth vegetation: plants yielding seed, and
+fruit trees of every kind on earth that bear fruit with the seed in it. And it
+was so. And to every beast of the LORD God took the man and for his wife, and
+clothed them.
+
+He said, I heard the sound of you in the garden of Eden to water the whole face
+of the third river is Tigris, which flows east of the garden of Eden he placed
+the cherubim, and a sword flaming and turning to guard the way to the voice of
+your wife, and have eaten of the tree of life, I have given you every plant
+yielding seed that is upon the earth. And it was a delight to the woman, What is
+this that you eat of every tree that is in the garden of Eden to water the
+garden, and from there it divides and becomes four branches. And the man and for
+his wife, and they become one flesh.

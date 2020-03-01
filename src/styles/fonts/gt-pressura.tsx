@@ -42,7 +42,7 @@ export const GTPressura: FunctionComponent = React.memo(() => {
       return `
         @font-face {
           font-display: fallback;
-          font-family: 'Charlie Pro';
+          font-family: 'GT Pressura';
           font-style: ${ style };
           font-weight: ${ weight };
           src: url('${ woff2.publicURL }') format('woff2'),
