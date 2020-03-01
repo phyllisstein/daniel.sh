@@ -1,6 +1,6 @@
-import * as R from 'ramda'
 import C from 'chroma-js'
 import { g10 as carbon } from '@carbon/themes'
+import R from 'ramda'
 
 const carbonPalette = {
   inverse01: C(carbon.inverse01),
@@ -9,10 +9,12 @@ const carbonPalette = {
   text01: C(carbon.text01),
   text02: C(carbon.text02),
   text03: C(carbon.text03),
+  text04: C(carbon.text04),
   text05: C(carbon.text05),
   ui01: C(carbon.ui01),
   ui02: C(carbon.ui02),
   ui03: C(carbon.ui03),
+  ui04: C(carbon.ui04),
   ui05: C(carbon.ui05),
 }
 

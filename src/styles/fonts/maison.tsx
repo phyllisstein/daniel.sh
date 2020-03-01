@@ -1,8 +1,8 @@
-import * as R from 'ramda'
 import { graphql, useStaticQuery } from 'gatsby'
 import React, { FunctionComponent, useMemo } from 'react'
 import { createGlobalStyle } from 'styled-components'
 import { MaisonFontQuery } from 'types/gatsby'
+import R from 'ramda'
 
 const FACES = [
   { name: 'MaisonNeue-ExtraThin', style: 'normal', weight: 100 },

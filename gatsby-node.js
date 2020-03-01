@@ -3,7 +3,6 @@ const { DateTime } = require('luxon')
 const fs = require('fs')
 const LodashPlugin = require('lodash-webpack-plugin')
 const path = require('path')
-const PnPPlugin = require('pnp-webpack-plugin')
 const { promisify } = require('util')
 const R = require('ramda')
 const webpack = require('webpack')
@@ -13,21 +12,30 @@ const readFile = promisify(fs.readFile)
 // ########################################################################## //
 // ############################# Webpack Config ############################# //
 // ########################################################################## //
-const babelNamespace = async ({ actions }) => {
-  actions.setWebpackConfig({
-    resolve: {
-      alias: {
-        'babel-runtime': '@babel/runtime',
-      },
-    },
-  })
-}
-
 const cheapSourceMap = async ({ actions, stage }) => {
   if (stage === 'develop') {
     actions.setWebpackConfig({
       devtool: 'cheap-module-source-map',
     })
+  }
+}
+
+const hotLoader = async ({ actions, getConfig, stage }) => {
+  if (stage === 'develop') {
+    actions.setWebpackConfig({
+      resolve: {
+        alias: {
+          'react-dom': '@hot-loader/react-dom',
+        },
+      },
+    })
+
+    const config = getConfig()
+    config.entry = R.map(
+      entrypoint => Array.isArray(entrypoint) ? ['react-hot-loader/patch', ...entrypoint] : ['react-hot-loader/patch', entrypoint],
+      config.entry,
+    )
+    actions.replaceWebpackConfig(config)
   }
 }
 
@@ -58,7 +66,7 @@ const minifyLodash = async ({ actions, stage }) => {
   }
 }
 
-const resolveVendor = async ({ actions }) => {
+const resolveLocalModules = async ({ actions }) => {
   actions.setWebpackConfig({
     resolve: {
       modules: [
@@ -127,32 +135,16 @@ const typescript = async ({ actions, loaders }) => {
   })
 }
 
-const yarnPnP = async ({ actions }) => {
-  actions.setWebpackConfig({
-    resolve: {
-      plugins: [
-        PnPPlugin,
-      ],
-    },
-    resolveLoader: {
-      plugins: [
-        PnPPlugin.moduleLoader(module),
-      ],
-    },
-  })
-}
-
 exports.onCreateWebpackConfig = R.converge(
   (...fns) => Promise.all(Array.from(fns)),
   [
-    babelNamespace,
     cheapSourceMap,
+    hotLoader,
     includeBanner,
     minifyLodash,
-    resolveVendor,
+    resolveLocalModules,
     sass,
     typescript,
-    yarnPnP,
   ],
 )
 

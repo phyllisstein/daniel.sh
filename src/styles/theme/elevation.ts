@@ -1,6 +1,6 @@
-import * as R from 'ramda'
 import { animation, AnimationDuration } from './animation'
 import { css } from 'styled-components'
+import R from 'ramda'
 
 const SHADOWS = {
   AMBIENT: [

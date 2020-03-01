@@ -1,8 +1,8 @@
-import * as R from 'ramda'
 import { graphql, useStaticQuery } from 'gatsby'
 import React, { FunctionComponent, useMemo } from 'react'
 import { createGlobalStyle } from 'styled-components'
 import { JetBrainsMonoFontQuery } from 'types/gatsby'
+import R from 'ramda'
 
 const FACES = [
   { name: 'JetBrainsMono-Regular', style: 'normal', weight: 400 },
@@ -15,9 +15,9 @@ const FACES = [
   { name: 'JetBrainsMono-ExtraBoldItalic', style: 'italic', weight: 800 },
 ]
 
-export const JetBrainsMono: FunctionComponent = () => {
+export const JetBrainsMono: FunctionComponent = React.memo(() => {
   const data: JetBrainsMonoFontQuery = useStaticQuery(graphql`
-    query JetBrainsMonoFontQuery {
+    query JetBrainsMonoFont {
       allFile(filter: { name: { glob: "*JetBrainsMono-*" } }) {
         edges {
           node {
@@ -30,8 +30,8 @@ export const JetBrainsMono: FunctionComponent = () => {
     }
   `)
 
-  const FontCSS = useMemo(() => {
-    const decls = FACES.map(({ name, style, weight }) => {
+  const decls = useMemo(() => {
+    return FACES.map(({ name, style, weight }) => {
       const woff = R.pipe(
         R.pluck('node'),
         R.find(R.whereEq({ ext: '.woff', name })),
@@ -52,13 +52,13 @@ export const JetBrainsMono: FunctionComponent = () => {
         }
       `
     })
-
-    return createGlobalStyle`
-      ${ decls.join('\n\n') }
-    `
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
+
+  const FontCSS = createGlobalStyle`
+    ${ decls.join('\n\n') }
+  `
 
   return (
     <FontCSS />
   )
-}
+})

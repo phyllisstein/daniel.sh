@@ -1,9 +1,9 @@
-import * as R from 'ramda'
 import { FontEdge, FontNode } from './util'
 import { graphql, useStaticQuery } from 'gatsby'
 import React, { FunctionComponent, useMemo } from 'react'
 import { CapitaFontQuery } from 'types/gatsby'
 import { createGlobalStyle } from 'styled-components'
+import R from 'ramda'
 
 const FACES = [
   { name: 'Capita-ExtraLight', style: 'normal', weight: 200 },
@@ -20,7 +20,7 @@ const FACES = [
   { name: 'Capita-ExtraBoldItalic', style: 'italic', weight: 800 },
 ]
 
-export const Capita: FunctionComponent = () => {
+export const Capita: FunctionComponent = React.memo(() => {
   const data: CapitaFontQuery = useStaticQuery(graphql`
     query CapitaFont {
       allFile(filter: { name: { glob: "*Capita-*" } }) {
@@ -35,8 +35,8 @@ export const Capita: FunctionComponent = () => {
     }
   `)
 
-  const FontCSS = useMemo(() => {
-    const decls = FACES.map(({ name, style, weight }) => {
+  const decls = useMemo(() => {
+    return FACES.map(({ name, style, weight }) => {
       const woff = R.pipe(
         R.pluck('node'),
         R.find(R.whereEq({ ext: '.woff', name })),
@@ -57,13 +57,13 @@ export const Capita: FunctionComponent = () => {
         }
       `
     })
-
-    return createGlobalStyle`
-      ${ decls.join('\n\n') }
-    `
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
+
+  const FontCSS = createGlobalStyle`
+    ${ decls.join('\n\n') }
+  `
 
   return (
     <FontCSS />
   )
-}
+})

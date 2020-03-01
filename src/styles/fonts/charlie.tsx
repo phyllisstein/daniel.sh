@@ -1,9 +1,9 @@
-import * as R from 'ramda'
 import { FontEdge, FontNode } from './util'
 import { graphql, useStaticQuery } from 'gatsby'
 import React, { FunctionComponent, useMemo } from 'react'
 import { CharlieFontQuery } from 'types/gatsby'
 import { createGlobalStyle } from 'styled-components'
+import R from 'ramda'
 
 const FACES = [
   { name: 'CharliePro-Hairline', style: 'normal', weight: 100 },
@@ -24,7 +24,7 @@ const FACES = [
   { name: 'CharliePro-BlackItalic', style: 'italic', weight: 800 },
 ]
 
-export const Charlie: FunctionComponent = () => {
+export const Charlie: FunctionComponent = React.memo(() => {
   const data: CharlieFontQuery = useStaticQuery(graphql`
     query CharlieFont {
       allFile(filter: { name: { glob: "*CharliePro-*" } }) {
@@ -39,35 +39,35 @@ export const Charlie: FunctionComponent = () => {
     }
   `)
 
-  const decls = FACES.map(({ name, style, weight }) => {
-    const woff = R.pipe(
-      R.pluck('node'),
-      R.find(R.whereEq({ ext: '.woff', name })),
-    )(data.allFile.edges)
-    const woff2 = R.pipe(
-      R.pluck('node'),
-      R.find(R.whereEq({ ext: '.woff2', name })),
-    )(data.allFile.edges)
+  const decls = useMemo(() => {
+    return FACES.map(({ name, style, weight }) => {
+      const woff = R.pipe(
+        R.pluck('node'),
+        R.find(R.whereEq({ ext: '.woff', name })),
+      )(data.allFile.edges)
+      const woff2 = R.pipe(
+        R.pluck('node'),
+        R.find(R.whereEq({ ext: '.woff2', name })),
+      )(data.allFile.edges)
 
-    return `
-      @font-face {
-        font-display: fallback;
-        font-family: 'Charlie Pro';
-        font-style: ${ style };
-        font-weight: ${ weight };
-        src: url('${ woff2.publicURL }') format('woff2'),
-             url('${ woff.publicURL }') format('woff');
-      }
-    `
-  })
+      return `
+        @font-face {
+          font-display: fallback;
+          font-family: 'Charlie Pro';
+          font-style: ${ style };
+          font-weight: ${ weight };
+          src: url('${ woff2.publicURL }') format('woff2'),
+               url('${ woff.publicURL }') format('woff');
+        }
+      `
+    })
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
-  const FontCSS = useMemo(() => (
-    createGlobalStyle`
-      ${ decls.join('\n\n') }
-    `
-  ), []) // eslint-disable-line react-hooks/exhaustive-deps
+  const FontCSS = createGlobalStyle`
+    ${ decls.join('\n\n') }
+  `
 
   return (
     <FontCSS />
   )
-}
+})

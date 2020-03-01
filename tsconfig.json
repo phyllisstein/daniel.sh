@@ -39,13 +39,6 @@
         "vendor/*"
       ]
     },
-    "plugins": [
-      {
-        "name": "ts-graphql-plugin",
-        "schema": "vendor/schema.graphql",
-        "tag": "gql"
-      }
-    ],
     "removeComments": true,
     "resolveJsonModule": true,
     "rootDir": "src",

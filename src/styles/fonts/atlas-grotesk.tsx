@@ -1,9 +1,9 @@
-import * as R from 'ramda'
 import { FontEdge, FontNode } from './util'
 import { graphql, useStaticQuery } from 'gatsby'
 import React, { FunctionComponent, useMemo } from 'react'
 import { AtlasFontQuery } from 'types/gatsby'
 import { createGlobalStyle } from 'styled-components'
+import R from 'ramda'
 
 const FACES = [
   { name: 'AtlasGrotesk-Thin', style: 'normal', weight: 200 },
