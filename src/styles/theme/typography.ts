@@ -16,7 +16,7 @@ export const mono = (plumberOpts: PlumberOpts = {}) => css`
 `
 
 export const monoFamily = css`
-  font-family: 'JetBrains Mono', 'SFMono-Regular', 'Consolas', 'Liberation Mono', 'Menlo', 'Courier', monospace;
+  font-family: 'PragmataPro Liga', 'SFMono-Regular', 'Consolas', 'Liberation Mono', 'Menlo', 'Courier', monospace;
 `
 
 export const primary = (plumberOpts: PlumberOpts = {}) => css`

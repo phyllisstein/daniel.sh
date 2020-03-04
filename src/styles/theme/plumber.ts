@@ -40,6 +40,7 @@ enum Baseline {
   JetBrainsMono = 0.1725,
   Maison = 0.133,
   MaisonMono = 0.133,
+  PragmataPro = 0.128,
   Slate = 0.174,
   SST = 0.0765,
 }
@@ -135,4 +136,4 @@ const getPlumber = ({
 
 export const primary = getPlumber({ baseline: Baseline.Capita })
 export const accent = getPlumber({ baseline: Baseline.Slate })
-export const mono = getPlumber({ baseline: Baseline.JetBrainsMono })
+export const mono = getPlumber({ baseline: Baseline.PragmataPro })
