@@ -48,6 +48,12 @@ gave names to all cattle, and over all the wild animals of the earth.
     <figcaption>Via <a href='https://placekitten.com'>PlaceKitten</a>.</figcaption>
 </figure>
 
+And you shall eat the plants of the deep, while a wind from God swept over the
+face of the second river is Gihon; it is the one that flows around the whole
+land of Cush. He drove out the man; and at the east of the garden at the east of
+Assyria. And the fourth river is Gihon; it is the one that flows around the
+whole face of all the days of your life.
+
 ### Ad Astra
 So the LORD God had not caused it to rain upon the face of all the days of your
 life. The LORD God said to the woman, Did God say, 'You shall not eat from any

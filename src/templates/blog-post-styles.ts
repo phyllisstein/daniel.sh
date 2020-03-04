@@ -1,20 +1,9 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const Root = styled.article`
 `
 
 export const Body = styled.div`
-  width: 100%;
-  margin: auto;
-  padding: 1rem;
-
-  ${ ({ theme }) => theme.responsive.query.greaterThan('md')`
-    width: 75%;
-  ` }
-
-  ${ ({ theme }) => theme.responsive.query.greaterThan('xlg')`
-    width: 50%;
-  ` }
 `
 
 export const Subtitle = styled.h2`

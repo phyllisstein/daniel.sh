@@ -1574,14 +1574,14 @@ export type MarkdownRemarkFieldsFilterInput = {
 export type MarkdownRemarkFieldsReadingTime = {
   text?: Maybe<Scalars['String']>,
   minutes?: Maybe<Scalars['Float']>,
-  time?: Maybe<Scalars['Int']>,
+  time?: Maybe<Scalars['Float']>,
   words?: Maybe<Scalars['Int']>,
 };
 
 export type MarkdownRemarkFieldsReadingTimeFilterInput = {
   text?: Maybe<StringQueryOperatorInput>,
   minutes?: Maybe<FloatQueryOperatorInput>,
-  time?: Maybe<IntQueryOperatorInput>,
+  time?: Maybe<FloatQueryOperatorInput>,
   words?: Maybe<IntQueryOperatorInput>,
 };
 
@@ -3017,11 +3017,6 @@ export type PageLayoutQueryVariables = {};
 
 export type PageLayoutQuery = { site: Maybe<{ siteMetadata: Maybe<Pick<SiteSiteMetadata, 'shortTitle'>> }> };
 
-export type RootQueryVariables = {};
-
-
-export type RootQuery = { avatar: Maybe<{ tw: Maybe<{ resize: Maybe<Pick<ImageSharpResize, 'src'>> }>, fb: Maybe<{ resize: Maybe<Pick<ImageSharpResize, 'src'>> }> }>, site: Maybe<{ siteMetadata: Maybe<Pick<SiteSiteMetadata, 'description' | 'keywords' | 'title'>> }> };
-
 export type AtlasFontQueryVariables = {};
 
 
@@ -3057,6 +3052,11 @@ export type MaisonFontQueryQueryVariables = {};
 
 export type MaisonFontQueryQuery = { allFile: { edges: Array<{ node: Pick<File, 'ext' | 'name' | 'publicURL'> }> } };
 
+export type PragmataProFontQueryVariables = {};
+
+
+export type PragmataProFontQuery = { allFile: { edges: Array<{ node: Pick<File, 'ext' | 'name' | 'publicURL'> }> } };
+
 export type SlateFontQueryVariables = {};
 
 
@@ -3076,6 +3076,11 @@ export type BlogPostQuery = { post: Maybe<(
     Pick<MarkdownRemark, 'htmlAst' | 'tableOfContents'>
     & { frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'date' | 'subtitle' | 'title'>> }
   )> };
+
+export type RootQueryVariables = {};
+
+
+export type RootQuery = { avatar: Maybe<{ childImageSharp: Maybe<{ fb: Maybe<Pick<ImageSharpResize, 'src'>>, tw: Maybe<Pick<ImageSharpResize, 'src'>> }> }>, site: Maybe<{ siteMetadata: Maybe<Pick<SiteSiteMetadata, 'description' | 'keywords' | 'title'>> }> };
 
 export type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 

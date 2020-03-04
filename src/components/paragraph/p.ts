@@ -5,11 +5,7 @@ export interface PProps {
 }
 
 export const P = styled.p<PProps>`
-  ${ ({ accent, theme }) => accent ? theme.typography.accent() : theme.typography.primary() }
+  ${ ({ accent, theme }) => accent ? theme.typography.accent({ leadingBottom: 1 }) : theme.typography.primary({ leadingBottom: 1 }) }
 
   text-indent: 0;
-
-  & + & {
-    text-indent: 1.414rem;
-  }
 `

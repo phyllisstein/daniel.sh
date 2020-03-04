@@ -1,7 +1,8 @@
 /* eslint-disable react/no-multi-comp */
 
-import { Provider, Root } from 'components'
+import { Provider } from 'templates/provider'
 import React from 'react'
+import { Root } from 'templates/root'
 
 export const onClientEntry = () => {
   return Promise.all([

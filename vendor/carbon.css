@@ -2178,7 +2178,7 @@ body {
   color: #ffffff;
 }
 .bx--btn--danger:hover {
-  background-color: #b81921;
+  background-color: #ba1b23;
 }
 .bx--btn--danger:focus {
   border-color: #0f62fe;
@@ -2499,7 +2499,6 @@ input[data-invalid] ~ .bx--form-requirement,
 .bx--list-box[data-invalid] ~ .bx--form-requirement {
   max-height: 12.5rem;
   display: block;
-  color: #da1e28;
 }
 
 input:not(output):not([data-invalid]):-moz-ui-invalid {
@@ -2829,7 +2828,6 @@ input:not(output):not([data-invalid]):-moz-ui-invalid {
   letter-spacing: 0.32px;
   display: block;
   max-height: 12.5rem;
-  color: #da1e28;
   font-weight: 400;
   padding: 0.5rem 1rem;
   overflow: visible;
@@ -4487,7 +4485,6 @@ input:not(output):not([data-invalid]):-moz-ui-invalid {
 
 .bx--form-requirement {
   display: block;
-  color: #da1e28;
   font-weight: 400;
   overflow: visible;
 }
@@ -4933,7 +4930,6 @@ input:not(output):not([data-invalid]):-moz-ui-invalid {
 }
 .bx--text-area ~ .bx--form-requirement {
   order: 4;
-  color: #da1e28;
   font-weight: 400;
   margin-top: 0.25rem;
 }
@@ -5086,7 +5082,6 @@ bx--text-area.bx--skeleton::placeholder {
   position: relative;
 }
 .bx--number__input-wrapper ~ .bx--form-requirement {
-  color: #da1e28;
   font-weight: 400;
   margin-top: 0.25rem;
   overflow: visible;
@@ -8787,7 +8782,6 @@ span.flatpickr-weekday {
 .bx--date-picker-input__wrapper ~ .bx--form-requirement {
   max-height: 12.5rem;
   display: block;
-  color: #da1e28;
   font-weight: 400;
   margin-top: 0.25rem;
   overflow: visible;
@@ -9356,7 +9350,6 @@ span.flatpickr-weekday {
 .bx--dropdown--invalid + .bx--form-requirement {
   display: inline-block;
   max-height: 12.5rem;
-  color: #da1e28;
 }
 
 .bx--dropdown__invalid-icon {

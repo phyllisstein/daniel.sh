@@ -1,6 +1,6 @@
-import { Capita, JetBrainsMono, Slate } from 'styles/fonts'
+import { Capita, PragmataPro, SST } from 'styles/fonts'
 import { Children, Wrapper } from './root-styles'
-import { CustomBlock, Prism, Reboot, ThemeBase } from 'styles/reset'
+import { CustomBlock, Prism, ThemeBase } from 'styles/reset'
 import { graphql, useStaticQuery } from 'gatsby'
 import React, { FunctionComponent } from 'react'
 import { Helmet } from 'react-helmet'
@@ -10,13 +10,11 @@ export const Root: FunctionComponent = ({ children }) => {
   const data: RootQuery = useStaticQuery(graphql`
     query Root {
       avatar: file(relativePath: { eq: "images/avatar.jpg" }) {
-        tw: childImageSharp {
-          resize(height: 630, width: 1200) {
+        childImageSharp {
+          fb: resize(height: 630, width: 1200) {
             src
           }
-        }
-        fb: childImageSharp {
-          resize(height: 675, width: 1200) {
+          tw: resize(height: 675, width: 1200) {
             src
           }
         }
@@ -33,11 +31,10 @@ export const Root: FunctionComponent = ({ children }) => {
 
   return (
     <>
-      <Slate />
+      <SST />
       <Capita />
-      <JetBrainsMono />
+      <PragmataPro />
 
-      <Reboot />
       <CustomBlock />
       <Prism />
       <ThemeBase />
@@ -55,7 +52,7 @@ export const Root: FunctionComponent = ({ children }) => {
 
         { /* Facebook OpenGraph */ }
         <meta content={ data.site.siteMetadata.description } property='og:description' />
-        <meta content={ data.avatar.fb.src } property='og:image' />
+        <meta content={ data.avatar.childImageSharp.fb.src } property='og:image' />
         <meta content='en_US' property='og:locale' />
         <meta content={ data.site.siteMetadata.title } property='og:site_name' />
         <meta content={ data.site.siteMetadata.title } property='og:title' />
@@ -65,7 +62,7 @@ export const Root: FunctionComponent = ({ children }) => {
         <meta content='summary' name='twitter:card' />
         <meta content={ data.site.siteMetadata.description } property='twitter:description' />
         <meta content='on' name='twitter:dnt' />
-        <meta content={ data.avatar.tw.src } property='twitter:image' />
+        <meta content={ data.avatar.childImageSharp.tw.src } property='twitter:image' />
         <meta content='@phyllisstein' name='twitter:site' />
         <meta content={ data.site.siteMetadata.title } property='twitter:title' />
       </Helmet>

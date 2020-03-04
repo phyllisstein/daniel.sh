@@ -1,8 +1,8 @@
 /* eslint-disable react/no-multi-comp */
 
-const { Provider } = require('components/provider')
+const { Provider } = require('templates/provider')
 const React = require('react')
-const { Root } = require('components/root')
+const { Root } = require('templates/root')
 
 exports.wrapPageElement = ({ element, props }) => (
   <Root { ...props }>

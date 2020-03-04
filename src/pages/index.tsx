@@ -1,16 +1,9 @@
 import {
-  Button,
   Card,
   CardContents,
   CardHero,
   CardTitle,
-  Masonry,
-  P,
-  SectionHeader,
-  SectionTitle,
-  Segment,
-  SegmentWrapper,
-} from 'components'
+} from 'components/card'
 import { Column, Grid, Row } from 'carbon-components-react'
 import { faLinkedinIn, faTwitter } from '@fortawesome/free-brands-svg-icons'
 import { faPaperPlane, faPencil, faReplyAll } from '@fortawesome/pro-regular-svg-icons'
@@ -19,11 +12,19 @@ import {
   SiteSubtitle,
   SiteTitle,
   SiteTitleContainer,
-} from './index-styles'
-import React, { FunctionComponent, ReactNode, useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
-import _ from 'lodash'
+} from 'styles/pages/index-styles'
+import React, { FunctionComponent, ReactNode, useCallback, useEffect, useRef, useState } from 'react'
+import {
+  SectionHeader,
+  SectionTitle,
+  Segment,
+  SegmentWrapper,
+} from 'components/layout'
 import { addEventListener } from 'consolidated-events'
+import { Button } from 'components/button'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Masonry } from 'components/masonry'
+import { P } from 'components/paragraph'
 import { useMedia } from 'hooks'
 import { useSpring } from 'react-spring'
 
@@ -202,7 +203,7 @@ const Index: FunctionComponent = () => {
                   <CardTitle subtitle='Subbed title that extends way beyond the title'>
                     A longer title: Genesis ipsum
                   </CardTitle>
-                  <CardHero src='https://placekitten.com/1024/768' />
+                  <CardHero src='https://placekitten.com/1280/720' />
                   <CardContents>
                     <P>
                       So the LORD God said to them, Be fruitful and multiply,

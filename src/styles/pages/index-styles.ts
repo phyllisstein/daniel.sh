@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const Hero = styled.article`
   position: relative;
@@ -10,9 +10,9 @@ export const Hero = styled.article`
   width: 100%;
   height: 100%;
 
-  ${ ({ theme }) => theme.responsive.query.lessThan('md')`
+  ${ ({ theme }) => theme.responsive.lessThan('md', css`
     text-align: center;
-  ` }
+  `) }
 `
 
 export const SiteSubtitle = styled.h2`
@@ -36,8 +36,9 @@ export const SiteTitleContainer = styled.header`
 
   text-align: center;
 
-  ${ ({ theme }) => theme.responsive.query.greaterThan('md')`
-    text-align: left;
+  ${ ({ theme }) => theme.responsive.greaterThan('md', css`
     width: 80%;
-  ` }
+
+    text-align: left;
+  `) }
 `

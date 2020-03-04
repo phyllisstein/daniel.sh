@@ -1,5 +1,5 @@
-import * as theme from 'styles/theme'
 import React, { FunctionComponent } from 'react'
+import theme from 'styles/theme'
 import { ThemeProvider } from 'styled-components'
 
 export const Provider: FunctionComponent = ({ children }) => {

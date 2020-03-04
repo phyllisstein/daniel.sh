@@ -2,7 +2,7 @@ $feature-flags: (
   ui-shell: true,
 );
 
-@import '../.yarn/unplugged/@carbon-themes-npm-10.10.1-cfc5b7d4e2/node_modules/@carbon/themes/scss/themes';
+@import '../node_modules/@carbon/themes/scss/themes';
 
 $carbon--theme: $carbon--theme--g10;
 @include carbon--theme();
@@ -12,4 +12,4 @@ $css--font-face: false;
 $css--plex: false;
 // $css--reset: false;
 
-@import '../.yarn/unplugged/carbon-components-npm-10.10.1-331083eeaa/node_modules/carbon-components/scss/globals/scss/styles';
+@import '../node_modules/carbon-components/scss/globals/scss/styles';

@@ -8,17 +8,18 @@ import {
   Title,
   TitleRoot,
 } from './blog-post-styles'
-import { Grid, Row } from 'carbon-components-react'
+import { Column, Grid, Row } from 'components/grid'
+// import { Column, Grid, Row } from 'carbon-components-react'
 import {
-  H,
-  P,
   PageLayout,
   SectionHeader,
-} from 'components'
+} from 'components/layout'
 import React, { createElement, FunctionComponent } from 'react'
 import { BlogPostQuery } from 'types/gatsby'
 import { DateTime } from 'luxon'
 import { graphql } from 'gatsby'
+import { H } from 'components/header'
+import { P } from 'components/paragraph'
 import rehype from 'rehype-parse'
 import rehypeReact from 'rehype-react'
 import unified from 'unified'
@@ -77,10 +78,14 @@ const BlogPost: FunctionComponent<BlogPostProps> = ({ data }) => {
         </SectionHeader>
         <Grid>
           <Row>
-            <Body md={{ offset: 1, span: 6 }} xlg={{ offset: 3, span: 6 }}>
-              { toc }
-              { body }
-            </Body>
+            <Column lg={{ offset: 3, span: 10 }} md={{ offset: 1, span: 6 }} xlg={{ offset: 4, span: 8 }}>
+              { toc.props.children }
+            </Column>
+          </Row>
+          <Row>
+            <Column lg={{ offset: 3, span: 10 }} md={{ offset: 1, span: 6 }} xlg={{ offset: 4, span: 8 }}>
+              { body.props.children }
+            </Column>
           </Row>
         </Grid>
       </Root>
