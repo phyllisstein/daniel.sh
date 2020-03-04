@@ -1,8 +1,15 @@
-import { useEffect, useRef, useState } from 'react'
+import { MutableRefObject, useEffect, useRef, useState } from 'react'
 
-export const useMeasure = () => {
+interface Bounds {
+  height: number
+  left: number
+  top: number
+  width: number
+}
+
+export const useMeasure = (): [MutableRefObject<any>, Bounds] => {
   const ref = useRef(null)
-  const [bounds, set] = useState({ height: 0, left: 0, top: 0, width: 0 })
+  const [bounds, set] = useState<Bounds>({ height: 0, left: 0, top: 0, width: 0 })
   const [ro] = useState(() => new ResizeObserver(([entry]) => set(entry.contentRect)))
   useEffect(
     () => {
