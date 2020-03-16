@@ -1,4 +1,4 @@
-import { Capita, PragmataPro, SST } from 'styles/fonts'
+import { Capita, Charlie, PragmataPro } from 'styles/fonts'
 import { Children, Wrapper } from './root-styles'
 import { CustomBlock, Prism, ThemeBase } from 'styles/reset'
 import { graphql, useStaticQuery } from 'gatsby'
@@ -31,7 +31,7 @@ export const Root: FunctionComponent = ({ children }) => {
 
   return (
     <>
-      <SST />
+      <Charlie />
       <Capita />
       <PragmataPro />
 

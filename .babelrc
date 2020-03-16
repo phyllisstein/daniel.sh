@@ -1,0 +1,152 @@
+{
+  "presets": [
+    ["@babel/env", {
+      "corejs": {
+        "proposals": true,
+        "version": 2
+      },
+      "exclude": [
+        "transform-async-to-generator",
+        "transform-regenerator",
+        "transform-typeof-symbol"
+      ],
+      "forceAllTransforms": false,
+      "loose": true,
+      "modules": false,
+      "targets": "last 2 years",
+      "useBuiltIns": "usage"
+    }],
+    "@babel/preset-typescript"
+  ],
+  "plugins": [
+    "@babel/plugin-proposal-async-generator-functions",
+    ["@babel/plugin-proposal-class-properties", {
+      "loose": true
+    }],
+    ["@babel/plugin-proposal-decorators", {
+      "decoratorsBeforeExport": true
+    }],
+    "@babel/plugin-proposal-do-expressions",
+    "@babel/plugin-proposal-export-default-from",
+    "@babel/plugin-proposal-export-namespace-from",
+    "@babel/plugin-proposal-function-bind",
+    "@babel/plugin-proposal-function-sent",
+    "@babel/plugin-proposal-json-strings",
+    "@babel/plugin-proposal-logical-assignment-operators",
+    ["@babel/plugin-proposal-nullish-coalescing-operator", {
+      "loose": true
+    }],
+    "@babel/plugin-proposal-numeric-separator",
+    ["@babel/plugin-proposal-object-rest-spread", {
+      "loose": true,
+      "useBuiltIns": true
+    }],
+    "@babel/plugin-proposal-optional-catch-binding",
+    ["@babel/plugin-proposal-optional-chaining", {
+      "loose": true
+    }],
+    "@babel/plugin-proposal-partial-application",
+    ["@babel/plugin-proposal-pipeline-operator", {
+      "proposal": "smart"
+    }],
+    ["@babel/plugin-proposal-private-methods", {
+      "loose": true
+    }],
+    "@babel/plugin-proposal-throw-expressions",
+    "@babel/plugin-proposal-unicode-property-regex",
+    "@babel/plugin-syntax-dynamic-import",
+    "@babel/plugin-transform-react-jsx-source",
+    ["@babel/plugin-transform-regenerator", {
+      "async": false,
+      "asyncGenerators": true,
+      "generators": true
+    }],
+    ["babel-plugin-inline-react-svg", {
+      "svgo": {
+        "plugins": [
+          { "cleanupAttrs": true },
+          { "cleanupListOfValues": true },
+          { "cleanupNumericValues": true },
+          { "collapseGroups": true },
+          { "convertPathData": true },
+          { "convertShapeToPath": true },
+          { "convertTransform": true },
+          { "mergePaths": true },
+          { "removeComments": true },
+          { "removeDoctype": true },
+          { "removeEditorsNSData": true },
+          { "removeEmptyAttrs": true },
+          { "removeEmptyContainers": true },
+          { "removeEmptyText": true },
+          { "removeHiddenElems": true },
+          { "removeMetadata": true },
+          { "removeNonInheritableGroupAttrs": true },
+          { "removeRasterImages": true },
+          { "removeScriptElement": true },
+          { "removeUnknownsAndDefaults": true },
+          { "removeUnusedNS": true },
+          { "removeUselessDefs": true },
+          { "removeUselessStrokeAndFill": true },
+          { "removeXMLNS": true },
+          { "removeXMLProcInst": true }
+        ]
+      }
+    }],
+    "babel-plugin-macros",
+    "babel-plugin-lodash",
+    ["babel-plugin-ramda", {
+      "useES": true
+    }],
+    ["module:fast-async", {
+      "compiler": {
+        "lazyThenables": true,
+        "parser": {
+          "sourceType": "module"
+        },
+        "promises": true,
+        "wrapAwait": true
+      },
+      "useRuntimeModule": true
+    }]
+  ],
+  "env": {
+    "development": {
+      "presets": [
+        ["@babel/preset-react", {
+          "development": true,
+          "useBuiltIns": true
+        }]
+      ],
+      "plugins": [
+        ["babel-plugin-styled-components", {
+          "minify": false,
+          "pure": false,
+          "transpileTemplateLiterals": false
+        }],
+        "@babel/plugin-transform-react-display-name",
+        ["babel-plugin-meaningful-logs", {
+          "maxDepth": 2
+        }]
+      ]
+    },
+    "production": {
+      "presets": [
+        ["@babel/preset-react", {
+          "development": false,
+          "useBuiltIns": true
+        }]
+      ],
+      "plugins": [
+        ["babel-plugin-styled-components", {
+          "minify": true,
+          "pure": true,
+          "transpileTemplateLiterals": true
+        }],
+        "@babel/plugin-transform-react-constant-elements",
+        "@babel/plugin-transform-react-inline-elements",
+        "babel-plugin-remove-prop-types",
+        "babel-plugin-react-local"
+      ]
+    }
+  }
+}

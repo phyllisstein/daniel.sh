@@ -15,8 +15,7 @@
     - plugin:react/recommended
     - plugin:import/typescript
   globals:
-    __DEV__: false
-    __SSR__: false
+    React: false
   ignorePatterns:
     - '**/.cache/'
     - '**/node_modules/'

@@ -11,7 +11,7 @@ export const ThemeBase = createGlobalStyle`
   }
 
   html {
-    font-size: 100%;
+    font-size: 112.5%;
   }
 
   body {
@@ -25,6 +25,8 @@ export const ThemeBase = createGlobalStyle`
     margin: 0;
     padding: 0;
 
-    background-color: ${ ({ theme }) => theme.palette.css.ui02 };
+    color: ${ ({ theme }) => theme.palette.css.text01 };
+
+    background-color: ${ ({ theme }) => theme.palette.css.uiBackground };
   }
 `

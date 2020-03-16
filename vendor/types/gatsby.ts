@@ -563,6 +563,8 @@ export type FileFieldsEnum =
   'childImageSharp___resize___height' |
   'childImageSharp___resize___aspectRatio' |
   'childImageSharp___resize___originalName' |
+  'childImageSharp___sqip___svg' |
+  'childImageSharp___sqip___dataURI' |
   'childImageSharp___id' |
   'childImageSharp___parent___id' |
   'childImageSharp___parent___parent___id' |
@@ -698,6 +700,7 @@ export type FileFieldsEnum =
   'childMarkdownRemark___fields___readingTime___minutes' |
   'childMarkdownRemark___fields___readingTime___time' |
   'childMarkdownRemark___fields___readingTime___words' |
+  'childMarkdownRemark___fields___hero' |
   'childMarkdownRemark___fields___slug' |
   'childMarkdownRemark___html' |
   'childMarkdownRemark___htmlAst' |
@@ -832,7 +835,9 @@ export type ImageCropFocus =
 export type ImageFit = 
   'COVER' |
   'CONTAIN' |
-  'FILL';
+  'FILL' |
+  'INSIDE' |
+  'OUTSIDE';
 
 export type ImageFormat = 
   'NO_CHANGE' |
@@ -847,6 +852,7 @@ export type ImageSharp = Node & {
   sizes?: Maybe<ImageSharpSizes>,
   original?: Maybe<ImageSharpOriginal>,
   resize?: Maybe<ImageSharpResize>,
+  sqip?: Maybe<SqipSharp>,
   id: Scalars['ID'],
   parent?: Maybe<Node>,
   children: Array<Node>,
@@ -972,6 +978,19 @@ export type ImageSharpResizeArgs = {
   trim?: Maybe<Scalars['Float']>
 };
 
+
+export type ImageSharpSqipArgs = {
+  blur?: Maybe<Scalars['Int']>,
+  numberOfPrimitives?: Maybe<Scalars['Int']>,
+  mode?: Maybe<Scalars['Int']>,
+  width?: Maybe<Scalars['Int']>,
+  height?: Maybe<Scalars['Int']>,
+  grayscale?: Maybe<Scalars['Boolean']>,
+  duotone?: Maybe<DuotoneGradient>,
+  cropFocus?: Maybe<ImageCropFocus>,
+  rotate?: Maybe<Scalars['Int']>
+};
+
 export type ImageSharpConnection = {
   totalCount: Scalars['Int'],
   edges: Array<ImageSharpEdge>,
@@ -1053,6 +1072,8 @@ export type ImageSharpFieldsEnum =
   'resize___height' |
   'resize___aspectRatio' |
   'resize___originalName' |
+  'sqip___svg' |
+  'sqip___dataURI' |
   'id' |
   'parent___id' |
   'parent___parent___id' |
@@ -1147,6 +1168,7 @@ export type ImageSharpFilterInput = {
   sizes?: Maybe<ImageSharpSizesFilterInput>,
   original?: Maybe<ImageSharpOriginalFilterInput>,
   resize?: Maybe<ImageSharpResizeFilterInput>,
+  sqip?: Maybe<SqipSharpFilterInput>,
   id?: Maybe<StringQueryOperatorInput>,
   parent?: Maybe<NodeFilterInput>,
   children?: Maybe<NodeFilterListInput>,
@@ -1453,6 +1475,7 @@ export type MarkdownRemarkEdge = {
 
 export type MarkdownRemarkFields = {
   readingTime?: Maybe<MarkdownRemarkFieldsReadingTime>,
+  hero?: Maybe<Scalars['String']>,
   slug?: Maybe<Scalars['String']>,
 };
 
@@ -1468,6 +1491,7 @@ export type MarkdownRemarkFieldsEnum =
   'fields___readingTime___minutes' |
   'fields___readingTime___time' |
   'fields___readingTime___words' |
+  'fields___hero' |
   'fields___slug' |
   'html' |
   'htmlAst' |
@@ -1568,6 +1592,7 @@ export type MarkdownRemarkFieldsEnum =
 
 export type MarkdownRemarkFieldsFilterInput = {
   readingTime?: Maybe<MarkdownRemarkFieldsReadingTimeFilterInput>,
+  hero?: Maybe<StringQueryOperatorInput>,
   slug?: Maybe<StringQueryOperatorInput>,
 };
 
@@ -1705,12 +1730,14 @@ export type Query = {
   allDirectory: DirectoryConnection,
   sitePage?: Maybe<SitePage>,
   allSitePage: SitePageConnection,
+  site?: Maybe<Site>,
+  allSite: SiteConnection,
   markdownRemark?: Maybe<MarkdownRemark>,
   allMarkdownRemark: MarkdownRemarkConnection,
   imageSharp?: Maybe<ImageSharp>,
   allImageSharp: ImageSharpConnection,
-  site?: Maybe<Site>,
-  allSite: SiteConnection,
+  siteBuildMetadata?: Maybe<SiteBuildMetadata>,
+  allSiteBuildMetadata: SiteBuildMetadataConnection,
   sitePlugin?: Maybe<SitePlugin>,
   allSitePlugin: SitePluginConnection,
 };
@@ -1843,6 +1870,28 @@ export type QueryAllSitePageArgs = {
 };
 
 
+export type QuerySiteArgs = {
+  buildTime?: Maybe<DateQueryOperatorInput>,
+  siteMetadata?: Maybe<SiteSiteMetadataFilterInput>,
+  port?: Maybe<IntQueryOperatorInput>,
+  host?: Maybe<StringQueryOperatorInput>,
+  polyfill?: Maybe<BooleanQueryOperatorInput>,
+  pathPrefix?: Maybe<StringQueryOperatorInput>,
+  id?: Maybe<StringQueryOperatorInput>,
+  parent?: Maybe<NodeFilterInput>,
+  children?: Maybe<NodeFilterListInput>,
+  internal?: Maybe<InternalFilterInput>
+};
+
+
+export type QueryAllSiteArgs = {
+  filter?: Maybe<SiteFilterInput>,
+  sort?: Maybe<SiteSortInput>,
+  skip?: Maybe<Scalars['Int']>,
+  limit?: Maybe<Scalars['Int']>
+};
+
+
 export type QueryMarkdownRemarkArgs = {
   id?: Maybe<StringQueryOperatorInput>,
   frontmatter?: Maybe<MarkdownRemarkFrontmatterFilterInput>,
@@ -1878,6 +1927,7 @@ export type QueryImageSharpArgs = {
   sizes?: Maybe<ImageSharpSizesFilterInput>,
   original?: Maybe<ImageSharpOriginalFilterInput>,
   resize?: Maybe<ImageSharpResizeFilterInput>,
+  sqip?: Maybe<SqipSharpFilterInput>,
   id?: Maybe<StringQueryOperatorInput>,
   parent?: Maybe<NodeFilterInput>,
   children?: Maybe<NodeFilterListInput>,
@@ -1893,23 +1943,18 @@ export type QueryAllImageSharpArgs = {
 };
 
 
-export type QuerySiteArgs = {
+export type QuerySiteBuildMetadataArgs = {
   id?: Maybe<StringQueryOperatorInput>,
   parent?: Maybe<NodeFilterInput>,
   children?: Maybe<NodeFilterListInput>,
   internal?: Maybe<InternalFilterInput>,
-  siteMetadata?: Maybe<SiteSiteMetadataFilterInput>,
-  port?: Maybe<IntQueryOperatorInput>,
-  host?: Maybe<StringQueryOperatorInput>,
-  polyfill?: Maybe<BooleanQueryOperatorInput>,
-  pathPrefix?: Maybe<StringQueryOperatorInput>,
   buildTime?: Maybe<DateQueryOperatorInput>
 };
 
 
-export type QueryAllSiteArgs = {
-  filter?: Maybe<SiteFilterInput>,
-  sort?: Maybe<SiteSortInput>,
+export type QueryAllSiteBuildMetadataArgs = {
+  filter?: Maybe<SiteBuildMetadataFilterInput>,
+  sort?: Maybe<SiteBuildMetadataSortInput>,
   skip?: Maybe<Scalars['Int']>,
   limit?: Maybe<Scalars['Int']>
 };
@@ -1940,16 +1985,16 @@ export type QueryAllSitePluginArgs = {
 };
 
 export type Site = Node & {
-  id: Scalars['ID'],
-  parent?: Maybe<Node>,
-  children: Array<Node>,
-  internal: Internal,
+  buildTime?: Maybe<Scalars['Date']>,
   siteMetadata?: Maybe<SiteSiteMetadata>,
   port?: Maybe<Scalars['Int']>,
   host?: Maybe<Scalars['String']>,
   polyfill?: Maybe<Scalars['Boolean']>,
   pathPrefix?: Maybe<Scalars['String']>,
-  buildTime?: Maybe<Scalars['Date']>,
+  id: Scalars['ID'],
+  parent?: Maybe<Node>,
+  children: Array<Node>,
+  internal: Internal,
 };
 
 
@@ -1960,34 +2005,50 @@ export type SiteBuildTimeArgs = {
   locale?: Maybe<Scalars['String']>
 };
 
-export type SiteConnection = {
+export type SiteBuildMetadata = Node & {
+  id: Scalars['ID'],
+  parent?: Maybe<Node>,
+  children: Array<Node>,
+  internal: Internal,
+  buildTime?: Maybe<Scalars['Date']>,
+};
+
+
+export type SiteBuildMetadataBuildTimeArgs = {
+  formatString?: Maybe<Scalars['String']>,
+  fromNow?: Maybe<Scalars['Boolean']>,
+  difference?: Maybe<Scalars['String']>,
+  locale?: Maybe<Scalars['String']>
+};
+
+export type SiteBuildMetadataConnection = {
   totalCount: Scalars['Int'],
-  edges: Array<SiteEdge>,
-  nodes: Array<Site>,
+  edges: Array<SiteBuildMetadataEdge>,
+  nodes: Array<SiteBuildMetadata>,
   pageInfo: PageInfo,
   distinct: Array<Scalars['String']>,
-  group: Array<SiteGroupConnection>,
+  group: Array<SiteBuildMetadataGroupConnection>,
 };
 
 
-export type SiteConnectionDistinctArgs = {
-  field: SiteFieldsEnum
+export type SiteBuildMetadataConnectionDistinctArgs = {
+  field: SiteBuildMetadataFieldsEnum
 };
 
 
-export type SiteConnectionGroupArgs = {
+export type SiteBuildMetadataConnectionGroupArgs = {
   skip?: Maybe<Scalars['Int']>,
   limit?: Maybe<Scalars['Int']>,
-  field: SiteFieldsEnum
+  field: SiteBuildMetadataFieldsEnum
 };
 
-export type SiteEdge = {
-  next?: Maybe<Site>,
-  node: Site,
-  previous?: Maybe<Site>,
+export type SiteBuildMetadataEdge = {
+  next?: Maybe<SiteBuildMetadata>,
+  node: SiteBuildMetadata,
+  previous?: Maybe<SiteBuildMetadata>,
 };
 
-export type SiteFieldsEnum = 
+export type SiteBuildMetadataFieldsEnum = 
   'id' |
   'parent___id' |
   'parent___parent___id' |
@@ -2074,6 +2135,59 @@ export type SiteFieldsEnum =
   'internal___mediaType' |
   'internal___owner' |
   'internal___type' |
+  'buildTime';
+
+export type SiteBuildMetadataFilterInput = {
+  id?: Maybe<StringQueryOperatorInput>,
+  parent?: Maybe<NodeFilterInput>,
+  children?: Maybe<NodeFilterListInput>,
+  internal?: Maybe<InternalFilterInput>,
+  buildTime?: Maybe<DateQueryOperatorInput>,
+};
+
+export type SiteBuildMetadataGroupConnection = {
+  totalCount: Scalars['Int'],
+  edges: Array<SiteBuildMetadataEdge>,
+  nodes: Array<SiteBuildMetadata>,
+  pageInfo: PageInfo,
+  field: Scalars['String'],
+  fieldValue?: Maybe<Scalars['String']>,
+};
+
+export type SiteBuildMetadataSortInput = {
+  fields?: Maybe<Array<Maybe<SiteBuildMetadataFieldsEnum>>>,
+  order?: Maybe<Array<Maybe<SortOrderEnum>>>,
+};
+
+export type SiteConnection = {
+  totalCount: Scalars['Int'],
+  edges: Array<SiteEdge>,
+  nodes: Array<Site>,
+  pageInfo: PageInfo,
+  distinct: Array<Scalars['String']>,
+  group: Array<SiteGroupConnection>,
+};
+
+
+export type SiteConnectionDistinctArgs = {
+  field: SiteFieldsEnum
+};
+
+
+export type SiteConnectionGroupArgs = {
+  skip?: Maybe<Scalars['Int']>,
+  limit?: Maybe<Scalars['Int']>,
+  field: SiteFieldsEnum
+};
+
+export type SiteEdge = {
+  next?: Maybe<Site>,
+  node: Site,
+  previous?: Maybe<Site>,
+};
+
+export type SiteFieldsEnum = 
+  'buildTime' |
   'siteMetadata___author' |
   'siteMetadata___description' |
   'siteMetadata___keywords' |
@@ -2085,19 +2199,104 @@ export type SiteFieldsEnum =
   'host' |
   'polyfill' |
   'pathPrefix' |
-  'buildTime';
+  'id' |
+  'parent___id' |
+  'parent___parent___id' |
+  'parent___parent___parent___id' |
+  'parent___parent___parent___children' |
+  'parent___parent___children' |
+  'parent___parent___children___id' |
+  'parent___parent___children___children' |
+  'parent___parent___internal___content' |
+  'parent___parent___internal___contentDigest' |
+  'parent___parent___internal___description' |
+  'parent___parent___internal___fieldOwners' |
+  'parent___parent___internal___ignoreType' |
+  'parent___parent___internal___mediaType' |
+  'parent___parent___internal___owner' |
+  'parent___parent___internal___type' |
+  'parent___children' |
+  'parent___children___id' |
+  'parent___children___parent___id' |
+  'parent___children___parent___children' |
+  'parent___children___children' |
+  'parent___children___children___id' |
+  'parent___children___children___children' |
+  'parent___children___internal___content' |
+  'parent___children___internal___contentDigest' |
+  'parent___children___internal___description' |
+  'parent___children___internal___fieldOwners' |
+  'parent___children___internal___ignoreType' |
+  'parent___children___internal___mediaType' |
+  'parent___children___internal___owner' |
+  'parent___children___internal___type' |
+  'parent___internal___content' |
+  'parent___internal___contentDigest' |
+  'parent___internal___description' |
+  'parent___internal___fieldOwners' |
+  'parent___internal___ignoreType' |
+  'parent___internal___mediaType' |
+  'parent___internal___owner' |
+  'parent___internal___type' |
+  'children' |
+  'children___id' |
+  'children___parent___id' |
+  'children___parent___parent___id' |
+  'children___parent___parent___children' |
+  'children___parent___children' |
+  'children___parent___children___id' |
+  'children___parent___children___children' |
+  'children___parent___internal___content' |
+  'children___parent___internal___contentDigest' |
+  'children___parent___internal___description' |
+  'children___parent___internal___fieldOwners' |
+  'children___parent___internal___ignoreType' |
+  'children___parent___internal___mediaType' |
+  'children___parent___internal___owner' |
+  'children___parent___internal___type' |
+  'children___children' |
+  'children___children___id' |
+  'children___children___parent___id' |
+  'children___children___parent___children' |
+  'children___children___children' |
+  'children___children___children___id' |
+  'children___children___children___children' |
+  'children___children___internal___content' |
+  'children___children___internal___contentDigest' |
+  'children___children___internal___description' |
+  'children___children___internal___fieldOwners' |
+  'children___children___internal___ignoreType' |
+  'children___children___internal___mediaType' |
+  'children___children___internal___owner' |
+  'children___children___internal___type' |
+  'children___internal___content' |
+  'children___internal___contentDigest' |
+  'children___internal___description' |
+  'children___internal___fieldOwners' |
+  'children___internal___ignoreType' |
+  'children___internal___mediaType' |
+  'children___internal___owner' |
+  'children___internal___type' |
+  'internal___content' |
+  'internal___contentDigest' |
+  'internal___description' |
+  'internal___fieldOwners' |
+  'internal___ignoreType' |
+  'internal___mediaType' |
+  'internal___owner' |
+  'internal___type';
 
 export type SiteFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>,
-  parent?: Maybe<NodeFilterInput>,
-  children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>,
+  buildTime?: Maybe<DateQueryOperatorInput>,
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>,
   port?: Maybe<IntQueryOperatorInput>,
   host?: Maybe<StringQueryOperatorInput>,
   polyfill?: Maybe<BooleanQueryOperatorInput>,
   pathPrefix?: Maybe<StringQueryOperatorInput>,
-  buildTime?: Maybe<DateQueryOperatorInput>,
+  id?: Maybe<StringQueryOperatorInput>,
+  parent?: Maybe<NodeFilterInput>,
+  children?: Maybe<NodeFilterListInput>,
+  internal?: Maybe<InternalFilterInput>,
 };
 
 export type SiteGroupConnection = {
@@ -2148,10 +2347,12 @@ export type SitePageConnectionGroupArgs = {
 };
 
 export type SitePageContext = {
+  hero?: Maybe<Scalars['String']>,
   slug?: Maybe<Scalars['String']>,
 };
 
 export type SitePageContextFilterInput = {
+  hero?: Maybe<StringQueryOperatorInput>,
   slug?: Maybe<StringQueryOperatorInput>,
 };
 
@@ -2254,6 +2455,7 @@ export type SitePageFieldsEnum =
   'internal___owner' |
   'internal___type' |
   'isCreatedByStatefulCreatePages' |
+  'context___hero' |
   'context___slug' |
   'pluginCreator___id' |
   'pluginCreator___parent___id' |
@@ -2303,7 +2505,6 @@ export type SitePageFieldsEnum =
   'pluginCreator___pluginOptions___plugins___version' |
   'pluginCreator___pluginOptions___plugins___nodeAPIs' |
   'pluginCreator___pluginOptions___plugins___browserAPIs' |
-  'pluginCreator___pluginOptions___plugins___ssrAPIs' |
   'pluginCreator___pluginOptions___plugins___pluginFilepath' |
   'pluginCreator___pluginOptions___minify' |
   'pluginCreator___pluginOptions___pure' |
@@ -2314,26 +2515,26 @@ export type SitePageFieldsEnum =
   'pluginCreator___pluginOptions___tableOfContents___absolute' |
   'pluginCreator___pluginOptions___tableOfContents___maxDepth' |
   'pluginCreator___pluginOptions___linkImagesToOriginal' |
+  'pluginCreator___pluginOptions___maxWidth' |
   'pluginCreator___pluginOptions___showCaptions' |
+  'pluginCreator___pluginOptions___sizeByPixelDensity' |
+  'pluginCreator___pluginOptions___tracedSVG' |
   'pluginCreator___pluginOptions___withWebp' |
   'pluginCreator___pluginOptions___pathPrefix' |
-  'pluginCreator___pluginOptions___maxWidth' |
   'pluginCreator___pluginOptions___wrapperStyle' |
   'pluginCreator___pluginOptions___backgroundColor' |
   'pluginCreator___pluginOptions___markdownCaptions' |
-  'pluginCreator___pluginOptions___tracedSVG' |
   'pluginCreator___pluginOptions___loading' |
   'pluginCreator___pluginOptions___disableBgImageOnAlpha' |
   'pluginCreator___pluginOptions___disableBgImage' |
   'pluginCreator___pluginOptions___related' |
-  'pluginCreator___pluginOptions___icon' |
-  'pluginCreator___pluginOptions___removeAccents' |
   'pluginCreator___pluginOptions___directory' |
   'pluginCreator___pluginOptions___inlineCodeMarker' |
   'pluginCreator___pluginOptions___dashes' |
   'pluginCreator___pluginOptions___color' |
   'pluginCreator___pluginOptions___easing' |
   'pluginCreator___pluginOptions___fileName' |
+  'pluginCreator___pluginOptions___cachePublic' |
   'pluginCreator___pluginOptions___pathCheck' |
   'pluginCreator___nodeAPIs' |
   'pluginCreator___browserAPIs' |
@@ -2527,28 +2728,24 @@ export type SitePluginFieldsEnum =
   'pluginOptions___plugins___name' |
   'pluginOptions___plugins___version' |
   'pluginOptions___plugins___pluginOptions___linkImagesToOriginal' |
+  'pluginOptions___plugins___pluginOptions___maxWidth' |
   'pluginOptions___plugins___pluginOptions___showCaptions' |
+  'pluginOptions___plugins___pluginOptions___sizeByPixelDensity' |
+  'pluginOptions___plugins___pluginOptions___tracedSVG' |
   'pluginOptions___plugins___pluginOptions___withWebp' |
   'pluginOptions___plugins___pluginOptions___pathPrefix' |
-  'pluginOptions___plugins___pluginOptions___maxWidth' |
   'pluginOptions___plugins___pluginOptions___wrapperStyle' |
   'pluginOptions___plugins___pluginOptions___backgroundColor' |
   'pluginOptions___plugins___pluginOptions___markdownCaptions' |
-  'pluginOptions___plugins___pluginOptions___tracedSVG' |
   'pluginOptions___plugins___pluginOptions___loading' |
   'pluginOptions___plugins___pluginOptions___disableBgImageOnAlpha' |
   'pluginOptions___plugins___pluginOptions___disableBgImage' |
   'pluginOptions___plugins___pluginOptions___related' |
-  'pluginOptions___plugins___pluginOptions___icon' |
-  'pluginOptions___plugins___pluginOptions___removeAccents' |
   'pluginOptions___plugins___pluginOptions___directory' |
-  'pluginOptions___plugins___pluginOptions___name' |
-  'pluginOptions___plugins___pluginOptions___path' |
   'pluginOptions___plugins___pluginOptions___inlineCodeMarker' |
   'pluginOptions___plugins___pluginOptions___dashes' |
   'pluginOptions___plugins___nodeAPIs' |
   'pluginOptions___plugins___browserAPIs' |
-  'pluginOptions___plugins___ssrAPIs' |
   'pluginOptions___plugins___pluginFilepath' |
   'pluginOptions___minify' |
   'pluginOptions___pure' |
@@ -2559,20 +2756,19 @@ export type SitePluginFieldsEnum =
   'pluginOptions___tableOfContents___absolute' |
   'pluginOptions___tableOfContents___maxDepth' |
   'pluginOptions___linkImagesToOriginal' |
+  'pluginOptions___maxWidth' |
   'pluginOptions___showCaptions' |
+  'pluginOptions___sizeByPixelDensity' |
+  'pluginOptions___tracedSVG' |
   'pluginOptions___withWebp' |
   'pluginOptions___pathPrefix' |
-  'pluginOptions___maxWidth' |
   'pluginOptions___wrapperStyle' |
   'pluginOptions___backgroundColor' |
   'pluginOptions___markdownCaptions' |
-  'pluginOptions___tracedSVG' |
   'pluginOptions___loading' |
   'pluginOptions___disableBgImageOnAlpha' |
   'pluginOptions___disableBgImage' |
   'pluginOptions___related' |
-  'pluginOptions___icon' |
-  'pluginOptions___removeAccents' |
   'pluginOptions___directory' |
   'pluginOptions___inlineCodeMarker' |
   'pluginOptions___blocks___danger___classes' |
@@ -2587,6 +2783,7 @@ export type SitePluginFieldsEnum =
   'pluginOptions___color' |
   'pluginOptions___easing' |
   'pluginOptions___fileName' |
+  'pluginOptions___cachePublic' |
   'pluginOptions___pathCheck' |
   'nodeAPIs' |
   'browserAPIs' |
@@ -2709,20 +2906,19 @@ export type SitePluginPluginOptions = {
   excerpt_separator?: Maybe<Scalars['String']>,
   tableOfContents?: Maybe<SitePluginPluginOptionsTableOfContents>,
   linkImagesToOriginal?: Maybe<Scalars['Boolean']>,
+  maxWidth?: Maybe<Scalars['Int']>,
   showCaptions?: Maybe<Scalars['Boolean']>,
+  sizeByPixelDensity?: Maybe<Scalars['Boolean']>,
+  tracedSVG?: Maybe<Scalars['Boolean']>,
   withWebp?: Maybe<Scalars['Boolean']>,
   pathPrefix?: Maybe<Scalars['String']>,
-  maxWidth?: Maybe<Scalars['Int']>,
   wrapperStyle?: Maybe<Scalars['String']>,
   backgroundColor?: Maybe<Scalars['String']>,
   markdownCaptions?: Maybe<Scalars['Boolean']>,
-  tracedSVG?: Maybe<Scalars['Boolean']>,
   loading?: Maybe<Scalars['String']>,
   disableBgImageOnAlpha?: Maybe<Scalars['Boolean']>,
   disableBgImage?: Maybe<Scalars['Boolean']>,
   related?: Maybe<Scalars['Boolean']>,
-  icon?: Maybe<Scalars['String']>,
-  removeAccents?: Maybe<Scalars['Boolean']>,
   directory?: Maybe<Scalars['String']>,
   inlineCodeMarker?: Maybe<Scalars['String']>,
   blocks?: Maybe<SitePluginPluginOptionsBlocks>,
@@ -2730,6 +2926,7 @@ export type SitePluginPluginOptions = {
   color?: Maybe<Scalars['String']>,
   easing?: Maybe<Scalars['String']>,
   fileName?: Maybe<Scalars['String']>,
+  cachePublic?: Maybe<Scalars['Boolean']>,
   pathCheck?: Maybe<Scalars['Boolean']>,
 };
 
@@ -2797,20 +2994,19 @@ export type SitePluginPluginOptionsFilterInput = {
   excerpt_separator?: Maybe<StringQueryOperatorInput>,
   tableOfContents?: Maybe<SitePluginPluginOptionsTableOfContentsFilterInput>,
   linkImagesToOriginal?: Maybe<BooleanQueryOperatorInput>,
+  maxWidth?: Maybe<IntQueryOperatorInput>,
   showCaptions?: Maybe<BooleanQueryOperatorInput>,
+  sizeByPixelDensity?: Maybe<BooleanQueryOperatorInput>,
+  tracedSVG?: Maybe<BooleanQueryOperatorInput>,
   withWebp?: Maybe<BooleanQueryOperatorInput>,
   pathPrefix?: Maybe<StringQueryOperatorInput>,
-  maxWidth?: Maybe<IntQueryOperatorInput>,
   wrapperStyle?: Maybe<StringQueryOperatorInput>,
   backgroundColor?: Maybe<StringQueryOperatorInput>,
   markdownCaptions?: Maybe<BooleanQueryOperatorInput>,
-  tracedSVG?: Maybe<BooleanQueryOperatorInput>,
   loading?: Maybe<StringQueryOperatorInput>,
   disableBgImageOnAlpha?: Maybe<BooleanQueryOperatorInput>,
   disableBgImage?: Maybe<BooleanQueryOperatorInput>,
   related?: Maybe<BooleanQueryOperatorInput>,
-  icon?: Maybe<StringQueryOperatorInput>,
-  removeAccents?: Maybe<BooleanQueryOperatorInput>,
   directory?: Maybe<StringQueryOperatorInput>,
   inlineCodeMarker?: Maybe<StringQueryOperatorInput>,
   blocks?: Maybe<SitePluginPluginOptionsBlocksFilterInput>,
@@ -2818,6 +3014,7 @@ export type SitePluginPluginOptionsFilterInput = {
   color?: Maybe<StringQueryOperatorInput>,
   easing?: Maybe<StringQueryOperatorInput>,
   fileName?: Maybe<StringQueryOperatorInput>,
+  cachePublic?: Maybe<BooleanQueryOperatorInput>,
   pathCheck?: Maybe<BooleanQueryOperatorInput>,
 };
 
@@ -2829,7 +3026,6 @@ export type SitePluginPluginOptionsPlugins = {
   pluginOptions?: Maybe<SitePluginPluginOptionsPluginsPluginOptions>,
   nodeAPIs?: Maybe<Array<Maybe<Scalars['String']>>>,
   browserAPIs?: Maybe<Array<Maybe<Scalars['String']>>>,
-  ssrAPIs?: Maybe<Array<Maybe<Scalars['String']>>>,
   pluginFilepath?: Maybe<Scalars['String']>,
 };
 
@@ -2841,7 +3037,6 @@ export type SitePluginPluginOptionsPluginsFilterInput = {
   pluginOptions?: Maybe<SitePluginPluginOptionsPluginsPluginOptionsFilterInput>,
   nodeAPIs?: Maybe<StringQueryOperatorInput>,
   browserAPIs?: Maybe<StringQueryOperatorInput>,
-  ssrAPIs?: Maybe<StringQueryOperatorInput>,
   pluginFilepath?: Maybe<StringQueryOperatorInput>,
 };
 
@@ -2851,23 +3046,20 @@ export type SitePluginPluginOptionsPluginsFilterListInput = {
 
 export type SitePluginPluginOptionsPluginsPluginOptions = {
   linkImagesToOriginal?: Maybe<Scalars['Boolean']>,
+  maxWidth?: Maybe<Scalars['Int']>,
   showCaptions?: Maybe<Scalars['Boolean']>,
+  sizeByPixelDensity?: Maybe<Scalars['Boolean']>,
+  tracedSVG?: Maybe<Scalars['Boolean']>,
   withWebp?: Maybe<Scalars['Boolean']>,
   pathPrefix?: Maybe<Scalars['String']>,
-  maxWidth?: Maybe<Scalars['Int']>,
   wrapperStyle?: Maybe<Scalars['String']>,
   backgroundColor?: Maybe<Scalars['String']>,
   markdownCaptions?: Maybe<Scalars['Boolean']>,
-  tracedSVG?: Maybe<Scalars['Boolean']>,
   loading?: Maybe<Scalars['String']>,
   disableBgImageOnAlpha?: Maybe<Scalars['Boolean']>,
   disableBgImage?: Maybe<Scalars['Boolean']>,
   related?: Maybe<Scalars['Boolean']>,
-  icon?: Maybe<Scalars['String']>,
-  removeAccents?: Maybe<Scalars['Boolean']>,
   directory?: Maybe<Scalars['String']>,
-  name?: Maybe<Scalars['String']>,
-  path?: Maybe<Scalars['String']>,
   inlineCodeMarker?: Maybe<Scalars['String']>,
   blocks?: Maybe<SitePluginPluginOptionsPluginsPluginOptionsBlocks>,
   dashes?: Maybe<Scalars['String']>,
@@ -2929,23 +3121,20 @@ export type SitePluginPluginOptionsPluginsPluginOptionsBlocksWarningFilterInput 
 
 export type SitePluginPluginOptionsPluginsPluginOptionsFilterInput = {
   linkImagesToOriginal?: Maybe<BooleanQueryOperatorInput>,
+  maxWidth?: Maybe<IntQueryOperatorInput>,
   showCaptions?: Maybe<BooleanQueryOperatorInput>,
+  sizeByPixelDensity?: Maybe<BooleanQueryOperatorInput>,
+  tracedSVG?: Maybe<BooleanQueryOperatorInput>,
   withWebp?: Maybe<BooleanQueryOperatorInput>,
   pathPrefix?: Maybe<StringQueryOperatorInput>,
-  maxWidth?: Maybe<IntQueryOperatorInput>,
   wrapperStyle?: Maybe<StringQueryOperatorInput>,
   backgroundColor?: Maybe<StringQueryOperatorInput>,
   markdownCaptions?: Maybe<BooleanQueryOperatorInput>,
-  tracedSVG?: Maybe<BooleanQueryOperatorInput>,
   loading?: Maybe<StringQueryOperatorInput>,
   disableBgImageOnAlpha?: Maybe<BooleanQueryOperatorInput>,
   disableBgImage?: Maybe<BooleanQueryOperatorInput>,
   related?: Maybe<BooleanQueryOperatorInput>,
-  icon?: Maybe<StringQueryOperatorInput>,
-  removeAccents?: Maybe<BooleanQueryOperatorInput>,
   directory?: Maybe<StringQueryOperatorInput>,
-  name?: Maybe<StringQueryOperatorInput>,
-  path?: Maybe<StringQueryOperatorInput>,
   inlineCodeMarker?: Maybe<StringQueryOperatorInput>,
   blocks?: Maybe<SitePluginPluginOptionsPluginsPluginOptionsBlocksFilterInput>,
   dashes?: Maybe<StringQueryOperatorInput>,
@@ -3003,6 +3192,16 @@ export type SortOrderEnum =
   'ASC' |
   'DESC';
 
+export type SqipSharp = {
+  svg?: Maybe<Scalars['String']>,
+  dataURI?: Maybe<Scalars['String']>,
+};
+
+export type SqipSharpFilterInput = {
+  svg?: Maybe<StringQueryOperatorInput>,
+  dataURI?: Maybe<StringQueryOperatorInput>,
+};
+
 export type StringQueryOperatorInput = {
   eq?: Maybe<Scalars['String']>,
   ne?: Maybe<Scalars['String']>,
@@ -3020,61 +3219,62 @@ export type PageLayoutQuery = { site: Maybe<{ siteMetadata: Maybe<Pick<SiteSiteM
 export type AtlasFontQueryVariables = {};
 
 
-export type AtlasFontQuery = { allFile: { edges: Array<{ node: Pick<File, 'ext' | 'name' | 'publicURL'> }> } };
+export type AtlasFontQuery = { allFile: { nodes: Array<Pick<File, 'ext' | 'name' | 'publicURL'>> } };
 
 export type CapitaFontQueryVariables = {};
 
 
-export type CapitaFontQuery = { allFile: { edges: Array<{ node: Pick<File, 'ext' | 'name' | 'publicURL'> }> } };
+export type CapitaFontQuery = { allFile: { nodes: Array<Pick<File, 'ext' | 'name' | 'publicURL'>> } };
 
 export type CharlieFontQueryVariables = {};
 
 
-export type CharlieFontQuery = { allFile: { edges: Array<{ node: Pick<File, 'ext' | 'name' | 'publicURL'> }> } };
+export type CharlieFontQuery = { allFile: { nodes: Array<Pick<File, 'ext' | 'name' | 'publicURL'>> } };
 
 export type GtPressuraFontQueryVariables = {};
 
 
-export type GtPressuraFontQuery = { allFile: { edges: Array<{ node: Pick<File, 'ext' | 'name' | 'publicURL'> }> } };
+export type GtPressuraFontQuery = { allFile: { nodes: Array<Pick<File, 'ext' | 'name' | 'publicURL'>> } };
 
 export type JetBrainsMonoFontQueryVariables = {};
 
 
-export type JetBrainsMonoFontQuery = { allFile: { edges: Array<{ node: Pick<File, 'ext' | 'name' | 'publicURL'> }> } };
+export type JetBrainsMonoFontQuery = { allFile: { nodes: Array<Pick<File, 'ext' | 'name' | 'publicURL'>> } };
 
 export type MaisonMonoFontQueryQueryVariables = {};
 
 
-export type MaisonMonoFontQueryQuery = { allFile: { edges: Array<{ node: Pick<File, 'ext' | 'name' | 'publicURL'> }> } };
+export type MaisonMonoFontQueryQuery = { allFile: { nodes: Array<Pick<File, 'ext' | 'name' | 'publicURL'>> } };
 
 export type MaisonFontQueryQueryVariables = {};
 
 
-export type MaisonFontQueryQuery = { allFile: { edges: Array<{ node: Pick<File, 'ext' | 'name' | 'publicURL'> }> } };
+export type MaisonFontQueryQuery = { allFile: { nodes: Array<Pick<File, 'ext' | 'name' | 'publicURL'>> } };
 
 export type PragmataProFontQueryVariables = {};
 
 
-export type PragmataProFontQuery = { allFile: { edges: Array<{ node: Pick<File, 'ext' | 'name' | 'publicURL'> }> } };
+export type PragmataProFontQuery = { allFile: { nodes: Array<Pick<File, 'ext' | 'name' | 'publicURL'>> } };
 
 export type SlateFontQueryVariables = {};
 
 
-export type SlateFontQuery = { allFile: { edges: Array<{ node: Pick<File, 'ext' | 'name' | 'publicURL'> }> } };
+export type SlateFontQuery = { allFile: { nodes: Array<Pick<File, 'ext' | 'name' | 'publicURL'>> } };
 
 export type SstFontQueryVariables = {};
 
 
-export type SstFontQuery = { allFile: { edges: Array<{ node: Pick<File, 'ext' | 'name' | 'publicURL'> }> } };
+export type SstFontQuery = { allFile: { nodes: Array<Pick<File, 'ext' | 'name' | 'publicURL'>> } };
 
 export type BlogPostQueryVariables = {
+  hero: Scalars['String'],
   slug: Scalars['String']
 };
 
 
-export type BlogPostQuery = { post: Maybe<(
-    Pick<MarkdownRemark, 'htmlAst' | 'tableOfContents'>
-    & { frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'date' | 'subtitle' | 'title'>> }
+export type BlogPostQuery = { hero: Maybe<{ image: Maybe<{ fluid: Maybe<GatsbyImageSharpFluid_WithWebp_NoBase64Fragment>, sqip: Maybe<Pick<SqipSharp, 'dataURI'>> }> }>, post: Maybe<(
+    Pick<MarkdownRemark, 'htmlAst'>
+    & { fields: Maybe<{ readingTime: Maybe<Pick<MarkdownRemarkFieldsReadingTime, 'text'>> }>, frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'date' | 'subtitle' | 'title'>>, headings: Maybe<Array<Maybe<Pick<MarkdownHeading, 'depth' | 'value'>>>> }
   )> };
 
 export type RootQueryVariables = {};

@@ -25,12 +25,10 @@ export const Slate: FunctionComponent = React.memo(() => {
   const data: SlateFontQuery = useStaticQuery(graphql`
     query SlateFont {
       allFile(filter: { name: { glob: "*Slate*" } }) {
-        edges {
-          node {
-            ext
-            name
-            publicURL
-          }
+        nodes {
+          ext
+          name
+          publicURL
         }
       }
     }
@@ -38,14 +36,8 @@ export const Slate: FunctionComponent = React.memo(() => {
 
   const decls = useMemo(() => {
     return FACES.map(({ name, style, weight }) => {
-      const woff = R.pipe(
-        R.pluck('node'),
-        R.find(R.whereEq({ ext: '.woff', name })),
-      )(data.allFile.edges)
-      const woff2 = R.pipe(
-        R.pluck('node'),
-        R.find(R.whereEq({ ext: '.woff2', name })),
-      )(data.allFile.edges)
+      const woff = R.find(R.whereEq({ ext: '.woff', name }), data.allFile.nodes)
+      const woff2 = R.find(R.whereEq({ ext: '.woff2', name }), data.allFile.nodes)
 
       return `
         @font-face {

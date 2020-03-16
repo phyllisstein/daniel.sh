@@ -134,6 +134,6 @@ const getPlumber = ({
   return plumber
 }
 
-export const primary = getPlumber({ baseline: Baseline.Capita })
-export const accent = getPlumber({ baseline: Baseline.Slate })
+export const primary = getPlumber({ baseline: Baseline.Charlie })
+export const accent = getPlumber({ baseline: Baseline.Maison })
 export const mono = getPlumber({ baseline: Baseline.PragmataPro })

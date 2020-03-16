@@ -1,8 +1,12 @@
 import C from 'chroma-js'
-import { g10 as carbon } from '@carbon/themes'
+import { g90 as carbon } from '@carbon/themes'
 import R from 'ramda'
 
 const carbonPalette = {
+  interactive01: C(carbon.interactive01),
+  interactive02: C(carbon.interactive02),
+  interactive03: C(carbon.interactive03),
+  interactive04: C(carbon.interactive04),
   inverse01: C(carbon.inverse01),
   inverse02: C(carbon.inverse02),
   overlay01: C(carbon.overlay01),
@@ -16,6 +20,7 @@ const carbonPalette = {
   ui03: C(carbon.ui03),
   ui04: C(carbon.ui04),
   ui05: C(carbon.ui05),
+  uiBackground: C(carbon.uiBackground),
 }
 
 const rainbow = {

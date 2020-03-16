@@ -3,4 +3,5 @@ import styled from 'styled-components'
 
 export const Button = styled(ButtonBase)`
   ${ ({ theme }) => theme.typography.accent() }
+
 ` as unknown as typeof ButtonBase

@@ -24,27 +24,19 @@ export const AtlasGrotesk: FunctionComponent = () => {
   const data: AtlasFontQuery = useStaticQuery(graphql`
     query AtlasFont {
       allFile(filter: { name: { glob: "*AtlasGrotesk-*" } }) {
-        edges {
-          node {
+        nodes {
             ext
             name
             publicURL
           }
-        }
       }
     }
   `)
 
   const FontCSS = useMemo(() => {
     const decls = FACES.map(({ name, style, weight }) => {
-      const woff = R.pipe(
-        R.pluck('node'),
-        R.find(R.whereEq({ ext: '.woff', name })),
-      )(data.allFile.edges)
-      const woff2 = R.pipe(
-        R.pluck('node'),
-        R.find(R.whereEq({ ext: '.woff2', name })),
-      )(data.allFile.edges)
+      const woff = R.find(R.whereEq({ ext: '.woff', name }), data.allFile.nodes)
+      const woff2 = R.find(R.whereEq({ ext: '.woff2', name }), data.allFile.nodes)
 
       return `
         @font-face {

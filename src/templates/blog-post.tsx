@@ -14,13 +14,16 @@ import {
   PageLayout,
   SectionHeader,
 } from 'components/layout'
-import React, { createElement, FunctionComponent } from 'react'
+import React, { createElement, Fragment, FunctionComponent } from 'react'
+import { TOC, TOCItem } from 'components/toc'
 import { BlogPostQuery } from 'types/gatsby'
 import { DateTime } from 'luxon'
+import GithubSlugger from 'github-slugger'
 import { graphql } from 'gatsby'
 import { H } from 'components/header'
+import Img from 'gatsby-img'
 import { P } from 'components/paragraph'
-import rehype from 'rehype-parse'
+import R from 'ramda'
 import rehypeReact from 'rehype-react'
 import unified from 'unified'
 
@@ -40,51 +43,52 @@ const REHYPE_REACT_BODY = {
     p: P,
   },
   createElement,
-  fragment: true,
+  Fragment,
 }
 
-const REHYPE_REACT_TOC = {
-  components: {
-    p: P,
-    ul: props => <ul { ...props } className='toc' />,
-  },
-  createElement,
-  fragment: true,
-}
+const slugger = new GithubSlugger()
 
 const BlogPost: FunctionComponent<BlogPostProps> = ({ data }) => {
   const body = unified()
     .use(rehypeReact, REHYPE_REACT_BODY)
     .stringify(data.post.htmlAst)
 
-  const { contents: toc } = unified()
-    .use(rehype, { fragment: true })
-    .use(rehypeReact, REHYPE_REACT_TOC)
-    .processSync(data.post.tableOfContents)
+  const timestampDate = data.post.frontmatter.date && DateTime.fromISO(data.post.frontmatter.date).toFormat('cccc, d LLLL y')
+  const timestampReading = data.post.fields.readingTime.text
+  const timestamp = [timestampDate, timestampReading]
+    .filter(Boolean)
+    .join(' • ')
 
-  const { frontmatter } = data.post
-  const timestamp = frontmatter.date && DateTime.fromISO(frontmatter.date).toFormat('cccc, d LLLL y')
+  const tocItems = R.map(
+    ({ depth, value }) => {
+      const slug = slugger.slug(value)
+      return <TOCItem depth={ depth } key={ slug } slug={ slug }>{ value }</TOCItem>
+    },
+    data.post.headings,
+  )
 
   return (
     <PageLayout sectionName='Blog'>
       <Root>
         <SectionHeader>
           <TitleRoot>
-            { timestamp && <Timestamp>{ timestamp }</Timestamp> }
+            <Timestamp>{ timestamp }</Timestamp>
             <div style={{ flex: '1 1 100%' }} />
-            <Title>{ frontmatter.title }</Title>
-            { frontmatter.subtitle && <Subtitle>{ frontmatter.subtitle }</Subtitle> }
+            <Title>{ data.post.frontmatter.title }</Title>
+            { data.post.frontmatter.subtitle && <Subtitle>{ data.post.frontmatter.subtitle }</Subtitle> }
           </TitleRoot>
         </SectionHeader>
         <Grid>
           <Row>
-            <Column lg={{ offset: 3, span: 10 }} md={{ offset: 1, span: 6 }} xlg={{ offset: 4, span: 8 }}>
-              { toc.props.children }
+            <Column lg={{ offset: 2, span: 12 }} md={{ offset: 1, span: 6 }} xlg={{ offset: 4, span: 8 }}>
+              <TOC>
+                { tocItems }
+              </TOC>
             </Column>
           </Row>
           <Row>
-            <Column lg={{ offset: 3, span: 10 }} md={{ offset: 1, span: 6 }} xlg={{ offset: 4, span: 8 }}>
-              { body.props.children }
+            <Column lg={{ offset: 2, span: 12 }} md={{ offset: 1, span: 6 }} xlg={{ offset: 4, span: 8 }}>
+              { body }
             </Column>
           </Row>
         </Grid>
@@ -94,18 +98,37 @@ const BlogPost: FunctionComponent<BlogPostProps> = ({ data }) => {
 }
 
 export const query = graphql`
-  query BlogPost($slug: String!) {
-    post: markdownRemark(fields: { slug: { eq: $slug } }) {
+  query BlogPost($hero: String!, $slug: String!) {
+    hero: file(
+      absolutePath: { eq: $hero }
+    ) {
+      image: childImageSharp {
+        fluid(maxWidth: 1024) {
+          ...GatsbyImageSharpFluid_withWebp_noBase64
+        }
+        sqip {
+          dataURI
+        }
+      }
+    }
+    post: markdownRemark(
+      fields: { slug: { eq: $slug } }
+    ) {
+      fields {
+        readingTime {
+          text
+        }
+      }
       frontmatter {
         date
         subtitle
         title
       }
+      headings {
+        depth
+        value
+      }
       htmlAst
-      tableOfContents(
-        absolute: false
-        maxDepth: 2
-      )
     }
   }
 `

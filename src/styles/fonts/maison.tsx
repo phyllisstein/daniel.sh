@@ -29,12 +29,10 @@ export const Maison: FunctionComponent = () => {
   const data = useStaticQuery(graphql`
     query MaisonFontQuery {
       allFile(filter: { name: { glob: "*MaisonNeue-*" } }) {
-        edges {
-          node {
-            ext
-            name
-            publicURL
-          }
+        nodes {
+          ext
+          name
+          publicURL
         }
       }
     }

@@ -38,7 +38,7 @@ export const Column = styled.div<ColumnProps>`
           }
 
           return theme.responsive.greaterThan(breakpoint, css`
-            grid-column-start: ${ columnSpec.offset + 1 };
+            grid-column-start: ${ (columnSpec.offset ?? 0) + 1 };
             grid-column-end: span ${ columnSpec.span };
           `)
         }),

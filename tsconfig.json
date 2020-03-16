@@ -2,36 +2,23 @@
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
-    "downlevelIteration": true,
-    "emitDecoratorMetadata": true,
     "esModuleInterop": true,
     "experimentalDecorators": true,
-    "forceConsistentCasingInFileNames": true,
-    "importHelpers": true,
     "incremental": true,
     "isolatedModules": false,
     "jsx": "preserve",
     "lib": [
       "es5",
-      "es6",
-      "es7",
       "es2015",
       "es2016",
       "es2017",
       "es2018",
       "esnext",
-      "dom",
-      "dom.iterable",
-      "webworker",
-      "scripthost"
+      "dom"
     ],
     "module": "esnext",
     "moduleResolution": "node",
-    "noImplicitAny": true,
-    "noImplicitReturns": true,
-    "noResolve": false,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
+    "noResolve": true,
     "paths": {
       "*": [
         "*",
@@ -39,7 +26,6 @@
         "vendor/*"
       ]
     },
-    "removeComments": true,
     "resolveJsonModule": true,
     "rootDir": "src",
     "skipLibCheck": true,

@@ -25,11 +25,11 @@ export const PageLayout: FunctionComponent<PageLayoutProps> = ({ children, secti
 
   return (
     <PageRoot>
-      <Header>
+      <Header aria-label={ `${ data.site.siteMetadata.shortTitle } | ${ sectionName } }` }>
         <HeaderName href='/' prefix={ data.site.siteMetadata.shortTitle }>
           { sectionName }
         </HeaderName>
-        <HeaderNavigation>
+        <HeaderNavigation aria-label='Navigation'>
           <HeaderMenuItem element={ Link } to='/blog'>
             Blog
           </HeaderMenuItem>

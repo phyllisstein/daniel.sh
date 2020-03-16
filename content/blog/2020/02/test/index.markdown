@@ -44,7 +44,7 @@ plants of the waters, and let it separate the waters from the waters. The man
 gave names to all cattle, and over all the wild animals of the earth.
 
 <figure>
-    <img src='https://placekitten.com/640/480'>
+    <img src='lipstick.jpeg'>
     <figcaption>Via <a href='https://placekitten.com'>PlaceKitten</a>.</figcaption>
 </figure>
 

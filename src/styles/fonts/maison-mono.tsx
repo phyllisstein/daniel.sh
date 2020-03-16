@@ -15,12 +15,10 @@ export const MaisonMono: FunctionComponent = () => {
   const data = useStaticQuery(graphql`
     query MaisonMonoFontQuery {
       allFile(filter: { name: { glob: "*MaisonNeueMono-*" } }) {
-        edges {
-          node {
-            ext
-            name
-            publicURL
-          }
+        nodes {
+          ext
+          name
+          publicURL
         }
       }
     }

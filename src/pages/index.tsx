@@ -68,7 +68,7 @@ const Index: FunctionComponent = () => {
   )
 
   useEffect(
-    () => addEventListener(root.current, 'wheel', handleWheel, { capture: true, passive: false }),
+    () => addEventListener(window, 'wheel', handleWheel, { capture: true, passive: false }),
     [handleWheel],
   )
 
