@@ -1,12 +1,7 @@
-FROM ubuntu:disco AS runtime
-
-RUN sed -i 's/^#\s*\(deb.*main restricted\)$/\1/g' /etc/apt/sources.list \
-  && sed -i 's/^#\s*\(deb.*universe\)$/\1/g' /etc/apt/sources.list \
-  && sed -i 's/^#\s*\(deb.*multiverse\)$/\1/g' /etc/apt/sources.list \
-  && sed -i 's/^#\s*\(deb.*partner\)$/\1/g' /etc/apt/sources.list
+FROM ubuntu:focal AS runtime
 
 RUN apt-get update \
-  && DEBIAN_FRONTEND=noninteractive apt-get install --assume-yes --option=Dpkg::Options::=--force-confnew --option=Dpkg::Options::=--force-confdef --option=Dpkg::Options::=--force-unsafe-io \
+  && DEBIAN_FRONTEND=noninteractive apt-get install --assume-yes --no-install-recommends --option=Dpkg::Options::=--force-confnew --option=Dpkg::Options::=--force-confdef --option=Dpkg::Options::=--force-unsafe-io \
     apt-transport-https \
     apt-utils \
     ca-certificates \
@@ -14,7 +9,7 @@ RUN apt-get update \
 
 FROM runtime AS watchman
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get install --assume-yes --option=Dpkg::Options::=--force-confnew --option=Dpkg::Options::=--force-confdef --option=Dpkg::Options::=--force-unsafe-io \
+RUN DEBIAN_FRONTEND=noninteractive apt-get install --assume-yes --no-install-recommends --option=Dpkg::Options::=--force-confnew --option=Dpkg::Options::=--force-confdef --option=Dpkg::Options::=--force-unsafe-io \
   autoconf \
   automake \
   build-essential \
@@ -41,18 +36,18 @@ FROM runtime AS app
 
 WORKDIR /app
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get install --assume-yes --option=Dpkg::Options::=--force-confnew --option=Dpkg::Options::=--force-confdef --option=Dpkg::Options::=--force-unsafe-io \
+RUN DEBIAN_FRONTEND=noninteractive apt-get install --assume-yes --no-install-recommends --option=Dpkg::Options::=--force-confnew --option=Dpkg::Options::=--force-confdef --option=Dpkg::Options::=--force-unsafe-io \
   curl \
   gnupg2 \
   libpng-dev
 
-RUN echo "deb https://deb.nodesource.com/node_12.x disco main" >> /etc/apt/sources.list.d/nodesource.list \
-  && echo "deb-src https://deb.nodesource.com/node_12.x disco main" >> /etc/apt/sources.list.d/nodesource.list \
+RUN echo "deb https://deb.nodesource.com/node_14.x focal main" >> /etc/apt/sources.list.d/nodesource.list \
+  && echo "deb-src https://deb.nodesource.com/node_14.x focal main" >> /etc/apt/sources.list.d/nodesource.list \
   && curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add - \
   && echo "deb https://dl.yarnpkg.com/debian/ rc main" > /etc/apt/sources.list.d/yarn.list \
   && curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
   && apt-get update \
-  && DEBIAN_FRONTEND=noninteractive apt-get install --assume-yes --option=Dpkg::Options::=--force-confnew --option=Dpkg::Options::=--force-confdef --option=Dpkg::Options::=--force-unsafe-io \
+  && DEBIAN_FRONTEND=noninteractive apt-get install --assume-yes --no-install-recommends --option=Dpkg::Options::=--force-confnew --option=Dpkg::Options::=--force-confdef --option=Dpkg::Options::=--force-unsafe-io \
     nodejs \
     yarn
 
