@@ -1,4 +1,3 @@
-import { ThemeProvider } from 'styled-components'
 import '@spectrum-css/page/dist/index-vars.css'
 import '@spectrum-css/typography/dist/index-vars.css'
 import '@spectrum-css/vars/dist/spectrum-dark.css'
@@ -6,6 +5,7 @@ import '@spectrum-css/vars/dist/spectrum-global.css'
 import '@spectrum-css/vars/dist/spectrum-large.css'
 import { AppProps } from 'next/app'
 import Head from 'next/head'
+import { ThemeProvider } from 'styled-components'
 
 import { AdobeClean, AdobeCleanSerif } from 'assets/adobe-clean'
 import { Body } from 'styles/global'
@@ -22,7 +22,7 @@ declare global {
   }
 }
 
-function PortfolioApp({ Component, pageProps }: AppProps) {
+function PortfolioApp ({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
@@ -31,11 +31,11 @@ function PortfolioApp({ Component, pageProps }: AppProps) {
         <meta content='IE=edge' httpEquiv='X-UA-Compatible' />
       </Head>
 
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={ theme }>
         <AdobeClean />
         <AdobeCleanSerif />
         <Body />
-        <Component {...pageProps} />
+        <Component { ...pageProps } />
       </ThemeProvider>
     </>
   )
