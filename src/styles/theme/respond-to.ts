@@ -6,7 +6,7 @@ const breakpoints = {
   lg: rem('1056px'),
   max: rem('1584px'),
   md: rem('672px'),
-  sm: rem('320px'),
+  sm: rem('425px'),
   xlg: rem('1312px'),
 }
 
