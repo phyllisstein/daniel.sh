@@ -1,0 +1,23 @@
+[
+  "trigger",
+  "/app",
+  {
+    "name": "server-restart",
+    "expression": [
+      "anyof",
+      [
+        "name",
+        "next.config.ts"
+      ],
+      [
+        "name",
+        "app.cjs"
+      ]
+    ],
+    "command": [
+      "./scripts/develop.sh",
+      "serve"
+    ],
+    "append_files": false
+  }
+]
