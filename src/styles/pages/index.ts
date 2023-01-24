@@ -153,6 +153,14 @@ export const ExperienceSection = styled.section`
   width: 100vw;
   min-height: 100vh;
   padding: 1rem 2rem;
+  
+  ${ ({ theme }) => theme.respondTo.above(
+    'md',
+    css`
+      margin: 0 auto;
+      width: 75%;
+    `,
+  ) }
 `
 
 export const CardTitle = styled.h4`
