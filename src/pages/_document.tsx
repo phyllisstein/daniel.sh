@@ -3,7 +3,7 @@ import Script from 'next/script'
 
 export default function Document () {
   return (
-    <Html className='spectrum spectrum--large spectrum--dark spectrum-Body spectrum-Body--sizeM'>
+    <Html className='spectrum spectrum--large spectrum--dark' dir='ltr'>
       <Head />
       <body>
         <Main />

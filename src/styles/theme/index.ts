@@ -3,6 +3,7 @@ import * as ease from './ease'
 import * as elevation from './elevation'
 import * as paletteDark from './palette-spectrum-dark'
 import * as paletteLight from './palette-spectrum-light'
+import * as plumber from './plumber'
 import * as respondTo from './respond-to'
 import * as scale from './scale'
 import * as typeface from './typeface'
@@ -13,6 +14,7 @@ export const theme = {
   elevation,
   paletteDark,
   paletteLight,
+  plumber,
   respondTo,
   scale,
   typeface,

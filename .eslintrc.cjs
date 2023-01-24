@@ -17,7 +17,4 @@ module.exports = {
     './.eslintrc.baseline.cjs',
     './.eslintrc.react.cjs',
   ],
-  settings: {
-    'import/internal-regex': `^(${ moduleDirectories })\b`,
-  },
 }

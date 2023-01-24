@@ -26,6 +26,9 @@ export const Body = createGlobalStyle`
   }
 
   body {
+    --spectrum-font-family-base: 'Adobe Clean' !important;
+    --spectrum-alias-body-text-font-family: 'Adobe Clean' !important;
+
     ${ ({ theme }) => theme.typeface.primary() }
 
     color: ${ ({ theme }) => theme.paletteDark.css.gray900 };

@@ -1,3 +1,13 @@
+const fs = require('fs')
+const path = require('path')
+
+const sourceRoot = path.resolve(__dirname, './src')
+const dirEntries = fs.readdirSync(sourceRoot, { withFileTypes: true })
+const moduleDirectories = dirEntries
+  .filter(dirent => dirent.isDirectory())
+  .map(dirent => dirent.name)
+  .join('|')
+
 module.exports = {
   extends: [
     'eslint:recommended',
@@ -189,9 +199,6 @@ module.exports = {
     'template-curly-spacing': ['warn', 'always'],
   },
   settings: {
-    'import/cache': {
-      lifetime: '∞',
-    },
     'import/parsers': {
       '@typescript-eslint/parser': ['.ts', '.tsx'],
       '@babel/parser': ['.js', '.jsx', '.cjs', '.mjs'],
@@ -207,5 +214,6 @@ module.exports = {
       'es2022': true,
       'shared-node-browser': true,
     },
+    'import/internal-regex': `^(${ moduleDirectories })`,
   },
 }

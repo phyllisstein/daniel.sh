@@ -1,8 +1,19 @@
-import '@spectrum-css/page/dist/index-vars.css'
-import '@spectrum-css/typography/dist/index-vars.css'
-import '@spectrum-css/vars/dist/spectrum-dark.css'
+/* eslint-disable import/order */
 import '@spectrum-css/vars/dist/spectrum-global.css'
+import '@spectrum-css/vars/dist/spectrum-dark.css'
+import '@spectrum-css/vars/dist/spectrum-medium.css'
 import '@spectrum-css/vars/dist/spectrum-large.css'
+import '@spectrum-css/tokens/dist/index.css'
+import '@spectrum-css/typography/dist/index-vars.css'
+import '@spectrum-css/page/dist/index-vars.css'
+
+import '@spectrum-css/actionbutton/dist/index-vars.css'
+import '@spectrum-css/button/dist/index-vars.css'
+import '@spectrum-css/card/dist/index-vars.css'
+import '@spectrum-css/icon/dist/index-vars.css'
+import '@spectrum-css/quickaction/dist/index-vars.css'
+/* eslint-enable import/order */
+
 import { AppProps } from 'next/app'
 import Head from 'next/head'
 import { ThemeProvider } from 'styled-components'
