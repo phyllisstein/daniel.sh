@@ -60,9 +60,6 @@ const Home: NextPage = () => {
                   <Subtitle className='spectrum-Card-subtitle spectrum-Detail'>Architect • Vox</Subtitle>
                 </div>
               </div>
-              <CardFooter className='spectrum-Card-footer'>
-                <P fontSize={ 3 }>Footer</P>
-              </CardFooter>
             </Card>
             <Card className='spectrum-Card spectrum-Card--sizeM' role='figure'>
               <div style={{ backgroundColor: 'rgb(63, 63, 63)', padding: '0' }}>
@@ -76,9 +73,6 @@ const Home: NextPage = () => {
                   <Subtitle className='spectrum-Card-subtitle spectrum-Detail'>Architect/Lead • NYM</Subtitle>
                 </div>
               </div>
-              <CardFooter className='spectrum-Card-footer'>
-                <P fontSize={ 3 }>Footer</P>
-              </CardFooter>
             </Card>
             <Card className='spectrum-Card spectrum-Card--sizeM' role='figure'>
               <div style={{ backgroundColor: 'rgb(63, 63, 63)', padding: '0' }}>
@@ -92,9 +86,6 @@ const Home: NextPage = () => {
                   <Subtitle className='spectrum-Card-subtitle spectrum-Detail'>Vox • NYM</Subtitle>
                 </div>
               </div>
-              <CardFooter className='spectrum-Card-footer'>
-                <P fontSize={ 3 }>Footer</P>
-              </CardFooter>
             </Card>
             <Card className='spectrum-Card spectrum-Card--sizeM' role='figure'>
               <div style={{ backgroundColor: 'rgb(63, 63, 63)', padding: '0' }}>
@@ -108,9 +99,6 @@ const Home: NextPage = () => {
                   <Subtitle className='spectrum-Card-subtitle spectrum-Detail'>Vox • NYM • Bauer</Subtitle>
                 </div>
               </div>
-              <CardFooter className='spectrum-Card-footer'>
-                <P fontSize={ 3 }>Footer</P>
-              </CardFooter>
             </Card>
           </ExperienceCards>
         </ExperienceSection>
