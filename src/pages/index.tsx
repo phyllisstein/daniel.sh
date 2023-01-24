@@ -3,19 +3,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPaperPlane } from '@fortawesome/sharp-solid-svg-icons'
 import type { NextPage } from 'next'
 
-import { P } from 'components/markup'
-import gsap from 'gsap'
 import {
   ButtonBar,
   Card,
-  CardFooter,
+  CardSubtitle,
+  CardTitle,
   Centered,
+  ExperienceCards,
+  ExperienceSection,
+  Main,
   Name,
   Tagline,
-  Main,
-  ExperienceSection,
-  Subtitle,
-  TitleContainer, ExperienceCards,
+  TitleContainer,
 } from 'styles/pages/index'
 
 const Home: NextPage = () => {
@@ -54,10 +53,12 @@ const Home: NextPage = () => {
               </div>
               <div className='spectrum-Card-body'>
                 <div className='spectrum-Card-header'>
-                  <div className='spectrum-Card-title spectrum-Heading spectrum-Heading--sizeS'><em>Eater</em> Maps</div>
+                  <CardTitle className='spectrum-Card-title spectrum-Heading spectrum-Heading--sizeS'><em>Eater</em> Maps</CardTitle>
                 </div>
                 <div className='spectrum-Card-content'>
-                  <Subtitle className='spectrum-Card-subtitle spectrum-Detail'>Architect • Vox</Subtitle>
+                  <CardSubtitle className='spectrum-Card-subtitle spectrum-Detail'>
+                    Architecture • Engagement • Graphs • Storytelling
+                  </CardSubtitle>
                 </div>
               </div>
             </Card>
@@ -67,10 +68,12 @@ const Home: NextPage = () => {
               </div>
               <div className='spectrum-Card-body'>
                 <div className='spectrum-Card-header'>
-                  <div className='spectrum-Card-title spectrum-Heading spectrum-Heading--sizeS'>New York Paywall</div>
+                  <CardTitle className='spectrum-Card-title spectrum-Heading spectrum-Heading--sizeS'>New York Paywall</CardTitle>
                 </div>
                 <div className='spectrum-Card-content'>
-                  <Subtitle className='spectrum-Card-subtitle spectrum-Detail'>Architect/Lead • NYM</Subtitle>
+                  <CardSubtitle className='spectrum-Card-subtitle spectrum-Detail'>
+                    Architecture • Monetization • Technical Leadership
+                  </CardSubtitle>
                 </div>
               </div>
             </Card>
@@ -80,10 +83,12 @@ const Home: NextPage = () => {
               </div>
               <div className='spectrum-Card-body'>
                 <div className='spectrum-Card-header'>
-                  <div className='spectrum-Card-title spectrum-Heading spectrum-Heading--sizeS'>Core Web Vitals</div>
+                  <CardTitle className='spectrum-Card-title spectrum-Heading spectrum-Heading--sizeS'>Core Web Vitals</CardTitle>
                 </div>
                 <div className='spectrum-Card-content'>
-                  <Subtitle className='spectrum-Card-subtitle spectrum-Detail'>Vox • NYM</Subtitle>
+                  <CardSubtitle className='spectrum-Card-subtitle spectrum-Detail'>
+                    Acquisition • Page Performance • Stack &amp; Tooling
+                  </CardSubtitle>
                 </div>
               </div>
             </Card>
@@ -93,10 +98,12 @@ const Home: NextPage = () => {
               </div>
               <div className='spectrum-Card-body'>
                 <div className='spectrum-Card-header'>
-                  <div className='spectrum-Card-title spectrum-Heading spectrum-Heading--sizeS'>Team Building</div>
+                  <CardTitle className='spectrum-Card-title spectrum-Heading spectrum-Heading--sizeS'>Team Building</CardTitle>
                 </div>
                 <div className='spectrum-Card-content'>
-                  <Subtitle className='spectrum-Card-subtitle spectrum-Detail'>Vox • NYM • Bauer</Subtitle>
+                  <CardSubtitle className='spectrum-Card-subtitle spectrum-Detail'>
+                    Mentorship • Team Safety • Technical Leadership
+                  </CardSubtitle>
                 </div>
               </div>
             </Card>

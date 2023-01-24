@@ -155,7 +155,15 @@ export const ExperienceSection = styled.section`
   padding: 1rem 2rem;
 `
 
-export const Subtitle = styled.span`
+export const CardTitle = styled.h4`
+  ${ ({ theme }) => theme.typeface.primary({
+    fontSize: 5,
+    leadingTop: -2,
+    lineHeight: 8,
+  }) }
+`
+
+export const CardSubtitle = styled.span`
   ${ ({ theme }) => theme.typeface.primary({
     fontSize: 3,
     lineHeight: 5,
