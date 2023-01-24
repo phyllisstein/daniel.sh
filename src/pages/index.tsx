@@ -13,9 +13,9 @@ import {
   Name,
   Tagline,
   Main,
-  Section,
+  ExperienceSection,
   Subtitle,
-  TitleContainer,
+  TitleContainer, ExperienceCards,
 } from 'styles/pages/index'
 
 const Home: NextPage = () => {
@@ -46,22 +46,74 @@ const Home: NextPage = () => {
             </div>
           </ButtonBar>
         </TitleContainer>
-        <Section>
-          <Card className='spectrum-Card spectrum-Card--sizeM' role='figure'>
-            <div className='spectrum-Card-coverPhoto' style={{ backgroundImage: 'url(/bauer-white.png)', backgroundRepeat: 'no-repeat', backgroundSize: '75%' }} />
-            <div className='spectrum-Card-body'>
-              <div className='spectrum-Card-header'>
-                <div className='spectrum-Card-title spectrum-Heading spectrum-Heading--sizeS'>Bauer Media</div>
+        <ExperienceSection>
+          <ExperienceCards>
+            <Card className='spectrum-Card spectrum-Card--sizeM' role='figure'>
+              <div style={{ backgroundColor: 'rgb(63, 63, 63)', padding: '0' }}>
+                <div className='spectrum-Card-coverPhoto' style={{ backgroundImage: 'url(/think-zero-gravity.gif)', backgroundRepeat: 'no-repeat', backgroundSize: '30%' }} />
               </div>
-              <div className='spectrum-Card-content'>
-                <Subtitle className='spectrum-Card-subtitle spectrum-Detail'>Technical Lead</Subtitle>
+              <div className='spectrum-Card-body'>
+                <div className='spectrum-Card-header'>
+                  <div className='spectrum-Card-title spectrum-Heading spectrum-Heading--sizeS'><em>Eater</em> Maps</div>
+                </div>
+                <div className='spectrum-Card-content'>
+                  <Subtitle className='spectrum-Card-subtitle spectrum-Detail'>Architect • Vox</Subtitle>
+                </div>
               </div>
-            </div>
-            <CardFooter className='spectrum-Card-footer'>
-              <P fontSize={ 3 }>Footer</P>
-            </CardFooter>
-          </Card>
-        </Section>
+              <CardFooter className='spectrum-Card-footer'>
+                <P fontSize={ 3 }>Footer</P>
+              </CardFooter>
+            </Card>
+            <Card className='spectrum-Card spectrum-Card--sizeM' role='figure'>
+              <div style={{ backgroundColor: 'rgb(63, 63, 63)', padding: '0' }}>
+                <div className='spectrum-Card-coverPhoto' style={{ backgroundImage: 'url(/peek.gif)', backgroundRepeat: 'no-repeat', backgroundSize: '30%' }} />
+              </div>
+              <div className='spectrum-Card-body'>
+                <div className='spectrum-Card-header'>
+                  <div className='spectrum-Card-title spectrum-Heading spectrum-Heading--sizeS'>New York Paywall</div>
+                </div>
+                <div className='spectrum-Card-content'>
+                  <Subtitle className='spectrum-Card-subtitle spectrum-Detail'>Architect/Lead • NYM</Subtitle>
+                </div>
+              </div>
+              <CardFooter className='spectrum-Card-footer'>
+                <P fontSize={ 3 }>Footer</P>
+              </CardFooter>
+            </Card>
+            <Card className='spectrum-Card spectrum-Card--sizeM' role='figure'>
+              <div style={{ backgroundColor: 'rgb(63, 63, 63)', padding: '0' }}>
+                <div className='spectrum-Card-coverPhoto' style={{ backgroundImage: 'url(/hydraulicpress.gif)', backgroundRepeat: 'no-repeat', backgroundSize: '30%' }} />
+              </div>
+              <div className='spectrum-Card-body'>
+                <div className='spectrum-Card-header'>
+                  <div className='spectrum-Card-title spectrum-Heading spectrum-Heading--sizeS'>Core Web Vitals</div>
+                </div>
+                <div className='spectrum-Card-content'>
+                  <Subtitle className='spectrum-Card-subtitle spectrum-Detail'>Vox • NYM</Subtitle>
+                </div>
+              </div>
+              <CardFooter className='spectrum-Card-footer'>
+                <P fontSize={ 3 }>Footer</P>
+              </CardFooter>
+            </Card>
+            <Card className='spectrum-Card spectrum-Card--sizeM' role='figure'>
+              <div style={{ backgroundColor: 'rgb(63, 63, 63)', padding: '0' }}>
+                <div className='spectrum-Card-coverPhoto' style={{ backgroundImage: 'url(/conga.gif)', backgroundRepeat: 'no-repeat', backgroundSize: '30%' }} />
+              </div>
+              <div className='spectrum-Card-body'>
+                <div className='spectrum-Card-header'>
+                  <div className='spectrum-Card-title spectrum-Heading spectrum-Heading--sizeS'>Team Building</div>
+                </div>
+                <div className='spectrum-Card-content'>
+                  <Subtitle className='spectrum-Card-subtitle spectrum-Detail'>Vox • NYM • Bauer</Subtitle>
+                </div>
+              </div>
+              <CardFooter className='spectrum-Card-footer'>
+                <P fontSize={ 3 }>Footer</P>
+              </CardFooter>
+            </Card>
+          </ExperienceCards>
+        </ExperienceSection>
       </Main>
     </div>
   )

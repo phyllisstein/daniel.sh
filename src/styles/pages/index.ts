@@ -131,12 +131,24 @@ export const Main = styled.main`
   height: 100%;
 `
 
-export const Section = styled.section`
+export const ExperienceCards = styled.section`
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 2rem;
+  
+  ${ ({ theme }) => theme.respondTo.above(
+    'md',
+    css`
+      grid-template-columns: repeat(2, 1fr);
+    `,
+) }
+`
+export const ExperienceSection = styled.section`
   position: relative;
-
+  
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
   width: 100vw;
   min-height: 100vh;
