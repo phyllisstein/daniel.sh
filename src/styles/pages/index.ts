@@ -20,14 +20,15 @@ export const Card = styled.div`
   }) }
 `
 
-export const CardFooter = styled.span`
+export const CardFooter = styled.div`
   ${ ({ theme }) => theme.typeface.primary({
     fontSize: 2,
-    leadingBottom: 1,
-    lineHeight: 4,
+    lineHeight: 2,
   }) }
-  
-  padding: 1rem 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 `
 
 export const Centered = styled.div`
@@ -135,7 +136,7 @@ export const ExperienceCards = styled.section`
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 2rem;
-  
+
   ${ ({ theme }) => theme.respondTo.above(
     'md',
     css`
@@ -145,19 +146,19 @@ export const ExperienceCards = styled.section`
 `
 export const ExperienceSection = styled.section`
   position: relative;
-  
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  justify-content: center;
-  width: 100vw;
+
+  display: grid;
+  grid-gap: 2rem;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr;
+  width: 90vw;
+  height: 100vh;
   min-height: 100vh;
-  padding: 1rem 2rem;
-  
+  margin: 3rem auto;
+
   ${ ({ theme }) => theme.respondTo.above(
-    'md',
+    'lg',
     css`
-      margin: 0 auto;
       width: 75%;
     `,
   ) }
@@ -166,7 +167,7 @@ export const ExperienceSection = styled.section`
 export const CardTitle = styled.h4`
   ${ ({ theme }) => theme.typeface.primary({
     fontSize: 5,
-    leadingTop: -2,
+    leadingTop: 0,
     lineHeight: 8,
   }) }
 `
@@ -174,6 +175,8 @@ export const CardTitle = styled.h4`
 export const CardSubtitle = styled.span`
   ${ ({ theme }) => theme.typeface.primary({
     fontSize: 3,
+    leadingBottom: 0,
+    leadingTop: 2,
     lineHeight: 5,
   }) }
 
