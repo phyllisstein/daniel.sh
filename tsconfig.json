@@ -34,7 +34,12 @@
     "noEmit": true,
     "esModuleInterop": true,
     "resolveJsonModule": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "plugins": [
+      {
+        "name": "typescript-styled-plugin"
+      }
+    ]
   },
   "include": [
     "./*.ts",
@@ -61,5 +66,5 @@
   },
   "exclude": [
     "node_modules"
-  ]
+  ],
 }
