@@ -122,8 +122,8 @@ const getPlumber = ({
     let [paddingTop, paddingBottom] = padding.map(p =>
       round(p * gridHeightValue),
     )
-    let [borderTop, borderBottom] = border
-    
+    const [borderTop, borderBottom] = border
+
     marginTop = `${ round(marginTop) }${ gridHeightUnit }`
     marginBottom = `${ round(marginBottom) }${ gridHeightUnit }`
     paddingTop = `calc(${ round(paddingTop) }${ gridHeightUnit } - ${ borderTop })`
