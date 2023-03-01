@@ -48,7 +48,7 @@ function PortfolioApp ({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>Daniel P. Shannon | Full-Stack Software Engineer &amp; Technical Lead</title>
+        <title>Full-Stack Software Engineer • Technical Lead • Digital Media Developer | Daniel P. Shannon</title>
         <meta content='initial-scale=1.0, width=device-width' name='viewport' />
         <meta content='IE=edge' httpEquiv='X-UA-Compatible' />
 

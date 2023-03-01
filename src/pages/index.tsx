@@ -53,7 +53,7 @@ const Home: NextPage = () => {
               <div className='spectrum-Card-coverPhoto' style={{ backgroundImage: 'url(/think-zero-gravity.gif)', backgroundRepeat: 'no-repeat', backgroundSize: '30%' }} />
               <div className='spectrum-Card-body'>
                 <div className='spectrum-Card-header'>
-                  <CardTitle className='spectrum-Card-title spectrum-Heading spectrum-Heading--sizeS'><em>Eater</em> Maps</CardTitle>
+                  <CardTitle className='spectrum-Card-title spectrum-Heading spectrum-Heading--sizeS'>Eater Maps</CardTitle>
                 </div>
                 <div className='spectrum-Card-content'>
                   <CardSubtitle className='spectrum-Card-subtitle spectrum-Detail'>
@@ -88,19 +88,19 @@ const Home: NextPage = () => {
               </CardFooter>
             </Card>
             <Card className='spectrum-Card spectrum-Card--sizeM' role='figure'>
-              <div className='spectrum-Card-coverPhoto' style={{ backgroundImage: 'url(/hydraulicpress.gif)', backgroundRepeat: 'no-repeat', backgroundSize: '30%' }} />
+              <div className='spectrum-Card-coverPhoto' style={{ backgroundImage: 'url(/rainblob.gif)', backgroundRepeat: 'no-repeat', backgroundSize: '30%' }} />
               <div className='spectrum-Card-body'>
                 <div className='spectrum-Card-header'>
-                  <CardTitle className='spectrum-Card-title spectrum-Heading spectrum-Heading--sizeS'>Core Web Vitals</CardTitle>
+                  <CardTitle className='spectrum-Card-title spectrum-Heading spectrum-Heading--sizeS'>Ignota</CardTitle>
                 </div>
                 <div className='spectrum-Card-content'>
                   <CardSubtitle className='spectrum-Card-subtitle spectrum-Detail'>
-                    Acquisition • Page Performance • Stack &amp; Tooling
+                    Interactive Content • Storytelling • Editorial Design • Equitable Publishing
                   </CardSubtitle>
                 </div>
               </div>
               <CardFooter className='spectrum-Card-footer'>
-                <Link className='spectrum-Button spectrum-Button--fill spectrum-Button--accent spectrum-Button--sizeM spectrum-Button--outline' href='/portfolio/web-vitals'>
+                <Link className='spectrum-Button spectrum-Button--fill spectrum-Button--accent spectrum-Button--sizeM spectrum-Button--outline' href='/portfolio/team'>
                   <span className='spectrum-Button-label'>Read more</span>
                 </Link>
               </CardFooter>
@@ -119,6 +119,24 @@ const Home: NextPage = () => {
               </div>
               <CardFooter className='spectrum-Card-footer'>
                 <Link className='spectrum-Button spectrum-Button--fill spectrum-Button--accent spectrum-Button--sizeM spectrum-Button--outline' href='/portfolio/team'>
+                  <span className='spectrum-Button-label'>Read more</span>
+                </Link>
+              </CardFooter>
+            </Card>
+            <Card className='spectrum-Card spectrum-Card--sizeM' role='figure'>
+              <div className='spectrum-Card-coverPhoto' style={{ backgroundImage: 'url(/hydraulicpress.gif)', backgroundRepeat: 'no-repeat', backgroundSize: '30%' }} />
+              <div className='spectrum-Card-body'>
+                <div className='spectrum-Card-header'>
+                  <CardTitle className='spectrum-Card-title spectrum-Heading spectrum-Heading--sizeS'>Core Web Vitals</CardTitle>
+                </div>
+                <div className='spectrum-Card-content'>
+                  <CardSubtitle className='spectrum-Card-subtitle spectrum-Detail'>
+                    Audience Acquisition • Page Performance • Stack &amp; Tooling
+                  </CardSubtitle>
+                </div>
+              </div>
+              <CardFooter className='spectrum-Card-footer'>
+                <Link className='spectrum-Button spectrum-Button--fill spectrum-Button--accent spectrum-Button--sizeM spectrum-Button--outline' href='/portfolio/web-vitals'>
                   <span className='spectrum-Button-label'>Read more</span>
                 </Link>
               </CardFooter>

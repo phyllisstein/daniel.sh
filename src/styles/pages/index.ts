@@ -21,11 +21,6 @@ export const Card = styled.div`
 `
 
 export const CardFooter = styled.div`
-  ${ ({ theme }) => theme.typeface.primary({
-    fontSize: 2,
-    lineHeight: 2,
-  }) }
-
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -133,11 +128,11 @@ export const Main = styled.main`
 `
 
 export const ExperienceCards = styled.section`
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-gap: 2rem;
+display: grid;
+grid-gap: 2rem;
+grid-template-columns: 1fr;
 
-  ${ ({ theme }) => theme.respondTo.above(
+${ ({ theme }) => theme.respondTo.above(
     'md',
     css`
       grid-template-columns: repeat(2, 1fr);
@@ -147,14 +142,13 @@ export const ExperienceCards = styled.section`
 export const ExperienceSection = styled.section`
   position: relative;
 
-  display: grid;
-  grid-gap: 2rem;
-  grid-template-rows: auto;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: 90vw;
-  height: 100vh;
   min-height: 100vh;
-  margin: 3rem auto;
+  margin: 1.5rem auto;
 
   ${ ({ theme }) => theme.respondTo.above(
     'lg',
@@ -200,7 +194,7 @@ export const TitleContainer = styled.div`
   ${ ({ theme }) => theme.respondTo.above(
     'lg',
     css`
-      width: 60%;
+      width: 66%;
     `,
   ) }
 `
