@@ -46,22 +46,6 @@ const Home: NextPage = () => {
             </div>
           </ButtonBar>
         </TitleContainer>
-        <Section>
-          <Card className='spectrum-Card spectrum-Card--sizeM' role='figure'>
-            <div className='spectrum-Card-coverPhoto' style={{ backgroundImage: 'url(/bauer-white.png)', backgroundRepeat: 'no-repeat', backgroundSize: '75%' }} />
-            <div className='spectrum-Card-body'>
-              <div className='spectrum-Card-header'>
-                <div className='spectrum-Card-title spectrum-Heading spectrum-Heading--sizeS'>Bauer Media</div>
-              </div>
-              <div className='spectrum-Card-content'>
-                <Subtitle className='spectrum-Card-subtitle spectrum-Detail'>Technical Lead</Subtitle>
-              </div>
-            </div>
-            <CardFooter className='spectrum-Card-footer'>
-              <P fontSize={ 3 }>Footer</P>
-            </CardFooter>
-          </Card>
-        </Section>
       </Main>
     </div>
   )
