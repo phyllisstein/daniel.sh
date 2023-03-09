@@ -14,18 +14,6 @@ export const ButtonBar = styled.div`
   padding: 2rem;
 `
 
-export const Card = styled.div`
-  ${ ({ theme }) => theme.animation.css({
-    properties: ['border-color'],
-  }) }
-`
-
-export const CardFooter = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-`
-
 export const Centered = styled.div`
   position: absolute;
   top: 50%;
@@ -125,56 +113,6 @@ export const Main = styled.main`
   grid-template-columns: 1fr;
   width: 100%;
   height: 100%;
-`
-
-export const ExperienceCards = styled.section`
-display: grid;
-grid-gap: 2rem;
-grid-template-columns: 1fr;
-
-${ ({ theme }) => theme.respondTo.above(
-    'md',
-    css`
-      grid-template-columns: repeat(2, 1fr);
-    `,
-) }
-`
-export const ExperienceSection = styled.section`
-  position: relative;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 90vw;
-  min-height: 100vh;
-  margin: 1.5rem auto;
-
-  ${ ({ theme }) => theme.respondTo.above(
-    'lg',
-    css`
-      width: 75%;
-    `,
-  ) }
-`
-
-export const CardTitle = styled.h4`
-  ${ ({ theme }) => theme.typeface.primary({
-    fontSize: 5,
-    leadingTop: 0,
-    lineHeight: 8,
-  }) }
-`
-
-export const CardSubtitle = styled.span`
-  ${ ({ theme }) => theme.typeface.primary({
-    fontSize: 3,
-    leadingBottom: 0,
-    leadingTop: 2,
-    lineHeight: 5,
-  }) }
-
-  font-variant-caps: all-small-caps;
 `
 
 export const TitleContainer = styled.div`
