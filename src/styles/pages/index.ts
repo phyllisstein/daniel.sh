@@ -84,7 +84,7 @@ export const Tagline = styled.h3`
   }) }
 
   width: 100%;
-  font-weight: 300;
+  font-weight: 400;
 
   ${ ({ theme }) => theme.respondTo.above(
     'sm',

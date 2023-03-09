@@ -7,7 +7,7 @@ import {
 } from './plumber'
 
 export const accentFamily = css`
-  font-family: 'Adobe Clean Serif', 'Georgia', 'Garamond', 'Times New Roman',
+  font-family: 'Charlie', 'Georgia', 'Garamond', 'Times New Roman',
     'Times', serif !important;
 `
 
@@ -17,7 +17,7 @@ export const accent = (plumberOpts: Partial<PlumberProps> = {}) => css`
 `
 
 export const primaryFamily = css`
-  font-family: 'Adobe Clean', -apple-system, BlinkMacSystemFont,
+  font-family: 'Maison Neue', -apple-system, BlinkMacSystemFont,
     'Helvetica Neue', 'Helvetica', sans-serif !important;
 `
 

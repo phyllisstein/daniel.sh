@@ -18,7 +18,8 @@ import { AppProps } from 'next/app'
 import Head from 'next/head'
 import { ThemeProvider } from 'styled-components'
 
-import { AdobeClean, AdobeCleanSerif } from 'assets/adobe-clean'
+import { Charlie } from 'assets/charlie'
+import { MaisonNeue } from 'assets/maison-neue'
 import { Body, Preflight } from 'styles/global'
 import { theme } from 'styles/theme'
 
@@ -75,8 +76,8 @@ function PortfolioApp ({ Component, pageProps }: AppProps) {
 
       <ThemeProvider theme={ theme }>
         <Preflight />
-        <AdobeClean />
-        <AdobeCleanSerif />
+        <MaisonNeue />
+        <Charlie />
         <Body />
         <Component { ...pageProps } />
       </ThemeProvider>

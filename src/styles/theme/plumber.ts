@@ -9,6 +9,8 @@ const BASELINE = {
   ADOBE_CASLON: 0.265,
   ADOBE_CLEAN: 0.113,
   ADOBE_CLEAN_SERIF: 0.113,
+  CHARLIE: 0.224,
+  MAISON: 0.2045,
 }
 
 const round = _.partial(_.round, _.partial.placeholder, 2)
@@ -140,5 +142,5 @@ const getPlumber = ({
   return plumber
 }
 
-export const primary = getPlumber({ baseline: BASELINE.ADOBE_CLEAN })
-export const accent = getPlumber({ baseline: BASELINE.ADOBE_CLEAN_SERIF })
+export const primary = getPlumber({ baseline: BASELINE.MAISON })
+export const accent = getPlumber({ baseline: BASELINE.CHARLIE })

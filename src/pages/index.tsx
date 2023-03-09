@@ -27,7 +27,7 @@ const Home: NextPage = () => {
           <Centered>
             <Tagline>
               I&rsquo;m a full-stack software engineer and architect bringing an editorial eye
-              to ambitious digital media projects.
+              to ambitious digital&nbsp;media&nbsp;projects.
             </Tagline>
             <Name>
               You can call me Daniel.
