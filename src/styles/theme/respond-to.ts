@@ -1,13 +1,12 @@
-import {rem} from 'polished'
 import {css} from 'styled-components'
 import {RuleSet} from 'styled-components/dist/types'
 
 const breakpoints = {
-    lg: rem('1056px'),
-    max: rem('1584px'),
-    md: rem('672px'),
-    sm: rem('425px'),
-    xlg: rem('1312px'),
+    lg: '1056px',
+    max: '1584px',
+    md: '672px',
+    sm: '425px',
+    xlg: '1312px',
 }
 
 type Breakpoint = keyof typeof breakpoints
