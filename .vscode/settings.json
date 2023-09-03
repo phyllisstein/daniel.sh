@@ -19,5 +19,5 @@
     "**/.yarn": true,
     "**/.pnp.*": true
   },
-  "prettier.enable": true
+  "editor.tabSize": 4
 }

@@ -1,19 +1,19 @@
-import { canUseDOM } from 'exenv'
+import {canUseDOM} from 'exenv'
 import pWaitFor from 'p-wait-for'
-import { useEffect } from 'react'
+import {useEffect} from 'react'
 
 export const useHyphenator = target => {
-  useEffect(() => {
-    const getHyphenator = async () => {
-      if (!canUseDOM || !target || !target.innerHTML) {
-        return await Promise.resolve()
-      }
+    useEffect(() => {
+        const getHyphenator = async() => {
+            if (!canUseDOM || !target || !target.innerHTML) {
+                return await Promise.resolve()
+            }
 
-      await pWaitFor(() => !!window.Hyphenopoly?.hyphenators)
-      const hyphenator = await window.Hyphenopoly.hyphenators.HTML
-      hyphenator(target, '.__hyphenate')
-    }
+            await pWaitFor(() => !!window.Hyphenopoly?.hyphenators)
+            const hyphenator = await window.Hyphenopoly.hyphenators.HTML
+            hyphenator(target, '.__hyphenate')
+        }
 
-    void getHyphenator()
-  }, [target])
+        void getHyphenator()
+    }, [target])
 }

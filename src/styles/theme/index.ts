@@ -9,20 +9,20 @@ import * as scale from './scale'
 import * as typeface from './typeface'
 
 export const theme = {
-  animation,
-  ease,
-  elevation,
-  paletteDark,
-  paletteLight,
-  plumber,
-  respondTo,
-  scale,
-  typeface,
+    animation,
+    ease,
+    elevation,
+    paletteDark,
+    paletteLight,
+    plumber,
+    respondTo,
+    scale,
+    typeface,
 }
 
 type CustomTheme = typeof theme
 
 declare module 'styled-components' {
-  // eslint-disable-next-line @typescript-eslint/no-empty-interface
-  export interface DefaultTheme extends CustomTheme {}
+    // eslint-disable-next-line @typescript-eslint/no-empty-interface
+    export interface DefaultTheme extends CustomTheme {}
 }
