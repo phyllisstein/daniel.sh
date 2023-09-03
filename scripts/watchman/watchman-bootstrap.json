@@ -2,14 +2,14 @@
     "trigger",
     "/app",
     {
-        "name": "yarn-install",
+        "name": "watchman-bootstrap",
         "expression": [
-            "name",
-            "yarn.lock"
+            "dirname",
+            "scripts/watchman"
         ],
         "command": [
             "./scripts/develop.sh",
-            "yarn"
+            "watches"
         ],
         "append_files": false
     }

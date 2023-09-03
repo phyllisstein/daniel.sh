@@ -2,10 +2,16 @@ version: '3.8'
 
 services:
   app:
+    init: true
     build:
       context: .
-    ports:
-      - '3000:3000'
+    environment:
+      - VIRTUAL_HOST=danielsh.here
+    expose:
+      - '3000'
+    networks:
+      - default
+      - nginx-proxy
     volumes:
       - type: bind
         source: .
@@ -15,12 +21,19 @@ services:
         target: /app/node_modules
         volume:
           nocopy: true
-      - type: volume
-        source: yarn_cache
-        target: /var/cache/yarn
-        volume:
-          nocopy: true
+    secrets:
+      - environment
 
 volumes:
   node_modules:
   yarn_cache:
+
+networks:
+  default:
+  nginx-proxy:
+    external: true
+    name: nginx-proxy
+
+secrets:
+  environment:
+    file: .env
