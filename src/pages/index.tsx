@@ -19,23 +19,23 @@ const Home: NextPage = () => {
                 <TitleContainer>
                     <Centered>
                         <Tagline>
-              I&rsquo;m a full-stack engineer and architect bringing an editorial eye
-              to ambitious software projects.
+                            I&rsquo;m a full-stack engineer and architect who brings insight and rigor
+                            to ambitious software projects.
                         </Tagline>
                         <Name>
-              You can call me Daniel.
+                            You can call me Daniel.
                         </Name>
                     </Centered>
                     <ButtonBar className='spectrum-QuickActions-overlay'>
-                        <div className='spectrum-QuickActions is-open'>
+                        <div className='spectrum-ActionGroup spectrum-ActionGroup--quiet'>
                             <a className='spectrum-ActionButton spectrum-ActionButton--sizeL spectrum-ActionButton--quiet' href='mailto:daniel@daniel.sh'>
-                                <FontAwesomeIcon fixedWidth className='spectrum-Icon spectrum-Icon--sizeL spectrum-ActionButton-icon' icon={faPaperPlane} />
+                                <FontAwesomeIcon fixedWidth className='spectrum-Icon spectrum-Icon--sizeL spectrum-ActionButton-icon' icon={faPaperPlane} style={{padding: '0.5rem'}} />
                             </a>
                             <a className='spectrum-ActionButton spectrum-ActionButton--sizeL spectrum-ActionButton--quiet' href='https://twitter.com/phyllisstein'>
-                                <FontAwesomeIcon fixedWidth className='spectrum-Icon spectrum-Icon--sizeL spectrum-ActionButton-icon' icon={faTwitter} />
+                                <FontAwesomeIcon fixedWidth className='spectrum-Icon spectrum-Icon--sizeL spectrum-ActionButton-icon' icon={faTwitter} style={{padding: '0.5rem'}} />
                             </a>
                             <a className='spectrum-ActionButton spectrum-ActionButton--sizeL spectrum-ActionButton--quiet' href='https://linkedin.com/in/danielsh1'>
-                                <FontAwesomeIcon fixedWidth className='spectrum-Icon spectrum-Icon--sizeL spectrum-ActionButton-icon' icon={faLinkedinIn} />
+                                <FontAwesomeIcon fixedWidth className='spectrum-Icon spectrum-Icon--sizeL spectrum-ActionButton-icon' icon={faLinkedinIn} style={{padding: '0.5rem'}} />
                             </a>
                         </div>
                     </ButtonBar>
