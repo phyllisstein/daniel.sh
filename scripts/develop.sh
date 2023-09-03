@@ -11,6 +11,7 @@ restart_server() {
     [[ -e "/run/secrets/environment" ]] || { echo "Missing environment secrets." && exit 1; }
     source /run/secrets/environment && export GITHUB_TOKEN FONT_AWESOME_NPM_TOKEN GSAP_NPM_TOKEN
     yarn dev &
+    disown
 }
 
 configure_watches() {
@@ -43,7 +44,7 @@ serve)
 
 watch)
     yarn_install
-    # restart_server
+    restart_server
     configure_watches
     watch_watchman
     ;;
