@@ -2,7 +2,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faEllipsisV} from '@fortawesome/sharp-solid-svg-icons'
 import gsap from 'gsap'
 import type {NextPage} from 'next'
-import {useLayoutEffect} from 'react'
+import {useLayoutEffect, useRef} from 'react'
 import styled from 'styled-components'
 
 const BackCard = styled.div`
@@ -38,35 +38,41 @@ const StageRoot = styled.div`
 `
 
 const Paywall: NextPage = () => {
+    const stageRoot = useRef<HTMLDivElement>()
+
     useLayoutEffect(() => {
-        gsap.timeline()
-            .to('#stage-root',
-                {
-                    delay: 2.5,
+        const ctx = gsap.context(() => {
+            gsap.timeline()
+                .to(stageRoot.current!,
+                    {
+                        delay: 2.5,
+                        duration: 1,
+                        x: '100px',
+                        y: '-100px',
+                        z: '-500px',
+                    },
+                )
+                .to(stageRoot.current!, {
+                    delay: 1,
                     duration: 1,
-                    x: '100px',
-                    y: '-100px',
-                    z: '-500px',
-                },
-            )
-            .to('#stage-root', {
-                delay: 1,
-                duration: 2.5,
-                x: '50px',
-                y: '500px',
-                z: '1000px',
-            })
+                    x: '50px',
+                    y: '500px',
+                    z: '1000px',
+                })
+        })
+
+        return () => ctx.revert()
     }, [])
 
     return (
         <Root>
-            <StageRoot id='stage-root'>
+            <StageRoot ref={stageRoot}>
                 <FrontCard className='spectrum-Card' role='figure' style={{width: '275px'}}>
                     <div className='spectrum-Card-coverPhoto' style={{backgroundImage: 'url(/bauer.png)'}} />
                     <hr className='spectrum-Divider spectrum-Divider--sizeS spectrum-Card-divider' />
                     <div className='spectrum-Card-body'>
                         <div className='spectrum-Card-header'>
-                            <div className='spectrum-Card-title spectrum-Heading spectrum-Heading--sizeXS'>Enumeration herein before directed</div>
+                            <div className='spectrum-Card-title spectrum-Heading spectrum-Heading--sizeXS'>Enumeration before directed</div>
                             <div className='spectrum-Card-actionButton'>
                                 <button aria-haspopup='true' className='spectrum-ActionButton spectrum-ActionButton--sizeM spectrum-ActionButton--quiet'>
                                     <FontAwesomeIcon icon={faEllipsisV} />
