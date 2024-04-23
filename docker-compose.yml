@@ -1,10 +1,10 @@
-version: '3.8'
-
 services:
   app:
-    init: false
     build:
       context: .
+      secrets:
+        - source: environment
+          mode: 0440
     environment:
       - VIRTUAL_HOST=danielsh.here
     expose:
@@ -12,21 +12,20 @@ services:
     networks:
       - default
       - nginx-proxy
-    volumes:
-      - type: bind
-        source: .
-        target: /app
-      - type: volume
-        source: node_modules
-        target: /app/node_modules
-        volume:
-          nocopy: true
-    secrets:
-      - environment
-
-volumes:
-  node_modules:
-  yarn_cache:
+    develop:
+      watch:
+        - path: ./src
+          target: /app/src
+          action: sync
+          ignore:
+            - node_modules/
+        - path: ./public
+          target: /app/public
+          action: sync
+          ignore:
+            - node_modules/
+        - action: rebuild
+          path: yarn.lock
 
 networks:
   default:

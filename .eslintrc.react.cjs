@@ -21,7 +21,12 @@ module.exports = {
     'react/jsx-curly-newline': ['warn', 'consistent'],
     'react/jsx-curly-spacing': [
       'warn',
-      'always',
+      {
+        attributes: { when: 'always' },
+        children: { when: 'always' },
+        spacing: { objectLiterals: 'never' },
+        when: 'always',
+      },
     ],
     'react/jsx-sort-props': [
       'warn',
