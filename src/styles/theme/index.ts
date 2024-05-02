@@ -12,6 +12,7 @@ export const theme = {
   animation,
   ease,
   elevation,
+  palette: paletteDark,
   paletteDark,
   paletteLight,
   plumber,

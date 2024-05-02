@@ -1,10 +1,15 @@
 import styled from 'styled-components'
+import gsap from 'gsap'
+import SplitText from 'gsap/dist/SplitText'
+import { useGSAP } from '@gsap/react'
+
+gsap.registerPlugin(SplitText)
 
 const Page = styled.section`
   display: flex;
 `
 
-const Box = ({ children = null, width = 3, height = 3 }) => {
+const Box = ({ children, height = 3, width = 3 }) => {
   const tops = Array.from(
     { length: width * 2 },
     () => (<code>─</code>),
@@ -13,6 +18,15 @@ const Box = ({ children = null, width = 3, height = 3 }) => {
     { length: height },
     () => (<code>│</code>),
   )
+
+  useGSAP(() => {
+    const split = new SplitText('#border-container', { type: 'words,chars' })
+    gsap.from(split.chars, {
+      duration: 0.5,
+      opacity: 0,
+      stagger: 0.1,
+    })
+  })
 
   return (
     <div style={{
