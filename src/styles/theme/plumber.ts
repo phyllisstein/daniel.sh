@@ -36,8 +36,8 @@ const getBaselineCorrection = ({
 
 export interface PlumberProps {
   baseline: number
-  gridHeight?: string
   fontSize?: number
+  gridHeight?: string
   leadingBottom?: number
   leadingTop?: number
   lineHeight?: number
@@ -65,8 +65,8 @@ const getPlumber = ({
     const [gridHeightValue, gridHeightUnit] = getValueAndUnit(gridHeight)
     const scaledFontSize = unitless(fontSize)
 
-    lineHeight =
-      lineHeight == null
+    lineHeight
+      = lineHeight == null
         ? unitless(fontSize) * gridHeightValue
         : unitless(lineHeight) * gridHeightValue
 
@@ -110,7 +110,7 @@ const getPlumber = ({
     `
   }
 
-  plumber.box = function({
+  plumber.box = function ({
     border = ['0px', '0px'],
     gridHeight = GRID_HEIGHT,
     margin = [0, 0],

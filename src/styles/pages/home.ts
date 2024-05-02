@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/indent */
+/* eslint-disable @stylistic/indent */
 
 import styled, { css } from 'styled-components'
 
@@ -26,14 +26,14 @@ export const Centered = styled.div`
 
 export const Name = styled.h1`
   ${ ({ theme }) => theme.typeface.accent({
-        fontSize: 6,
+      fontSize: 6,
         lineHeight: 8,
     }) }
 
-  font-weight: 400;
-
   width: max-content;
   max-width: 100vw;
+  
+  font-weight: 400;
 
   ${ ({ theme }) => theme.respondTo.above(
         'sm',
@@ -76,10 +76,9 @@ export const Tagline = styled.h3`
     }) }
 
   width: 100%;
-
-  font-weight: 400;
-
   padding: 0 40% 0 0;
+  
+  font-weight: 400;
 
   ${ ({ theme }) => theme.respondTo.above(
         'sm',

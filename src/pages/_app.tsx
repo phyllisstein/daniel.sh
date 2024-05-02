@@ -1,4 +1,3 @@
-/* eslint-disable import/order */
 import '@spectrum-css/vars/dist/spectrum-global.css'
 import '@spectrum-css/vars/dist/spectrum-dark.css'
 import '@spectrum-css/vars/dist/spectrum-medium.css'
@@ -12,7 +11,6 @@ import '@spectrum-css/button/dist/index-vars.css'
 import '@spectrum-css/card/dist/index-vars.css'
 import '@spectrum-css/icon/dist/index-vars.css'
 import '@spectrum-css/quickaction/dist/index-vars.css'
-/* eslint-enable import/order */
 
 import { AppProps } from 'next/app'
 import Head from 'next/head'

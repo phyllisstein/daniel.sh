@@ -1,3 +1,5 @@
+/* eslint-disable sort-keys-fix/sort-keys-fix */
+
 import { rgb } from 'chroma-js'
 import * as R from 'ramda'
 

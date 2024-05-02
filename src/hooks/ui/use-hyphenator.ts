@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 
 export const useHyphenator = target => {
   useEffect(() => {
-    const getHyphenator = async() => {
+    const getHyphenator = async () => {
       if (!canUseDOM || !target || !target.innerHTML) {
         return await Promise.resolve()
       }

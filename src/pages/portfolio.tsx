@@ -16,19 +16,18 @@ const Box = ({ children = null, width = 3, height = 3 }) => {
 
   return (
     <div style={{
-      display: 'flex',
-      justifyContent: 'center',
       alignItems: 'center',
-      width: 'min-content',
-      height: 'min-content',
+      display: 'flex',
       fontSize: '3rem',
+      height: 'min-content',
+      justifyContent: 'center',
       lineHeight: '3rem',
+      width: 'min-content',
     }}>
       <div style={{
-        position: 'relative',
-        width: 'min-content',
         fontFamily: 'PragmataPro Mono',
         letterSpacing: -2,
+        position: 'relative',
       }}>
         <div id='border-container' style={{ display: 'contents' }}>
           <div style={{ display: 'grid', gridAutoFlow: 'column dense' }}>
@@ -44,11 +43,11 @@ const Box = ({ children = null, width = 3, height = 3 }) => {
             { tops }
             <code>┘</code>
           </div>
-          <div style={{ display: 'grid', gridAutoFlow: 'row dense', position: 'absolute', top: '2ex', right: 0 }}>
+          <div style={{ display: 'grid', gridAutoFlow: 'row dense', position: 'absolute', right: 0, top: '2ex' }}>
             { sides }
           </div>
         </div>
-        <div id='content-container' style={{ position: 'absolute', top: 0, right: 0, bottom: 0, left: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <div id='content-container' style={{ alignItems: 'center', bottom: 0, display: 'flex', justifyContent: 'center', left: 0, position: 'absolute', right: 0, top: 0 }}>
           { children }
         </div>
       </div>

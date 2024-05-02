@@ -67,8 +67,8 @@ const Paywall: NextPage = () => {
   return (
     <Root>
       <StageRoot ref={ stageRoot }>
-        <FrontCard className='spectrum-Card' role='figure' style={ { width: '275px' } }>
-          <div className='spectrum-Card-coverPhoto' style={ { backgroundImage: 'url(/bauer.png)' } } />
+        <FrontCard className='spectrum-Card' role='figure' style={{ width: '275px' }}>
+          <div className='spectrum-Card-coverPhoto' style={{ backgroundImage: 'url(/bauer.png)' }} />
           <hr className='spectrum-Divider spectrum-Divider--sizeS spectrum-Card-divider' />
           <div className='spectrum-Card-body'>
             <div className='spectrum-Card-header'>
@@ -92,8 +92,8 @@ const Paywall: NextPage = () => {
             Footer
           </div>
         </FrontCard>
-        <BackCard className='spectrum-Card' role='figure' style={ { width: '275px' } }>
-          <div className='spectrum-Card-coverPhoto' style={ { backgroundImage: 'url(/bauer.png)' } } />
+        <BackCard className='spectrum-Card' role='figure' style={{ width: '275px' }}>
+          <div className='spectrum-Card-coverPhoto' style={{ backgroundImage: 'url(/bauer.png)' }} />
           <hr className='spectrum-Divider spectrum-Divider--sizeS spectrum-Card-divider' />
           <div className='spectrum-Card-body'>
             <div className='spectrum-Card-header'>
