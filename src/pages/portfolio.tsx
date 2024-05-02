@@ -28,6 +28,7 @@ const Box = ({ children = null, width = 3, height = 3 }) => {
         fontFamily: 'PragmataPro Mono',
         letterSpacing: -2,
         position: 'relative',
+        width: 'min-content',
       }}>
         <div id='border-container' style={{ display: 'contents' }}>
           <div style={{ display: 'grid', gridAutoFlow: 'column dense' }}>
