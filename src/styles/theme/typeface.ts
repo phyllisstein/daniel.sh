@@ -7,8 +7,13 @@ import {
 } from './plumber'
 
 export const accentFamily = css`
-  font-family: 'Charlie', 'Georgia', 'Garamond', 'Times New Roman',
-    'Times', serif !important;
+  font-family:
+    'Charlie',
+    'Georgia',
+    'Garamond',
+    'Times New Roman',
+    'Times',
+    serif;
 `
 
 export const accent = (plumberOpts: Partial<PlumberProps> = {}) => css`
@@ -17,8 +22,13 @@ export const accent = (plumberOpts: Partial<PlumberProps> = {}) => css`
 `
 
 export const primaryFamily = css`
-  font-family: 'Maison Neue', -apple-system, BlinkMacSystemFont,
-    'Helvetica Neue', 'Helvetica', sans-serif !important;
+  font-family:
+    'Maison Neue',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Helvetica',
+    sans-serif;
 `
 
 export const primary = (plumberOpts: Partial<PlumberProps> = {}) => css`

@@ -15,9 +15,5 @@
     "typescript",
     "typescriptreact"
   ],
-  "search.exclude": {
-    "**/.yarn": true,
-    "**/.pnp.*": true
-  },
-  "editor.tabSize": 4
+  "editor.tabSize": 2
 }

@@ -1,4 +1,6 @@
+import nextPlugin from '@next/eslint-plugin-next'
 import stylistic from '@stylistic/eslint-plugin'
+import stylisticTS from '@stylistic/eslint-plugin-ts'
 import parserTS from '@typescript-eslint/parser'
 import tsSortKeys from 'eslint-plugin-typescript-sort-keys'
 import tseslint from 'typescript-eslint'
@@ -12,8 +14,13 @@ import reactHooks from 'eslint-plugin-react-hooks'
 import globals from 'globals'
 
 export default [
+  {
+    ignores: ['dist', 'node_modules'],
+  },
   eslint.configs.recommended,
   stylistic.configs['recommended-flat'],
+  react.configs.flat.recommended,
+  react.configs.flat['jsx-runtime'],
   {
     languageOptions: {
       ecmaVersion: 2024,
@@ -26,6 +33,7 @@ export default [
       sourceType: 'module',
     },
     plugins: {
+      '@next/next': nextPlugin,
       '@stylistic': stylistic,
       'jsx-a11y': jsxA11y,
       react,
@@ -34,18 +42,39 @@ export default [
       'sort-keys-fix': sortKeysFix,
     },
     rules: {
-      '@stylistic/arrow-parens': ['warn', 'as-needed'],
+      ...reactHooks.configs.recommended.rules,
+      ...jsxA11y.configs.recommended.rules,
+      ...nextPlugin.configs.recommended.rules,
+      '@stylistic/arrow-parens': [
+        'warn',
+        'as-needed',
+        {
+          requireForBlockBody: false,
+        },
+      ],
+      '@stylistic/block-spacing': ['warn', 'never'],
+      '@stylistic/brace-style': [
+        'warn',
+        '1tbs',
+        {
+          allowSingleLine: true,
+        },
+      ],
+      '@stylistic/comma-dangle': [
+        'warn',
+        'always-multiline',
+      ],
+      '@stylistic/comma-spacing': [
+        'warn',
+        {
+          after: true,
+          before: false,
+        },
+      ],
+      '@stylistic/eol-last': 'warn',
       '@stylistic/indent': [
         'warn',
         2,
-        {
-          ignoredNodes: [
-            'TSTypeParameterInstantiation',
-            'FunctionExpression > .params[decorators.length > 0]',
-            'FunctionExpression > .params > :matches(Decorator, :not(:first-child))',
-            'ClassBody.body > PropertyDefinition[decorators.length > 0] > .key',
-          ],
-        },
       ],
       '@stylistic/jsx-closing-bracket-location': ['warn', 'after-props'],
       '@stylistic/jsx-curly-newline': ['warn', 'consistent'],
@@ -65,6 +94,10 @@ export default [
           checkAttributes: true,
           indentLogicalExpressions: true,
         },
+      ],
+      '@stylistic/jsx-indent-props': [
+        'warn',
+        2,
       ],
       '@stylistic/jsx-one-expression-per-line': ['warn', { allow: 'single-line' }],
       '@stylistic/jsx-quotes': [
@@ -105,11 +138,12 @@ export default [
       '@stylistic/no-multiple-empty-lines': [
         'warn',
         {
-          max: 1,
+          max: 2,
           maxBOF: 0,
           maxEOF: 1,
         },
       ],
+      '@stylistic/no-trailing-spaces': 'warn',
       '@stylistic/object-curly-spacing': [
         'warn',
         'always',
@@ -133,7 +167,8 @@ export default [
       ],
       '@stylistic/space-before-function-paren': 'warn',
       '@stylistic/template-curly-spacing': ['warn', 'always'],
-      'no-unused-vars': 'off',
+      'no-unused-vars': 'warn',
+      'react/prop-types': 'off',
       'react-hooks/exhaustive-deps': [
         'warn',
         {
@@ -155,9 +190,21 @@ export default [
         },
       ],
     },
+    settings: {
+      react: {
+        version: 'detect',
+      },
+    },
   },
   {
-    files: ['**/*.ts', '**/*.tsx'],
+    files: [
+      '*.ts',
+      '*.tsx',
+      '**/*.ts',
+      '**/*.tsx',
+      '*.d.ts',
+      '**/*.d.ts',
+    ],
     languageOptions: {
       parser: parserTS,
       parserOptions: {
@@ -165,12 +212,20 @@ export default [
       },
     },
     plugins: {
+      '@stylistic/ts': stylisticTS,
       '@typescript-eslint': typescriptESLint,
       'typescript-sort-keys': tsSortKeys,
     },
     rules: {
       ...tseslint.configs.recommendedTypeChecked.rules,
       ...tseslint.configs.stylisticTypeChecked.rules,
+      '@stylistic/block-spacing': 'off',
+      '@stylistic/object-curly-spacing': 'off',
+      '@stylistic/ts/block-spacing': ['warn', 'never'],
+      '@stylistic/ts/object-curly-spacing': [
+        'warn',
+        'always',
+      ],
       '@typescript-eslint/no-unused-vars': [
         'warn',
         {
