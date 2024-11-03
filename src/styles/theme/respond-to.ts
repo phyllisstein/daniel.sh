@@ -1,5 +1,4 @@
 import { css } from 'styled-components'
-import { RuleSet } from 'styled-components/dist/types'
 
 const breakpoints = {
   lg: '1056px',

@@ -1,12 +1,16 @@
+/**
+  * @type {import('next').NextConfig}
+  */
 export default {
   compiler: {
-    styledComponents: true,
+    styledComponents: {
+      displayName: true,
+      fileName: true,
+      minify: false,
+      ssr: true,
+    },
   },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  reactStrictMode: true,
-  typescript: {
-    ignoreBuildErrors: true,
+  serverRuntimeConfig: {
+    host: '0.0.0.0',
   },
 }

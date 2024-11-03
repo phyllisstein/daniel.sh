@@ -221,7 +221,7 @@ export default [
       ...tseslint.configs.stylisticTypeChecked.rules,
       '@stylistic/block-spacing': 'off',
       '@stylistic/object-curly-spacing': 'off',
-      '@stylistic/ts/block-spacing': ['warn', 'never'],
+      '@stylistic/ts/block-spacing': ['warn', 'always'],
       '@stylistic/ts/object-curly-spacing': [
         'warn',
         'always',

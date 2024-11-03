@@ -2,6 +2,7 @@ import { css } from 'styled-components'
 
 import {
   accent as plumberAccent,
+  mono as plumberMono,
   primary as plumberPrimary,
   PlumberProps,
 } from './plumber'
@@ -13,7 +14,7 @@ export const accentFamily = css`
     'Garamond',
     'Times New Roman',
     'Times',
-    serif;
+    serif !important;
 `
 
 export const accent = (plumberOpts: Partial<PlumberProps> = {}) => css`
@@ -28,10 +29,23 @@ export const primaryFamily = css`
     BlinkMacSystemFont,
     'Helvetica Neue',
     'Helvetica',
-    sans-serif;
+    sans-serif !important;
 `
 
 export const primary = (plumberOpts: Partial<PlumberProps> = {}) => css`
   ${ primaryFamily }
   ${ plumberPrimary(plumberOpts) }
+`
+
+export const monoFamily = css`
+  font-family:
+    'PragmataPro',
+    'Courier New',
+    Courier,
+    monospace !important;
+`
+
+export const mono = css`
+  ${ monoFamily }
+  ${ plumberMono() }
 `

@@ -1,4 +1,4 @@
-/* eslint-disable @stylistic/indent */
+'use client'
 
 import styled, { css } from 'styled-components'
 
@@ -26,95 +26,95 @@ export const Centered = styled.div`
 
 export const Name = styled.h1`
   ${ ({ theme }) => theme.typeface.accent({
-      fontSize: 6,
-        lineHeight: 8,
-    }) }
+    fontSize: 6,
+    lineHeight: 8,
+  }) }
 
   width: max-content;
   max-width: 100vw;
-  
+
   font-weight: 400;
 
   ${ ({ theme }) => theme.respondTo.above(
-        'sm',
-        css`
+    'sm',
+    css`
       ${ ({ theme }) => theme.typeface.accent({
-                fontSize: 8,
-                leadingTop: 1,
-                lineHeight: 9,
-            }) }
+        fontSize: 8,
+        leadingTop: 1,
+        lineHeight: 9,
+      }) }
         `,
-    ) }
+  ) }
 
   ${ ({ theme }) => theme.respondTo.above(
-        'md',
-        css`
+    'md',
+    css`
       ${ ({ theme }) => theme.typeface.accent({
-                fontSize: 10,
-                leadingTop: 2,
-                lineHeight: 10,
-            }) }
+        fontSize: 10,
+        leadingTop: 2,
+        lineHeight: 10,
+      }) }
         `,
-    ) }
+  ) }
 
   ${ ({ theme }) => theme.respondTo.above(
-        'lg',
-        css`
+    'lg',
+    css`
       ${ ({ theme }) => theme.typeface.accent({
-                fontSize: 10,
-                leadingTop: 2,
-                lineHeight: 10,
-            }) }
+        fontSize: 10,
+        leadingTop: 2,
+        lineHeight: 10,
+      }) }
         `,
-    ) }
+  ) }
 `
 
 export const Tagline = styled.h3`
   ${ ({ theme }) => theme.typeface.primary({
-        fontSize: 3,
-        lineHeight: 5,
-    }) }
+    fontSize: 3,
+    lineHeight: 5,
+  }) }
 
   width: 100%;
   padding: 0 40% 0 0;
-  
+
   font-weight: 400;
 
   ${ ({ theme }) => theme.respondTo.above(
-        'sm',
-        css`
+    'sm',
+    css`
       ${ ({ theme }) => theme.typeface.primary({
-                fontSize: 4,
-                lineHeight: 6,
-            }) }
+        fontSize: 4,
+        lineHeight: 6,
+      }) }
 
       padding: 0 35% 0 0;
         `,
-    ) }
+  ) }
 
   ${ ({ theme }) => theme.respondTo.above(
-        'md',
-        css`
+    'md',
+    css`
       ${ ({ theme }) => theme.typeface.primary({
-                fontSize: 5,
-                lineHeight: 7,
-            }) }
+        fontSize: 5,
+        lineHeight: 7,
+      }) }
 
       padding: 0 30% 0 0;
         `,
-    ) }
+  ) }
 
   ${ ({ theme }) => theme.respondTo.above(
-        'lg',
-        css`
+    'lg',
+    css`
       ${ ({ theme }) => theme.typeface.primary({
-                fontSize: 6,
-                lineHeight: 8,
-            }) }
+        fontSize: 6,
+        lineHeight: 8,
+      }) }
 
       padding: 0 20% 0 0;
         `,
-    ) }
+  ) }
 `
 
 export const Main = styled.main`

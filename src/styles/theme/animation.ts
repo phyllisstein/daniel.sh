@@ -41,6 +41,6 @@ export function css({
   const property = Array.from(properties).join(',')
 
   return styledCSS`
-        transition: ${ property } ${ duration }ms ${ curve };
+  transition: ${ property } ${ duration }ms ${ curve };
     `
 }

@@ -2,6 +2,8 @@ const script = document.createElement('script')
 script.type = 'text/javascript'
 script.src = '/hyphenopoly/Hyphenopoly_Loader.js'
 script.crossOrigin = 'anonymous'
+script.async = true
+script.defer = true
 
 script.onload = () => {
   Hyphenopoly.config({
@@ -18,7 +20,7 @@ script.onload = () => {
       keepAlive: true,
       normalize: false,
       selectors: {
-        '.__hyphenate': {
+        p: {
           compound: 'all',
           hyphen: '\u00AD',
           orphanControl: 3,
@@ -29,4 +31,4 @@ script.onload = () => {
   })
 }
 
-document.head.appendChild(script)
+document.body.appendChild(script)

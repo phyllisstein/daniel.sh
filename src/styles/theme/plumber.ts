@@ -6,11 +6,12 @@ import { unitless } from './scale'
 
 // (UnitsPerEm − hhea.Ascender − hhea.Descender) / (2 × UnitsPerEm)
 const BASELINE = {
-  ADOBE_CASLON: 0.265,
   ADOBE_CLEAN: 0.113,
   ADOBE_CLEAN_SERIF: 0.113,
   CHARLIE: 0.224,
   MAISON: 0.2045,
+  MAISON_MONO: 0.195,
+  PRAGMATAPRO: 0.1196,
 }
 
 const round = _.partial(_.round, _.partial.placeholder, 2)
@@ -66,7 +67,7 @@ const getPlumber = ({
     const scaledFontSize = unitless(fontSize)
 
     lineHeight
-      = lineHeight == null
+      = !lineHeight
         ? unitless(fontSize) * gridHeightValue
         : unitless(lineHeight) * gridHeightValue
 
@@ -100,13 +101,13 @@ const getPlumber = ({
     const lineHeightWithUnit = `${ round(lineHeight) }${ gridHeightUnit }`
 
     return css`
-            margin-top: ${ marginTop };
-            margin-bottom: ${ marginBottom };
-            padding-top: ${ paddingTop };
-            padding-bottom: ${ paddingBottom };
+  margin-top: ${ marginTop };
+  margin-bottom: ${ marginBottom };
+  padding-top: ${ paddingTop };
+  padding-bottom: ${ paddingBottom };
 
-            font-size: ${ fontSizeWithUnit };
-            line-height: ${ lineHeightWithUnit };
+  font-size: ${ fontSizeWithUnit };
+  line-height: ${ lineHeightWithUnit };
     `
   }
 
@@ -132,10 +133,10 @@ const getPlumber = ({
     paddingBottom = `calc(${ round(paddingBottom) }${ gridHeightUnit } - ${ borderBottom })`
 
     return css`
-            margin-top: ${ marginTop };
-            margin-bottom: ${ marginBottom };
-            padding-top: ${ paddingTop };
-            padding-bottom: ${ paddingBottom };
+  margin-top: ${ marginTop };
+  margin-bottom: ${ marginBottom };
+  padding-top: ${ paddingTop };
+  padding-bottom: ${ paddingBottom };
     `
   }
 
@@ -144,3 +145,4 @@ const getPlumber = ({
 
 export const primary = getPlumber({ baseline: BASELINE.MAISON })
 export const accent = getPlumber({ baseline: BASELINE.CHARLIE })
+export const mono = getPlumber({ baseline: BASELINE.PRAGMATAPRO })
