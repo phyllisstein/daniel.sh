@@ -10,18 +10,43 @@ const Page = styled.section`
 `
 
 const Box = ({ children, height = 3, width = 3 }) => {
-  const tops = Array.from(
+  const top = Array.from(
     { length: width * 2 },
     () => (<code>─</code>),
   )
-  const sides = Array.from(
+  const right = Array.from(
     { length: height },
     () => (<code>│</code>),
   )
 
   useGSAP(() => {
-    const split = new SplitText('#border-container', { type: 'words,chars' })
-    gsap.from(split.chars, {
+    let stTop = new SplitText('#top', { type: 'chars' })
+    gsap.from(stTop.chars, {
+      duration: 0.1,
+      opacity: 0,
+      stagger: 0.1,
+    })
+
+    let stRight = new SplitText('#right', { type: 'chars' })
+    gsap.from(stRight.chars, {
+      delay: 0.2,
+      duration: 0.5,
+      opacity: 0,
+      stagger: 0.1,
+    })
+
+    let stBottom = new SplitText('#bottom', { type: 'chars' })
+    gsap.from(stBottom.chars, {
+      delay: 0.1,
+      duration: 0.5,
+      opacity: 0,
+      reverse: true,
+      stagger: 0.1,
+    })
+
+    let stLeft = new SplitText('#left', { type: 'chars' })
+    gsap.from(stLeft.chars, {
+      delay: 0.1,
       duration: 0.5,
       opacity: 0,
       stagger: 0.1,
@@ -39,27 +64,27 @@ const Box = ({ children, height = 3, width = 3 }) => {
       width: 'min-content',
     }}>
       <div style={{
-        fontFamily: 'PragmataPro Mono',
+        fontFamily: 'PragmataPro Mono Liga',
         letterSpacing: -2,
         position: 'relative',
         width: 'min-content',
       }}>
         <div id='border-container' style={{ display: 'contents' }}>
-          <div style={{ display: 'grid', gridAutoFlow: 'column dense' }}>
+          <div id='top' style={{ display: 'grid', gridAutoFlow: 'column dense' }}>
             <code>┌</code>
-            { tops }
+            { top }
             <code>┐</code>
           </div>
-          <div style={{ display: 'grid', gridAutoFlow: 'row dense' }}>
-            { sides }
+          <div id='right' style={{ display: 'grid', gridAutoFlow: 'row dense' }}>
+            { right }
           </div>
-          <div style={{ display: 'grid', gridAutoFlow: 'column dense' }}>
+          <div id='bottom' style={{ display: 'grid', gridAutoFlow: 'column dense' }}>
             <code>└</code>
-            { tops }
+            { top }
             <code>┘</code>
           </div>
-          <div style={{ display: 'grid', gridAutoFlow: 'row dense', position: 'absolute', right: 0, top: '2ex' }}>
-            { sides }
+          <div id='left' style={{ display: 'grid', gridAutoFlow: 'row dense', position: 'absolute', right: 0, top: '2ex' }}>
+            { right }
           </div>
         </div>
         <div id='content-container' style={{ alignItems: 'center', bottom: 0, display: 'flex', justifyContent: 'center', left: 0, position: 'absolute', right: 0, top: 0 }}>
