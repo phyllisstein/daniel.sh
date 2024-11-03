@@ -12,20 +12,13 @@ services:
     networks:
       - default
       - nginx-proxy
-    develop:
-      watch:
-        - path: ./src
-          target: /app/src
-          action: sync
-          ignore:
-            - node_modules/
-        - path: ./public
-          target: /app/public
-          action: sync
-          ignore:
-            - node_modules/
-        - action: rebuild
-          path: yarn.lock
+    volumes:
+      - type: bind
+        source: .
+        target: /app
+      - type: volume
+        source: node_modules
+        target: /app/node_modules
 
 networks:
   default:
@@ -36,3 +29,6 @@ networks:
 secrets:
   environment:
     file: .env
+
+volumes:
+  node_modules:

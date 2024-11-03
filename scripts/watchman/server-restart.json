@@ -1,0 +1,21 @@
+[
+  "trigger",
+  "/app",
+  {
+    "name": "server-restart",
+    "expression": [
+      "name",
+      [
+        ".env",
+        ".envrc",
+        "tsconfig.json",
+        "next.config.js"
+      ]
+    ],
+    "command": [
+      "/app/scripts/develop.sh",
+      "serve"
+    ],
+    "append_files": false
+  }
+]

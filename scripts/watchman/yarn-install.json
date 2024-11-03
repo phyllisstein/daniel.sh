@@ -1,0 +1,21 @@
+[
+  "trigger",
+  "/app",
+  {
+    "name": "yarn-install",
+    "expression": [
+      "name",
+      [
+        ".env",
+        ".npmrc",
+        ".yarnrc.yml",
+        "yarn.lock"
+      ]
+    ],
+    "command": [
+      "/app/scripts/develop.sh",
+      "yarn"
+    ],
+    "append_files": false
+  }
+]
