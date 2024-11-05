@@ -123,5 +123,5 @@
     "react": "rc",
     "react-dom": "rc"
   },
-  "packageManager": "yarn@4.1.1"
+  "packageManager": "yarn@4.5.1"
 }
