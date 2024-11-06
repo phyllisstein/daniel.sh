@@ -1,7 +1,7 @@
 const config = {
   extends: [
-    '@stylistic/stylelint-config',
     'stylelint-config-recommended',
+    '@stylistic/stylelint-config',
   ],
   ignoreFiles: [
     'src/styles/global/preflight.ts',
@@ -27,7 +27,12 @@ const config = {
     '@stylistic/block-opening-brace-space-before': null,
     '@stylistic/color-hex-case': 'upper',
     '@stylistic/declaration-block-trailing-semicolon': null,
-    '@stylistic/indentation': 2,
+    '@stylistic/indentation': [
+      2,
+      {
+        baseIndentLevel: 'auto',
+      },
+    ],
     '@stylistic/max-empty-lines': 2,
     '@stylistic/max-line-length': null,
     '@stylistic/named-grid-areas-alignment': [

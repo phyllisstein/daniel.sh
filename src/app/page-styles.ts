@@ -1,6 +1,8 @@
 'use client'
 
+
 import styled, { css } from 'styled-components'
+
 
 export const ButtonBar = styled.div`
   position: absolute;
@@ -14,15 +16,6 @@ export const ButtonBar = styled.div`
   padding: 2rem;
 `
 
-export const Centered = styled.div`
-  position: absolute;
-  top: 50%;
-
-  width: min-content;
-  padding: 0 2rem;
-
-  transform: translateY(-50%);
-`
 
 export const Name = styled.h1`
   ${ ({ theme }) => theme.typeface.accent({
@@ -30,29 +23,20 @@ export const Name = styled.h1`
     lineHeight: 8,
   }) }
 
-  width: max-content;
-  max-width: 100vw;
+  position: absolute;
+  top: 50%;
+
+  max-width: 100%;
+  padding: 0 5vw;
 
   font-weight: 400;
-
-  ${ ({ theme }) => theme.respondTo.above(
-    'sm',
-    css`
-      ${ ({ theme }) => theme.typeface.accent({
-        fontSize: 8,
-        leadingTop: 1,
-        lineHeight: 9,
-      }) }
-        `,
-  ) }
 
   ${ ({ theme }) => theme.respondTo.above(
     'md',
     css`
       ${ ({ theme }) => theme.typeface.accent({
-        fontSize: 10,
-        leadingTop: 2,
-        lineHeight: 10,
+        fontSize: 8,
+        lineHeight: 8,
       }) }
         `,
   ) }
@@ -62,12 +46,22 @@ export const Name = styled.h1`
     css`
       ${ ({ theme }) => theme.typeface.accent({
         fontSize: 10,
-        leadingTop: 2,
+        lineHeight: 10,
+      }) }
+        `,
+  ) }
+
+  ${ ({ theme }) => theme.respondTo.above(
+    'xlg',
+    css`
+      ${ ({ theme }) => theme.typeface.accent({
+        fontSize: 10,
         lineHeight: 10,
       }) }
         `,
   ) }
 `
+
 
 export const Tagline = styled.h3`
   ${ ({ theme }) => theme.typeface.primary({
@@ -75,10 +69,16 @@ export const Tagline = styled.h3`
     lineHeight: 5,
   }) }
 
-  width: 100%;
-  padding: 0 40% 0 0;
+  position: absolute;
+  top: 50%;
+
+  max-width: 100%;
+  padding-left: 5vw;
+  padding-right: 5vw;
 
   font-weight: 400;
+
+  transform: translateY(-100%);
 
   ${ ({ theme }) => theme.respondTo.above(
     'sm',
@@ -88,7 +88,7 @@ export const Tagline = styled.h3`
         lineHeight: 6,
       }) }
 
-      padding: 0 35% 0 0;
+      padding-right: 20%;
         `,
   ) }
 
@@ -100,7 +100,7 @@ export const Tagline = styled.h3`
         lineHeight: 7,
       }) }
 
-      padding: 0 30% 0 0;
+      padding-right: 35%;
         `,
   ) }
 
@@ -112,7 +112,14 @@ export const Tagline = styled.h3`
         lineHeight: 8,
       }) }
 
-      padding: 0 20% 0 0;
+      padding-right: 35%;
+        `,
+  ) }
+
+  ${ ({ theme }) => theme.respondTo.above(
+    'xlg',
+    css`
+      padding-right: 45%;
         `,
   ) }
 `
@@ -122,15 +129,96 @@ export const Main = styled.main`
 
   display: grid;
   grid-template-rows: 1fr;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr;
   width: 100%;
   height: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
 `
 
-export const TitleContainer = styled.div`
+
+export const Section = styled.div`
   position: relative;
 
   width: 100vw;
   height: 100vh;
   min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+`
+
+
+export const SectionTitle = styled.h1`
+  ${ ({ theme }) => theme.typeface.accent({
+    fontSize: 6,
+    lineHeight: 8,
+  }) }
+
+  position: absolute;
+  top: 50vh;
+
+  max-width: 100%;
+  padding: 0 5vw;
+
+  font-weight: 400;
+
+  ${ ({ theme }) => theme.respondTo.above(
+    'md',
+    css`
+      ${ ({ theme }) => theme.typeface.accent({
+        fontSize: 8,
+        lineHeight: 8,
+      }) }
+        `,
+  ) }
+
+  ${ ({ theme }) => theme.respondTo.above(
+    'lg',
+    css`
+      ${ ({ theme }) => theme.typeface.accent({
+        fontSize: 10,
+        lineHeight: 10,
+      }) }
+        `,
+  ) }
+
+  ${ ({ theme }) => theme.respondTo.above(
+    'xlg',
+    css`
+      ${ ({ theme }) => theme.typeface.accent({
+        fontSize: 10,
+        lineHeight: 10,
+      }) }
+        `,
+  ) }
+`
+
+export const TextContainer = styled.article`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0 5vw;
+  overflow-y: auto;
+
+  ${ ({ theme }) => css`
+    transform: translateY(calc(50vh + ${ theme.scale.css(8) }));
+  ` }
+`
+
+
+export const Graf = styled.p`
+  ${ ({ theme }) => theme.typeface.primary({
+    fontSize: 2,
+    lineHeight: 3,
+  }) }
+
+  & + & {
+    ${ ({ theme }) => theme.typeface.primary({
+      fontSize: 2,
+      leadingTop: 1,
+      lineHeight: 3,
+    }) }
+  }
 `
