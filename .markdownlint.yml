@@ -1,0 +1,27 @@
+default: true
+blanks-around-headings:
+  lines_above: 2
+  lines_below: 0
+code-block-style:
+  style: fenced
+first-line-heading: false
+heading-style:
+  style: atx
+line-length: false
+list-marker-space:
+  ol_multi: 2
+  ul_multi: 3
+no-alt-text: false
+no-inline-html: false
+no-multiple-blanks:
+  maximum: 2
+no-trailing-punctuation: false
+no-trailing-spaces: false
+ol-prefix:
+  style: one
+single-trailing-newline: false
+ul-indent:
+  indent: 4
+  start_indented: false
+ul-style:
+  style: sublist
