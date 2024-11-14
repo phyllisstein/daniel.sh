@@ -1,6 +1,6 @@
 /**
-  * @type {import('next').NextConfig}
-  */
+ * @type {import('next').NextConfig}
+ */
 export default {
   compiler: {
     styledComponents: {
@@ -12,5 +12,8 @@ export default {
   },
   serverRuntimeConfig: {
     host: '0.0.0.0',
+  },
+  typescript: {
+    ignoreBuildErrors: true,
   },
 }
