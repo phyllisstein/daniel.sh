@@ -22,7 +22,6 @@ export const Name = styled.h1`
             fontSize: 6,
             lineHeight: 8,
         }) }
-
     position: absolute;
     top: 50%;
 
@@ -68,7 +67,6 @@ export const Tagline = styled.h3`
             fontSize: 3,
             lineHeight: 5,
         }) }
-
     position: absolute;
     top: 50%;
 
@@ -88,7 +86,7 @@ export const Tagline = styled.h3`
             lineHeight: 6,
         }) }
 
-    padding-right: 20%;
+    padding-right: 20%
     `,
         ) }
 
@@ -100,7 +98,7 @@ export const Tagline = styled.h3`
             lineHeight: 7,
         }) }
 
-    padding-right: 35%;
+    padding-right: 35%
     `,
         ) }
 
@@ -112,14 +110,14 @@ export const Tagline = styled.h3`
             lineHeight: 8,
         }) }
 
-    padding-right: 35%;
+    padding-right: 35%
     `,
         ) }
 
     ${ ({ theme }) => theme.respondTo.above(
             "xlg",
             css`
-    padding-right: 45%;
+    padding-right: 45%
     `,
         ) }
 `;
@@ -153,7 +151,6 @@ export const SectionTitle = styled.h1`
             fontSize: 6,
             lineHeight: 8,
         }) }
-
     position: absolute;
     top: 50vh;
 
@@ -203,7 +200,7 @@ export const TextContainer = styled.article`
     overflow-y: auto;
 
     ${ ({ theme }) => css`
-    transform: translateY(calc(50vh + ${ theme.scale.css(8) }));
+    transform: translateY(calc(50vh + ${ theme.scale.css(8) }))
   ` }
 `;
 
