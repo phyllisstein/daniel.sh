@@ -2,9 +2,10 @@ import { css } from "styled-components";
 
 import {
     accent as plumberAccent,
+    futura as plumberFutura,
     mono as plumberMono,
+    type PlumberProps,
     primary as plumberPrimary,
-    PlumberProps,
 } from "./plumber";
 
 export const accentFamily = css`
@@ -48,4 +49,17 @@ export const monoFamily = css`
 export const mono = css`
     ${ monoFamily }
     ${ plumberMono() }
+`;
+
+export const futuraFamily = css`
+    font-family:
+        "Futura PT",
+        "Futura",
+        "Arial",
+        sans-serif !important;
+`;
+
+export const futura = (plumberOpts: Partial<PlumberProps> = {}) => css`
+    ${ futuraFamily }
+    ${ plumberFutura(plumberOpts) }
 `;

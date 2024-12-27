@@ -1,21 +1,38 @@
-'use client'
+"use client";
 
-import styled from 'styled-components'
-import Deakbreaker from 'assets/dbl.svg'
 
-const PortfolioPageContainer = styled.section`
-    padding: 1rem;
-`
+import {
+    PortfolioPageContainer,
+    Header,
+    Identifier,
+    Wordmark,
+    ID,
+    Title,
+    Tagline,
+} from "./page-styles";
+import WordmarkText from "./mccalls/wordmark.svg";
 
-const InstructionSection = styled.section`
-    display: grid;
-`
 
 export default function PortfolioPage() {
-  return (
-    <PortfolioPageContainer>
-      <h1>Portfolio</h1>
-      <Deakbreaker />
-    </PortfolioPageContainer>
-  )
+    return (
+        <PortfolioPageContainer>
+            <Header>
+                <Identifier>
+                    <Wordmark>
+                        <WordmarkText style={{ stroke: "#000" }} />
+                    </Wordmark>
+                    <ID>1234</ID>
+                </Identifier>
+                <Title>
+                    Easy Architecture Guide
+                </Title>
+                <Tagline>
+                    I Grate, You Grate, We All Grate to Migrate
+                </Tagline>
+                <div>
+                    TK: Illustration
+                </div>
+            </Header>
+        </PortfolioPageContainer>
+    );
 }

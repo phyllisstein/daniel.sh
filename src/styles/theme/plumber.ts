@@ -144,6 +144,7 @@ const getPlumber = ({
     return plumber;
 };
 
-export const primary = getPlumber({ baseline: BASELINE.MAISON });
-export const accent = getPlumber({ baseline: BASELINE.CHARLIE });
+export const primary = getPlumber({ baseline: BASELINE.MAISON });;
+export const accent = getPlumber({ baseline: BASELINE.CHARLIE });;
 export const mono = getPlumber({ baseline: BASELINE.PRAGMATAPRO });
+export const futura = getPlumber({ baseline: BASELINE.FUTURA });;
