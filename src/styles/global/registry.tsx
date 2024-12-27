@@ -5,7 +5,7 @@ import { type ReactNode, useState } from 'react'
 import { RecoilRoot } from 'recoil'
 import { ServerStyleSheet, StyleSheetManager, ThemeProvider } from 'styled-components'
 
-import { theme } from '@/styles/theme'
+import { theme } from 'styles/theme'
 
 export function StyledComponentsRegistry({ children }: { children: ReactNode }) {
   // Only create stylesheet once with lazy initial state
