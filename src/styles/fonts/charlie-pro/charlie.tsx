@@ -1,6 +1,6 @@
-'use client'
+"use client";
 
-import { createGlobalStyle, css } from 'styled-components'
+import { createGlobalStyle, css } from "styled-components";
 
 const fontFaces = css`
   @font-face {
@@ -146,8 +146,8 @@ const fontFaces = css`
 
     font-display: swap;
   }
-`
+`;
 
 export const Charlie = createGlobalStyle`
   ${ fontFaces }
-`
+`;

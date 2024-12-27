@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1029 246">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #183d75;
+        font-family: CooperBT-Bold, 'Cooper BT';
+        font-size: 48px;
+        font-weight: 700;
+      }
+
+      .cls-2 {
+        letter-spacing: -.11em;
+      }
+
+      .cls-3 {
+        fill: none;
+        filter: url(#drop-shadow-1);
+        stroke: #183d75;
+        stroke-dasharray: 12;
+        stroke-miterlimit: 10;
+        stroke-width: 3px;
+      }
+
+      .cls-4 {
+        letter-spacing: -.02em;
+      }
+    </style>
+    <filter id="drop-shadow-1" x="10.4" y="23.8" width="1024.8" height="223.68" filterUnits="userSpaceOnUse">
+      <feOffset dx="7" dy="7"/>
+      <feGaussianBlur result="blur" stdDeviation="5"/>
+      <feFlood flood-color="#000" flood-opacity=".75"/>
+      <feComposite in2="blur" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <path class="cls-3" d="M19.15,223.87c171.07-63.03,346.98-112.93,525.66-149.1,94.92-19.22,192.89-34.57,288.24-17.59,31.63,5.63,62.96,14.82,95.09,14.58,32.13-.24,66.47-11.97,83.74-39.06"/>
+  <text class="cls-1" transform="translate(179.39 169.58) rotate(-12.32)"><tspan x="0" y="0">That’s a dealbrea</tspan><tspan class="cls-4" x="407.93" y="0">k</tspan><tspan x="437.41" y="0">e</tspan><tspan class="cls-2" x="463.52" y="0">r</tspan><tspan x="479.7" y="0">, ladies</tspan></text>
+</svg>
