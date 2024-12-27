@@ -9,7 +9,7 @@ const config = {
             files: ["./src/**/*.scss"],
         },
         {
-            customSyntax: "@stylelint/postcss-css-in-js",
+            customSyntax: "postcss-styled-syntax",
             files: ["./src/**/*.ts", "./src/**/*.tsx"],
         },
     ],

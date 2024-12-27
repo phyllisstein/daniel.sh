@@ -4807,6 +4807,7 @@ __metadata:
     postcss-safe-parser: "npm:7.0.1"
     postcss-scss: "npm:4.0.9"
     postcss-styled-components: "npm:0.2.1"
+    postcss-styled-syntax: "npm:^0.7.0"
     postcss-syntax: "npm:0.36.2"
     ramda: "npm:^0.30.1"
     react: "npm:rc"
@@ -8315,6 +8316,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"postcss-styled-syntax@npm:^0.7.0":
+  version: 0.7.0
+  resolution: "postcss-styled-syntax@npm:0.7.0"
+  dependencies:
+    typescript: "npm:^5.6.3"
+  peerDependencies:
+    postcss: ^8.4.21
+  checksum: 10/d52b4d556baf6b3c700fbb6b71bcc5bd3787d9af05a781bc1050031f61ac8e3ac60c5f7b8e924bd7ce6f8ff6b7d3314533f1526dd804729abdd021f835e35235
+  languageName: node
+  linkType: hard
+
 "postcss-syntax@npm:0.36.2":
   version: 0.36.2
   resolution: "postcss-syntax@npm:0.36.2"
@@ -10002,7 +10014,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^5.7.2":
+"typescript@npm:^5.6.3, typescript@npm:^5.7.2":
   version: 5.7.2
   resolution: "typescript@npm:5.7.2"
   bin:
@@ -10012,7 +10024,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A^5.7.2#optional!builtin<compat/typescript>":
+"typescript@patch:typescript@npm%3A^5.6.3#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^5.7.2#optional!builtin<compat/typescript>":
   version: 5.7.2
   resolution: "typescript@patch:typescript@npm%3A5.7.2#optional!builtin<compat/typescript>::version=5.7.2&hash=5786d5"
   bin:
