@@ -2,9 +2,9 @@ services:
   app:
     build:
       context: .
-      secrets:
-        - source: environment
-          mode: 0440
+    secrets:
+      - source: environment
+        mode: 0440
     environment:
       - VIRTUAL_HOST=danielsh.here
     expose:
