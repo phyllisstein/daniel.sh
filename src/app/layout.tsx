@@ -6,9 +6,19 @@ import '@spectrum-css/vars/dist/spectrum-large.css'
 
 import type { ReactNode } from 'react'
 import Script from 'next/script'
+import type { Metadata } from 'next'
 
-import { Body, Preflight, StyledComponentsRegistry } from '@/styles/global'
-import { Charlie, MaisonNeue } from '@/styles/fonts'
+import { Body, Preflight, StyledComponentsRegistry } from 'styles/global'
+import { Charlie, MaisonNeue } from 'styles/fonts'
+
+
+export const metadata: Metadata = {
+  title: {
+    default: 'Engineer, Architect (The Fake Kind) | Daniel P. Shannon',
+    template: '%s | Daniel P. Shannon',
+  },
+}
+
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (
