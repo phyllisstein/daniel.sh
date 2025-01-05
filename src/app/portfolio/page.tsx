@@ -2,13 +2,13 @@
 
 
 import {
-    PortfolioPageContainer,
     Header,
     Identifier,
-    Wordmark,
-    ID,
-    Title,
+    PortfolioPageContainer,
     Tagline,
+    Title,
+    Wordmark,
+    Year,
 } from "./page-styles";
 import WordmarkText from "./mccalls/wordmark.svg";
 
@@ -21,7 +21,7 @@ export default function PortfolioPage() {
                     <Wordmark>
                         <WordmarkText style={{ stroke: "#000" }} />
                     </Wordmark>
-                    <ID>1234</ID>
+                    <Year>2022</Year>
                 </Identifier>
                 <Title>
                     Easy Architecture Guide

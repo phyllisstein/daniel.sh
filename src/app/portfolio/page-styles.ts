@@ -3,9 +3,20 @@ import styled from "styled-components";
 
 export const PortfolioPageContainer = styled.section`
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr;
     min-height: 100vh;
+`;
+
+
+export const StepBlock = styled.figure`
+    display: flex;
+    flex-direction: column;
+    grid-row: 2 / 3;
+    grid-column: 1 / -1;
+    gap: 1rem;
+    margin: 0;
+    padding: 1rem;
 `;
 
 
@@ -17,7 +28,7 @@ export const Identifier = styled.div`
 `;
 
 
-export const ID = styled.div`
+export const Year = styled.div`
     color: #000;
     font-weight: 600;
     font-size: clamp(1rem, 5vw, 5rem);
