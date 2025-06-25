@@ -18,8 +18,8 @@ export default function Home() {
         <Main>
             <Section>
                 <Tagline>
-                    I’m a full-stack engineer and architect who brings insight and craftsmanship
-                    to ambitious software projects.
+                    I’m a full-stack engineer and architect who brings an
+                    editorial eye to ambitious software projects.
                 </Tagline>
                 <Name>
                     You can call me Daniel.
