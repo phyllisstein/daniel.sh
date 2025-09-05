@@ -27,7 +27,6 @@ export default function Layout({ children }: { children: ReactNode }) {
         <html lang="en-us">
             <body className="spectrum spectrum--medium spectrum--dark">
                 <StyledComponentsRegistry>
-                    <Preflight />
                     <Body />
 
                     <Charlie />
