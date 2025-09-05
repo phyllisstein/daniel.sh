@@ -37,8 +37,8 @@
     "p-wait-for": "^5.0.2",
     "polished": "^4.3.1",
     "ramda": "^0.31.3",
-    "react": "rc",
-    "react-dom": "rc",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
     "react-spring": "^10.0.1",
     "react-transition-group": "^4.4.5",
     "recoil": "^0.7.7",
@@ -105,13 +105,7 @@
     "typescript": "^5.9.2",
     "typescript-eslint": "^8.42.0"
   },
-  "overrides": {
-    "@types/react": "npm:types-react@rc",
-    "@types/react-dom": "npm:types-react-dom@rc"
-  },
   "resolutions": {
-    "react": "rc",
-    "react-dom": "rc",
     "postcss": "8.4.49"
   },
   "packageManager": "yarn@4.9.2"
