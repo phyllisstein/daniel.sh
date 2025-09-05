@@ -1,14 +1,14 @@
 # syntax=docker/dockerfile:1.7-labs
 
-FROM phyllisstein/watchman:v2024.08.26.00 AS watchman
+FROM phyllisstein/watchman:v2025.07.21.00 AS watchman
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ App ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
-FROM ubuntu:22.04 AS app
+FROM ubuntu:24.04 AS app
 
 COPY --from=watchman /usr/local/bin/* /usr/local/bin/
 COPY --from=watchman /usr/local/lib/* /usr/local/lib/
 
-ENV NODE_MAJOR=22
+ENV NODE_MAJOR=24
 
 RUN apt-get update \
   && DEBIAN_FRONTEND=noninteractive apt-get install -y -o Dpkg::Options::="--force-confold" -o Dpkg::Options::="--force-confdef" --allow-downgrades --allow-remove-essential --allow-change-held-packages --no-install-recommends \
