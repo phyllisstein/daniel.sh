@@ -1,8 +1,8 @@
 import * as animation from "./animation";
 import * as ease from "./ease";
 import * as elevation from "./elevation";
-import * as paletteDark from "./palette-spectrum-dark";
-import * as paletteLight from "./palette-spectrum-light";
+import paletteDark from "./palette-spectrum-dark";
+import paletteLight from "./palette-spectrum-light";
 import * as paletteMac from "./palette-macintosh-wallpaper";
 import * as plumber from "./plumber";
 import * as respondTo from "./respond-to";
@@ -13,7 +13,7 @@ export const theme = {
     animation,
     ease,
     elevation,
-    palette: paletteLight,
+    palette: paletteDark,
     paletteDark,
     paletteLight,
     paletteMac,
@@ -26,5 +26,5 @@ export const theme = {
 type CustomTheme = typeof theme;
 
 declare module "styled-components" {
-    export interface DefaultTheme extends CustomTheme {}
+    export interface DefaultTheme extends CustomTheme { }
 }
