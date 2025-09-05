@@ -2134,79 +2134,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fortawesome/fontawesome-common-types@npm:6.7.2, @fortawesome/fontawesome-common-types@npm:^6.7.2":
-  version: 6.7.2
-  resolution: "@fortawesome/fontawesome-common-types@npm:6.7.2::__archiveUrl=https%3A%2F%2Fnpm.fontawesome.com%2F%40fortawesome%2Ffontawesome-common-types%2F-%2F6.7.2%2Ffontawesome-common-types-6.7.2.tgz"
-  checksum: 10/3c2e938afe6f5939bd63181faaec7b062902d9ed970c75d6becb1fd8e5ca0ed937e7d1513bd7ae545da407d0682039e50730cdb3136b58656128838ea2c58ac0
-  languageName: node
-  linkType: hard
-
-"@fortawesome/fontawesome-svg-core@npm:^6.7.2":
-  version: 6.7.2
-  resolution: "@fortawesome/fontawesome-svg-core@npm:6.7.2::__archiveUrl=https%3A%2F%2Fnpm.fontawesome.com%2F%40fortawesome%2Ffontawesome-svg-core%2F-%2F6.7.2%2Ffontawesome-svg-core-6.7.2.tgz"
-  dependencies:
-    "@fortawesome/fontawesome-common-types": "npm:6.7.2"
-  checksum: 10/a3767631329aaa8c1bfafc9470718628533ceb42365774cd0c121477e0f3125f3cce4c2447058deee2874829ce11aa7a3fe183b0000bad81cf5ed0449c8470ef
-  languageName: node
-  linkType: hard
-
-"@fortawesome/free-brands-svg-icons@npm:^6.7.2":
-  version: 6.7.2
-  resolution: "@fortawesome/free-brands-svg-icons@npm:6.7.2::__archiveUrl=https%3A%2F%2Fnpm.fontawesome.com%2F%40fortawesome%2Ffree-brands-svg-icons%2F-%2F6.7.2%2Ffree-brands-svg-icons-6.7.2.tgz"
-  dependencies:
-    "@fortawesome/fontawesome-common-types": "npm:6.7.2"
-  checksum: 10/7dcbb389ccfee519d4639b992e65180ee4665bc0627e608a5d756c78acd50414f9a8d4a21a27e38f845c89cca33eb23bb468fb050c7764504659581e35e78b48
-  languageName: node
-  linkType: hard
-
-"@fortawesome/pro-duotone-svg-icons@npm:^6.7.2":
-  version: 6.7.2
-  resolution: "@fortawesome/pro-duotone-svg-icons@npm:6.7.2::__archiveUrl=https%3A%2F%2Fnpm.fontawesome.com%2F%40fortawesome%2Fpro-duotone-svg-icons%2F-%2F6.7.2%2Fpro-duotone-svg-icons-6.7.2.tgz"
-  dependencies:
-    "@fortawesome/fontawesome-common-types": "npm:6.7.2"
-  checksum: 10/fbbfdd9fae9f02ea39f7239f1c14ae0dc74914457717e1ed96c80e4ed2927a4f14d546f4c411620bc25f1246b88d735398729debb7b309e57066a4794fc403ea
-  languageName: node
-  linkType: hard
-
-"@fortawesome/pro-regular-svg-icons@npm:^6.7.2":
-  version: 6.7.2
-  resolution: "@fortawesome/pro-regular-svg-icons@npm:6.7.2::__archiveUrl=https%3A%2F%2Fnpm.fontawesome.com%2F%40fortawesome%2Fpro-regular-svg-icons%2F-%2F6.7.2%2Fpro-regular-svg-icons-6.7.2.tgz"
-  dependencies:
-    "@fortawesome/fontawesome-common-types": "npm:6.7.2"
-  checksum: 10/d50bbaf1d37c3d13d0c50542225cfbb1814f158f291e7a24d3d588241ca2388efe914143679c98621d44fe6681033fca79a9598f6404f0943c1e26a63fdeaf66
-  languageName: node
-  linkType: hard
-
-"@fortawesome/pro-solid-svg-icons@npm:^6.7.2":
-  version: 6.7.2
-  resolution: "@fortawesome/pro-solid-svg-icons@npm:6.7.2::__archiveUrl=https%3A%2F%2Fnpm.fontawesome.com%2F%40fortawesome%2Fpro-solid-svg-icons%2F-%2F6.7.2%2Fpro-solid-svg-icons-6.7.2.tgz"
-  dependencies:
-    "@fortawesome/fontawesome-common-types": "npm:6.7.2"
-  checksum: 10/babc89c3b5cc0e0d4ad3d9717c3debdef1ab67baa8822e571527f9cacda2334dcd782581ed021bef26650d29bfbf8e9fd40ec06e765fec8c465294ba249cd80a
-  languageName: node
-  linkType: hard
-
-"@fortawesome/react-fontawesome@npm:^0.2.2":
-  version: 0.2.2
-  resolution: "@fortawesome/react-fontawesome@npm:0.2.2::__archiveUrl=https%3A%2F%2Fnpm.fontawesome.com%2F%40fortawesome%2Freact-fontawesome%2F-%2F0.2.2%2Freact-fontawesome-0.2.2.tgz"
-  dependencies:
-    prop-types: "npm:^15.8.1"
-  peerDependencies:
-    "@fortawesome/fontawesome-svg-core": ~1 || ~6
-    react: ">=16.3"
-  checksum: 10/05537fd7c34d43e0d8823df0195cb6fd935ff78e296e2d362e668bcf75f13d71c70c7fd6d596dff4e37b5f27e0ae43b98cb4732e0d91570f30b8a5581bbe2704
-  languageName: node
-  linkType: hard
-
-"@fortawesome/sharp-solid-svg-icons@npm:^6.7.2":
-  version: 6.7.2
-  resolution: "@fortawesome/sharp-solid-svg-icons@npm:6.7.2::__archiveUrl=https%3A%2F%2Fnpm.fontawesome.com%2F%40fortawesome%2Fsharp-solid-svg-icons%2F-%2F6.7.2%2Fsharp-solid-svg-icons-6.7.2.tgz"
-  dependencies:
-    "@fortawesome/fontawesome-common-types": "npm:6.7.2"
-  checksum: 10/2e1a77ae71fc9b19206dcaed87f57bc1579bbb08b55ab7d887a6bf987b640c9475c57729fda16a36a566d4878b74d4205da6b8ad2a4d8d91b428bedd387afc48
-  languageName: node
-  linkType: hard
-
 "@gsap/react@npm:^2.1.1":
   version: 2.1.1
   resolution: "@gsap/react@npm:2.1.1"
@@ -2214,13 +2141,6 @@ __metadata:
     gsap: "npm:^3.12.5"
     react: "npm:>=16"
   checksum: 10/c675bfbaef095b006266acdfc50dc6541da126aba69b46f8e4417dbfd5ca53a1238878cb7057f0313db21d8577fc89b01cb51188143ba05dad39f89b269e5a54
-  languageName: node
-  linkType: hard
-
-"@gsap/shockingly@npm:^3.12.5, gsap@npm:@gsap/shockingly@3.12.5":
-  version: 3.12.5
-  resolution: "@gsap/shockingly@npm:3.12.5"
-  checksum: 10/a139a27aa632509b8a991c061987c4f88fc4fddc7c6699f6c14c09b667649bb5a763aa6b9276e386753bf1796e5915fb02b8b6985be15abef7c790d19644ec37
   languageName: node
   linkType: hard
 
@@ -4726,16 +4646,7 @@ __metadata:
     "@babel/eslint-plugin": "npm:^7.25.9"
     "@babel/parser": "npm:^7.26.3"
     "@eslint/js": "npm:^9.17.0"
-    "@fortawesome/fontawesome-common-types": "npm:^6.7.2"
-    "@fortawesome/fontawesome-svg-core": "npm:^6.7.2"
-    "@fortawesome/free-brands-svg-icons": "npm:^6.7.2"
-    "@fortawesome/pro-duotone-svg-icons": "npm:^6.7.2"
-    "@fortawesome/pro-regular-svg-icons": "npm:^6.7.2"
-    "@fortawesome/pro-solid-svg-icons": "npm:^6.7.2"
-    "@fortawesome/react-fontawesome": "npm:^0.2.2"
-    "@fortawesome/sharp-solid-svg-icons": "npm:^6.7.2"
     "@gsap/react": "npm:^2.1.1"
-    "@gsap/shockingly": "npm:^3.12.5"
     "@next/eslint-plugin-next": "npm:^15.1.3"
     "@spectrum-css/actionbutton": "npm:^6.2.0"
     "@spectrum-css/actiongroup": "npm:^5.2.0"
@@ -4792,7 +4703,7 @@ __metadata:
     exenv: "npm:^1.2.2"
     framer-motion: "npm:^11.15.0"
     globals: "npm:^15.14.0"
-    gsap: "npm:@gsap/shockingly@3.12.5"
+    gsap: "npm:^3.13.0"
     hyphenopoly: "npm:^6.0.0"
     lethargy: "npm:^1.0.9"
     lodash: "npm:^4.17.21"
@@ -6528,6 +6439,13 @@ __metadata:
   version: 3.12.5
   resolution: "gsap@npm:3.12.5"
   checksum: 10/192e9f6b11e54d8a0d26cff76573278d42748c6a54906fa42c81425390238ea8f6abbba5c0bca75c4bba32e4f2db957f22c2158fab1be7d4a8d71fc2fb24e8c3
+  languageName: node
+  linkType: hard
+
+"gsap@npm:^3.13.0":
+  version: 3.13.0
+  resolution: "gsap@npm:3.13.0"
+  checksum: 10/1908d51cbdf8f0bec8a69919af352d743a06529639a89f750f1c02e9a165d3ea816f867569df222ee7bfc14e23e268ebeb51dc5df0687fa7918ddd5d3b3efaec
   languageName: node
   linkType: hard
 
