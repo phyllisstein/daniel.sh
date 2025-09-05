@@ -12,7 +12,7 @@ const BASELINE = {
     FUTURA: 0.159,
     MAISON: 0.2045,
     MAISON_MONO: 0.195,
-    PRAGMATAPRO: 0.1196,
+    PRAGMATAPRO: 0.128,
 };
 
 const round = _.partial(_.round, _.partial.placeholder, 2);
