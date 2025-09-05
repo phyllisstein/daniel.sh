@@ -11,6 +11,7 @@ import jsxA11y from "eslint-plugin-jsx-a11y";
 import react from "eslint-plugin-react";
 import reactHooks from "eslint-plugin-react-hooks";
 import globals from "globals";
+import next from "@next/eslint-plugin-next";
 
 export default [
     {
@@ -32,6 +33,7 @@ export default [
             sourceType: "module",
         },
         plugins: {
+            "@next/next": next,
             "@stylistic": stylistic,
             "jsx-a11y": jsxA11y,
             react,
@@ -40,6 +42,7 @@ export default [
             "sort-keys-plus": sortKeysPlus,
         },
         rules: {
+            ...next.configs.recommended.rules,
             ...reactHooks.configs.recommended.rules,
             ...jsxA11y.configs.recommended.rules,
             "@stylistic/arrow-parens": [

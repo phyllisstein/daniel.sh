@@ -3,13 +3,18 @@ const config = {
         "@stylistic/stylelint-config",
         "stylelint-config-recommended",
     ],
+    ignoreFiles: [
+        "**/next.config.*",
+        "./*.js",
+        "./*.ts",
+    ],
     overrides: [
         {
             customSyntax: "postcss-scss",
             files: ["./src/**/*.scss"],
         },
         {
-            customSyntax: "postcss-styled-syntax",
+            customSyntax: "@stylelint/postcss-css-in-js",
             files: ["./src/**/*.ts", "./src/**/*.tsx"],
         },
     ],
@@ -24,12 +29,7 @@ const config = {
         "@stylistic/block-opening-brace-space-before": null,
         "@stylistic/color-hex-case": "upper",
         "@stylistic/declaration-block-trailing-semicolon": null,
-        "@stylistic/indentation": [
-            4,
-            {
-                baseIndentLevel: 1,
-            },
-        ],
+        "@stylistic/indentation": null,
         "@stylistic/max-empty-lines": 2,
         "@stylistic/named-grid-areas-alignment": [
             true,

@@ -1,11 +1,12 @@
 import { css, type RuleSet } from "styled-components";
 
+/* eslint-disable sort-keys-plus/sort-keys -- keep natural-looking size order */
 const breakpoints = {
-    lg: "1056px",
-    max: "1584px",
-    md: "672px",
     sm: "425px",
+    md: "672px",
+    lg: "1056px",
     xlg: "1312px",
+    max: "1584px",
 };
 
 type Breakpoint = keyof typeof breakpoints;

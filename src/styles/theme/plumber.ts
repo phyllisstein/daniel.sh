@@ -67,10 +67,9 @@ const getPlumber = ({
         const [gridHeightValue, gridHeightUnit] = getValueAndUnit(gridHeight);
         const scaledFontSize = unitless(fontSize);
 
-        lineHeight
-      = !lineHeight
-                ? unitless(fontSize) * gridHeightValue
-                : unitless(lineHeight) * gridHeightValue;
+        lineHeight = !lineHeight
+            ? unitless(fontSize) * gridHeightValue
+            : unitless(lineHeight) * gridHeightValue;
 
         const { baselineDifference, correctedBaseline } = getBaselineCorrection({
             baseline,
@@ -86,18 +85,10 @@ const getPlumber = ({
         const shift = baselineDifference < 0 ? 0 : 1;
 
         const gridFontSize = scaledFontSize * gridHeightValue;
-        const marginTop = `${
-            round(leadingTop - shift) * gridHeightValue
-        }${ gridHeightUnit }`;
-        const paddingTop = `${
-            round(shift - baselineDifference) * gridHeightValue
-        }${ gridHeightUnit }`;
-        const paddingBottom = `${
-            round(1 - shift + baselineDifference) * gridHeightValue
-        }${ gridHeightUnit }`;
-        const marginBottom = `${
-            round(leadingBottom + shift - 1) * gridHeightValue
-        }${ gridHeightUnit }`;
+        const marginTop = `${ round(leadingTop - shift) * gridHeightValue }${ gridHeightUnit }`;
+        const paddingTop = `${ round(shift - baselineDifference) * gridHeightValue }${ gridHeightUnit }`;
+        const paddingBottom = `${ round(1 - shift + baselineDifference) * gridHeightValue }${ gridHeightUnit }`;
+        const marginBottom = `${ round(leadingBottom + shift - 1) * gridHeightValue }${ gridHeightUnit }`;
         const fontSizeWithUnit = `${ round(gridFontSize) }${ gridHeightUnit }`;
         const lineHeightWithUnit = `${ round(lineHeight) }${ gridHeightUnit }`;
 
@@ -138,7 +129,7 @@ const getPlumber = ({
             margin-bottom: ${ marginBottom };
             padding-top: ${ paddingTop };
             padding-bottom: ${ paddingBottom };
-    `;
+        `;
     };
 
     return plumber;
