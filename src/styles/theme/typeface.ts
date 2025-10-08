@@ -8,13 +8,7 @@ import {
 } from "./plumber";
 
 export const accentFamily = css`
-    font-family:
-        "Charlie",
-        "Georgia",
-        "Garamond",
-        "Times New Roman",
-        "Times",
-        serif !important;
+    font-family: "PragmataPro", "Courier New", Courier, monospace;
 `;
 
 export const accent = (plumberOpts: Partial<PlumberProps> = {}) => css`
@@ -29,7 +23,7 @@ export const primaryFamily = css`
         BlinkMacSystemFont,
         "Helvetica Neue",
         "Helvetica",
-        sans-serif !important;
+        sans-serif;
 `;
 
 export const primary = (plumberOpts: Partial<PlumberProps> = {}) => css`
@@ -42,7 +36,7 @@ export const monoFamily = css`
         "PragmataPro",
         "Courier New",
         Courier,
-        monospace !important;
+        monospace;
 `;
 
 export const mono = css`

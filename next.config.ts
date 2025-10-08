@@ -24,15 +24,6 @@ const nextConfig: NextConfig = {
             use: ["@svgr/webpack"],
         });
 
-        if (isServer) {
-            config.module.rules.push({
-                test: /@spectrum/,
-                use: [
-                    "sass-loader",
-                ],
-            });
-        }
-
         return config;
     },
 };

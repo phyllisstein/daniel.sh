@@ -49,7 +49,7 @@ export interface PlumberProps {
 const getPlumber = ({
     baseline: B,
     fontSize: FONT_SIZE = 1,
-    gridHeight: GRID_HEIGHT = "0.5rem",
+    gridHeight: GRID_HEIGHT = "10px",
     leadingBottom: LEADING_BOTTOM = 0,
     leadingTop: LEADING_TOP = 0,
     lineHeight: LINE_HEIGHT,
@@ -136,5 +136,5 @@ const getPlumber = ({
 };
 
 export const primary = getPlumber({ baseline: BASELINE.MAISON });
-export const accent = getPlumber({ baseline: BASELINE.CHARLIE });
+export const accent = getPlumber({ baseline: BASELINE.PRAGMATAPRO });
 export const mono = getPlumber({ baseline: BASELINE.PRAGMATAPRO });

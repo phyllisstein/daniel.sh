@@ -3,12 +3,6 @@
 import { createGlobalStyle } from "styled-components";
 
 export const Preflight = createGlobalStyle`
-    *,
-    *::before,
-    *::after {
-        box-sizing: border-box;
-    }
-
     :root {
         tab-size: 4;
     }
@@ -104,7 +98,7 @@ export const Preflight = createGlobalStyle`
     [type="button"],
     [type="reset"],
     [type="submit"] {
-        appearance: button;
+        appearance: auto;
     }
 
     ::-moz-focus-inner {
@@ -144,7 +138,7 @@ export const Preflight = createGlobalStyle`
 
     ::-webkit-file-upload-button {
         font: inherit;
-        appearance: button;
+        appearance: auto;
     }
 
     summary {
@@ -220,8 +214,6 @@ export const Preflight = createGlobalStyle`
     *,
     ::before,
     ::after {
-        box-sizing: border-box;
-
         border-color: #E5E7EB;
         border-style: solid;
         border-width: 0;

@@ -8,21 +8,7 @@ export const Body = createGlobalStyle`
         margin: 0;
         padding: 0;
 
-        font-size: 112.5%;
-        font-family:
-            "Adobe Clean",
-            -apple-system,
-            BlinkMacSystemFont,
-            "Segoe UI",
-            "Roboto",
-            "Helvetica Neue",
-            "Arial",
-            "Noto Sans",
-            sans-serif,
-            "Apple Color Emoji",
-            "Segoe UI Emoji",
-            "Segoe UI Symbol",
-            "Noto Color Emoji" !important;
+        font-size: 10px;
 
         font-kerning: normal;
         font-variant-ligatures: common-ligatures;
@@ -31,7 +17,12 @@ export const Body = createGlobalStyle`
     }
 
     body {
-        color: ${ ({ theme }) => theme.palette.gray900 };
-        background-color: ${ ({ theme }) => theme.palette.gray100 } !important;
+        ${ ({ theme }) => theme.typeface.primary({
+            fontSize: 2,
+            lineHeight: 3,
+        }) }
+
+        /* color: ${ ({ theme }) => theme.palette.p3.gray900 }; */
+        /* background-color: ${ ({ theme }) => theme.palette.p3.gray100 }; */
     }
 `;
