@@ -34,7 +34,7 @@ export const Name = styled.h1`
     ${ ({ theme }) => theme.respondTo.above(
         "md",
         css`
-            ${ ({ theme }) => theme.typeface.accent({
+            ${ ({ theme }) => theme.typeface.primary({
                 fontSize: 8,
                 lineHeight: 8,
             }) }
@@ -44,7 +44,7 @@ export const Name = styled.h1`
     ${ ({ theme }) => theme.respondTo.above(
         "lg",
         css`
-            ${ ({ theme }) => theme.typeface.accent({
+            ${ ({ theme }) => theme.typeface.primary({
                 fontSize: 10,
                 lineHeight: 10,
             }) }
@@ -54,7 +54,7 @@ export const Name = styled.h1`
     ${ ({ theme }) => theme.respondTo.above(
         "xlg",
         css`
-            ${ ({ theme }) => theme.typeface.accent({
+            ${ ({ theme }) => theme.typeface.primary({
                 fontSize: 10,
                 lineHeight: 10,
             }) }
@@ -64,7 +64,7 @@ export const Name = styled.h1`
 
 
 export const Tagline = styled.h3`
-    ${ ({ theme }) => theme.typeface.primary({
+    ${ ({ theme }) => theme.typeface.accent({
         fontSize: 3,
         lineHeight: 5,
     }) }
@@ -83,7 +83,7 @@ export const Tagline = styled.h3`
     ${ ({ theme }) => theme.respondTo.above(
         "sm",
         css`
-            ${ ({ theme }) => theme.typeface.primary({
+            ${ ({ theme }) => theme.typeface.accent({
                 fontSize: 4,
                 lineHeight: 6,
             }) }
@@ -95,7 +95,7 @@ export const Tagline = styled.h3`
     ${ ({ theme }) => theme.respondTo.above(
         "md",
         css`
-            ${ ({ theme }) => theme.typeface.primary({
+            ${ ({ theme }) => theme.typeface.accent({
                 fontSize: 5,
                 lineHeight: 7,
             }) }
@@ -107,7 +107,7 @@ export const Tagline = styled.h3`
     ${ ({ theme }) => theme.respondTo.above(
         "lg",
         css`
-            ${ ({ theme }) => theme.typeface.primary({
+            ${ ({ theme }) => theme.typeface.accent({
                 fontSize: 6,
                 lineHeight: 8,
             }) }

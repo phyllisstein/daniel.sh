@@ -1,18 +1,11 @@
+import "@spectrum-css/tokens";
 import "@spectrum-css/actionbutton";
-import "@spectrum-css/actiongroup";
-import "@spectrum-css/button";
-import "@spectrum-css/tokens/dist/index.css";
-import "@spectrum-css/vars/dist/spectrum-dark.css";
-import "@spectrum-css/vars/dist/spectrum-global.css";
-import "@spectrum-css/vars/dist/spectrum-medium.css";
 
 import type { ReactNode } from "react";
-import Script from "next/script";
 import type { Metadata } from "next";
 
 import { Body, Preflight, StyledComponentsRegistry } from "styles/global";
-import { Charlie, MaisonNeue } from "styles/fonts";
-
+import { Charlie, MaisonNeue, PragmataPro } from "styles/fonts";
 
 export const metadata: Metadata = {
     title: {
@@ -31,11 +24,11 @@ export default function Layout({ children }: { children: ReactNode }) {
 
                     <Charlie />
                     <MaisonNeue />
+                    <PragmataPro />
 
                     { children }
                 </StyledComponentsRegistry>
             </body>
-            <Script src="/hyphenopoly.js" strategy="afterInteractive" type="text/javascript" />
         </html>
     );
 }
