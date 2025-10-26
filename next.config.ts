@@ -2,7 +2,12 @@ import type { NextConfig } from "next";
 
 
 const nextConfig: NextConfig = {
-    allowedDevOrigins: ["*.here"],
+    allowedDevOrigins: [
+        "*.here",
+        "*.localhost",
+        "localhost:*",
+        "127.0.0.1:*",
+    ],
     compiler: {
         styledComponents: {
             displayName: true,
