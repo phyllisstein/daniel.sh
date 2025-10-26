@@ -3,6 +3,12 @@
 import { createGlobalStyle } from "styled-components";
 
 export const Body = createGlobalStyle`
+    *,
+    *::before,
+    *::after {
+        box-sizing: inherit;
+    }
+
     html {
         box-sizing: border-box;
         margin: 0;

@@ -43,3 +43,20 @@ export const mono = css`
     ${ monoFamily }
     ${ plumberMono() }
 `;
+
+export const extFamily = css`
+    font-family:
+        "Maison Neue",
+        -apple-system,
+        BlinkMacSystemFont,
+        "Helvetica Neue",
+        "Helvetica",
+        sans-serif;
+`;
+
+export const ext = (plumberOpts: Partial<PlumberProps> = {}) => css`
+    ${ extFamily }
+    ${ plumberPrimary(plumberOpts) }
+
+    font-stretch: expanded;
+`;
