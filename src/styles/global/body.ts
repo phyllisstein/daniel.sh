@@ -19,19 +19,19 @@ export const Body = createGlobalStyle`
 
         font-size: 112.5%;
         font-family:
-            "Adobe Clean",
+            'Adobe Clean',
             -apple-system,
             BlinkMacSystemFont,
-            "Segoe UI",
-            "Roboto",
-            "Helvetica Neue",
-            "Arial",
-            "Noto Sans",
+            'Segoe UI',
+            'Roboto',
+            'Helvetica Neue',
+            'Arial',
+            'Noto Sans',
             sans-serif,
-            "Apple Color Emoji",
-            "Segoe UI Emoji",
-            "Segoe UI Symbol",
-            "Noto Color Emoji" !important;
+            'Apple Color Emoji',
+            'Segoe UI Emoji',
+            'Segoe UI Symbol',
+            'Noto Color Emoji' !important;
 
         font-kerning: normal;
         font-variant-ligatures: common-ligatures;

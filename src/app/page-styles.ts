@@ -19,9 +19,9 @@ export const ButtonBar = styled.div`
 
 export const Name = styled.h1`
     ${ ({ theme }) => theme.typeface.accent({
-            fontSize: 6,
-            lineHeight: 8,
-        }) }
+        fontSize: 6,
+        lineHeight: 8,
+    }) }
 
     position: absolute;
     top: 50%;
@@ -32,42 +32,42 @@ export const Name = styled.h1`
     font-weight: 400;
 
     ${ ({ theme }) => theme.respondTo.above(
-            "md",
-            css`
-    ${ ({ theme }) => theme.typeface.accent({
-            fontSize: 8,
-            lineHeight: 8,
-        }) }
-    `,
-        ) }
+        "md",
+        css`
+            ${ ({ theme }) => theme.typeface.accent({
+                fontSize: 8,
+                lineHeight: 8,
+            }) }
+        `,
+    ) }
 
     ${ ({ theme }) => theme.respondTo.above(
-            "lg",
-            css`
-    ${ ({ theme }) => theme.typeface.accent({
-            fontSize: 10,
-            lineHeight: 10,
-        }) }
-    `,
-        ) }
+        "lg",
+        css`
+            ${ ({ theme }) => theme.typeface.accent({
+                fontSize: 10,
+                lineHeight: 10,
+            }) }
+        `,
+    ) }
 
     ${ ({ theme }) => theme.respondTo.above(
-            "xlg",
-            css`
-    ${ ({ theme }) => theme.typeface.accent({
-            fontSize: 10,
-            lineHeight: 10,
-        }) }
-    `,
-        ) }
+        "xlg",
+        css`
+            ${ ({ theme }) => theme.typeface.accent({
+                fontSize: 10,
+                lineHeight: 10,
+            }) }
+        `,
+    ) }
 `;
 
 
 export const Tagline = styled.h3`
     ${ ({ theme }) => theme.typeface.primary({
-            fontSize: 3,
-            lineHeight: 5,
-        }) }
+        fontSize: 3,
+        lineHeight: 5,
+    }) }
 
     position: absolute;
     top: 50%;
@@ -81,47 +81,47 @@ export const Tagline = styled.h3`
     transform: translateY(-100%);
 
     ${ ({ theme }) => theme.respondTo.above(
-            "sm",
-            css`
-    ${ ({ theme }) => theme.typeface.primary({
-            fontSize: 4,
-            lineHeight: 6,
-        }) }
+        "sm",
+        css`
+            ${ ({ theme }) => theme.typeface.primary({
+                fontSize: 4,
+                lineHeight: 6,
+            }) }
 
-    padding-right: 20%;
-    `,
-        ) }
-
-    ${ ({ theme }) => theme.respondTo.above(
-            "md",
-            css`
-    ${ ({ theme }) => theme.typeface.primary({
-            fontSize: 5,
-            lineHeight: 7,
-        }) }
-
-    padding-right: 35%;
-    `,
-        ) }
+            padding-right: 20%;
+        `,
+    ) }
 
     ${ ({ theme }) => theme.respondTo.above(
-            "lg",
-            css`
-    ${ ({ theme }) => theme.typeface.primary({
-            fontSize: 6,
-            lineHeight: 8,
-        }) }
+        "md",
+        css`
+            ${ ({ theme }) => theme.typeface.primary({
+                fontSize: 5,
+                lineHeight: 7,
+            }) }
 
-    padding-right: 35%;
-    `,
-        ) }
+            padding-right: 35%;
+        `,
+    ) }
 
     ${ ({ theme }) => theme.respondTo.above(
-            "xlg",
-            css`
-    padding-right: 45%;
-    `,
-        ) }
+        "lg",
+        css`
+            ${ ({ theme }) => theme.typeface.primary({
+                fontSize: 6,
+                lineHeight: 8,
+            }) }
+
+            padding-right: 35%;
+        `,
+    ) }
+
+    ${ ({ theme }) => theme.respondTo.above(
+        "xlg",
+        css`
+            padding-right: 45%;
+        `,
+    ) }
 `;
 
 export const Main = styled.main`
@@ -150,9 +150,9 @@ export const Section = styled.div`
 
 export const SectionTitle = styled.h1`
     ${ ({ theme }) => theme.typeface.accent({
-            fontSize: 6,
-            lineHeight: 8,
-        }) }
+        fontSize: 6,
+        lineHeight: 8,
+    }) }
 
     position: absolute;
     top: 50vh;
@@ -163,34 +163,34 @@ export const SectionTitle = styled.h1`
     font-weight: 400;
 
     ${ ({ theme }) => theme.respondTo.above(
-            "md",
-            css`
-    ${ ({ theme }) => theme.typeface.accent({
-            fontSize: 8,
-            lineHeight: 8,
-        }) }
-    `,
-        ) }
+        "md",
+        css`
+            ${ ({ theme }) => theme.typeface.accent({
+                fontSize: 8,
+                lineHeight: 8,
+            }) }
+        `,
+    ) }
 
     ${ ({ theme }) => theme.respondTo.above(
-            "lg",
-            css`
-    ${ ({ theme }) => theme.typeface.accent({
-            fontSize: 10,
-            lineHeight: 10,
-        }) }
-    `,
-        ) }
+        "lg",
+        css`
+            ${ ({ theme }) => theme.typeface.accent({
+                fontSize: 10,
+                lineHeight: 10,
+            }) }
+        `,
+    ) }
 
     ${ ({ theme }) => theme.respondTo.above(
-            "xlg",
-            css`
-    ${ ({ theme }) => theme.typeface.accent({
-            fontSize: 10,
-            lineHeight: 10,
-        }) }
-    `,
-        ) }
+        "xlg",
+        css`
+            ${ ({ theme }) => theme.typeface.accent({
+                fontSize: 10,
+                lineHeight: 10,
+            }) }
+        `,
+    ) }
 `;
 
 export const TextContainer = styled.article`
@@ -203,43 +203,43 @@ export const TextContainer = styled.article`
     overflow-y: auto;
 
     ${ ({ theme }) => css`
-    transform: translateY(calc(50vh + ${ theme.scale.css(8) }));
-  ` }
+        transform: translateY(calc(50vh + ${ theme.scale.css(8) }));
+    ` }
 `;
 
 
 export const Graf = styled.p`
     ${ ({ theme }) => theme.typeface.primary({
-    fontSize: 2,
-    lineHeight: 3,
-}) }
+        fontSize: 2,
+        lineHeight: 3,
+    }) }
 
     ${ ({ theme }) => theme.respondTo.above(
-    "md",
-    css`
-    ${ ({ theme }) => theme.typeface.primary({
-        fontSize: 4,
-        lineHeight: 5,
-    }) }
-    `,
-) }
+        "md",
+        css`
+            ${ ({ theme }) => theme.typeface.primary({
+                fontSize: 4,
+                lineHeight: 5,
+            }) }
+        `,
+    ) }
 
     & + & {
         ${ ({ theme }) => theme.typeface.primary({
-                fontSize: 2,
-                leadingTop: 1,
-                lineHeight: 3,
-            }) }
+            fontSize: 2,
+            leadingTop: 1,
+            lineHeight: 3,
+        }) }
 
         ${ ({ theme }) => theme.respondTo.above(
-                "md",
-                css`
-    ${ ({ theme }) => theme.typeface.primary({
-            fontSize: 4,
-            leadingTop: 2,
-            lineHeight: 5,
-        }) }
-      `,
-            ) }
+            "md",
+            css`
+                ${ ({ theme }) => theme.typeface.primary({
+                    fontSize: 4,
+                    leadingTop: 2,
+                    lineHeight: 5,
+                }) }
+            `,
+        ) }
     }
 `;

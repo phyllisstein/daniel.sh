@@ -109,12 +109,12 @@ export function box(level = 1) {
         ${ umbra } ${ BLACK.UMBRA },
         ${ penumbra } ${ BLACK.PENUMBRA },
         ${ ambient } ${ BLACK.AMBIENT };
-  `;
+    `;
 }
 
 box.animation = animationCSS({
-        duration: AnimationDuration.Elevation,
-        properties: "box-shadow",
+    duration: AnimationDuration.Elevation,
+    properties: "box-shadow",
 });
 
 export function text(level = 1) {
@@ -133,6 +133,6 @@ export function text(level = 1) {
 }
 
 text.animation = animationCSS({
-        duration: AnimationDuration.Elevation,
-        properties: "text-shadow",
+    duration: AnimationDuration.Elevation,
+    properties: "text-shadow",
 });
