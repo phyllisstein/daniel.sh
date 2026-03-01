@@ -1,28 +1,29 @@
-import sortKeysPlus from "eslint-plugin-sort-keys-plus";
 import stylistic from "@stylistic/eslint-plugin";
-import stylisticTS from "@stylistic/eslint-plugin-ts";
 import parserTS from "@typescript-eslint/parser";
-import tsSortKeys from "eslint-plugin-typescript-sort-keys";
 import tseslint from "typescript-eslint";
-import typescriptESLint from "@typescript-eslint/eslint-plugin";
-import sortDestructureKeys from "eslint-plugin-sort-destructure-keys";
 import eslint from "@eslint/js";
+import nextPlugin from "@next/eslint-plugin-next";
 import jsxA11y from "eslint-plugin-jsx-a11y";
 import react from "eslint-plugin-react";
 import reactHooks from "eslint-plugin-react-hooks";
 import globals from "globals";
+import { defineConfig, globalIgnores } from "eslint/config";
 
-export default [
-    {
-        ignores: ["dist", "node_modules"],
-    },
+export default defineConfig([
+    globalIgnores([
+        "dist/",
+        "node_modules/",
+        "src/vendor/",
+        "src/boneyard/",
+    ]),
     eslint.configs.recommended,
-    stylistic.configs["recommended-flat"],
+    stylistic.configs["recommended"],
     react.configs.flat.recommended,
     react.configs.flat["jsx-runtime"],
+    reactHooks.configs.flat.recommended,
     {
         languageOptions: {
-            ecmaVersion: 2024,
+            ecmaVersion: "latest",
             globals: {
                 ...globals.browser,
                 ...globals.es2020,
@@ -32,16 +33,13 @@ export default [
             sourceType: "module",
         },
         plugins: {
-            "@stylistic": stylistic,
+            "@next/next": nextPlugin,
             "jsx-a11y": jsxA11y,
-            react,
-            "react-hooks": reactHooks,
-            "sort-destructure-keys": sortDestructureKeys,
-            "sort-keys-plus": sortKeysPlus,
         },
         rules: {
-            ...reactHooks.configs.recommended.rules,
             ...jsxA11y.configs.recommended.rules,
+            ...nextPlugin.configs.recommended.rules,
+            ...nextPlugin.configs["core-web-vitals"].rules,
             "@stylistic/arrow-parens": [
                 "warn",
                 "as-needed",
@@ -74,12 +72,13 @@ export default [
                 4,
             ],
             "@stylistic/jsx-closing-bracket-location": ["warn", "after-props"],
+            "@stylistic/jsx-closing-tag-location": "warn",
             "@stylistic/jsx-curly-newline": ["warn", "consistent"],
             "@stylistic/jsx-curly-spacing": [
                 "warn",
                 {
                     attributes: { when: "always" },
-                    children: { when: "always" },
+                    children: { when: "never" },
                     spacing: { objectLiterals: "never" },
                     when: "always",
                 },
@@ -106,7 +105,7 @@ export default [
                 {
                     callbacksLast: true,
                     ignoreCase: true,
-                    noSortAlphabetically: false,
+                    noSortAlphabetically: true,
                     reservedFirst: true,
                     shorthandFirst: true,
                 },
@@ -151,7 +150,7 @@ export default [
                 "warn",
                 "double",
                 {
-                    allowTemplateLiterals: true,
+                    allowTemplateLiterals: "always",
                     avoidEscape: true,
                 },
             ],
@@ -173,27 +172,16 @@ export default [
                     additionalHooks: "(useRecoilCallback|useRecoilTransaction_UNSTABLE)",
                 },
             ],
-            "sort-destructure-keys/sort-destructure-keys": [
-                "warn",
-                {
-                    caseSensitive: false,
-                },
-            ],
-            "sort-keys-plus/sort-keys": [
-                "warn",
-                "asc",
-                {
-                    caseSensitive: false,
-                    natural: true,
-                },
-            ],
+            "react-hooks/refs": "off",
         },
         settings: {
             react: {
-                version: "detect",
+                version: "19.0",
             },
         },
     },
+    ...tseslint.configs.recommendedTypeChecked,
+    ...tseslint.configs.stylisticTypeChecked,
     {
         files: [
             "*.ts",
@@ -210,21 +198,10 @@ export default [
                 tsconfigRootDir: import.meta.dirname,
             },
         },
-        plugins: {
-            "@stylistic/ts": stylisticTS,
-            "@typescript-eslint": typescriptESLint,
-            "typescript-sort-keys": tsSortKeys,
-        },
         rules: {
-            ...tseslint.configs.recommendedTypeChecked.rules,
-            ...tseslint.configs.stylisticTypeChecked.rules,
-            "@stylistic/block-spacing": "off",
-            "@stylistic/object-curly-spacing": "off",
-            "@stylistic/ts/block-spacing": ["warn", "always"],
-            "@stylistic/ts/object-curly-spacing": [
-                "warn",
-                "always",
-            ],
+            "@typescript-eslint/prefer-nullish-coalescing": "off",
+            "@stylistic/block-spacing": ["warn", "always"],
+            "@stylistic/object-curly-spacing": ["warn", "always"],
             "@typescript-eslint/no-unused-vars": [
                 "warn",
                 {
@@ -235,22 +212,6 @@ export default [
                     varsIgnorePattern: "^_",
                 },
             ],
-            "typescript-sort-keys/interface": [
-                "warn",
-                "asc",
-                {
-                    caseSensitive: false,
-                    natural: true,
-                },
-            ],
-            "typescript-sort-keys/string-enum": [
-                "warn",
-                "asc",
-                {
-                    caseSensitive: false,
-                    natural: true,
-                },
-            ],
         },
     },
-];
+]);

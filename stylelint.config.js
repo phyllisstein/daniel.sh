@@ -1,7 +1,6 @@
 const config = {
     extends: [
         "@stylistic/stylelint-config",
-        "stylelint-config-recommended",
     ],
     overrides: [
         {
@@ -9,7 +8,7 @@ const config = {
             files: ["./src/**/*.scss"],
         },
         {
-            customSyntax: "postcss-styled-syntax",
+            customSyntax: "@stylelint/postcss-css-in-js",
             files: ["./src/**/*.ts", "./src/**/*.tsx"],
         },
     ],
@@ -41,7 +40,7 @@ const config = {
         "@stylistic/no-eol-whitespace": null,
         "@stylistic/no-missing-end-of-source-newline": null,
         "@stylistic/selector-max-empty-lines": 2,
-        "@stylistic/string-quotes": "double",
+        "@stylistic/string-quotes": "single",
 
         "order/properties-order": [
             [],
