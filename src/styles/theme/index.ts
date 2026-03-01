@@ -13,7 +13,7 @@ export const theme = {
     animation,
     ease,
     elevation,
-    palette: paletteLight,
+    palette: paletteDark,
     paletteDark,
     paletteLight,
     paletteMac,
@@ -26,5 +26,5 @@ export const theme = {
 type CustomTheme = typeof theme;
 
 declare module "styled-components" {
-    export interface DefaultTheme extends CustomTheme {}
+    export interface DefaultTheme extends CustomTheme { }
 }
