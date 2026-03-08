@@ -33,7 +33,7 @@ export default function Layout({ children }: { children: ReactNode }) {
                     <Charlie />
                     <MaisonNeue />
 
-                    { children }
+                    {children}
                 </StyledComponentsRegistry>
             </body>
             <Script src="/hyphenopoly.js" strategy="afterInteractive" type="text/javascript" />

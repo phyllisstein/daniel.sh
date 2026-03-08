@@ -1,16 +1,14 @@
 import {
     ButtonBar,
-    Graf,
     Main,
     Name,
     Section,
     SectionTitle,
     Tagline,
-    TextContainer,
 } from "./page-styles";
-import PaperPlane from "assets/icons/paper-plane.svg";
-import Bluesky from "assets/icons/bluesky.svg";
-import LinkedIn from "assets/icons/linkedin.svg";
+import PaperPlane from "assets/icons/paper-plane.svg?react";
+import Bluesky from "assets/icons/bluesky.svg?react";
+import LinkedIn from "assets/icons/linkedin.svg?react";
 import { ActionButtonIcon } from "components/icon";
 
 
