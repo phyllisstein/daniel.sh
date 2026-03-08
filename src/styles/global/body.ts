@@ -1,6 +1,7 @@
 "use client";
 
 import { createGlobalStyle } from "styled-components";
+import { rgb } from "styles/theme/palette-spectrum-dark";
 
 export const Body = createGlobalStyle`
     *,
@@ -19,19 +20,19 @@ export const Body = createGlobalStyle`
 
         font-size: 112.5%;
         font-family:
-            'Adobe Clean',
+            "Adobe Clean",
             -apple-system,
             BlinkMacSystemFont,
-            'Segoe UI',
-            'Roboto',
-            'Helvetica Neue',
-            'Arial',
-            'Noto Sans',
+            "Segoe UI",
+            "Roboto",
+            "Helvetica Neue",
+            "Arial",
+            "Noto Sans",
             sans-serif,
-            'Apple Color Emoji',
-            'Segoe UI Emoji',
-            'Segoe UI Symbol',
-            'Noto Color Emoji' !important;
+            "Apple Color Emoji",
+            "Segoe UI Emoji",
+            "Segoe UI Symbol",
+            "Noto Color Emoji" !important;
 
         font-kerning: normal;
         font-variant-ligatures: common-ligatures;
@@ -39,7 +40,7 @@ export const Body = createGlobalStyle`
     }
 
     body {
-        color: ${ ({ theme }) => theme.palette.rgb.gray900 };
-        background-color: ${ ({ theme }) => theme.palette.rgb.gray100 } !important;
+        color: ${ rgb.gray900 };
+        background-color: ${ rgb.gray100 } !important;
     }
 `;

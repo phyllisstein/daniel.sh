@@ -10,7 +10,7 @@ import type { ReactNode } from "react";
 import Script from "next/script";
 import type { Metadata } from "next";
 
-import { Body, Preflight, StyledComponentsRegistry } from "styles/global";
+import { Body, Preflight } from "styles/global";
 import { Charlie, MaisonNeue } from "styles/fonts";
 
 
@@ -26,15 +26,13 @@ export default function Layout({ children }: { children: ReactNode }) {
     return (
         <html lang="en-us">
             <body className="spectrum spectrum--medium spectrum--dark">
-                <StyledComponentsRegistry>
-                    <Preflight />
-                    <Body />
+                <Preflight />
+                <Body />
 
-                    <Charlie />
-                    <MaisonNeue />
+                <Charlie />
+                <MaisonNeue />
 
-                    {children}
-                </StyledComponentsRegistry>
+                {children}
             </body>
             <Script src="/hyphenopoly.js" strategy="afterInteractive" type="text/javascript" />
         </html>

@@ -2,6 +2,7 @@
 
 
 import styled, { css } from "styled-components";
+import THEME from "styles/theme";
 
 
 export const ButtonBar = styled.div`
@@ -18,7 +19,7 @@ export const ButtonBar = styled.div`
 
 
 export const Name = styled.h1`
-    ${ ({ theme }) => theme.typeface.accent({
+    ${ THEME.typeface.accent({
         fontSize: 6,
         lineHeight: 8,
     }) }
@@ -31,30 +32,30 @@ export const Name = styled.h1`
 
     font-weight: 400;
 
-    ${ ({ theme }) => theme.respondTo.above(
+    ${ THEME.respondTo.above(
         "md",
         css`
-            ${ ({ theme }) => theme.typeface.accent({
+            ${ THEME.typeface.accent({
                 fontSize: 8,
                 lineHeight: 8,
             }) }
         `,
     ) }
 
-    ${ ({ theme }) => theme.respondTo.above(
+    ${ THEME.respondTo.above(
         "lg",
         css`
-            ${ ({ theme }) => theme.typeface.accent({
+            ${ THEME.typeface.accent({
                 fontSize: 10,
                 lineHeight: 10,
             }) }
         `,
     ) }
 
-    ${ ({ theme }) => theme.respondTo.above(
+    ${ THEME.respondTo.above(
         "xlg",
         css`
-            ${ ({ theme }) => theme.typeface.accent({
+            ${ THEME.typeface.accent({
                 fontSize: 10,
                 lineHeight: 10,
             }) }
@@ -64,7 +65,7 @@ export const Name = styled.h1`
 
 
 export const Tagline = styled.h3`
-    ${ ({ theme }) => theme.typeface.primary({
+    ${ THEME.typeface.primary({
         fontSize: 3,
         lineHeight: 5,
     }) }
@@ -80,10 +81,10 @@ export const Tagline = styled.h3`
 
     transform: translateY(-100%);
 
-    ${ ({ theme }) => theme.respondTo.above(
+    ${ THEME.respondTo.above(
         "sm",
         css`
-            ${ ({ theme }) => theme.typeface.primary({
+            ${ THEME.typeface.primary({
                 fontSize: 4,
                 lineHeight: 6,
             }) }
@@ -92,10 +93,10 @@ export const Tagline = styled.h3`
         `,
     ) }
 
-    ${ ({ theme }) => theme.respondTo.above(
+    ${ THEME.respondTo.above(
         "md",
         css`
-            ${ ({ theme }) => theme.typeface.primary({
+            ${ THEME.typeface.primary({
                 fontSize: 5,
                 lineHeight: 7,
             }) }
@@ -104,10 +105,10 @@ export const Tagline = styled.h3`
         `,
     ) }
 
-    ${ ({ theme }) => theme.respondTo.above(
+    ${ THEME.respondTo.above(
         "lg",
         css`
-            ${ ({ theme }) => theme.typeface.primary({
+            ${ THEME.typeface.primary({
                 fontSize: 6,
                 lineHeight: 8,
             }) }
@@ -116,7 +117,7 @@ export const Tagline = styled.h3`
         `,
     ) }
 
-    ${ ({ theme }) => theme.respondTo.above(
+    ${ THEME.respondTo.above(
         "xlg",
         css`
             padding-right: 45%;
@@ -149,7 +150,7 @@ export const Section = styled.div`
 
 
 export const SectionTitle = styled.h1`
-    ${ ({ theme }) => theme.typeface.accent({
+    ${ THEME.typeface.accent({
         fontSize: 6,
         lineHeight: 8,
     }) }
@@ -162,30 +163,30 @@ export const SectionTitle = styled.h1`
 
     font-weight: 400;
 
-    ${ ({ theme }) => theme.respondTo.above(
+    ${ THEME.respondTo.above(
         "md",
         css`
-            ${ ({ theme }) => theme.typeface.accent({
+            ${ THEME.typeface.accent({
                 fontSize: 8,
                 lineHeight: 8,
             }) }
         `,
     ) }
 
-    ${ ({ theme }) => theme.respondTo.above(
+    ${ THEME.respondTo.above(
         "lg",
         css`
-            ${ ({ theme }) => theme.typeface.accent({
+            ${ THEME.typeface.accent({
                 fontSize: 10,
                 lineHeight: 10,
             }) }
         `,
     ) }
 
-    ${ ({ theme }) => theme.respondTo.above(
+    ${ THEME.respondTo.above(
         "xlg",
         css`
-            ${ ({ theme }) => theme.typeface.accent({
+            ${ THEME.typeface.accent({
                 fontSize: 10,
                 lineHeight: 10,
             }) }
@@ -202,22 +203,25 @@ export const TextContainer = styled.article`
     padding: 0 5vw;
     overflow-y: auto;
 
-    ${ ({ theme }) => css`
-        transform: translateY(calc(50vh + ${ theme.scale.css(8) }));
-    ` }
+    ${ THEME.respondTo.above(
+        "md",
+        css`
+            transform: translateY(calc(50vh + ${ THEME.scale.css(8) }));
+        `,
+    ) }
 `;
 
 
 export const Graf = styled.p`
-    ${ ({ theme }) => theme.typeface.primary({
+    ${ THEME.typeface.primary({
         fontSize: 2,
         lineHeight: 3,
     }) }
 
-    ${ ({ theme }) => theme.respondTo.above(
+    ${ THEME.respondTo.above(
         "md",
         css`
-            ${ ({ theme }) => theme.typeface.primary({
+            ${ THEME.typeface.primary({
                 fontSize: 4,
                 lineHeight: 5,
             }) }
@@ -225,16 +229,16 @@ export const Graf = styled.p`
     ) }
 
     & + & {
-        ${ ({ theme }) => theme.typeface.primary({
+        ${ THEME.typeface.primary({
             fontSize: 2,
             leadingTop: 1,
             lineHeight: 3,
         }) }
 
-        ${ ({ theme }) => theme.respondTo.above(
+        ${ THEME.respondTo.above(
             "md",
             css`
-                ${ ({ theme }) => theme.typeface.primary({
+                ${ THEME.typeface.primary({
                     fontSize: 4,
                     leadingTop: 2,
                     lineHeight: 5,

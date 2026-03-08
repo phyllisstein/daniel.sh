@@ -3,6 +3,8 @@
 import { type HTMLAttributes } from "react";
 import styled from "styled-components";
 
+import THEME from "styles/theme";
+
 interface ActionButtonIconProps extends HTMLAttributes<HTMLDivElement> {
     label: string
 }
@@ -13,7 +15,7 @@ const Wrapper = styled.div`
     justify-content: center;
     width: 2rem;
 
-    fill: ${ ({ theme }) => theme.palette.rgb.gray800 };
+    fill: ${ THEME.palette.rgb.gray800 };
 `;
 
 export function ActionButtonIcon({ children, className = "", label, ...props }: ActionButtonIconProps) {

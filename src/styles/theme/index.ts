@@ -9,7 +9,7 @@ import * as respondTo from "./respond-to";
 import * as scale from "./scale";
 import * as typeface from "./typeface";
 
-export const theme = {
+const THEME = {
     animation,
     ease,
     elevation,
@@ -23,8 +23,10 @@ export const theme = {
     typeface,
 };
 
-type CustomTheme = typeof theme;
+type CustomTheme = typeof THEME;
 
 declare module "styled-components" {
     export interface DefaultTheme extends CustomTheme { }
 }
+
+export default THEME;
