@@ -1,11 +1,3 @@
-import "@spectrum-css/actionbutton";
-import "@spectrum-css/actiongroup";
-import "@spectrum-css/button";
-import "@spectrum-css/tokens/dist/index.css";
-import "@spectrum-css/vars/dist/spectrum-dark.css";
-import "@spectrum-css/vars/dist/spectrum-global.css";
-import "@spectrum-css/vars/dist/spectrum-medium.css";
-
 import type { ReactNode } from "react";
 import Script from "next/script";
 import type { Metadata } from "next";
@@ -25,7 +17,7 @@ export const metadata: Metadata = {
 export default function Layout({ children }: { children: ReactNode }) {
     return (
         <html lang="en-us">
-            <body className="spectrum spectrum--medium spectrum--dark">
+            <body>
                 <Preflight />
                 <Body />
 
