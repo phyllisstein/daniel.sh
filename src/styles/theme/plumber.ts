@@ -1,4 +1,3 @@
-import _ from "lodash";
 import { getValueAndUnit } from "polished";
 import { css } from "styled-components";
 
@@ -15,7 +14,7 @@ const BASELINE = {
     PRAGMATAPRO: 0.1196,
 };
 
-const round = _.partial(_.round, _.partial.placeholder, 2);
+const round = (n: number) => parseFloat(n.toFixed(2));
 
 const getBaselineCorrection = ({
     baseline,

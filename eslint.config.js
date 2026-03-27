@@ -166,12 +166,7 @@ export default defineConfig([
             "@stylistic/template-curly-spacing": ["warn", "always"],
             "no-unused-vars": "warn",
             "react/prop-types": "off",
-            "react-hooks/exhaustive-deps": [
-                "warn",
-                {
-                    additionalHooks: "(useRecoilCallback|useRecoilTransaction_UNSTABLE)",
-                },
-            ],
+            "react-hooks/exhaustive-deps": "warn",
             "react-hooks/refs": "off",
         },
         settings: {
@@ -180,8 +175,8 @@ export default defineConfig([
             },
         },
     },
-    ...tseslint.configs.recommendedTypeChecked,
-    ...tseslint.configs.stylisticTypeChecked,
+    tseslint.configs.recommended,
+    tseslint.configs.stylistic,
     {
         files: [
             "*.ts",
@@ -194,7 +189,6 @@ export default defineConfig([
         languageOptions: {
             parser: parserTS,
             parserOptions: {
-                projectService: true,
                 tsconfigRootDir: import.meta.dirname,
             },
         },

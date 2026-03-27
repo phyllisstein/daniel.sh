@@ -2,7 +2,6 @@
 
 import { useServerInsertedHTML } from "next/navigation";
 import { type ReactNode, useState } from "react";
-import { RecoilRoot } from "recoil";
 import { ServerStyleSheet, StyleSheetManager, ThemeProvider } from "styled-components";
 
 import theme from "styles/theme";
@@ -19,11 +18,9 @@ export function StyledComponentsRegistry({ children }: { children: ReactNode }) 
     });
 
     const innerComponents = (
-        <RecoilRoot>
-            <ThemeProvider theme={ theme }>
-                {children}
-            </ThemeProvider>
-        </RecoilRoot>
+        <ThemeProvider theme={ theme }>
+            {children}
+        </ThemeProvider>
     );
 
     if (typeof window !== "undefined") return innerComponents;
