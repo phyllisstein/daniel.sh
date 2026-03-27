@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 
 import { Body, Preflight } from "styles/global";
 import { Charlie, MaisonNeue } from "styles/fonts";
+import { StyledComponentsRegistry } from "styles/global";
 
 
 export const metadata: Metadata = {
@@ -18,13 +19,13 @@ export default function Layout({ children }: { children: ReactNode }) {
     return (
         <html lang="en-us">
             <body>
-                <Preflight />
-                <Body />
-
-                <Charlie />
-                <MaisonNeue />
-
-                {children}
+                <StyledComponentsRegistry>
+                    <Preflight />
+                    <Body />
+                    <Charlie />
+                    <MaisonNeue />
+                    {children}
+                </StyledComponentsRegistry>
             </body>
             <Script src="/hyphenopoly.js" strategy="afterInteractive" type="text/javascript" />
         </html>
