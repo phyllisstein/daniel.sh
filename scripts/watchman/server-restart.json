@@ -9,7 +9,8 @@
                 ".env",
                 ".envrc",
                 "tsconfig.json",
-                "next.config.js"
+                "next.config.js",
+                "vite.config.js"
             ]
         ],
         "command": [

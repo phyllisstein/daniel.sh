@@ -6,8 +6,8 @@ export default defineConfig({
     plugins: [
         vinext(),
         svgr(),
-],
+    ],
     server: {
-        port: 5173,
+        allowedHosts: true,
     },
 });
