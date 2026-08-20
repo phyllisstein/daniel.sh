@@ -1,0 +1,23 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "daniel-sh",
+	"compatibility_date": "2026-08-20",
+	"compatibility_flags": [
+		"nodejs_compat"
+	],
+	"main": "vinext/server/fetch-handler",
+	"assets": {
+		"directory": "dist/client",
+		"not_found_handling": "none",
+		"binding": "ASSETS"
+	},
+	"images": {
+		"binding": "IMAGES"
+	},
+	"kv_namespaces": [
+		{
+			"binding": "VINEXT_KV_CACHE",
+			"id": "33eb47aae58c41aeac66bb8c2929b8b3"
+		}
+	]
+}

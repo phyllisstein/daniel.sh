@@ -411,3 +411,4 @@ $RECYCLE.BIN/
 tsconfig.tsbuildinfo
 /vendor/tower
 /.vinext
+.wrangler/
