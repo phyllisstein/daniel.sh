@@ -1,6 +1,8 @@
 const config = {
     extends: [
         "@stylistic/stylelint-config",
+        "stylelint-config-standard",
+        "stylelint-config-clean-order",
     ],
     overrides: [
         {
@@ -8,7 +10,7 @@ const config = {
             files: ["./src/**/*.scss"],
         },
         {
-            customSyntax: "@stylelint/postcss-css-in-js",
+            customSyntax: "postcss-styled-syntax",
             files: ["./src/**/*.ts", "./src/**/*.tsx"],
         },
     ],
@@ -18,12 +20,13 @@ const config = {
         "stylelint-config-rational-order/plugin",
     ],
     rules: {
+        "@stylistic/no-extra-semicolons": null,
         "@stylistic/block-closing-brace-newline-before": null,
         "@stylistic/block-opening-brace-newline-before": null,
         "@stylistic/block-opening-brace-space-before": null,
         "@stylistic/color-hex-case": "upper",
         "@stylistic/declaration-block-trailing-semicolon": null,
-        "@stylistic/indentation": 4,
+        "@stylistic/indentation": null,
         "@stylistic/max-empty-lines": 2,
         "@stylistic/named-grid-areas-alignment": [
             true,
@@ -37,24 +40,7 @@ const config = {
         "@stylistic/selector-max-empty-lines": 2,
         "@stylistic/string-quotes": "double",
 
-        "order/properties-order": [
-            [],
-            {
-                emptyLineMinimumPropertyThreshold: 4,
-                unspecified: "bottom",
-            },
-        ],
-
-        "plugin/rational-order": [
-            true,
-            {
-                "empty-line-before-unspecified": "always",
-                "empty-line-between-groups": "threshold",
-                "empty-line-property-threshold": 3,
-                "empty-lines-within-groups": false,
-                "unspecified": "bottomAlphabetical",
-            },
-        ],
+        "media-feature-range-notation": "prefix",
     },
 };
 

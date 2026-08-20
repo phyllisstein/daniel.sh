@@ -15,12 +15,13 @@
         "@react-aria/optimize-locales-plugin": "^2.0.1",
         "@react-spectrum/s2": "^1.6.0",
         "bezier-easing": "^3.0.1",
+        "lodash": "^4.18.1",
         "next": "^16.3.1",
         "polished": "^4.3.1",
         "react": "^19.2.8",
         "react-dom": "^19.2.8",
         "react-dom-server": "^0.0.5",
-        "styled-components": "^6.5.3"
+        "styled-components": "^7.0.0-prerelease-20260808041113"
     },
     "devDependencies": {
         "@eslint/js": "^10.0.1",
@@ -30,6 +31,7 @@
         "@stylistic/eslint-plugin-ts": "^4.4.1",
         "@stylistic/stylelint-config": "^5.0.0",
         "@stylistic/stylelint-plugin": "^5.3.0",
+        "@types/lodash": "^4",
         "@types/node": "26.2.0",
         "@types/react": "19.2.18",
         "@typescript-eslint/eslint-plugin": "^8.67.0",
@@ -59,8 +61,11 @@
         "postcss-syntax": "0.36.2",
         "react-server-dom-webpack": "^19.2.8",
         "stylelint": "^17.14.1",
-        "stylelint-config-rational-order": "github:phyllisstein/stylelint-config-rational-order#head=empty-line-threshold",
+        "stylelint-config-clean-order": "^10.0.0",
+        "stylelint-config-idiomatic-order": "^10.0.0",
+        "stylelint-config-rational-order": "^0.1.2",
         "stylelint-config-recommended": "^18.0.0",
+        "stylelint-config-standard": "^40.0.0",
         "stylelint-config-styled-components": "^0.1.1",
         "stylelint-order": "^8.1.1",
         "typescript": "^7.0.2",
@@ -69,15 +74,5 @@
         "vite": "^8.2.2",
         "vite-plugin-svgr": "^5.2.0"
     },
-    "packageManager": "yarn@4.18.0",
-    "resolutions": {
-        "@stylelint/postcss-css-in-js": "0.38.0",
-        "postcss-html": "2.0.0",
-        "postcss-jsx": "0.36.4",
-        "postcss-safe-parser": "7.0.1",
-        "postcss-scss": "4.0.9",
-        "postcss-styled-components": "0.2.1",
-        "postcss-syntax": "0.36.2",
-        "stylelint-order": "^4.0.0"
-    }
+    "packageManager": "yarn@4.18.0"
 }

@@ -1,4 +1,3 @@
-import viteReact from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 import vinext from "vinext";
 import optimizeLocales from "@react-aria/optimize-locales-plugin";

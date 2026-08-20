@@ -4,8 +4,9 @@
     {
         "name": "vinext-types",
         "expression": [
-            "dirname",
-            "src/app"
+            "match",
+            "src/app/**/*.tsx",
+            "wholename"
         ],
         "command": [
             "/app/scripts/develop.sh",

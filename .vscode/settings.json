@@ -14,5 +14,9 @@
     "typescript",
     "typescriptreact"
   ],
-  "editor.tabSize": 4
+  "editor.tabSize": 4,
+  "oxc.enable.oxlint": true,
+  "oxc.path.tsgolint": "./node_modules/.bin/tsgolint",
+  "oxc.path.oxlint": "./node_modules/.bin/oxlint",
+  "js/ts.experimental.useTsgo": true
 }
