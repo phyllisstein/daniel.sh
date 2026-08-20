@@ -69,14 +69,20 @@ export const Hero = styled.div`
 
 export const Main = styled.main`
     position: relative;
-    width: 100%;
+
+    overflow: auto hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: flex-start;
+
+    width: max-content;
     height: 100vh;
 `;
 
 export const Section = styled.div`
-    position: absolute;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
 `;
 
 export const SectionTitle = styled.h1`
@@ -117,4 +123,16 @@ export const Graf = styled.p`
             lineHeight: 3,
         }) }
     }
+`;
+
+export const VoxLink = styled.a`
+    color: ${ THEME.paletteBrands.oklch.vox };
+`;
+
+export const ActUpLink = styled.a`
+    color: ${ THEME.paletteBrands.oklch.actUp };
+`;
+
+export const BauerLink = styled.a`
+    color: ${ THEME.paletteBrands.oklch.bauer };
 `;
