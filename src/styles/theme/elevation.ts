@@ -93,7 +93,6 @@ const BLACK = {
 };
 
 const clampLevel = (val: number) => Math.max(1, Math.min(25, val));
-
 const dropSpread = (val: string) => val.split(" ").slice(0, -1).join(" ");
 
 export function box(level = 1) {
