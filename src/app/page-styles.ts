@@ -1,146 +1,82 @@
 "use client";
 
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import THEME from "styles/theme";
 
-export const ButtonBar = styled.div`
-    position: absolute;
-    bottom: 0;
-    left: 0;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100vw;
-    padding: 2rem;
-`;
 
 export const Name = styled.h1`
-    ${ THEME.typeface.accent({
-        fontSize: 6,
-        lineHeight: 8,
-    }) }
-
-    position: absolute;
-    top: 50%;
+    ${ THEME.typeface.accentFamily }
+    display: inline;
 
     max-width: 100%;
-    padding: 0 5vw;
+    padding: 0;
+    padding-left: 5px;
 
+    font-size: clamp(1rem, 6vw, 5rem);
     font-weight: 400;
+    line-height: 1;
 
-    ${ THEME.respondTo.above(
-        "md",
-        css`
-            ${ THEME.typeface.accent({
-                fontSize: 8,
-                lineHeight: 8,
-            }) }
-    `,
-    ) }
+    @media (min-width: 672px) {
+        position: absolute;
+        bottom: 0;
+        transform: translateY(100%);
 
-    ${ THEME.respondTo.above(
-        "lg",
-        css`
-            ${ THEME.typeface.accent({
-                fontSize: 10,
-                lineHeight: 10,
-            }) }
-    `,
-    ) }
+        display: block;
 
-    ${ THEME.respondTo.above(
-        "xlg",
-        css`
-            ${ THEME.typeface.accent({
-                fontSize: 10,
-                lineHeight: 10,
-            }) }
-    `,
-    ) }
+        padding: 0;
+        ${ THEME.typeface.accent({
+            fontSize: 10,
+            lineHeight: 10,
+        }) }
+    }
 `;
 
 export const Tagline = styled.h3`
-    ${ THEME.typeface.primary({
-        fontSize: 3,
-        lineHeight: 5,
-    }) }
+    ${ THEME.typeface.primaryFamily }
+    display: inline;
+    font-size: clamp(1rem, 5vw, 4rem);
+    font-weight: 400;
+    line-height: 1.6;
 
-    position: absolute;
-    top: 50%;
+    @media (min-width: 672px) {
+        position: relative;
+        top: 50%;
+
+        display: block;
+
+        padding: 0;
+        padding-right: 5vw;
+        ${ THEME.typeface.primary({
+            fontSize: 4,
+            lineHeight: 6,
+        }) }
+    }
+`;
+
+export const Hero = styled.div`
+    position: relative;
 
     max-width: 100%;
+    height: 100%;
     padding-right: 5vw;
     padding-left: 5vw;
 
-    font-weight: 400;
-
-    transform: translateY(-100%);
-
-    ${ THEME.respondTo.above(
-        "sm",
-        css`
-            ${ THEME.typeface.primary({
-                fontSize: 4,
-                lineHeight: 6,
-            }) }
-
-            padding-right: 20%;
-    `,
-    ) }
-
-    ${ THEME.respondTo.above(
-        "md",
-        css`
-            ${ THEME.typeface.primary({
-                fontSize: 5,
-                lineHeight: 7,
-            }) }
-
-            padding-right: 35%;
-    `,
-    ) }
-
-    ${ THEME.respondTo.above(
-        "lg",
-        css`
-            ${ THEME.typeface.primary({
-                fontSize: 6,
-                lineHeight: 8,
-            }) }
-
-            padding-right: 35%;
-    `,
-    ) }
-
-    ${ THEME.respondTo.above(
-        "xlg",
-        css`
-            padding-right: 45%;
-    `,
-    ) }
+    @media (min-width: 672px) {
+        transform: translateY(100%);
+        height: min-content;
+    }
 `;
 
 export const Main = styled.main`
     position: relative;
-
-    display: grid;
-    grid-template-rows: 1fr;
-    grid-template-columns: 1fr 1fr;
     width: 100%;
-    height: 100%;
-    overflow-x: auto;
-    overflow-y: hidden;
+    height: 100vh;
 `;
 
 export const Section = styled.div`
-    position: relative;
-
-    width: 100vw;
-    height: 100vh;
-    min-height: 100vh;
-    overflow-x: hidden;
-    overflow-y: auto;
+    position: absolute;
+    width: 100%;
+    height: 100%;
 `;
 
 export const SectionTitle = styled.h1`
@@ -148,7 +84,6 @@ export const SectionTitle = styled.h1`
         fontSize: 6,
         lineHeight: 8,
     }) }
-
     position: absolute;
     top: 50vh;
 
@@ -156,53 +91,17 @@ export const SectionTitle = styled.h1`
     padding: 0 5vw;
 
     font-weight: 400;
-
-    ${ THEME.respondTo.above(
-        "md",
-        css`
-            ${ THEME.typeface.accent({
-                fontSize: 8,
-                lineHeight: 8,
-            }) }
-    `,
-    ) }
-
-    ${ THEME.respondTo.above(
-        "lg",
-        css`
-            ${ THEME.typeface.accent({
-                fontSize: 10,
-                lineHeight: 10,
-            }) }
-    `,
-    ) }
-
-    ${ THEME.respondTo.above(
-        "xlg",
-        css`
-            ${ THEME.typeface.accent({
-                fontSize: 10,
-                lineHeight: 10,
-            }) }
-    `,
-    ) }
 `;
 
 export const TextContainer = styled.article`
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
     align-items: stretch;
     justify-content: center;
+
     width: 100%;
     padding: 0 5vw;
-    overflow-y: auto;
-
-    ${ THEME.respondTo.above(
-        "md",
-        css`
-            transform: translateY(calc(50vh + ${ THEME.scale.css(8) }));
-    `,
-    ) }
 `;
 
 export const Graf = styled.p`
@@ -211,32 +110,11 @@ export const Graf = styled.p`
         lineHeight: 3,
     }) }
 
-    ${ THEME.respondTo.above(
-        "md",
-        css`
-    ${ THEME.typeface.primary({
-        fontSize: 4,
-        lineHeight: 5,
-    }) }
-    `,
-    ) }
-
     & + & {
         ${ THEME.typeface.primary({
             fontSize: 2,
             leadingTop: 1,
             lineHeight: 3,
         }) }
-
-        ${ THEME.respondTo.above(
-            "md",
-            css`
-                ${ THEME.typeface.primary({
-                    fontSize: 4,
-                    leadingTop: 2,
-                    lineHeight: 5,
-                }) }
-      `,
-        ) }
     }
 `;
