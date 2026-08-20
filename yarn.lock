@@ -2515,6 +2515,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/node@npm:26.2.0":
+  version: 26.2.0
+  resolution: "@types/node@npm:26.2.0"
+  dependencies:
+    undici-types: "npm:~8.3.0"
+  checksum: 10/3829dd8c82e7d4858f3cc946ec9e5133c9fa39a0a9173874a6392230665121b42dac1b134e5e10ee132a5487293708c77df253cf41a125e9fd838cc3af72d700
+  languageName: node
+  linkType: hard
+
+"@types/react@npm:19.2.18":
+  version: 19.2.18
+  resolution: "@types/react@npm:19.2.18"
+  dependencies:
+    csstype: "npm:^3.2.2"
+  checksum: 10/c718ec5c5272ef5c1c77fcdd07f567c77197b593583539459b4bdaea89ca55ad7c814b7eb2151dccfa459b2c384b599a45e7e35550b789883d66b363d30c94d8
+  languageName: node
+  linkType: hard
+
 "@typescript-eslint/eslint-plugin@npm:8.56.1":
   version: 8.56.1
   resolution: "@typescript-eslint/eslint-plugin@npm:8.56.1"
@@ -3135,6 +3153,15 @@ __metadata:
   peerDependencies:
     acorn: ^6.0.0 || ^7.0.0 || ^8.0.0
   checksum: 10/d4371eaef7995530b5b5ca4183ff6f062ca17901a6d3f673c9ac011b01ede37e7a1f7f61f8f5cfe709e88054757bb8f3277dc4061087cdf4f2a1f90ccbcdb977
+  languageName: node
+  linkType: hard
+
+"acorn-loose@npm:^8.3.0":
+  version: 8.5.2
+  resolution: "acorn-loose@npm:8.5.2"
+  dependencies:
+    acorn: "npm:^8.15.0"
+  checksum: 10/3a86f4263ad8eac8d5638e15608bb31b916ab95183e3c9f0cc10ab5b11645dc09fe5b3f22464e8f484b3df13f1a7254ec155a98ae50b6458721f3fee65ebfb4f
   languageName: node
   linkType: hard
 
@@ -4029,7 +4056,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"csstype@npm:3.2.3":
+"csstype@npm:3.2.3, csstype@npm:^3.2.2":
   version: 3.2.3
   resolution: "csstype@npm:3.2.3"
   checksum: 10/ad41baf7e2ffac65ab544d79107bf7cd1a4bb9bab9ac3302f59ab4ba655d5e30942a8ae46e10ba160c6f4ecea464cc95b975ca2fefbdeeacd6ac63f12f99fe1f
@@ -4056,6 +4083,8 @@ __metadata:
     "@stylistic/eslint-plugin-ts": "npm:^4.4.1"
     "@stylistic/stylelint-config": "npm:^5.0.0"
     "@stylistic/stylelint-plugin": "npm:^5.3.0"
+    "@types/node": "npm:26.2.0"
+    "@types/react": "npm:19.2.18"
     "@typescript-eslint/eslint-plugin": "npm:^8.67.0"
     "@typescript-eslint/parser": "npm:^8.67.0"
     "@typescript/typescript6": "npm:^6.0.2"
@@ -4086,6 +4115,8 @@ __metadata:
     postcss-syntax: "npm:0.36.2"
     react: "npm:^19.2.8"
     react-dom: "npm:^19.2.8"
+    react-dom-server: "npm:^0.0.5"
+    react-server-dom-webpack: "npm:^19.2.8"
     styled-components: "npm:^6.5.3"
     stylelint: "npm:^17.14.1"
     stylelint-config-rational-order: "github:phyllisstein/stylelint-config-rational-order#head=empty-line-threshold"
@@ -7495,6 +7526,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"neo-async@npm:^2.6.1":
+  version: 2.6.2
+  resolution: "neo-async@npm:2.6.2"
+  checksum: 10/1a7948fea86f2b33ec766bc899c88796a51ba76a4afc9026764aedc6e7cde692a09067031e4a1bf6db4f978ccd99e7f5b6c03fe47ad9865c3d4f99050d67e002
+  languageName: node
+  linkType: hard
+
 "next@npm:^16.3.1":
   version: 16.3.1
   resolution: "next@npm:16.3.1"
@@ -8439,6 +8477,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-dom-server@npm:^0.0.5":
+  version: 0.0.5
+  resolution: "react-dom-server@npm:0.0.5"
+  peerDependencies:
+    fbjs: ^0.7.2
+    react: ^0.14.7
+    react-children: ^0.0.3
+    react-universal: ^0.0.3
+  checksum: 10/b0bb8614d58aa0e9ac549cb3148a72ea01c41552b78de569262f87b8f9b0fef5e860b60f2bef0c826571f88f38ed3b5a76fb6ede72f7562de057d2f4a4a95857
+  languageName: node
+  linkType: hard
+
 "react-dom@npm:^19.2.8":
   version: 19.2.8
   resolution: "react-dom@npm:19.2.8"
@@ -8454,6 +8504,21 @@ __metadata:
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
   checksum: 10/5aa564a1cde7d391ac980bedee21202fc90bdea3b399952117f54fb71a932af1e5902020144fb354b4690b2414a0c7aafe798eb617b76a3d441d956db7726fdf
+  languageName: node
+  linkType: hard
+
+"react-server-dom-webpack@npm:^19.2.8":
+  version: 19.2.8
+  resolution: "react-server-dom-webpack@npm:19.2.8"
+  dependencies:
+    acorn-loose: "npm:^8.3.0"
+    neo-async: "npm:^2.6.1"
+    webpack-sources: "npm:^3.2.0"
+  peerDependencies:
+    react: ^19.2.8
+    react-dom: ^19.2.8
+    webpack: ^5.59.0
+  checksum: 10/300b8f75e6bd9e02c05e00a891925de1cce12e9ff99a8a30be5c3cc7e92edb2852e73344615e657fa069b78624d62700d21ed6d83450d21c472d0aa4133e54a5
   languageName: node
   linkType: hard
 
@@ -10206,6 +10271,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"undici-types@npm:~8.3.0":
+  version: 8.3.0
+  resolution: "undici-types@npm:8.3.0"
+  checksum: 10/6681d2837ac75a75ac1cc46090aa2b8ddc7c6b8ecc295a6cdb06838752a730da3d8afeecf05e5ab7903160eafad3a8b6ffa1927e5ded260590f4d4fef18646d5
+  languageName: node
+  linkType: hard
+
 "unicode-trie@npm:^2.0.0":
   version: 2.0.0
   resolution: "unicode-trie@npm:2.0.0"
@@ -10471,6 +10543,13 @@ __metadata:
   version: 4.2.4
   resolution: "web-vitals@npm:4.2.4"
   checksum: 10/68cd1c2625a04b26e7eab67110623396afc6c9ef8c3a76f4e780aefe5b7d4ca1691737a0b99119e1d1ca9a463c4d468c0f0090b1875b6d784589d3a4a8503313
+  languageName: node
+  linkType: hard
+
+"webpack-sources@npm:^3.2.0":
+  version: 3.5.1
+  resolution: "webpack-sources@npm:3.5.1"
+  checksum: 10/50b9699a3ab9a698e117d8a6b816235576f17e60aeca0a44269041773f960c3beb2ad10d07bc5f2ef8eebde3db5275c6a23566dad475db8f840a34a7bfabd2c3
   languageName: node
   linkType: hard
 

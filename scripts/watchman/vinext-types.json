@@ -1,0 +1,16 @@
+[
+    "trigger",
+    "/app",
+    {
+        "name": "vinext-types",
+        "expression": [
+            "dirname",
+            "src/app"
+        ],
+        "command": [
+            "/app/scripts/develop.sh",
+            "vinext-types"
+        ],
+        "append_files": false
+    }
+]

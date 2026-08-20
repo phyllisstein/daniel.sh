@@ -18,7 +18,6 @@ export default function Layout ({ children }: { children: ReactNode }) {
         <html lang="en-us">
             <body>
                 <StyledComponentsRegistry>
-                    <Preflight />
                     <Body />
                     <Charlie />
                     <MaisonNeue />
