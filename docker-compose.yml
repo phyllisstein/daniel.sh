@@ -2,9 +2,6 @@ services:
   app:
     build:
       context: .
-    secrets:
-      - source: environment
-        mode: 0440
     environment:
       - VIRTUAL_HOST=danielsh.here
     expose:
@@ -16,14 +13,14 @@ services:
       - type: bind
         source: .
         target: /app
+        # Forces this into the API's Mounts list instead of legacy Binds, so it
+        # is ordered against the node_modules volume below rather than mounted
+        # after it (which would bury the volume and expose the host's tree).
+        bind:
+          propagation: rprivate
       - type: volume
         source: node_modules
         target: /app/node_modules
-        volume:
-          nocopy: true
-      - type: volume
-        source: yarn_cache
-        target: /app/.yarn/cache
         volume:
           nocopy: true
 
@@ -33,10 +30,5 @@ networks:
     external: true
     name: nginx-proxy
 
-secrets:
-  environment:
-    file: .env
-
 volumes:
   node_modules:
-  yarn_cache:
