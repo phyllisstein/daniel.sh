@@ -6,6 +6,7 @@
         "build": "vinext build",
         "dev": "vinext dev --hostname 0.0.0.0",
         "lint": "vinext lint",
+        "palette": "node scripts/generate-palette-oklch.js",
         "start": "vinext start"
     },
     "type": "module",
