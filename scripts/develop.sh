@@ -9,7 +9,6 @@ restart_server() {
     pkill -f "yarn.js dev" || true
 
     echo "Starting development server..."
-    source /run/secrets/environment && export GSAP_NPM_TOKEN GITHUB_TOKEN FONT_AWESOME_NPM_TOKEN
     yarn dev
     disown
 }
@@ -33,7 +32,6 @@ watch_watchman() {
 yarn_install() {
     pkill -f "yarn install" || true
     echo "Running yarn install..."
-    source /run/secrets/environment && export FONT_AWESOME_NPM_TOKEN GITHUB_TOKEN GSAP_NPM_TOKEN
     yarn install
 }
 
