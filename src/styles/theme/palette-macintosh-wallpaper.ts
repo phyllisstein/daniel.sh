@@ -19,7 +19,6 @@ export const rgb = {
     woodland: "hsl(94, 44%, 28%)",
 };
 
-
 export const p3 = {
     affair: "color(display-p3 0.4 0.24 0.55 / 1.0)",
     cannonPink: "color(display-p3 0.52 0.25 0.43 / 1.0)",

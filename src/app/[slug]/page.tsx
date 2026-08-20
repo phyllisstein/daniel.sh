@@ -1,3 +1,3 @@
-export default async function Post() {
+export default async function Post () {
     return null;
 }

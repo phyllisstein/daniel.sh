@@ -26,7 +26,7 @@ const THEME = {
 type CustomTheme = typeof THEME;
 
 declare module "styled-components" {
-    export interface DefaultTheme extends CustomTheme { }
+    export interface DefaultTheme extends CustomTheme {}
 }
 
 export default THEME;

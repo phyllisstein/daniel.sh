@@ -21,9 +21,9 @@ const getBaselineCorrection = ({
     fontSize,
     lineHeight,
 }: {
-    baseline: number
-    fontSize: number
-    lineHeight: number
+    baseline: number;
+    fontSize: number;
+    lineHeight: number;
 }) => {
     const baselineFromBottom = (lineHeight - fontSize) / 2 + fontSize * baseline;
     const correctedBaseline = baselineFromBottom;
@@ -36,13 +36,13 @@ const getBaselineCorrection = ({
 };
 
 export interface PlumberProps {
-    baseline: number
-    fontSize?: number
-    gridHeight?: string
-    leadingBottom?: number
-    leadingTop?: number
-    lineHeight?: number
-    useBaselineOrigin?: boolean
+    baseline: number;
+    fontSize?: number;
+    gridHeight?: string;
+    leadingBottom?: number;
+    leadingTop?: number;
+    lineHeight?: number;
+    useBaselineOrigin?: boolean;
 }
 
 const getPlumber = ({
@@ -54,7 +54,7 @@ const getPlumber = ({
     lineHeight: LINE_HEIGHT,
     useBaselineOrigin: USE_BASELINE_ORIGIN = false,
 }: PlumberProps) => {
-    function plumber({
+    function plumber ({
         baseline = B,
         fontSize = FONT_SIZE,
         gridHeight = GRID_HEIGHT,
@@ -92,13 +92,13 @@ const getPlumber = ({
         const lineHeightWithUnit = `${ round(lineHeight) }${ gridHeightUnit }`;
 
         return css`
-            margin-top: ${ marginTop };
-            margin-bottom: ${ marginBottom };
-            padding-top: ${ paddingTop };
-            padding-bottom: ${ paddingBottom };
+      margin-top: ${ marginTop };
+      margin-bottom: ${ marginBottom };
+      padding-top: ${ paddingTop };
+      padding-bottom: ${ paddingBottom };
 
-            font-size: ${ fontSizeWithUnit };
-            line-height: ${ lineHeightWithUnit };
+      font-size: ${ fontSizeWithUnit };
+      line-height: ${ lineHeightWithUnit };
     `;
     }
 
@@ -110,12 +110,8 @@ const getPlumber = ({
     }) {
         const [gridHeightValue, gridHeightUnit] = getValueAndUnit(gridHeight);
 
-        let [marginTop, marginBottom] = margin.map(m =>
-            round(m * gridHeightValue),
-        );
-        let [paddingTop, paddingBottom] = padding.map(p =>
-            round(p * gridHeightValue),
-        );
+        let [marginTop, marginBottom] = margin.map(m => round(m * gridHeightValue));
+        let [paddingTop, paddingBottom] = padding.map(p => round(p * gridHeightValue));
         const [borderTop, borderBottom] = border;
 
         marginTop = `${ round(marginTop) }${ gridHeightUnit }`;
@@ -124,11 +120,11 @@ const getPlumber = ({
         paddingBottom = `calc(${ round(paddingBottom) }${ gridHeightUnit } - ${ borderBottom })`;
 
         return css`
-            margin-top: ${ marginTop };
-            margin-bottom: ${ marginBottom };
-            padding-top: ${ paddingTop };
-            padding-bottom: ${ paddingBottom };
-        `;
+      margin-top: ${ marginTop };
+      margin-bottom: ${ marginBottom };
+      padding-top: ${ paddingTop };
+      padding-bottom: ${ paddingBottom };
+    `;
     };
 
     return plumber;

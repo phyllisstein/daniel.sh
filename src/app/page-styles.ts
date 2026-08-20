@@ -1,9 +1,7 @@
 "use client";
 
-
 import styled, { css } from "styled-components";
 import THEME from "styles/theme";
-
 
 export const ButtonBar = styled.div`
     position: absolute;
@@ -16,7 +14,6 @@ export const ButtonBar = styled.div`
     width: 100vw;
     padding: 2rem;
 `;
-
 
 export const Name = styled.h1`
     ${ THEME.typeface.accent({
@@ -39,7 +36,7 @@ export const Name = styled.h1`
                 fontSize: 8,
                 lineHeight: 8,
             }) }
-        `,
+    `,
     ) }
 
     ${ THEME.respondTo.above(
@@ -49,7 +46,7 @@ export const Name = styled.h1`
                 fontSize: 10,
                 lineHeight: 10,
             }) }
-        `,
+    `,
     ) }
 
     ${ THEME.respondTo.above(
@@ -59,10 +56,9 @@ export const Name = styled.h1`
                 fontSize: 10,
                 lineHeight: 10,
             }) }
-        `,
+    `,
     ) }
 `;
-
 
 export const Tagline = styled.h3`
     ${ THEME.typeface.primary({
@@ -90,7 +86,7 @@ export const Tagline = styled.h3`
             }) }
 
             padding-right: 20%;
-        `,
+    `,
     ) }
 
     ${ THEME.respondTo.above(
@@ -102,7 +98,7 @@ export const Tagline = styled.h3`
             }) }
 
             padding-right: 35%;
-        `,
+    `,
     ) }
 
     ${ THEME.respondTo.above(
@@ -114,14 +110,14 @@ export const Tagline = styled.h3`
             }) }
 
             padding-right: 35%;
-        `,
+    `,
     ) }
 
     ${ THEME.respondTo.above(
         "xlg",
         css`
             padding-right: 45%;
-        `,
+    `,
     ) }
 `;
 
@@ -137,7 +133,6 @@ export const Main = styled.main`
     overflow-y: hidden;
 `;
 
-
 export const Section = styled.div`
     position: relative;
 
@@ -147,7 +142,6 @@ export const Section = styled.div`
     overflow-x: hidden;
     overflow-y: auto;
 `;
-
 
 export const SectionTitle = styled.h1`
     ${ THEME.typeface.accent({
@@ -170,7 +164,7 @@ export const SectionTitle = styled.h1`
                 fontSize: 8,
                 lineHeight: 8,
             }) }
-        `,
+    `,
     ) }
 
     ${ THEME.respondTo.above(
@@ -180,7 +174,7 @@ export const SectionTitle = styled.h1`
                 fontSize: 10,
                 lineHeight: 10,
             }) }
-        `,
+    `,
     ) }
 
     ${ THEME.respondTo.above(
@@ -190,7 +184,7 @@ export const SectionTitle = styled.h1`
                 fontSize: 10,
                 lineHeight: 10,
             }) }
-        `,
+    `,
     ) }
 `;
 
@@ -207,10 +201,9 @@ export const TextContainer = styled.article`
         "md",
         css`
             transform: translateY(calc(50vh + ${ THEME.scale.css(8) }));
-        `,
+    `,
     ) }
 `;
-
 
 export const Graf = styled.p`
     ${ THEME.typeface.primary({
@@ -221,11 +214,11 @@ export const Graf = styled.p`
     ${ THEME.respondTo.above(
         "md",
         css`
-            ${ THEME.typeface.primary({
-                fontSize: 4,
-                lineHeight: 5,
-            }) }
-        `,
+    ${ THEME.typeface.primary({
+        fontSize: 4,
+        lineHeight: 5,
+    }) }
+    `,
     ) }
 
     & + & {
@@ -243,7 +236,7 @@ export const Graf = styled.p`
                     leadingTop: 2,
                     lineHeight: 5,
                 }) }
-            `,
+      `,
         ) }
     }
 `;

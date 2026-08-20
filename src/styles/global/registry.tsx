@@ -6,7 +6,7 @@ import { ServerStyleSheet, StyleSheetManager, ThemeProvider } from "styled-compo
 
 import theme from "styles/theme";
 
-export function StyledComponentsRegistry({ children }: { children: ReactNode }) {
+export function StyledComponentsRegistry ({ children }: { children: ReactNode }) {
     // Only create stylesheet once with lazy initial state
     // x-ref: https://reactjs.org/docs/hooks-reference.html#lazy-initial-state
     const [styledComponentsStyleSheet] = useState(() => new ServerStyleSheet());
@@ -14,20 +14,16 @@ export function StyledComponentsRegistry({ children }: { children: ReactNode }) 
     useServerInsertedHTML(() => {
         const styles = styledComponentsStyleSheet.getStyleElement();
         styledComponentsStyleSheet.instance.clearTag();
-        return <>{styles}</>;
+        return <>{ styles }</>;
     });
 
-    const innerComponents = (
-        <ThemeProvider theme={ theme }>
-            {children}
-        </ThemeProvider>
-    );
+    const innerComponents = <ThemeProvider theme={ theme }>{ children }</ThemeProvider>;
 
     if (typeof window !== "undefined") return innerComponents;
 
     return (
         <StyleSheetManager sheet={ styledComponentsStyleSheet.instance }>
-            {innerComponents}
+            { innerComponents }
         </StyleSheetManager>
     );
 }

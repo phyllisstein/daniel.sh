@@ -22,9 +22,8 @@
         "noImplicitAny": false,
         "paths": {
             "*": [
-                "src/*",
+                "./src/*",
                 ".next/types/*",
-                "node_modules"
             ]
         },
         "plugins": [

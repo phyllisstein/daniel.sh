@@ -28,12 +28,12 @@ export enum AnimationCurve {
 }
 
 export interface CSSParams {
-    curve?: AnimationCurve
-    duration?: AnimationDuration
-    properties?: string[] | string
+    curve?: AnimationCurve;
+    duration?: AnimationDuration;
+    properties?: string[] | string;
 }
 
-export function css({
+export function css ({
     curve = AnimationCurve.MaterialStandard,
     duration = AnimationDuration.Entering,
     properties = ["all"],

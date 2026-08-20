@@ -95,7 +95,7 @@ const BLACK = {
 const clampLevel = (val: number) => Math.max(1, Math.min(25, val));
 const dropSpread = (val: string) => val.split(" ").slice(0, -1).join(" ");
 
-export function box(level = 1) {
+export function box (level = 1) {
     level = clampLevel(level);
 
     const umbra = SHADOWS.UMBRA[level];
@@ -104,10 +104,10 @@ export function box(level = 1) {
 
     return css`
     box-shadow:
-        ${ umbra } ${ BLACK.UMBRA },
-        ${ penumbra } ${ BLACK.PENUMBRA },
-        ${ ambient } ${ BLACK.AMBIENT };
-    `;
+      ${ umbra } ${ BLACK.UMBRA },
+      ${ penumbra } ${ BLACK.PENUMBRA },
+      ${ ambient } ${ BLACK.AMBIENT };
+  `;
 }
 
 box.animation = animationCSS({
@@ -115,7 +115,7 @@ box.animation = animationCSS({
     properties: "box-shadow",
 });
 
-export function text(level = 1) {
+export function text (level = 1) {
     level = clampLevel(level);
 
     const umbra = dropSpread(SHADOWS.UMBRA[level]);
@@ -124,10 +124,10 @@ export function text(level = 1) {
 
     return css`
     text-shadow:
-        ${ umbra } ${ BLACK.UMBRA },
-        ${ penumbra } ${ BLACK.PENUMBRA },
-        ${ ambient } ${ BLACK.AMBIENT };
-    `;
+      ${ umbra } ${ BLACK.UMBRA },
+      ${ penumbra } ${ BLACK.PENUMBRA },
+      ${ ambient } ${ BLACK.AMBIENT };
+  `;
 }
 
 text.animation = animationCSS({
