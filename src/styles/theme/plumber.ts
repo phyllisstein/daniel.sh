@@ -11,7 +11,7 @@ const BASELINE = {
     FUTURA: 0.159,
     MAISON: 0.2045,
     MAISON_MONO: 0.195,
-    PRAGMATAPRO: 0.1196,
+    PRAGMATAPRO: 0.128,
 };
 
 const round = (n: number) => parseFloat(n.toFixed(2));
@@ -48,7 +48,7 @@ export interface PlumberProps {
 const getPlumber = ({
     baseline: B,
     fontSize: FONT_SIZE = 1,
-    gridHeight: GRID_HEIGHT = "0.5rem",
+    gridHeight: GRID_HEIGHT = "10px",
     leadingBottom: LEADING_BOTTOM = 0,
     leadingTop: LEADING_TOP = 0,
     lineHeight: LINE_HEIGHT,
@@ -92,13 +92,13 @@ const getPlumber = ({
         const lineHeightWithUnit = `${ round(lineHeight) }${ gridHeightUnit }`;
 
         return css`
-      margin-top: ${ marginTop };
-      margin-bottom: ${ marginBottom };
-      padding-top: ${ paddingTop };
-      padding-bottom: ${ paddingBottom };
+        margin-top: ${ marginTop };
+        margin-bottom: ${ marginBottom };
+        padding-top: ${ paddingTop };
+        padding-bottom: ${ paddingBottom };
 
-      font-size: ${ fontSizeWithUnit };
-      line-height: ${ lineHeightWithUnit };
+        font-size: ${ fontSizeWithUnit };
+        line-height: ${ lineHeightWithUnit };
     `;
     }
 
@@ -120,10 +120,10 @@ const getPlumber = ({
         paddingBottom = `calc(${ round(paddingBottom) }${ gridHeightUnit } - ${ borderBottom })`;
 
         return css`
-      margin-top: ${ marginTop };
-      margin-bottom: ${ marginBottom };
-      padding-top: ${ paddingTop };
-      padding-bottom: ${ paddingBottom };
+        margin-top: ${ marginTop };
+        margin-bottom: ${ marginBottom };
+        padding-top: ${ paddingTop };
+        padding-bottom: ${ paddingBottom };
     `;
     };
 
@@ -131,5 +131,5 @@ const getPlumber = ({
 };
 
 export const primary = getPlumber({ baseline: BASELINE.MAISON });
-export const accent = getPlumber({ baseline: BASELINE.CHARLIE });
+export const accent = getPlumber({ baseline: BASELINE.PRAGMATAPRO });
 export const mono = getPlumber({ baseline: BASELINE.PRAGMATAPRO });

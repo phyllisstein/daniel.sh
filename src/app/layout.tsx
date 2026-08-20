@@ -1,5 +1,4 @@
 import type { ReactNode } from "react";
-import Script from "next/script";
 import type { Metadata } from "next";
 
 import { Body, Preflight } from "styles/global";
@@ -8,6 +7,7 @@ import { StyledComponentsRegistry } from "styles/global";
 
 export const metadata: Metadata = {
     title: {
+        default: "Software Engineer and Architect | Daniel P. Shannon",
         default: "Software Engineer and Architect | Daniel P. Shannon",
         template: "%s | Daniel P. Shannon",
     },

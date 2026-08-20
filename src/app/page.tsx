@@ -13,6 +13,12 @@ export default function Home () {
             <Section>
                 <SectionTitle>About Me</SectionTitle>
             </Section>
+            <Section>
+                <SectionTitle>About Me</SectionTitle>
+                <Pre>
+                    { DIAGRAM }
+                </Pre>
+            </Section>
         </Main>
     );
 }

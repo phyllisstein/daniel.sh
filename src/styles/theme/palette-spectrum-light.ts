@@ -194,7 +194,6 @@ export const rgb = {
     magenta1400: "rgb(60, 6, 29)",
 };
 
-
 export const oklch = {
     gray50: "oklch(1 0 0)",
     gray75: "oklch(0.994 0 0)",

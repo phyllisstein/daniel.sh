@@ -207,19 +207,19 @@ export const TextContainer = styled.article`
 
 export const Graf = styled.p`
     ${ THEME.typeface.primary({
-        fontSize: 2,
-        lineHeight: 3,
-    }) }
+    fontSize: 2,
+    lineHeight: 3,
+}) }
 
     ${ THEME.respondTo.above(
-        "md",
-        css`
+    "md",
+    css`
     ${ THEME.typeface.primary({
         fontSize: 4,
         lineHeight: 5,
     }) }
     `,
-    ) }
+) }
 
     & + & {
         ${ THEME.typeface.primary({

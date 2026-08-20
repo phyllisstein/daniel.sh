@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="uuid-93238e16-94b6-4aa4-9ed2-504bf61de3d3" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6413 3702.23">
+  <defs>
+    <style>
+      .uuid-9c5a234e-f26c-413f-a1db-06636779ee4a {
+        fill: none;
+      }
+
+      .uuid-7c7cde52-d379-4583-a749-a8b70f2a93fe {
+        fill: #f2a322;
+      }
+
+      .uuid-d9092c8e-74f7-4238-9e56-e6b8b238213e {
+        fill: #db1c27;
+      }
+
+      .uuid-60bafca8-b6cc-41a5-921f-031def2efef3 {
+        fill: #40df17;
+      }
+
+      .uuid-3711643b-26f8-4d44-811a-7531857dc722 {
+        fill: #353535;
+      }
+
+      .uuid-2ad5d8c3-eb3c-4e12-8bad-c500b248f0c1 {
+        fill: #0f0f0f;
+      }
+    </style>
+  </defs>
+  <rect class="uuid-9c5a234e-f26c-413f-a1db-06636779ee4a" y="0" width="6413" height="3702.23"/>
+  <path class="uuid-3711643b-26f8-4d44-811a-7531857dc722" d="M5999.45,851.97v2137.67c0,178.35-144.57,322.85-322.85,322.85H736.47c-178.35,0-322.92-144.5-322.92-322.85V851.97h5585.9Z"/>
+  <path class="uuid-2ad5d8c3-eb3c-4e12-8bad-c500b248f0c1" d="M5999.45,712.59v139.38H413.55v-139.38c0-178.35,144.57-322.92,322.92-322.92h4940.13c178.27,0,322.85,144.57,322.85,322.92Z"/>
+  <circle class="uuid-d9092c8e-74f7-4238-9e56-e6b8b238213e" cx="790.53" cy="629.11" r="49.32"/>
+  <circle class="uuid-7c7cde52-d379-4583-a749-a8b70f2a93fe" cx="975.23" cy="629.11" r="49.32"/>
+  <circle class="uuid-60bafca8-b6cc-41a5-921f-031def2efef3" cx="1159.92" cy="629.11" r="49.32"/>
+</svg>
