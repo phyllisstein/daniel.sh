@@ -55,6 +55,11 @@ yarn)
     restart_server
     ;;
 
+vinext-types)
+    echo "Generating types..."
+    yarn generate-types 1>/dev/null 2>/dev/null
+    ;;
+
 *)
     echo "Unknown command: $args"
     ;;

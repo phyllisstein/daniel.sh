@@ -17,13 +17,13 @@
             "esnext"
         ],
         "module": "esnext",
-        "moduleResolution": "node",
+        "moduleResolution": "bundler",
         "noEmit": true,
         "noImplicitAny": false,
         "paths": {
             "*": [
                 "./src/*",
-                ".next/types/*",
+                ".next/types/*"
             ]
         },
         "plugins": [
