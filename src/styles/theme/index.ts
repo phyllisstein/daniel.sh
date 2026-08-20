@@ -1,6 +1,7 @@
 import * as animation from "./animation";
 import * as ease from "./ease";
 import * as elevation from "./elevation";
+import * as paletteBrands from "./palette-brands";
 import * as paletteDark from "./palette-spectrum-dark";
 import * as paletteLight from "./palette-spectrum-light";
 import * as paletteMac from "./palette-macintosh-wallpaper";
@@ -13,6 +14,7 @@ const THEME = {
     animation,
     ease,
     elevation,
+    paletteBrands,
     palette: paletteDark,
     paletteDark,
     paletteLight,

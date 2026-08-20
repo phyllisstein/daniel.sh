@@ -25,6 +25,7 @@ const TARGETS = [
     // 18 independent named colours rather than ramps, so there are no
     // neighbouring steps to stabilise a hue against.
     { file: "palette-macintosh-wallpaper.ts", stabilise: false },
+    { file: "palette-brands.ts", stabilise: false },
 ];
 
 /* -------------------------------------------------------------------------- */
